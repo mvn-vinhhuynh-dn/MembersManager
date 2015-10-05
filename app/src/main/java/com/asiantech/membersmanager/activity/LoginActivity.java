@@ -1,10 +1,12 @@
 package com.asiantech.membersmanager.activity;
 
-import android.app.Activity;
 import android.content.res.ColorStateList;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.ActionBarActivity;
 import android.view.View;
 import android.view.animation.Animation;
 import android.widget.Button;
@@ -17,6 +19,8 @@ import android.widget.TextView;
 
 import com.asiantech.membersmanager.MainActivity_;
 import com.asiantech.membersmanager.R;
+import com.asiantech.membersmanager.dialog.DialogRegisterFragment;
+import com.asiantech.membersmanager.dialog.DialogRegisterFragment_;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Click;
@@ -32,7 +36,7 @@ import java.util.TimerTask;
  * Created by VinhHlb on 10/5/15.
  */
 @EActivity(R.layout.login_activity)
-public class LoginActivity extends Activity {
+public class LoginActivity extends ActionBarActivity {
     private Handler mHandler;
 
     @AnimationRes(R.anim.translate_left)
@@ -143,6 +147,14 @@ public class LoginActivity extends Activity {
         finish();
     }
 
+    @Click(R.id.btnSignUp)
+    void clickSignUp() {
+        DialogRegisterFragment dialogRegister = new DialogRegisterFragment_();
+        FragmentManager fmRegister = getSupportFragmentManager();
+        FragmentTransaction ftRegister = fmRegister.beginTransaction();
+        dialogRegister.show(ftRegister, "Register Fragment");
+    }
+
     // Init handler message
     private final Handler.Callback callback = new Handler.Callback() {
         @Override
@@ -173,4 +185,6 @@ public class LoginActivity extends Activity {
             return false;
         }
     };
+
+
 }

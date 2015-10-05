@@ -7,6 +7,7 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
+
     <style name="linearlayout_contains_edittext_1">
         <item name="android:layout_marginBottom">@dimen/linearlayout.marginbottom.10dp</item>
         <item name="android:layout_marginLeft">@dimen/linearlayout.margin.40dp</item>
@@ -48,5 +49,14 @@
         <item name="android:textAllCaps" tools:targetApi="ice_cream_sandwich">false</item>
         <item name="android:textColor">@android:color/white</item>
         <item name="android:textSize">@dimen/button.textsize.14sp</item>
+    </style>
+
+    <style name="view_line_register">
+        <item name="android:layout_marginBottom">@dimen/view.marginbottom.10dp</item>
+    </style>
+
+    <style name="button_register">
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:layout_marginBottom">@dimen/view.marginbottom.10dp</item>
     </style>
 </resources>

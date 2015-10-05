@@ -37,4 +37,8 @@
     <dimen name="view.height.setting_app">1dp</dimen>
     <dimen name="textview.margintop.10dp">10dp</dimen>
     <dimen name="progressbar.padding.6dp">6dp</dimen>
+
+    <!--dimen for dialog register-->
+    <dimen name="view.height.1dp">1dp</dimen>
+    <dimen name="dialog.register.btn.width">160dp</dimen>
 </resources>
