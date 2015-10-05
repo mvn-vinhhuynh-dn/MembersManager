@@ -12,4 +12,27 @@
     <string name="textview.text.register_account">Register Account</string>
     <string name="textview.text.forgot_your_password">Forgot Your Password</string>
     <string name="button.text.reset_password">Reset Password</string>
+
+    <string name="error_invalid_email">Email address is invalid</string>
+    <string name="error_invalid_password">Password is too short</string>
+    <string name="error_invalid_confirm_password">Password confirm do not match</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+
+
+
+
+    <string-array name="array_team">
+        <item>Android</item>
+        <item>Comter</item>
+        <item>Designer</item>
+        <item>Game</item>
+        <item>Ios</item>
+        <item>Java.Net</item>
+        <item>Japan</item>
+        <item>Office</item>
+        <item>Php</item>
+        <item>Ruby</item>
+        <item>Tester</item>
+    </string-array>
 </resources>
