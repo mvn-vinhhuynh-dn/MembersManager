@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background.login"
+    android:padding="@dimen/relativelayout.padding.10dp">
+
+    <TextView
+        android:id="@+id/tvWelcome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="@dimen/textview.margintop.20dp"
+        android:gravity="center"
+        android:text="@string/textview.text.welcome_to_asiantech_inc_family"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/textview.textsize.20sp"
+        android:visibility="invisible" />
+
+    <LinearLayout
+        android:id="@+id/llImgLogo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/imgAsian"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@null"
+            android:src="@drawable/img_asian" />
+
+        <ImageView
+            android:id="@+id/imgTech"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@null"
+            android:src="@drawable/img_tech" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llEmail"
+        style="@style/linearlayout_contains_edittext_1"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/linearlayout.height.40dp"
+        android:layout_centerInParent="true"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:visibility="invisible">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_email" />
+
+        <EditText
+            android:id="@+id/etEmailSignIn"
+            style="@style/edittext_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/edittext.hint.email"
+            android:inputType="textEmailAddress"
+            android:singleLine="true" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llPassword"
+        style="@style/linearlayout_contains_edittext_1"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/linearlayout.height.40dp"
+        android:layout_below="@+id/llEmail"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:visibility="invisible">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_password" />
+
+        <EditText
+            android:id="@+id/etPasswordSignIn"
+            style="@style/edittext_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/edittext.hint.password"
+            android:inputType="textPassword"
+            android:singleLine="true" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/rlSignIn"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/button.height.44dp"
+        android:layout_below="@+id/llPassword"
+        android:layout_centerHorizontal="true"
+        android:visibility="invisible">
+
+        <Button
+            android:id="@+id/btnSignIn"
+            style="@style/button_sign_in"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/button.text.sign_in" />
+
+        <ProgressBar
+            android:id="@+id/pbLoadingSignIn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/progressbar.padding.6dp"
+            android:layout_centerInParent="true"
+            android:visibility="gone"/>
+
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/btnForgot"
+        style="@style/button_forgot_sign_up"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:text="@string/button.text.forgot_password"
+        android:visibility="invisible" />
+
+    <Button
+        android:id="@+id/btnSignUp"
+        style="@style/button_forgot_sign_up"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:text="@string/button.text.new_here_sign_up"
+        android:visibility="invisible" />
+
+</RelativeLayout>

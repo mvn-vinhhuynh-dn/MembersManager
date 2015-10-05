@@ -2,4 +2,39 @@
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <!--dimen activity login-->
+    <dimen name="linearlayout.margin.40dp">40dp</dimen>
+    <dimen name="linearlayout.margin.30dp">30dp</dimen>
+    <dimen name="textview.margintop.20dp">20dp</dimen>
+    <dimen name="relativelayout.padding.10dp">10dp</dimen>
+    <dimen name="textview.textsize.20sp">20sp</dimen>
+    <dimen name="imageview.marginbottom.50dp">50dp</dimen>
+    <dimen name="imageview.marginbottom.30dp">30dp</dimen>
+    <dimen name="linearlayout.marginbottom.10dp">10dp</dimen>
+    <dimen name="linearlayout.padding.4dp">4dp</dimen>
+    <dimen name="edittext.paddingleft.4dp">4dp</dimen>
+    <dimen name="edittext.textsize.16sp">16sp</dimen>
+    <dimen name="button.height.44dp">44dp</dimen>
+    <dimen name="button.textsize.18sp">18sp</dimen>
+    <dimen name="button.textsize.14sp">14sp</dimen>
+    <dimen name="linearlayout.height.40dp">40dp</dimen>
+    <dimen name="imageview.size.detailtopnew.width">150dp</dimen>
+    <dimen name="imageview.size.detailtopnew.height">250dp</dimen>
+    <dimen name="textview.size.detailtopnew_left">5dp</dimen>
+    <dimen name="scrollview.size.top">10dp</dimen>
+    <dimen name="imageview.sie.padding_topnew">10dp</dimen>
+    <dimen name="tvTitleDetailTopNew.size.top">10dp</dimen>
+    <dimen name="tvTitleDetailTopNew.size_20sp">18sp</dimen>
+    <dimen name="recylerView.margin_8dp">8dp</dimen>
+    <dimen name="linearlayout.padding.10dp">10dp</dimen>
+    <dimen name="view.marginbottom.10dp">10dp</dimen>
+    <dimen name="textview.marginbottom.10dp">10dp</dimen>
+    <dimen name="imageview.width.avatar_setting">50dp</dimen> 
+    <dimen name="textview.size.setting_app">15sp</dimen> 
+    <dimen name="textview.margin.setting_app">15dp</dimen>
+     <dimen name="linearlayout.padding.setting_app">10dp</dimen> 
+    <dimen name="view.height.setting_app">1dp</dimen>
+    <dimen name="textview.margintop.10dp">10dp</dimen>
+    <dimen name="progressbar.padding.6dp">6dp</dimen>
 </resources>
