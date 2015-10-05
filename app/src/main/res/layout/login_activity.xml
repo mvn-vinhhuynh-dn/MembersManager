@@ -18,7 +18,7 @@
         android:textSize="@dimen/textview.textsize.20sp"
         android:visibility="invisible" />
 
-    <LinearLayout
+    <LinearLayout android:visibility="gone"
         android:id="@+id/llImgLogo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

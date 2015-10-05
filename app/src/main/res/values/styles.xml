@@ -59,4 +59,9 @@
         <item name="android:layout_centerInParent">true</item>
         <item name="android:layout_marginBottom">@dimen/view.marginbottom.10dp</item>
     </style>
+
+    <style name="DialogShowAnimation">
+        <item name="android:windowEnterAnimation">@anim/slide_dialog_up</item>
+        <item name="android:windowExitAnimation">@anim/slide_dialog_down</item>
+    </style>
 </resources>

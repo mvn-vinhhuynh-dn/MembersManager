@@ -38,7 +38,8 @@ import java.util.TimerTask;
 @EActivity(R.layout.login_activity)
 public class LoginActivity extends ActionBarActivity {
     private Handler mHandler;
-
+    private Handler mHandlerShowLogo;
+    private Runnable mRunable;
     @AnimationRes(R.anim.translate_left)
     Animation mAnimLeft;
 
@@ -95,10 +96,25 @@ public class LoginActivity extends ActionBarActivity {
 
     @AfterViews
     public void afterView() {
-        startAnimation();
+        setDelayStartAnim();
+    }
+
+    private void setDelayStartAnim() {
+        mHandlerShowLogo = new Handler();
+        mRunable = new Runnable() {
+            @Override
+            public void run() {
+                mLlImgLogo.setVisibility(View.VISIBLE);
+                startAnimation();
+            }
+        };
+        mHandlerShowLogo.postDelayed(mRunable, 1500);
     }
 
     private void startAnimation() {
+        if (mHandlerShowLogo != null && mRunable != null) {
+            mHandlerShowLogo.removeCallbacks(mRunable);
+        }
         ColorStateList colorStateList = getResources().getColorStateList(R.color.button_signup_forgot);
         mBtnSignUp.setTextColor(colorStateList);
         mBtnForgot.setTextColor(colorStateList);

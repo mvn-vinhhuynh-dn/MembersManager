@@ -28,19 +28,19 @@ public class DialogRegisterFragment extends DialogFragment {
     Spinner mSpnTeamGroupSignUp;
 
     @StringArrayRes(R.array.array_team)
-    String[] mArrayTeam;
+    String[] mArrayTeams;
 
     @ViewById(R.id.etUserNameSignUp)
-    EditText mEtUserNameSignUp;
+    EditText mEdtUserNameSignUp;
 
     @ViewById(R.id.etEmailSignUp)
-    EditText mEtEmailSignUp;
+    EditText mEdtEmailSignUp;
 
     @ViewById(R.id.etPasswordSignUp)
-    EditText mEtPasswordSignUp;
+    EditText mEdtPasswordSignUp;
 
     @ViewById(R.id.etConfirmPasswordSignUp)
-    EditText mEtConfirmPasswordSignUp;
+    EditText mEdtConfirmPasswordSignUp;
 
     @ViewById(R.id.pbLoadingRegister)
     ProgressBar mPbLoadingRegister;
@@ -53,28 +53,31 @@ public class DialogRegisterFragment extends DialogFragment {
         if (getDialog() != null) {
             getDialog().requestWindowFeature(Window.FEATURE_NO_TITLE);
             getDialog().getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+            getDialog().setCanceledOnTouchOutside(false);
+            getDialog().getWindow().getAttributes().windowAnimations = R.style.DialogShowAnimation;
+
         }
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity(), R.layout.item_spinner, mArrayTeam);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity(), R.layout.item_spinner, mArrayTeams);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         mSpnTeamGroupSignUp.setAdapter(adapter);
     }
 
     @Click(R.id.btnRegister)
     void initClickRegister() {
-        String userName = mEtUserNameSignUp.getText().toString();
-        String email = mEtEmailSignUp.getText().toString();
-        String password = mEtPasswordSignUp.getText().toString();
-        String confirmPass = mEtConfirmPasswordSignUp.getText().toString();
+        String userName = mEdtUserNameSignUp.getText().toString();
+        String email = mEdtEmailSignUp.getText().toString();
+        String password = mEdtPasswordSignUp.getText().toString();
+        String confirmPass = mEdtConfirmPasswordSignUp.getText().toString();
 
         // Validation edit text form register
         if (Validation.isEmpty(userName, getActivity())) {
-            mEtUserNameSignUp.requestFocus();
+            mEdtUserNameSignUp.requestFocus();
         } else if (Validation.isEmail(email, getActivity())) {
-            mEtEmailSignUp.requestFocus();
+            mEdtEmailSignUp.requestFocus();
         } else if (Validation.isPassword(password, getActivity())) {
-            mEtPasswordSignUp.requestFocus();
+            mEdtPasswordSignUp.requestFocus();
         } else if (Validation.isConfirmPass(password, confirmPass, getActivity())) {
-            mEtConfirmPasswordSignUp.requestFocus();
+            mEdtConfirmPasswordSignUp.requestFocus();
         } else {
             // Do Register Function
         }
