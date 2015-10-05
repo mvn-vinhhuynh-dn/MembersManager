@@ -139,6 +139,8 @@ public class LoginActivity extends Activity {
     @Click(R.id.btnSignIn)
     void clickSignIn() {
         MainActivity_.intent(LoginActivity.this).start();
+        overridePendingTransition(R.anim.trans_left_in, R.anim.trans_left_out);
+        finish();
     }
 
     // Init handler message
