@@ -32,6 +32,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/test_name"
+                android:textColor="@color/txt.color.eeeeee"
                 android:textSize="@dimen/textview.textsize.20sp"
                 android:textStyle="bold" />
 
@@ -40,6 +41,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/test_email"
+                android:textColor="@color/relativelayout.backgroud.photo_upload"
                 android:textSize="@dimen/edittext.textsize.16sp" />
         </LinearLayout>
     </LinearLayout>
