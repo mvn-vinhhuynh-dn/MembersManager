@@ -27,27 +27,21 @@ public class HomeFragment extends BaseFragment {
     RecyclerView mRecycleHome;
 
     private ArrayList<Notification> mArraylists;
-    private HomeAdapter mAdapter;
 
     public HomeFragment() {
         mArraylists = new ArrayList<>();
         fakedata();
     }
 
-    @Override
-    public void onResume() {
-        super.onResume();
-    }
-
     @AfterViews
     void affterView() {
-        mAdapter = new HomeAdapter(getActivity(), mArraylists);
+        HomeAdapter adapter = new HomeAdapter(getActivity(), mArraylists);
         mRecycleHome.setLayoutManager(new LinearLayoutManager(getActivity().getBaseContext()));
-        mRecycleHome.setAdapter(mAdapter);
+        mRecycleHome.setAdapter(adapter);
         mRecycleHome.addOnItemTouchListener(new RecyclerItemClickListener(getActivity(), mRecycleHome, new RecyclerItemClickListener.OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
-                replaceFragment(new NotificationDetailFragment_(), "Detail", false);
+                replaceFragment(new NotificationDetailFragment_(), getString(R.string.title_detail), false);
             }
 
             @Override
@@ -55,6 +49,12 @@ public class HomeFragment extends BaseFragment {
 
             }
         }));
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        if(mOnBaseFragmentListener != null) mOnBaseFragmentListener.setTitleHeader(getString(R.string.home));
     }
 
     private void fakedata() {

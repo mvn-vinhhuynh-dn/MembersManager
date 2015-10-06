@@ -12,5 +12,10 @@ import org.androidannotations.annotations.EFragment;
  */
 @EFragment(R.layout.fragment_favorite)
 public class FavoriteFragment extends BaseFragment {
-
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (mOnBaseFragmentListener != null)
+            mOnBaseFragmentListener.setTitleHeader(getString(R.string.title_favorite));
+    }
 }
