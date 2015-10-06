@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="51dp"
+    android:layout_margin="10dp"
+    android:background="#fff">
+<com.asiantech.membersmanager.utils.CircleImageView
+    android:layout_width="40dp"
+    android:layout_height="40dp"
+    android:src="@drawable/img_android"
+    android:id="@+id/imgAvata"
+    android:layout_centerVertical="true"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/imgAvata"
+        android:layout_marginLeft="10dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvSender"
+                android:text="Le Xuan Phu"
+                android:textStyle="bold"
+                android:textSize="15sp"
+                android:textColor="#000"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvSender"
+                android:id="@+id/tvTittle"
+                android:text="Xin nghi phep"
+                android:textColor="#000"
+                />
+            <TextView
+                android:layout_width="290dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvTittle"
+                android:id="@+id/tvContent"
+                android:text="Don xin nghi phep ngay.."
+                android:textStyle="italic" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1:39 PM"
+                android:layout_alignParentRight="true"
+                android:textColor="#3498DB"
+                android:textStyle="bold"
+                android:id="@+id/tvTime" />
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:src="@drawable/ico_favorite"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true"/>
+    </RelativeLayout>
+</RelativeLayout>
