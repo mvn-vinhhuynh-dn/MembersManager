@@ -4,10 +4,13 @@ package com.asiantech.membersmanager.fragment;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 
 import com.asiantech.membersmanager.R;
+import com.asiantech.membersmanager.abstracts.BaseFragment;
 import com.asiantech.membersmanager.adapter.HomeAdapter;
 import com.asiantech.membersmanager.models.Notification;
+import com.asiantech.membersmanager.utils.RecyclerItemClickListener;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.EFragment;
@@ -20,7 +23,7 @@ import java.util.ArrayList;
  * Created by VinhHlb on 10/5/15.
  */
 @EFragment(R.layout.fragment_home)
-public class HomeFragment extends Fragment {
+public class HomeFragment extends BaseFragment {
     @ViewById(R.id.recyclerHome)
     RecyclerView mRecycleHome;
 
@@ -37,6 +40,17 @@ public class HomeFragment extends Fragment {
         mAdapter = new HomeAdapter(getActivity(), mArraylists);
         mRecycleHome.setLayoutManager(new LinearLayoutManager(getActivity().getBaseContext()));
         mRecycleHome.setAdapter(mAdapter);
+        mRecycleHome.addOnItemTouchListener(new RecyclerItemClickListener(getActivity(), mRecycleHome, new RecyclerItemClickListener.OnItemClickListener() {
+            @Override
+            public void onItemClick(View view, int position) {
+              replaceFragment(new NotificationDetailFragment_(),"Detail",false);
+            }
+
+            @Override
+            public void onItemLongClick(View view, int position) {
+
+            }
+        }));
     }
 
     private void fakedata() {
