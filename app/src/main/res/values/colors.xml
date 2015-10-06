@@ -43,4 +43,6 @@
     <color name="textColorPrimary">#FFFFFF</color>
     <color name="windowBackground">#FFFFFF</color>
     <color name="navigationBarColor">#000000</color>
+    <color name="nav_draw_row">#616161</color>
+    <color name="txt.color.eeeeee">#eeeeee</color>
 </resources>

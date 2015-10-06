@@ -51,4 +51,12 @@
     <string name="title_home">Home</string>
     <string name="title_favorite">Favorite</string>
     <string name="title_detail">Details</string>
+    <string name="test_name">Vinh Huynh</string>
+    <string name="test_email">vinhhlb@asiantech.vn</string>
+    <string name="menu_favorite">Favorite Notification</string>
+    <string name="time_sheet">Time sheet</string>
+    <string name="out_work">Vacation days</string>
+    <string name="help_feedback">Help and feedBack</string>
+    <string name="logout">Logout</string>
+    <string name="home">Home</string>
 </resources>
