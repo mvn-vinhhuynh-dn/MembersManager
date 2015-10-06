@@ -51,7 +51,7 @@ public class NavigationDrawerAdapter extends RecyclerView.Adapter<NavigationDraw
                 holder.title.setText(R.string.home);
                 break;
             case 1:
-                holder.imageView.setBackgroundDrawable(mContext.getResources().getDrawable(R.drawable.ic_favorite));
+                holder.imageView.setBackgroundDrawable(mContext.getResources().getDrawable(R.drawable.ic_favorite_menu));
                 holder.title.setText(R.string.menu_favorite);
                 break;
             case 2:
