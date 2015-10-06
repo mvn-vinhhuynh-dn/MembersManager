@@ -12,6 +12,7 @@ import com.asiantech.membersmanager.fragment.DrawerFragment;
 import com.asiantech.membersmanager.fragment.DrawerFragment_;
 import com.asiantech.membersmanager.fragment.FavoriteFragment;
 import com.asiantech.membersmanager.fragment.HomeFragment;
+import com.asiantech.membersmanager.fragment.HomeFragment_;
 import com.asiantech.membersmanager.fragment.NotificationDetailFragment;
 
 import org.androidannotations.annotations.AfterViews;
@@ -37,6 +38,7 @@ public class MainActivity extends ActionBarActivity implements DrawerFragment.Fr
         }
         initView();
         initListener();
+        displayView(0);
     }
 
     private void initView() {
@@ -59,7 +61,7 @@ public class MainActivity extends ActionBarActivity implements DrawerFragment.Fr
         String title = getString(R.string.app_name);
         switch (position) {
             case 0:
-                fragment = new HomeFragment();
+                fragment = new HomeFragment_();
                 title = getString(R.string.title_home);
                 break;
             case 1:
