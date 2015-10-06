@@ -41,4 +41,5 @@
     <!--dimen for dialog register-->
     <dimen name="view.height.1dp">1dp</dimen>
     <dimen name="dialog.register.btn.width">160dp</dimen>
+    <dimen name="nav_drawer_width">360dp</dimen>
 </resources>
