@@ -1,57 +1,165 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="51dp"
-    android:layout_margin="10dp"
+    android:layout_height="71dp"
+    android:layout_marginBottom="5dp"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    android:layout_marginTop="5dp"
     android:background="#fff">
-<com.asiantech.membersmanager.utils.CircleImageView
-    android:layout_width="40dp"
-    android:layout_height="40dp"
-    android:src="@drawable/img_android"
-    android:id="@+id/imgAvata"
-    android:layout_centerVertical="true"/>
+
+    <View
+        android:id="@+id/viewLine"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_alignParentBottom="true"
+        android:background="#ccc" />
+
+    <com.asiantech.membersmanager.utils.CircleImageView
+        android:id="@+id/imgAvata"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_centerVertical="true"
+        android:src="@drawable/img_android" />
+
     <RelativeLayout
+        android:id="@+id/rlTop"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@+id/imgAvata"
-        android:layout_marginLeft="10dp">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/tvSender"
-                android:text="Le Xuan Phu"
-                android:textStyle="bold"
-                android:textSize="15sp"
-                android:textColor="#000"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/tvSender"
-                android:id="@+id/tvTittle"
-                android:text="Xin nghi phep"
-                android:textColor="#000"
-                />
-            <TextView
-                android:layout_width="290dp"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/tvTittle"
-                android:id="@+id/tvContent"
-                android:text="Don xin nghi phep ngay.."
-                android:textStyle="italic" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="1:39 PM"
-                android:layout_alignParentRight="true"
-                android:textColor="#3498DB"
-                android:textStyle="bold"
-                android:id="@+id/tvTime" />
-            <ImageView
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:src="@drawable/ico_favorite"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentBottom="true"/>
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@+id/imgAvata">
+
+        <TextView
+            android:id="@+id/tvSender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Le Xuan Phu"
+            android:textColor="#000"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5dp"
+            android:layout_toLeftOf="@+id/imgHot"
+            android:text="1:39 PM"
+            android:textColor="#3498DB"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/imgHot"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_alignParentRight="true"
+            android:layout_margin="2dp"
+            android:src="@drawable/ic_hot" />
     </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rlTop"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@+id/imgAvata"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvTittle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvSender"
+            android:text="Xin nghi phep"
+            android:textColor="#000"
+            android:textSize="14sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView android:layout_weight="10"
+                android:paddingBottom="5dp"
+                android:id="@+id/tvContent"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:text="Don xin nghi phep ngay. sdf sf  sdfsiiiiiiiiiid f sdfsdfsdfsdf s dfs df sdfsdfsdf  sdf sdf sd fs df sdf s df sd gdfgdfg dfgdfg d df sdf s df   sd fsdfsdfsdfsdf  sdfsdf"
+                android:textSize="12sp"
+                android:textStyle="italic" />
+
+            <ImageView android:layout_weight="1"
+                android:layout_gravity="bottom"
+                android:id="@+id/imgFavorite"
+                android:layout_width="0dp"
+                android:layout_height="25dp"
+                android:src="@drawable/ic_unfavorite" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!--<RelativeLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_marginLeft="10dp"-->
+    <!--android:layout_toRightOf="@+id/imgAvata" >-->
+
+    <!--<TextView-->
+    <!--android:id="@+id/tvSender"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:text="Le Xuan Phu"-->
+    <!--android:textColor="#000"-->
+    <!--android:textSize="15sp"-->
+    <!--android:textStyle="bold" />-->
+
+    <!--<TextView-->
+    <!--android:id="@+id/tvTittle"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_below="@+id/tvSender"-->
+    <!--android:text="Xin nghi phep"-->
+    <!--android:textColor="#000"-->
+    <!--android:textSize="14sp" />-->
+
+    <!--<TextView-->
+    <!--android:id="@+id/tvContent"-->
+    <!--android:layout_width="290dp"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_below="@+id/tvTittle"-->
+    <!--android:ellipsize="end"-->
+    <!--android:maxLines="2"-->
+    <!--android:text="Don xin nghi phep ngay. sdf sf  sdfsd f sdfsdfsdfsdf s dfs df sdfsdfsdf  sdf sdf sd fs df sdf s df sd gdfgdfg dfgdfg d df sdf s df   sd fsdfsdfsdfsdf  sdfsdf"-->
+    <!--android:textSize="12sp"-->
+    <!--android:textStyle="italic" />-->
+
+    <!--<TextView-->
+    <!--android:id="@+id/tvTime"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_marginRight="5dp"-->
+    <!--android:layout_toLeftOf="@+id/imgHot"-->
+    <!--android:text="1:39 PM"-->
+    <!--android:textColor="#3498DB"-->
+    <!--android:textSize="12sp"-->
+    <!--android:textStyle="bold" />-->
+
+    <!--<ImageView-->
+    <!--android:id="@+id/imgHot"-->
+    <!--android:layout_width="15dp"-->
+    <!--android:layout_height="15dp"-->
+    <!--android:layout_alignParentRight="true"-->
+    <!--android:layout_margin="2dp"-->
+    <!--android:src="@drawable/ic_hot" />-->
+
+    <!--<ImageView-->
+    <!--android:id="@+id/imgFavorite"-->
+    <!--android:layout_width="25dp"-->
+    <!--android:layout_height="25dp"-->
+    <!--android:layout_alignParentBottom="true"-->
+    <!--android:layout_alignParentRight="true"-->
+    <!--android:src="@drawable/ic_unfavorite" />-->
+    <!--</RelativeLayout>-->
 </RelativeLayout>
