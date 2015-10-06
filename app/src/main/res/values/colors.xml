@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <color name="background.login">#5bb967</color>
+    <color name="background.login">#16A085</color>
     <color name="linearlayout.background.edittext">#1affffff</color>
     <color name="edittext.textcolorhint.login">#73ffffff</color>
     <color name="button.background.signin.normal">#ff5722</color>
@@ -43,4 +43,7 @@
     <color name="textColorPrimary">#FFFFFF</color>
     <color name="windowBackground">#FFFFFF</color>
     <color name="navigationBarColor">#000000</color>
+    <color name="nav_draw_row">#616161</color>
+    <color name="txt.color.eeeeee">#eeeeee</color>
+    <color name="tv.welcome">#ECF0F1</color>
 </resources>

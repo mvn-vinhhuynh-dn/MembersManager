@@ -10,10 +10,11 @@ import android.view.View;
 
 import com.asiantech.membersmanager.fragment.DrawerFragment;
 import com.asiantech.membersmanager.fragment.DrawerFragment_;
-import com.asiantech.membersmanager.fragment.FavoriteFragment;
-import com.asiantech.membersmanager.fragment.HomeFragment;
+import com.asiantech.membersmanager.fragment.FavoriteFragment_;
+import com.asiantech.membersmanager.fragment.HelpAndFeedBackFragment_;
 import com.asiantech.membersmanager.fragment.HomeFragment_;
-import com.asiantech.membersmanager.fragment.NotificationDetailFragment;
+import com.asiantech.membersmanager.fragment.TimeSheetFragment_;
+import com.asiantech.membersmanager.fragment.VacationDayFragment_;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.EActivity;
@@ -38,7 +39,12 @@ public class MainActivity extends ActionBarActivity implements DrawerFragment.Fr
         }
         initView();
         initListener();
-        displayView(0);
+        callDefaultFragment();
+    }
+
+    private void callDefaultFragment() {
+        Fragment fragment = new HomeFragment_();
+        changeFragment(fragment, getString(R.string.home), false);
     }
 
     private void initView() {
@@ -65,27 +71,43 @@ public class MainActivity extends ActionBarActivity implements DrawerFragment.Fr
                 title = getString(R.string.title_home);
                 break;
             case 1:
-                fragment = new FavoriteFragment();
+                fragment = new FavoriteFragment_();
                 title = getString(R.string.title_favorite);
                 break;
             case 2:
-                fragment = new NotificationDetailFragment();
-                title = getString(R.string.title_detail);
+                fragment = new TimeSheetFragment_();
+                title = getString(R.string.time_sheet);
+                break;
+            case 3:
+                fragment = new VacationDayFragment_();
+                title = getString(R.string.vacation_day);
+                break;
+            case 4:
+                fragment = new HelpAndFeedBackFragment_();
+                title = getString(R.string.help_feedback);
+                break;
+            case 5:
+                //TOdo Logout function
                 break;
             default:
                 break;
         }
 
         if (fragment != null) {
-            changeFragment(fragment, title);
+            changeFragment(fragment, title, false);
         }
     }
 
-    private void changeFragment(Fragment fragment, String title) {
+    public void changeFragment(Fragment fragment, String title, boolean isBack) {
         FragmentTransaction fragmentTransaction = getFragmentTransaction();
         fragmentTransaction.replace(R.id.container_body, fragment);
+
+        //Add to back stack
+        if (!isBack) {
+            fragmentTransaction.addToBackStack(fragment.getTag());
+        }
         fragmentTransaction.commit();
-        // set the toolbar title
+        //Set the toolbar title
         if (getSupportActionBar() != null) {
             getSupportActionBar()
                     .setTitle(title);
