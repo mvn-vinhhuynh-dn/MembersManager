@@ -94,7 +94,7 @@ public class MainActivity extends ActionBarActivity implements DrawerFragment.Fr
         }
 
         if (fragment != null) {
-            changeFragment(fragment, title, false);
+            changeFragment(fragment, title, true);
         }
     }
 
@@ -108,15 +108,24 @@ public class MainActivity extends ActionBarActivity implements DrawerFragment.Fr
         }
         fragmentTransaction.commit();
         //Set the toolbar title
-        if (getSupportActionBar() != null) {
-            getSupportActionBar()
-                    .setTitle(title);
-        }
+        setTitleFragment(title);
     }
 
     private FragmentTransaction getFragmentTransaction() {
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         return fragmentTransaction;
+    }
+
+    private void setTitleFragment(String title) {
+        if (getSupportActionBar() != null) {
+            getSupportActionBar()
+                    .setTitle(title);
+        }
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
     }
 }

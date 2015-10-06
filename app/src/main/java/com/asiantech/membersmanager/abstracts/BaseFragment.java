@@ -10,6 +10,8 @@ import com.asiantech.membersmanager.MainActivity_;
  */
 public abstract class BaseFragment extends Fragment {
     protected void replaceFragment(Fragment fragment, String title, boolean isBack) {
-        ((MainActivity_) getActivity()).changeFragment(fragment, title, isBack);
+        if (getActivity() != null) {
+            ((MainActivity_) getActivity()).changeFragment(fragment, title, isBack);
+        }
     }
 }

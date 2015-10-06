@@ -2,7 +2,6 @@ package com.asiantech.membersmanager.fragment;
 
 
 import android.content.Context;
-import android.support.v4.app.Fragment;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -11,12 +10,15 @@ import android.support.v7.widget.Toolbar;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.ImageView;
 
 import com.asiantech.membersmanager.R;
+import com.asiantech.membersmanager.abstracts.BaseFragment;
 import com.asiantech.membersmanager.adapter.NavigationDrawerAdapter;
 import com.asiantech.membersmanager.models.NavigationDrawerItem;
 
 import org.androidannotations.annotations.AfterViews;
+import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EFragment;
 import org.androidannotations.annotations.ViewById;
 
@@ -28,7 +30,9 @@ import java.util.List;
  * Created by VinhHlb on 10/6/15.
  */
 @EFragment(R.layout.fragment_drawer)
-public class DrawerFragment extends Fragment {
+public class DrawerFragment extends BaseFragment {
+    @ViewById(R.id.img_user)
+    ImageView mImgProfile;
     @ViewById(R.id.recycler)
     RecyclerView mRecycleView;
 
@@ -58,6 +62,12 @@ public class DrawerFragment extends Fragment {
     private void initData() {
         mTitles = getActivity().getResources().getStringArray(R.array.nav_drawer_labels);
         mAdapter = new NavigationDrawerAdapter(getActivity(), getData());
+    }
+
+    @Click(R.id.img_user)
+    void gotoProfile() {
+        replaceFragment(new ProfileFragment_(), getString(R.string.profile), true);
+        mDrawerLayout.closeDrawers();
     }
 
     private void initListener() {
@@ -174,6 +184,7 @@ public class DrawerFragment extends Fragment {
 
     public interface ClickListener {
         void onClick(View view, int position);
+
         void onLongClick(View view, int position);
     }
 }
