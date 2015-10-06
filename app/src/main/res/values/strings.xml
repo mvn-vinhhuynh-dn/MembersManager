@@ -18,10 +18,11 @@
     <string name="error_invalid_confirm_password">Password confirm do not match</string>
     <string name="error_incorrect_password">This password is incorrect</string>
     <string name="error_field_required">This field is required</string>
+    <string name="hint_name">Email</string>
+    <string name="drawer_open">Open</string>
+    <string name="drawer_close">Close</string>
 
-
-
-
+    <!--spinner when register-->
     <string-array name="array_team">
         <item>Android</item>
         <item>Comter</item>
@@ -35,4 +36,19 @@
         <item>Ruby</item>
         <item>Tester</item>
     </string-array>
+
+    <!-- navigation drawer item labels  -->
+    <string-array name="nav_drawer_labels">
+        <item>@string/nav_item_home</item>
+        <item>@string/nav_item_friends</item>
+        <item>@string/nav_item_notifications</item>
+    </string-array>
+
+    <!--navigation items-->
+    <string name="nav_item_home">Home</string>
+    <string name="nav_item_friends">Friends</string>
+    <string name="nav_item_notifications">Messages</string>
+    <string name="title_home">Home</string>
+    <string name="title_favorite">Favorite</string>
+    <string name="title_detail">Details</string>
 </resources>

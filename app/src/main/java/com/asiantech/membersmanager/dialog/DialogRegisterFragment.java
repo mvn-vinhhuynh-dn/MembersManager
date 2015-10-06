@@ -19,8 +19,9 @@ import org.androidannotations.annotations.res.StringArrayRes;
 
 /**
  * Copyright © 2015 AsianTech inc.
- * Created by tamnm on 8/16/15.
+ * Created by VinhHlb on 12-03-2015.
  */
+
 @EFragment(R.layout.fragment_dialog_register)
 public class DialogRegisterFragment extends DialogFragment {
 

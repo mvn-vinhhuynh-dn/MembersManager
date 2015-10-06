@@ -10,21 +10,22 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="@dimen/textview.margintop.10dp"
         android:layout_marginBottom="@dimen/textview.margintop.10dp"
+        android:layout_marginTop="@dimen/textview.margintop.10dp"
         android:gravity="center"
         android:text="@string/textview.text.welcome_to_asiantech_inc_family"
         android:textColor="@android:color/white"
         android:textSize="@dimen/textview.textsize.20sp"
         android:visibility="invisible" />
 
-    <LinearLayout android:visibility="gone"
+    <LinearLayout
         android:id="@+id/llImgLogo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:gravity="center"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:visibility="gone">
 
         <ImageView
             android:id="@+id/imgAsian"
@@ -57,14 +58,15 @@
             android:contentDescription="@null"
             android:src="@drawable/ic_email" />
 
+
         <EditText
             android:id="@+id/etEmailSignIn"
             style="@style/edittext_login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/edittext.hint.email"
-            android:inputType="textEmailAddress"
             android:singleLine="true" />
+
     </LinearLayout>
 
     <LinearLayout
@@ -82,6 +84,7 @@
             android:layout_height="wrap_content"
             android:contentDescription="@null"
             android:src="@drawable/ic_password" />
+
 
         <EditText
             android:id="@+id/etPasswordSignIn"
@@ -112,9 +115,9 @@
             android:id="@+id/pbLoadingSignIn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="@dimen/progressbar.padding.6dp"
             android:layout_centerInParent="true"
-            android:visibility="gone"/>
+            android:padding="@dimen/progressbar.padding.6dp"
+            android:visibility="gone" />
 
     </RelativeLayout>
 
