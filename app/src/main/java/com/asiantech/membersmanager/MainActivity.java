@@ -10,9 +10,11 @@ import android.view.View;
 
 import com.asiantech.membersmanager.fragment.DrawerFragment;
 import com.asiantech.membersmanager.fragment.DrawerFragment_;
-import com.asiantech.membersmanager.fragment.FavoriteFragment;
-import com.asiantech.membersmanager.fragment.HomeFragment;
-import com.asiantech.membersmanager.fragment.NotificationDetailFragment;
+import com.asiantech.membersmanager.fragment.FavoriteFragment_;
+import com.asiantech.membersmanager.fragment.HelpAndFeedBackFragment_;
+import com.asiantech.membersmanager.fragment.HomeFragment_;
+import com.asiantech.membersmanager.fragment.TimeSheetFragment_;
+import com.asiantech.membersmanager.fragment.VacationDayFragment_;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.EActivity;
@@ -37,6 +39,12 @@ public class MainActivity extends ActionBarActivity implements DrawerFragment.Fr
         }
         initView();
         initListener();
+        callDefaultFragment();
+    }
+
+    private void callDefaultFragment() {
+        Fragment fragment = new HomeFragment_();
+        changeFragment(fragment, getString(R.string.home));
     }
 
     private void initView() {
@@ -59,16 +67,27 @@ public class MainActivity extends ActionBarActivity implements DrawerFragment.Fr
         String title = getString(R.string.app_name);
         switch (position) {
             case 0:
-                fragment = new HomeFragment();
+                fragment = new HomeFragment_();
                 title = getString(R.string.title_home);
                 break;
             case 1:
-                fragment = new FavoriteFragment();
+                fragment = new FavoriteFragment_();
                 title = getString(R.string.title_favorite);
                 break;
             case 2:
-                fragment = new NotificationDetailFragment();
-                title = getString(R.string.title_detail);
+                fragment = new TimeSheetFragment_();
+                title = getString(R.string.time_sheet);
+                break;
+            case 3:
+                fragment = new VacationDayFragment_();
+                title = getString(R.string.vacation_day);
+                break;
+            case 4:
+                fragment = new HelpAndFeedBackFragment_();
+                title = getString(R.string.help_feedback);
+                break;
+            case 5:
+                //TOdo Logout function
                 break;
             default:
                 break;
