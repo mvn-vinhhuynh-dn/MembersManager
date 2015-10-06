@@ -46,4 +46,8 @@
     <color name="nav_draw_row">#616161</color>
     <color name="txt.color.eeeeee">#eeeeee</color>
     <color name="tv.welcome">#ECF0F1</color>
+    <color name="color.white">#fff</color>
+    <color name="color.line">#ccc</color>
+    <color name="color.black">#000</color>
+    <color name="color.text.time">#3498DB</color>
 </resources>
