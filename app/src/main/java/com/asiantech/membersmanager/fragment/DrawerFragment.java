@@ -70,6 +70,8 @@ public class DrawerFragment extends BaseFragment {
         mDrawerLayout.closeDrawers();
     }
 
+
+
     private void initListener() {
         mRecycleView.setLayoutManager(new LinearLayoutManager(getActivity()));
         mRecycleView.addOnItemTouchListener(new RecyclerTouchListener(getActivity(), mRecycleView, new ClickListener() {

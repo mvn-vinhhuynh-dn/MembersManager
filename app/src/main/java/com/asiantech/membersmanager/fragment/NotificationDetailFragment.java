@@ -13,4 +13,10 @@ import org.androidannotations.annotations.EFragment;
 @EFragment(R.layout.fragment_detail_notification)
 public class NotificationDetailFragment extends BaseFragment {
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        if(mOnBaseFragmentListener != null) mOnBaseFragmentListener.setTitleHeader(getString(R.string.title_detail));
+    }
+
 }

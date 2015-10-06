@@ -11,4 +11,9 @@ import org.androidannotations.annotations.EFragment;
  */
 @EFragment(R.layout.fragment_vacation)
 public class VacationDayFragment extends BaseFragment {
+    @Override
+    public void onResume() {
+        super.onResume();
+        if(mOnBaseFragmentListener != null) mOnBaseFragmentListener.setTitleHeader(getString(R.string.vacation_day));
+    }
 }

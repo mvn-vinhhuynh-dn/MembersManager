@@ -6,7 +6,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.animation.Animation;
 import android.widget.Button;
@@ -36,7 +36,7 @@ import java.util.TimerTask;
  * Created by VinhHlb on 10/5/15.
  */
 @EActivity(R.layout.login_activity)
-public class LoginActivity extends ActionBarActivity {
+public class LoginActivity extends AppCompatActivity {
     private Handler mHandler;
     private Handler mHandlerShowLogo;
     private Runnable mRunable;

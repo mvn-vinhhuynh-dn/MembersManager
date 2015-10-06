@@ -11,4 +11,5 @@ import org.androidannotations.annotations.EFragment;
  */
 @EFragment(R.layout.fragment_profile)
 public class ProfileFragment extends BaseFragment {
+
 }
