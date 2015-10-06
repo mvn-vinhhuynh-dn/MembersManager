@@ -57,4 +57,5 @@
     <dimen name="nav_drawer.tv.paddingLeft">5dp</dimen>
     <dimen name="nav_drawer_padding">10dp</dimen>
     <dimen name="nav_drawer_height">60dp</dimen>
+    <dimen name="loading_dialog_size">75dp</dimen>
 </resources>
