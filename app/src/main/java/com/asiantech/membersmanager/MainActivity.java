@@ -12,6 +12,7 @@ import com.asiantech.membersmanager.fragment.DrawerFragment;
 import com.asiantech.membersmanager.fragment.DrawerFragment_;
 import com.asiantech.membersmanager.fragment.FavoriteFragment_;
 import com.asiantech.membersmanager.fragment.HelpAndFeedBackFragment_;
+import com.asiantech.membersmanager.fragment.HomeFragment;
 import com.asiantech.membersmanager.fragment.HomeFragment_;
 import com.asiantech.membersmanager.fragment.TimeSheetFragment_;
 import com.asiantech.membersmanager.fragment.VacationDayFragment_;
@@ -44,7 +45,7 @@ public class MainActivity extends ActionBarActivity implements DrawerFragment.Fr
 
     private void callDefaultFragment() {
         Fragment fragment = new HomeFragment_();
-        changeFragment(fragment, getString(R.string.home), false);
+        changeFragment(fragment, getString(R.string.home), true);
     }
 
     private void initView() {
@@ -127,5 +128,9 @@ public class MainActivity extends ActionBarActivity implements DrawerFragment.Fr
     @Override
     public void onBackPressed() {
         super.onBackPressed();
+        Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.container_body);
+        if (fragment instanceof HomeFragment) {
+            setTitleFragment(getString(R.string.home));
+        }
     }
 }

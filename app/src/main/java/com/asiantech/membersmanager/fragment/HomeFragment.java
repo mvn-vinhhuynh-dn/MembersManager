@@ -1,7 +1,6 @@
 package com.asiantech.membersmanager.fragment;
 
 
-import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -30,20 +29,25 @@ public class HomeFragment extends BaseFragment {
     private ArrayList<Notification> mArraylists;
     private HomeAdapter mAdapter;
 
-    public HomeFragment(){
+    public HomeFragment() {
         mArraylists = new ArrayList<>();
         fakedata();
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+    }
+
     @AfterViews
-    void affterView(){
+    void affterView() {
         mAdapter = new HomeAdapter(getActivity(), mArraylists);
         mRecycleHome.setLayoutManager(new LinearLayoutManager(getActivity().getBaseContext()));
         mRecycleHome.setAdapter(mAdapter);
         mRecycleHome.addOnItemTouchListener(new RecyclerItemClickListener(getActivity(), mRecycleHome, new RecyclerItemClickListener.OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
-              replaceFragment(new NotificationDetailFragment_(),"Detail",false);
+                replaceFragment(new NotificationDetailFragment_(), "Detail", false);
             }
 
             @Override
