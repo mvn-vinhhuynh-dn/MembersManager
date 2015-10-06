@@ -44,7 +44,7 @@ public class MainActivity extends ActionBarActivity implements DrawerFragment.Fr
 
     private void callDefaultFragment() {
         Fragment fragment = new HomeFragment_();
-        changeFragment(fragment, getString(R.string.home));
+        changeFragment(fragment, getString(R.string.home), false);
     }
 
     private void initView() {
@@ -94,15 +94,20 @@ public class MainActivity extends ActionBarActivity implements DrawerFragment.Fr
         }
 
         if (fragment != null) {
-            changeFragment(fragment, title);
+            changeFragment(fragment, title, false);
         }
     }
 
-    private void changeFragment(Fragment fragment, String title) {
+    public void changeFragment(Fragment fragment, String title, boolean isBack) {
         FragmentTransaction fragmentTransaction = getFragmentTransaction();
         fragmentTransaction.replace(R.id.container_body, fragment);
+
+        //Add to back stack
+        if (!isBack) {
+            fragmentTransaction.addToBackStack(fragment.getTag());
+        }
         fragmentTransaction.commit();
-        // set the toolbar title
+        //Set the toolbar title
         if (getSupportActionBar() != null) {
             getSupportActionBar()
                     .setTitle(title);
