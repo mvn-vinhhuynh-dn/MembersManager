@@ -12,4 +12,5 @@ import org.androidannotations.annotations.EFragment;
  */
 @EFragment(R.layout.fragment_detail_notification)
 public class NotificationDetailFragment extends BaseFragment {
+
 }
