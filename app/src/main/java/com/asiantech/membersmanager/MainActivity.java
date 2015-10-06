@@ -18,6 +18,10 @@ import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.ViewById;
 
+/**
+ * Copyright © 2015 AsianTech inc.
+ * Created by VinhHlb on 12-03-2015.
+ */
 @EActivity(R.layout.activity_main)
 public class MainActivity extends ActionBarActivity implements DrawerFragment.FragmentDrawerListener {
     private DrawerFragment mDrawerFragment;
@@ -71,15 +75,24 @@ public class MainActivity extends ActionBarActivity implements DrawerFragment.Fr
         }
 
         if (fragment != null) {
-            FragmentManager fragmentManager = getSupportFragmentManager();
-            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-            fragmentTransaction.replace(R.id.container_body, fragment);
-            fragmentTransaction.commit();
-            // set the toolbar title
-            if (getSupportActionBar() != null) {
-                getSupportActionBar()
-                        .setTitle(title);
-            }
+            changeFragment(fragment, title);
         }
+    }
+
+    private void changeFragment(Fragment fragment, String title) {
+        FragmentTransaction fragmentTransaction = getFragmentTransaction();
+        fragmentTransaction.replace(R.id.container_body, fragment);
+        fragmentTransaction.commit();
+        // set the toolbar title
+        if (getSupportActionBar() != null) {
+            getSupportActionBar()
+                    .setTitle(title);
+        }
+    }
+
+    private FragmentTransaction getFragmentTransaction() {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        return fragmentTransaction;
     }
 }

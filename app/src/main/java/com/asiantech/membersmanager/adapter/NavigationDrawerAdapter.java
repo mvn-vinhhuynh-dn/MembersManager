@@ -15,7 +15,8 @@ import java.util.List;
 
 
 /**
- * Created by Ravi Tamada on 12-03-2015.
+ * Copyright © 2015 AsianTech inc.
+ * Created by VinhHlb on 12-03-2015.
  */
 public class NavigationDrawerAdapter extends RecyclerView.Adapter<NavigationDrawerAdapter.MyViewHolder> {
     List<NavigationDrawerItem> data = Collections.emptyList();
