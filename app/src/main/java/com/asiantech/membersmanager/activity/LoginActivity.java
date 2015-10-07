@@ -15,7 +15,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 
 import com.asiantech.membersmanager.MainActivity_;
 import com.asiantech.membersmanager.R;
@@ -25,6 +24,7 @@ import com.asiantech.membersmanager.dialog.DialogRegisterFragment_;
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EActivity;
+import org.androidannotations.annotations.FocusChange;
 import org.androidannotations.annotations.ViewById;
 import org.androidannotations.annotations.res.AnimationRes;
 
@@ -75,9 +75,6 @@ public class LoginActivity extends AppCompatActivity {
 
     @ViewById(R.id.etPasswordSignIn)
     EditText mEtPasswordSignIn;
-
-    @ViewById(R.id.tvWelcome)
-    TextView mTvWelcome;
 
     @ViewById(R.id.btnSignIn)
     Button mBtnSignIn;
@@ -156,6 +153,25 @@ public class LoginActivity extends AppCompatActivity {
         }, 2500);
     }
 
+    @FocusChange({R.id.etEmailSignIn})
+    void focusChangedEdtEmail(View hello, boolean hasFocus) {
+        if (hasFocus) {
+            mLlEmail.setBackgroundDrawable(getResources().getDrawable(R.drawable.bg_edit_text_focus));
+        } else {
+            mLlEmail.setBackground(getResources().getDrawable(R.drawable.bg_edit_text_normal));
+        }
+    }
+
+    @FocusChange({R.id.etPasswordSignIn})
+    void focusChangedEdtPass(View hello, boolean hasFocus) {
+        if (hasFocus) {
+            mLlPassword.setBackgroundDrawable(getResources().getDrawable(R.drawable.bg_edit_text_focus));
+        } else {
+            mLlPassword.setBackground(getResources().getDrawable(R.drawable.bg_edit_text_normal));
+        }
+    }
+
+
     @Click(R.id.btnSignIn)
     void clickSignIn() {
         MainActivity_.intent(LoginActivity.this).start();
@@ -182,8 +198,6 @@ public class LoginActivity extends AppCompatActivity {
                     mLlImgLogo.startAnimation(mAnimLogo);
                     break;
                 case 2:
-                    mTvWelcome.setVisibility(View.VISIBLE);
-                    mTvWelcome.startAnimation(mAnimDown);
                     break;
                 case 3:
                     mLlEmail.setVisibility(View.VISIBLE);

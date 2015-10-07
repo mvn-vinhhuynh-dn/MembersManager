@@ -25,7 +25,7 @@
             android:layout_marginStart="@dimen/drawerfragment.rl.padding"
             android:ellipsize="end"
             android:gravity="center_vertical"
-            android:maxLines="3"
+            android:maxLines="2"
             android:text="@string/test_reson"
             android:textSize="@dimen/textsize.14sp" />
     </LinearLayout>
