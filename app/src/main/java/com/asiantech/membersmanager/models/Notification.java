@@ -8,7 +8,7 @@ import lombok.Data;
  */
 @Data
 public class Notification {
-    int mAvata;
-    String mSender, mTittle, mContent, mTime;
-    Boolean isFavorite,isHot,isCheck;
+    private int mAvata;
+    private  String mSender, mTittle, mContent, mTime;
+    private Boolean isFavorite, isHot, isCheck;
 }
