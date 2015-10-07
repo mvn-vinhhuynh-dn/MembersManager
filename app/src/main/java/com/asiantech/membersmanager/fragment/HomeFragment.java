@@ -2,8 +2,11 @@ package com.asiantech.membersmanager.fragment;
 
 
 import android.os.Bundle;
+import android.os.Handler;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 
 import com.asiantech.membersmanager.R;
 import com.asiantech.membersmanager.abstracts.BaseFragment;
@@ -27,6 +30,8 @@ import java.util.ArrayList;
 public class HomeFragment extends BaseFragment implements CallDetail {
     @ViewById(R.id.recyclerHome)
     RecyclerView mRecycleHome;
+    @ViewById(R.id.swipeRefreshLayout)
+    SwipeRefreshLayout swipeRefreshLayout;
 
     private ArrayList<Notification> mArraylists;
     private HomeAdapter mAdapter;
@@ -42,7 +47,47 @@ public class HomeFragment extends BaseFragment implements CallDetail {
         mRecycleHome.setLayoutManager(new LinearLayoutManager(getActivity().getBaseContext()));
         mRecycleHome.addItemDecoration(new DividerItemDecoration(getResources().getDrawable(R.drawable.divider)));
         mRecycleHome.setAdapter(mAdapter);
+
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                //refreshItems();
+                new Handler().postDelayed(new Runnable() {
+
+                    @Override
+                    public void run() {
+                        Notification notification = new Notification();
+                        notification.setIsFavorite(true);
+                        notification.setIsHot(false);
+                        notification.setMAvata(R.drawable.p1);
+                        notification.setMContent("Thong basdsd fsdsdfffgdfgdfgdf");
+                        notification.setMSender("Le Thai Son");
+                        notification.setMTittle("Thong bao hop khan cap");
+                        notification.setMTime("14:32 PM, 06/10");
+                        mArraylists.add(notification);
+                        mAdapter.notifyDataSetChanged();
+                        swipeRefreshLayout.setRefreshing(false);
+                    }
+
+                }, 2000);
+            }
+        });
     }
+//    void refreshItems() {
+//        // Load items
+//        // ...
+//
+//        // Load complete
+//        onItemsLoadComplete();
+//    }
+//
+//    void onItemsLoadComplete() {
+//        // Update the adapter and notify data set changed
+//        // ...
+//
+//        // Stop refresh animation
+//        swipeRefreshLayout.setRefreshing(false);
+//    }
 
     @Override
     public void onResume() {
@@ -164,8 +209,6 @@ public class HomeFragment extends BaseFragment implements CallDetail {
         notification8.setMSender("Le Thai Son");
         notification8.setMTittle("Thong bao hop khan cap");
         notification8.setMTime("14:32 PM, 06/10");
-        mArraylists.add(notification8);
-        mArraylists.add(notification8);
         mArraylists.add(notification8);
     }
 
