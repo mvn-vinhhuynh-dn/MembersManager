@@ -23,13 +23,13 @@ public abstract class BaseFragment extends Fragment {
         }
     }
 
-    protected void replaceFragment(Fragment fragment, String title, boolean isBack) {
+    protected void replaceFragment(Fragment fragment, boolean isBack) {
         if (getActivity() != null) {
-            ((MainActivity_) getActivity()).changeFragment(fragment, title, isBack);
+            ((MainActivity_) getActivity()).changeFragment(fragment, isBack);
         }
     }
 
-    public interface OnBaseFragmentListener{
+    public interface OnBaseFragmentListener {
         void setTitleHeader(String title);
     }
 }
