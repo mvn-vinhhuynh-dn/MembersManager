@@ -165,7 +165,7 @@
                 android:textColor="@color/color.black"
                 android:textSize="@dimen/textsize.14sp" />
 
-            <TextView
+            <TextView android:id="@+id/tvSubmit"
                 android:layout_width="@dimen/tv.heigth.100dp"
                 android:layout_height="@dimen/tv.width.30dp"
                 android:layout_gravity="end"

@@ -39,16 +39,18 @@ public class ReasonDayOffAdapter extends RecyclerView.Adapter<ReasonDayOffAdapte
     }
 
     @Override
-    public void onBindViewHolder(final ReasonDayOffAdapter.MyViewHolder holder, int position) {
+    public void onBindViewHolder(final ReasonDayOffAdapter.MyViewHolder holder, final int position) {
         holder.tvReason.setText(mReasons.get(position).getReason());
         holder.cbReason.setTag(position);
         holder.cbReason.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
-                    Log.d("vvvv", "add");
+                    Log.d("vvvvv ", "checked" + mReasons.get(position).getReason());
+                    mListener.onShowReason(mReasons.get(position), true);
                 } else {
-                    Log.d("vvvv", "remove");
+                    Log.d("vvvvv", "unchecked " + mReasons.get(position).getReason());
+                    mListener.onShowReason(mReasons.get(position), false);
                 }
             }
         });
@@ -71,6 +73,6 @@ public class ReasonDayOffAdapter extends RecyclerView.Adapter<ReasonDayOffAdapte
     }
 
     public interface OnChooseReason {
-        void onShowReason(String reson, int pos, int idReason);
+        void onShowReason(Reason reasonChoosed, boolean isAdd);
     }
 }

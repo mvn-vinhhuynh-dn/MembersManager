@@ -6,6 +6,8 @@ import android.view.View;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.asiantech.membersmanager.R;
 import com.asiantech.membersmanager.abstracts.BaseFragment;
@@ -15,6 +17,7 @@ import com.asiantech.membersmanager.utils.MyLinearLayoutManager;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.CheckedChange;
+import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EFragment;
 import org.androidannotations.annotations.ViewById;
 
@@ -28,6 +31,7 @@ import java.util.ArrayList;
 public class VacationDayFragment extends BaseFragment implements ReasonDayOffAdapter.OnChooseReason {
     private ReasonDayOffAdapter mAdapter;
     private ArrayList<Reason> mDatas = new ArrayList<>();
+    private ArrayList<Reason> mReasonChooseds = new ArrayList<>();
     @ViewById(R.id.rcViewResons)
     RecyclerView mRecycleViewReasons;
     @ViewById(R.id.edtCc)
@@ -40,6 +44,8 @@ public class VacationDayFragment extends BaseFragment implements ReasonDayOffAda
     CheckBox mCbChooseDifferentReason;
     @ViewById(R.id.edtDifferentReason)
     EditText mEdtDifferentReason;
+    @ViewById(R.id.tvSubmit)
+    TextView mtvSubmit;
 
     @AfterViews
     void afterView() {
@@ -64,8 +70,13 @@ public class VacationDayFragment extends BaseFragment implements ReasonDayOffAda
         }
     }
 
+    @Click(R.id.tvSubmit)
+    void submitMail() {
+
+    }
+
     private void configRecycleView() {
-        mRecycleViewReasons.setLayoutManager(new MyLinearLayoutManager(getActivity().getBaseContext(), LinearLayoutManager.VERTICAL,true));
+        mRecycleViewReasons.setLayoutManager(new MyLinearLayoutManager(getActivity().getBaseContext(), LinearLayoutManager.VERTICAL, true));
     }
 
     private void setAdapter() {
@@ -86,7 +97,18 @@ public class VacationDayFragment extends BaseFragment implements ReasonDayOffAda
     }
 
     @Override
-    public void onShowReason(String reson, int pos, int idReason) {
-
+    public void onShowReason(Reason reasonChoosed, boolean isAdd) {
+        if (isAdd) {
+            mReasonChooseds.add(reasonChoosed);
+        } else {
+            if (mReasonChooseds.size() > 0) {
+                for (int i = 0; i < mReasonChooseds.size(); i++) {
+                    if (reasonChoosed.getId() == mReasonChooseds.get(i).getId()) {
+                        mReasonChooseds.remove(i);
+                    }
+                }
+            }
+        }
+        Toast.makeText(getActivity(), "size is " + mReasonChooseds.size(), Toast.LENGTH_LONG).show();
     }
 }
