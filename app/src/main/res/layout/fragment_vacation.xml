@@ -107,8 +107,9 @@
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/rcViewResons"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/height.300dp"
-                android:padding="@dimen/linearlayout.padding.10dp" />
+                android:layout_height="wrap_content"
+                android:paddingLeft="@dimen/linearlayout.padding.10dp"
+                android:paddingRight="@dimen/linearlayout.padding.10dp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -165,7 +166,8 @@
                 android:textColor="@color/color.black"
                 android:textSize="@dimen/textsize.14sp" />
 
-            <TextView android:id="@+id/tvSubmit"
+            <TextView
+                android:id="@+id/tvSubmit"
                 android:layout_width="@dimen/tv.heigth.100dp"
                 android:layout_height="@dimen/tv.width.30dp"
                 android:layout_gravity="end"
