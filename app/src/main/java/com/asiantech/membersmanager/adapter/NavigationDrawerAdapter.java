@@ -23,7 +23,6 @@ public class NavigationDrawerAdapter extends RecyclerView.Adapter<NavigationDraw
     List<NavigationDrawerItem> mDatas = Collections.emptyList();
     private LayoutInflater mInflater;
     private Context mContext;
-    private final int NUM_ITEMS = 6;
 
     public NavigationDrawerAdapter(Context context, List<NavigationDrawerItem> data) {
         mContext = context;
@@ -77,7 +76,7 @@ public class NavigationDrawerAdapter extends RecyclerView.Adapter<NavigationDraw
 
     @Override
     public int getItemCount() {
-        return NUM_ITEMS;
+        return 6;
     }
 
     class MyViewHolder extends RecyclerView.ViewHolder {

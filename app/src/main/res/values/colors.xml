@@ -36,8 +36,8 @@
     <color name="dialogViewVideo.tvTitle.textColor">#000000</color>
 
     <!--for sliding menu-->
-    <color name="colorPrimary">#16A085</color>
-    <color name="colorPrimaryDark">#16A085</color>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <color name="textColorPrimary">#FFFFFF</color>
     <color name="windowBackground">#FFFFFF</color>
@@ -45,4 +45,8 @@
     <color name="nav_draw_row">#616161</color>
     <color name="txt.color.eeeeee">#eeeeee</color>
     <color name="tv.welcome">#ECF0F1</color>
+    <color name="color.white">#fff</color>
+    <color name="color.line">#ccc</color>
+    <color name="color.black">#000</color>
+    <color name="color.text.time">#3498DB</color>
 </resources>

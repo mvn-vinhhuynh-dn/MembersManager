@@ -14,6 +14,7 @@ public class TimeSheetFragment extends BaseFragment {
     @Override
     public void onResume() {
         super.onResume();
-        if (mOnBaseFragmentListener != null) mOnBaseFragmentListener.setTitleHeader(getString(R.string.time_sheet));
+        if (mOnBaseFragmentListener != null)
+            mOnBaseFragmentListener.setTitleHeader(getString(R.string.time_sheet));
     }
 }

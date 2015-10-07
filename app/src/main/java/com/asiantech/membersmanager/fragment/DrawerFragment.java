@@ -10,7 +10,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.ImageView;
 
 import com.asiantech.membersmanager.R;
 import com.asiantech.membersmanager.abstracts.BaseFragment;
@@ -31,8 +30,6 @@ import java.util.List;
  */
 @EFragment(R.layout.fragment_drawer)
 public class DrawerFragment extends BaseFragment {
-    @ViewById(R.id.img_user)
-    ImageView mImgProfile;
     @ViewById(R.id.recycler)
     RecyclerView mRecycleView;
 
@@ -59,18 +56,16 @@ public class DrawerFragment extends BaseFragment {
         //DO nothing
     }
 
+    @Click(R.id.img_user)
+    void gotoProfileSreen() {
+    replaceFragment(new ProfileFragment_(),"Profile",false);
+        mDrawerLayout.closeDrawers();
+    }
+
     private void initData() {
         mTitles = getActivity().getResources().getStringArray(R.array.nav_drawer_labels);
         mAdapter = new NavigationDrawerAdapter(getActivity(), getData());
     }
-
-    @Click(R.id.img_user)
-    void gotoProfile() {
-        replaceFragment(new ProfileFragment_(), getString(R.string.profile), true);
-        mDrawerLayout.closeDrawers();
-    }
-
-
 
     private void initListener() {
         mRecycleView.setLayoutManager(new LinearLayoutManager(getActivity()));

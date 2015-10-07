@@ -142,6 +142,5 @@ public class MainActivity extends AppCompatActivity implements DrawerFragment.Fr
         } else {
             finish();
         }
-
     }
 }
