@@ -75,4 +75,5 @@
     <dimen name="textview.content.paddingbottom">5dp</dimen>
     <dimen name="textview.content.size">12sp</dimen>
     <dimen name="image.favorite.height">25dp</dimen>
+    <dimen name="nav_drawer_width">360dp</dimen>
 </resources>

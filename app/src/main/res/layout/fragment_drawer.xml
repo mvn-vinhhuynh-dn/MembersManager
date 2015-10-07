@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/white"
+    android:clickable="true"
     tools:ignore="ContentDescription">
 
     <LinearLayout
@@ -40,6 +41,8 @@
                 android:id="@+id/tv_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:singleLine="true"
                 android:text="@string/test_email"
                 android:textColor="@color/relativelayout.backgroud.photo_upload"
                 android:textSize="@dimen/edittext.textsize.16sp" />
