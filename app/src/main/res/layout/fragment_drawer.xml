@@ -1,32 +1,62 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/white">
+    android:background="@android:color/white"
+    android:clickable="true"
+    tools:ignore="ContentDescription">
 
-
-    <RelativeLayout
+    <LinearLayout
         android:id="@+id/nav_header_container"
         android:layout_width="match_parent"
-        android:layout_height="140dp"
-        android:layout_alignParentTop="true"
-        android:background="@color/colorPrimary">
+        android:layout_height="@dimen/drawerfragment.rl.height"
+        android:background="@color/background.login"
+        android:padding="@dimen/drawerfragment.rl.padding">
 
         <ImageView
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:src="@drawable/ic_profile"
+            android:id="@+id/img_user"
+            android:layout_width="@dimen/drawerfragment.img.width"
+            android:layout_height="@dimen/drawerfragment.img.height"
+            android:layout_gravity="center_vertical"
             android:scaleType="fitCenter"
-            android:layout_centerInParent="true" />
+            android:src="@drawable/ic_profile" />
 
-    </RelativeLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            android:padding="@dimen/ln.padding10">
 
+            <TextView
+                android:id="@+id/tv_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/test_name"
+                android:textColor="@color/txt.color.eeeeee"
+                android:textSize="@dimen/textview.textsize.20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:text="@string/test_email"
+                android:textColor="@color/relativelayout.backgroud.photo_upload"
+                android:textSize="@dimen/edittext.textsize.16sp" />
+        </LinearLayout>
+    </LinearLayout>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycler"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/nav_header_container"
-        android:layout_marginTop="15dp" />
-
+        android:paddingEnd="@dimen/drawerfragment.recycle.paddingLeft"
+        android:paddingLeft="@dimen/drawerfragment.recycle.paddingLeft"
+        android:paddingStart="@dimen/drawerfragment.recycle.paddingLeft"
+        android:paddingTop="@dimen/drawerfragment.recycle.padding" />
 </RelativeLayout>
 

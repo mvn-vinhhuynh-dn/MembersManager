@@ -108,7 +108,7 @@ public class LoginActivity extends ActionBarActivity {
                 startAnimation();
             }
         };
-        mHandlerShowLogo.postDelayed(mRunable, 1500);
+        mHandlerShowLogo.postDelayed(mRunable, 1000);
     }
 
     private void startAnimation() {
