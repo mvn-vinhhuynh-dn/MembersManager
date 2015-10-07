@@ -12,12 +12,13 @@
         android:layout_centerInParent="true"
         android:gravity="center"
         android:orientation="horizontal"
-        android:visibility="gone">
+        android:visibility="invisible">
 
         <ImageView
             android:id="@+id/imgAsian"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
             android:contentDescription="@null"
             android:src="@drawable/img_asian" />
 
