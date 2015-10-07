@@ -95,7 +95,5 @@
                 android:layout_weight="1"
                 android:src="@drawable/ic_unfavorite" />
         </LinearLayout>
-
     </LinearLayout>
-
 </RelativeLayout>

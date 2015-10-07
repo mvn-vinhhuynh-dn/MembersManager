@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" android:padding="10dp"
+    android:orientation="vertical">
+
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="@dimen/linearlayout.height.40dp"
+        android:layout_height="@dimen/linearlayout.width"
+        android:background="@drawable/bg_text_view"
         android:gravity="center"
-        android:text="VACATION DAY"
-        android:textSize="30sp" />
+        android:text="To:" />
 </LinearLayout>

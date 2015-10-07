@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-    <color name="background.login">#5bb967</color>
+    <color name="background.login">#16A085</color>
     <color name="linearlayout.background.edittext">#1affffff</color>
     <color name="edittext.textcolorhint.login">#73ffffff</color>
     <color name="button.background.signin.normal">#ff5722</color>
