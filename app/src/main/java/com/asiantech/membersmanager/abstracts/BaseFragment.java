@@ -18,7 +18,7 @@ public abstract class BaseFragment extends Fragment {
     public void onAttach(Activity activity) {
         super.onAttach(activity);
         try {
-            mOnBaseFragmentListener = (OnBaseFragmentListener) activity;
+            mOnBaseFragmentListener  = (OnBaseFragmentListener) activity;
         } catch (ClassCastException e) {
             throw new ClassCastException(activity.toString()
                     + " must implement OnBaseFragmentListener");
