@@ -41,10 +41,14 @@ public class MainActivity extends AppCompatActivity implements DrawerFragment.Fr
         }
         initView();
         initListener();
-        displayView(0);
-        setTitle(getString(R.string.title_home));
+        setDefaultFragment();
+
     }
 
+    private void setDefaultFragment() {
+        changeFragmentWithoutAnim(new HomeFragment_(), false);
+        setTitle(getString(R.string.title_home));
+    }
 
     private void initView() {
         mDrawerFragment = (DrawerFragment_)
@@ -93,7 +97,7 @@ public class MainActivity extends AppCompatActivity implements DrawerFragment.Fr
         }
         keepHomeFragment();
         if (fragment != null) {
-            changeFragment(fragment, title, false);
+            changeFragment(fragment, false);
             setTitle(title);
         }
     }
@@ -113,7 +117,21 @@ public class MainActivity extends AppCompatActivity implements DrawerFragment.Fr
         setTitle(title);
     }
 
-    public void changeFragment(Fragment fragment, String title, boolean isBack) {
+    // Change fragment with animation
+    public void changeFragment(Fragment fragment, boolean isBack) {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right);
+        fragmentTransaction.replace(R.id.container_body, fragment);
+        //Add to back stack
+        if (!isBack) {
+            fragmentTransaction.addToBackStack(fragment.getTag());
+        }
+        fragmentTransaction.commit();
+    }
+
+    // Change fragment without animation
+    public void changeFragmentWithoutAnim(Fragment fragment, boolean isBack) {
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.container_body, fragment);

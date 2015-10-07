@@ -58,7 +58,7 @@ public class DrawerFragment extends BaseFragment {
 
     @Click(R.id.img_user)
     void gotoProfileSreen() {
-    replaceFragment(new ProfileFragment_(),"Profile",false);
+        replaceFragment(new ProfileFragment_(), false);
         mDrawerLayout.closeDrawers();
     }
 

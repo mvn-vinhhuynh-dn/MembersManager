@@ -135,6 +135,6 @@ public class HomeFragment extends BaseFragment implements CallDetail {
 
     @Override
     public void OnCallDetails() {
-        replaceFragment(new NotificationDetailFragment_(), "Detail", false);
+        replaceFragment(new NotificationDetailFragment_(), false);
     }
 }
