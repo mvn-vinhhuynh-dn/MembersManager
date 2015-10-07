@@ -7,5 +7,5 @@
         android:width="1dp"
         android:color="#000000"/>
     <!-- The radius makes the corners rounded -->
-    <corners android:radius="1dip"/>
+    <corners android:radius="3dip"/>
 </shape>
