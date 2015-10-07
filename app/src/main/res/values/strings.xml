@@ -63,4 +63,13 @@
     <string name="profile">Profile</string>
     <string name="textview.delete">Delete</string>
     <string name="textview.share">Share</string>
+    <string name="input_email"> To email address...</string>
+    <string name="to_email">To:</string>
+    <string name="cc_email">Cc:</string>
+    <string name="subject">Subject:</string>
+    <string name="test_reson">Đi khám bệnh và làm một số giấy tờ cá nhân để đi chơi</string>
+    <string name="test_reson_demo">Dự án rãnh, xin phép nghỉ đi chơi cùng gia đình từ ngày 1 tới ngày 10</string>
+    <string name="test_different_reson">   Lý do khác </string>
+    <string name="description_project">Tình trạng dự án đang tham gia</string>
+    <string name="submit">Submit</string>
 </resources>

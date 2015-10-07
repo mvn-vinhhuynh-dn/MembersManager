@@ -36,8 +36,8 @@
     <color name="dialogViewVideo.tvTitle.textColor">#000000</color>
 
     <!--for sliding menu-->
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorPrimary">#16A085</color>
+    <color name="colorPrimaryDark">#16A085</color>
     <color name="colorAccent">#FF4081</color>
     <color name="textColorPrimary">#FFFFFF</color>
     <color name="windowBackground">#FFFFFF</color>
