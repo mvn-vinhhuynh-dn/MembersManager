@@ -57,7 +57,6 @@
                 android:id="@+id/tvSender"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="aaaaaaa"
                 android:textColor="@color/color.black"
                 android:textSize="@dimen/textview.sender.size"
                 android:textStyle="bold" />
@@ -68,10 +67,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginRight="@dimen/textview.sender.maginright"
                 android:layout_toLeftOf="@+id/imgHot"
-                android:text="bbbb"
                 android:textColor="@color/color.text.time"
                 android:textSize="@dimen/textview.time.size"
-                android:textStyle="bold" />
+            />
 
             <ImageView
                 android:id="@+id/imgHot"
@@ -86,7 +84,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tvSender"
-                android:text="ccccc"
                 android:textColor="@color/color.black"
                 android:textSize="@dimen/textview.title.size" />
 
@@ -111,7 +108,6 @@
                     android:ellipsize="end"
                     android:maxLines="2"
                     android:paddingBottom="@dimen/textview.content.paddingbottom"
-                    android:text="dddddddddddd ddddddd"
                     android:textSize="@dimen/textview.content.size"
                     android:textStyle="italic" />
 

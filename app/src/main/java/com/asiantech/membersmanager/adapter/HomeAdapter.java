@@ -41,7 +41,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
+    public void onBindViewHolder(ViewHolder holder, final int position) {
         holder.imgAvata.setImageResource(mArraylists.get(position).getMAvata());
         holder.tvSender.setText(mArraylists.get(position).getMSender());
         holder.tvTittle.setText(mArraylists.get(position).getMTittle());
@@ -59,7 +59,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
         holder.rlTittle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               callDetail.OnCallDetails();
+               callDetail.OnCallDetails(mArraylists.get(position));
             }
         });
 
