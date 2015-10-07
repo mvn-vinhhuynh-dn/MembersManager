@@ -61,6 +61,8 @@
     <string name="home">Home</string>
     <string name="vacation_day">Vacation Day</string>
     <string name="profile">Profile</string>
+    <string name="textview.delete">Delete</string>
+    <string name="textview.share">Share</string>
     <string name="input_email"> To email address...</string>
     <string name="to_email">To:</string>
     <string name="cc_email">Cc:</string>

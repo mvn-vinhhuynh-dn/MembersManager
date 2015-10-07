@@ -6,10 +6,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.asiantech.membersmanager.R;
+import com.asiantech.membersmanager.fragment.NotificationDetailFragment_;
 import com.asiantech.membersmanager.models.Notification;
+import com.asiantech.membersmanager.utils.CallDetail;
 
 import java.util.ArrayList;
 
@@ -19,12 +22,15 @@ import java.util.ArrayList;
  */
 public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
     private Context mContext;
-    private ArrayList<Notification> mArraylist;
+    private ArrayList<Notification> mArraylists;
+    private CallDetail callDetail;
 
-    public HomeAdapter(Context mContext, ArrayList<Notification> mArraylist) {
+    public HomeAdapter(Context mContext, ArrayList<Notification> mArraylists, CallDetail callDetail) {
         this.mContext = mContext;
-        this.mArraylist = mArraylist;
+        this.mArraylists = mArraylists;
+        this.callDetail = callDetail;
     }
+
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -36,12 +42,13 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        holder.imgAvata.setImageResource(mArraylist.get(position).getMAvata());
-        holder.tvSender.setText(mArraylist.get(position).getMSender());
-        holder.tvTittle.setText(mArraylist.get(position).getMTittle());
-        holder.tvContent.setText(mArraylist.get(position).getMContent());
-        holder.tvTime.setText(mArraylist.get(position).getMTime());
-        if (mArraylist.get(position).getIsHot()){
+        holder.imgAvata.setImageResource(mArraylists.get(position).getMAvata());
+        holder.tvSender.setText(mArraylists.get(position).getMSender());
+        holder.tvTittle.setText(mArraylists.get(position).getMTittle());
+        holder.tvContent.setText(mArraylists.get(position).getMContent());
+        holder.tvTime.setText(mArraylists.get(position).getMTime());
+
+        if (mArraylists.get(position).getIsHot()){
 
         }else {
             holder.imgHot.setVisibility(View.INVISIBLE);
@@ -49,13 +56,17 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
 
         checkFavorite(holder, position);
 
-        if (position == mArraylist.size()-1){
-            holder.viewLine.setVisibility(View.INVISIBLE);
-        }
+        holder.rlTittle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               callDetail.OnCallDetails();
+            }
+        });
+
     }
 
     private void checkFavorite(final ViewHolder holder, final int position) {
-        if (mArraylist.get(position).getIsFavorite()){
+        if (mArraylists.get(position).getIsFavorite()){
             holder.imgFavorite.setImageResource(R.drawable.ic_favorite);
         } else {
             holder.imgFavorite.setImageResource(R.drawable.ic_unfavorite);
@@ -64,12 +75,12 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
         holder.imgFavorite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (mArraylist.get(position).getIsFavorite()){
+                if (mArraylists.get(position).getIsFavorite()){
                     holder.imgFavorite.setImageResource(R.drawable.ic_unfavorite);
-                    mArraylist.get(position).setIsFavorite(false);
+                    mArraylists.get(position).setIsFavorite(false);
                 } else {
                     holder.imgFavorite.setImageResource(R.drawable.ic_favorite);
-                    mArraylist.get(position).setIsFavorite(true);
+                    mArraylists.get(position).setIsFavorite(true);
                 }
             }
         });
@@ -77,14 +88,14 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
 
     @Override
     public int getItemCount() {
-        return mArraylist.size();
+        return mArraylists.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         com.asiantech.membersmanager.utils.CircleImageView imgAvata;
-        ImageView imgHot, imgFavorite;
+        ImageView imgHot, imgFavorite, imgDelete;
         TextView tvSender, tvTittle, tvContent, tvTime;
-        View viewLine;
+        RelativeLayout rlTittle;
         public ViewHolder(View itemView) {
             super(itemView);
             imgAvata = (com.asiantech.membersmanager.utils.CircleImageView)itemView.findViewById(R.id.imgAvata);
@@ -94,7 +105,9 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
             tvTime = (TextView)itemView.findViewById(R.id.tvTime);
             imgHot = (ImageView)itemView.findViewById(R.id.imgHot);
             imgFavorite = (ImageView)itemView.findViewById(R.id.imgFavorite);
-            viewLine = (View)itemView.findViewById(R.id.viewLine);
+            imgDelete = (ImageView)itemView.findViewById(R.id.imgDelete);
+            rlTittle = (RelativeLayout)itemView.findViewById(R.id.rlTop);
         }
     }
+
 }
