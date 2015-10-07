@@ -17,17 +17,24 @@
     <dimen name="edittext.textsize.16sp">16sp</dimen>
     <dimen name="button.height.44dp">44dp</dimen>
     <dimen name="button.textsize.18sp">18sp</dimen>
+    <dimen name="button.textsize.20sp">20sp</dimen>
+    <dimen name="button.textsize.16sp">16sp</dimen>
     <dimen name="button.textsize.14sp">14sp</dimen>
     <dimen name="linearlayout.height.40dp">40dp</dimen>
     <dimen name="imageview.size.detailtopnew.width">150dp</dimen>
     <dimen name="imageview.size.detailtopnew.height">250dp</dimen>
     <dimen name="textview.size.detailtopnew_left">5dp</dimen>
     <dimen name="scrollview.size.top">10dp</dimen>
+    <dimen name="tv.width.40dp">40dp</dimen>
+    <dimen name="tv.width.30dp">30dp</dimen>
+    <dimen name="tv.heigth.100dp">100dp</dimen>
     <dimen name="imageview.sie.padding_topnew">10dp</dimen>
     <dimen name="tvTitleDetailTopNew.size.top">10dp</dimen>
     <dimen name="tvTitleDetailTopNew.size_20sp">18sp</dimen>
     <dimen name="recylerView.margin_8dp">8dp</dimen>
     <dimen name="linearlayout.padding.10dp">10dp</dimen>
+    <dimen name="height.300dp">300dp</dimen>
+    <dimen name="linearlayout.padding.20dp">20dp</dimen>
     <dimen name="view.marginbottom.10dp">10dp</dimen>
     <dimen name="textview.marginbottom.10dp">10dp</dimen>
     <dimen name="imageview.width.avatar_setting">50dp</dimen> 
@@ -57,7 +64,7 @@
     <dimen name="nav_drawer_padding">10dp</dimen>
     <dimen name="nav_drawer_height">60dp</dimen>
     <dimen name="loading_dialog_size">75dp</dimen>
-    <dimen name="linearlayout.width">20dp</dimen>
+    <dimen name="linearlayout.width">30dp</dimen>
 
     <!--dimen item recycle home-->
     <dimen name="relativelayout.height.71dp">71dp</dimen>
@@ -76,4 +83,10 @@
     <dimen name="textview.content.size">12sp</dimen>
     <dimen name="image.favorite.height">25dp</dimen>
     <dimen name="nav_drawer_width">260dp</dimen>
+    <dimen name="textsize.16sp">16sp</dimen>
+    <dimen name="textsize.14sp">14sp</dimen>
+    <dimen name="lnHeight">50dp</dimen>
+    <dimen name="tv.width">70dp</dimen>
+    <dimen name="height.edt">60dp</dimen>
+    <dimen name="height.edt_more">100dp</dimen>
 </resources>
