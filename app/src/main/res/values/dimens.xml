@@ -58,4 +58,22 @@
     <dimen name="nav_drawer_padding">10dp</dimen>
     <dimen name="nav_drawer_height">60dp</dimen>
     <dimen name="loading_dialog_size">75dp</dimen>
+
+    <!--dimen item recycle home-->
+    <dimen name="relativelayout.height.71dp">71dp</dimen>
+    <dimen name="relativelayout.magin.bottom.top">5dp</dimen>
+    <dimen name="relativelayout.magin.left.right">10dp</dimen>
+    <dimen name="circleImageview.width.height">40dp</dimen>
+    <dimen name="relative.sender.maginleft">10dp</dimen>
+    <dimen name="textview.sender.size">15sp</dimen>
+    <dimen name="textview.sender.maginright">5dp</dimen>
+    <dimen name="textview.time.size">12sp</dimen>
+    <dimen name="imagehot.width.height">15dp</dimen>
+    <dimen name="imagehot.magin">2dp</dimen>
+    <dimen name="linerlayout.tittle.maginleft">10dp</dimen>
+    <dimen name="textview.title.size">14sp</dimen>
+    <dimen name="textview.content.paddingbottom">5dp</dimen>
+    <dimen name="textview.content.size">12sp</dimen>
+    <dimen name="image.favorite.height">25dp</dimen>
+    <dimen name="nav_drawer_width">360dp</dimen>
 </resources>

@@ -1,21 +1,11 @@
 package com.asiantech.membersmanager.fragment;
 
 
-import com.asiantech.membersmanager.R;
-import com.asiantech.membersmanager.abstracts.BaseFragment;
-
-import org.androidannotations.annotations.EFragment;
+import android.support.v4.app.Fragment;
 
 /**
  * Copyright © 2015 AsianTech inc.
  * Created by VinhHlb on 10/5/15.
  */
-@EFragment(R.layout.fragment_favorite)
-public class FavoriteFragment extends BaseFragment {
-    @Override
-    public void onResume() {
-        super.onResume();
-        if (mOnBaseFragmentListener != null)
-            mOnBaseFragmentListener.setTitleHeader(getString(R.string.title_favorite));
-    }
+public class FavoriteFragment extends Fragment {
 }
