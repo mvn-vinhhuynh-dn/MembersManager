@@ -3,13 +3,13 @@ package com.asiantech.membersmanager.fragment;
 
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.View;
 
 import com.asiantech.membersmanager.R;
 import com.asiantech.membersmanager.abstracts.BaseFragment;
 import com.asiantech.membersmanager.adapter.HomeAdapter;
 import com.asiantech.membersmanager.models.Notification;
-import com.asiantech.membersmanager.utils.RecyclerItemClickListener;
+import com.asiantech.membersmanager.utils.CallDetail;
+import com.asiantech.membersmanager.utils.DividerItemDecoration;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.EFragment;
@@ -22,7 +22,7 @@ import java.util.ArrayList;
  * Created by VinhHlb on 10/5/15.
  */
 @EFragment(R.layout.fragment_home)
-public class HomeFragment extends BaseFragment {
+public class HomeFragment extends BaseFragment implements CallDetail {
     @ViewById(R.id.recyclerHome)
     RecyclerView mRecycleHome;
 
@@ -36,20 +36,10 @@ public class HomeFragment extends BaseFragment {
 
     @AfterViews
     void affterView() {
-        mAdapter = new HomeAdapter(getActivity(), mArraylists);
+        mAdapter = new HomeAdapter(getActivity(), mArraylists, this);
         mRecycleHome.setLayoutManager(new LinearLayoutManager(getActivity().getBaseContext()));
+        mRecycleHome.addItemDecoration(new DividerItemDecoration(getResources().getDrawable(R.drawable.divider)));
         mRecycleHome.setAdapter(mAdapter);
-        mRecycleHome.addOnItemTouchListener(new RecyclerItemClickListener(getActivity(), mRecycleHome, new RecyclerItemClickListener.OnItemClickListener() {
-            @Override
-            public void onItemClick(View view, int position) {
-                replaceFragment(new NotificationDetailFragment_(), "Detail", false);
-            }
-
-            @Override
-            public void onItemLongClick(View view, int position) {
-
-            }
-        }));
     }
 
     @Override
@@ -141,5 +131,10 @@ public class HomeFragment extends BaseFragment {
         mArraylists.add(notification8);
         mArraylists.add(notification8);
         mArraylists.add(notification8);
+    }
+
+    @Override
+    public void OnCallDetails() {
+        replaceFragment(new NotificationDetailFragment_(), "Detail", false);
     }
 }

@@ -76,4 +76,5 @@
     <dimen name="textview.content.size">12sp</dimen>
     <dimen name="image.favorite.height">25dp</dimen>
     <dimen name="nav_drawer_width">260dp</dimen>
+    <dimen name="img.delete.width.height">30dp</dimen>
 </resources>

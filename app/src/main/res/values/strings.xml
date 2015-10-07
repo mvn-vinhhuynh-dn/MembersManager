@@ -61,4 +61,6 @@
     <string name="home">Home</string>
     <string name="vacation_day">Vacation Day</string>
     <string name="profile">Profile</string>
+    <string name="textview.delete">Delete</string>
+    <string name="textview.share">Share</string>
 </resources>
