@@ -4,31 +4,28 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <ScrollView
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scrollbars="none">
+        android:orientation="vertical">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+        <!--<me.nlmartian.silkcal.DayPickerView xmlns:calendar="http://schemas.android.com/apk/res-auto"-->
+        <!--android:id="@+id/calendar_view"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="@dimen/height"-->
+        <!--android:background="@android:color/white"-->
+        <!--calendar:drawRoundRect="false" />-->
 
-            <me.nlmartian.silkcal.DayPickerView xmlns:calendar="http://schemas.android.com/apk/res-auto"
-                android:id="@+id/calendar_view"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/height"
-                android:background="@android:color/white"
-                calendar:drawRoundRect="false" />
 
-            <android.support.v7.widget.RecyclerView
+        <android.support.v7.widget.RecyclerView
                 android:id="@+id/recycler_timeSheet"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_marginBottom="@dimen/ln.padding10"
                 android:paddingLeft="@dimen/ln.padding10"
                 android:paddingRight="@dimen/ln.padding10"
-                android:scrollbars="vertical" />
-        </LinearLayout>
-    </ScrollView>
+                android:scrollbars="none" />
+    </LinearLayout>
+
 </LinearLayout>

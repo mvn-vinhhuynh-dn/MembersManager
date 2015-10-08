@@ -63,6 +63,6 @@ public class NotificationDetailFragment extends BaseFragment {
     public void onResume() {
         super.onResume();
         if (mOnBaseFragmentListener != null)
-            mOnBaseFragmentListener.setTitleHeader(getString(R.string.title_detail));
+            mOnBaseFragmentListener.setTitleHeader(notification.getMTittle());
     }
 }

@@ -8,7 +8,7 @@ import com.asiantech.membersmanager.R;
 import com.asiantech.membersmanager.abstracts.BaseFragment;
 import com.asiantech.membersmanager.adapter.TimeSheetAdapter;
 import com.asiantech.membersmanager.models.Notification;
-import com.asiantech.membersmanager.utils.MyLinearLayoutManager;
+import com.bartoszlipinski.recyclerviewheader.RecyclerViewHeader;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.EFragment;
@@ -30,21 +30,28 @@ public class TimeSheetFragment extends BaseFragment implements DatePickerControl
     private ArrayList<Notification> mArraylists = new ArrayList<>();
     private TimeSheetAdapter mAdapter;
 
-    @ViewById(R.id.calendar_view)
-    DayPickerView mDayPickerView;
+    private DayPickerView mDayPickerView;
     @ViewById(R.id.recycler_timeSheet)
     RecyclerView mRecycleTimeSheet;
+    private RecyclerViewHeader mRecyclerViewHeader;
 
     @AfterViews
     public void afterView() {
+        initView();
         initData();
         setAdapter();
         fakeData();
     }
 
     private void initData() {
-        mRecycleTimeSheet.setLayoutManager(new MyLinearLayoutManager(getActivity().getBaseContext(), LinearLayoutManager.VERTICAL, true));
+        mRecycleTimeSheet.setLayoutManager(new LinearLayoutManager(getActivity().getBaseContext()));
+        mRecyclerViewHeader.attachTo(mRecycleTimeSheet);
         mDayPickerView.setController(this);
+    }
+
+    private void initView() {
+        mRecyclerViewHeader = RecyclerViewHeader.fromXml(getActivity(), R.layout.header_recyclerview);
+        mDayPickerView = (DayPickerView) mRecyclerViewHeader.findViewById(R.id.calendar_view);
     }
 
     private void setAdapter() {
@@ -183,7 +190,7 @@ public class TimeSheetFragment extends BaseFragment implements DatePickerControl
 
     @Override
     public void onDayOfMonthSelected(int year, int month, int day) {
-        Toast.makeText(getActivity(), "Reaquest API get notification on " + day + " - " + month + " - " + year, Toast.LENGTH_LONG).show();
+        Toast.makeText(getActivity(), "Reaquest API get notification on " + day + " - " + (month + 1) + " - " + year, Toast.LENGTH_LONG).show();
     }
 
     @Override
