@@ -53,7 +53,8 @@
                         android:layout_below="@+id/tvTimeDetail"
                         android:textColor="@color/color.blue"
                         android:textSize="@dimen/text.size.12sp"
-                        android:textStyle="italic" />
+                        android:textStyle="italic"
+                        android:text="@string/tv.ViewDetails"/>
 
                     <TextView
                         android:id="@+id/tvInviViewDetails"
@@ -62,7 +63,7 @@
                         android:layout_below="@+id/tvTimeDetail"
                         android:textColor="@color/color.blue"
                         android:textSize="@dimen/text.size.12sp"
-                        android:textStyle="italic"
+                        android:textStyle="italic" android:text="@string/tv.inviViewDetails"
                         android:visibility="invisible" />
 
                     <RelativeLayout

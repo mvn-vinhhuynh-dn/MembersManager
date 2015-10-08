@@ -128,7 +128,7 @@ public class LoginActivity extends AppCompatActivity {
                 msg.setData(send);
                 mHandler.sendMessage(msg);
             }
-        }, 2000);
+        }, 1000);
 
         new Timer().schedule(new TimerTask() {
             @Override
@@ -139,7 +139,7 @@ public class LoginActivity extends AppCompatActivity {
                 msg.setData(send);
                 mHandler.sendMessage(msg);
             }
-        }, 2000);
+        }, 1000);
 
         new Timer().schedule(new TimerTask() {
             @Override
@@ -150,7 +150,7 @@ public class LoginActivity extends AppCompatActivity {
                 msg.setData(send);
                 mHandler.sendMessage(msg);
             }
-        }, 2500);
+        }, 1500);
     }
 
     @FocusChange({R.id.etEmailSignIn})
