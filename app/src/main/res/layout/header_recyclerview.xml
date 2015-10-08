@@ -2,10 +2,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <me.nlmartian.silkcal.DayPickerView xmlns:calendar="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/calendar_view"
+    <com.marcohc.robotocalendar.RobotoCalendarView
+        android:id="@+id/robotoCalendarPicker"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/height"
-        android:background="@android:color/white"
-        calendar:drawRoundRect="false" />
+        android:layout_height="wrap_content" />
 </FrameLayout>

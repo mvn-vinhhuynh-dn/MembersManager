@@ -9,31 +9,38 @@ import com.asiantech.membersmanager.abstracts.BaseFragment;
 import com.asiantech.membersmanager.adapter.TimeSheetAdapter;
 import com.asiantech.membersmanager.models.Notification;
 import com.bartoszlipinski.recyclerviewheader.RecyclerViewHeader;
+import com.marcohc.robotocalendar.RobotoCalendarView;
+import com.marcohc.robotocalendar.RobotoCalendarView.RobotoCalendarListener;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.EFragment;
 import org.androidannotations.annotations.ViewById;
 
 import java.util.ArrayList;
-
-import me.nlmartian.silkcal.DatePickerController;
-import me.nlmartian.silkcal.DayPickerView;
-import me.nlmartian.silkcal.SimpleMonthAdapter;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
+import java.util.Random;
 
 /**
  * Copyright © 2015 AsianTech inc.
  * Created by VinhHlb on 10/6/15.
  */
 @EFragment(R.layout.fragment_timesheet)
-public class TimeSheetFragment extends BaseFragment implements DatePickerController {
+public class TimeSheetFragment extends BaseFragment implements RobotoCalendarListener {
 
-    private ArrayList<Notification> mArraylists = new ArrayList<>();
+    private ArrayList<Notification> mListNotifications = new ArrayList<>();
     private TimeSheetAdapter mAdapter;
 
-    private DayPickerView mDayPickerView;
     @ViewById(R.id.recycler_timeSheet)
     RecyclerView mRecycleTimeSheet;
     private RecyclerViewHeader mRecyclerViewHeader;
+    private RobotoCalendarView mRobotoCalendarView;
+    private Calendar mCurrentCalendar;
+    private int mCurrentMonthIndex;
+    private int mDay;
+    private int mMoth;
+    private int mYear;
 
     @AfterViews
     public void afterView() {
@@ -46,16 +53,21 @@ public class TimeSheetFragment extends BaseFragment implements DatePickerControl
     private void initData() {
         mRecycleTimeSheet.setLayoutManager(new LinearLayoutManager(getActivity().getBaseContext()));
         mRecyclerViewHeader.attachTo(mRecycleTimeSheet);
-        mDayPickerView.setController(this);
+        mRobotoCalendarView.setRobotoCalendarListener(this);
+        mCurrentMonthIndex = 0;
+        mCurrentCalendar = Calendar.getInstance(Locale.getDefault());
+
+        // Mark current day
+        mRobotoCalendarView.markDayAsCurrentDay(mCurrentCalendar.getTime());
     }
 
     private void initView() {
         mRecyclerViewHeader = RecyclerViewHeader.fromXml(getActivity(), R.layout.header_recyclerview);
-        mDayPickerView = (DayPickerView) mRecyclerViewHeader.findViewById(R.id.calendar_view);
+        mRobotoCalendarView = (RobotoCalendarView) mRecyclerViewHeader.findViewById(R.id.robotoCalendarPicker);
     }
 
     private void setAdapter() {
-        mAdapter = new TimeSheetAdapter(getActivity(), mArraylists);
+        mAdapter = new TimeSheetAdapter(getActivity(), mListNotifications);
         mRecycleTimeSheet.setAdapter(mAdapter);
     }
 
@@ -75,7 +87,7 @@ public class TimeSheetFragment extends BaseFragment implements DatePickerControl
         notification1.setMSender("Le Thai Son");
         notification1.setMTittle("Thong bao hop khan cap vinh");
         notification1.setMTime("14:32 PM, 06/10");
-        mArraylists.add(notification1);
+        mListNotifications.add(notification1);
 
         Notification notification2 = new Notification();
         notification2.setIsFavorite(false);
@@ -85,7 +97,7 @@ public class TimeSheetFragment extends BaseFragment implements DatePickerControl
         notification2.setMSender("Le Thai Son");
         notification2.setMTittle("Thong bao hop khan cap");
         notification2.setMTime("14:32 PM, 06/10");
-        mArraylists.add(notification2);
+        mListNotifications.add(notification2);
 
         Notification notification3 = new Notification();
         notification3.setIsFavorite(true);
@@ -129,7 +141,7 @@ public class TimeSheetFragment extends BaseFragment implements DatePickerControl
         notification3.setMSender("Le Thai Son");
         notification3.setMTittle("Thong bao hop khan cap");
         notification3.setMTime("14:32 PM, 06/10");
-        mArraylists.add(notification3);
+        mListNotifications.add(notification3);
 
         Notification notification4 = new Notification();
         notification4.setIsFavorite(false);
@@ -139,7 +151,7 @@ public class TimeSheetFragment extends BaseFragment implements DatePickerControl
         notification4.setMSender("Le Thai Son");
         notification4.setMTittle("Thong bao hop khan cap");
         notification4.setMTime("14:32 PM, 06/10");
-        mArraylists.add(notification4);
+        mListNotifications.add(notification4);
 
         Notification notification5 = new Notification();
         notification5.setIsFavorite(true);
@@ -149,7 +161,7 @@ public class TimeSheetFragment extends BaseFragment implements DatePickerControl
         notification5.setMSender("Le Thai Son");
         notification5.setMTittle("Thong bao hop khan cap");
         notification5.setMTime("14:32 PM, 06/10");
-        mArraylists.add(notification5);
+        mListNotifications.add(notification5);
 
         Notification notification6 = new Notification();
         notification6.setIsFavorite(true);
@@ -159,7 +171,7 @@ public class TimeSheetFragment extends BaseFragment implements DatePickerControl
         notification6.setMSender("Le Thai Son");
         notification6.setMTittle("Thong bao hop khan cap");
         notification6.setMTime("14:32 PM, 06/10");
-        mArraylists.add(notification6);
+        mListNotifications.add(notification6);
 
         Notification notification7 = new Notification();
         notification7.setIsFavorite(true);
@@ -169,7 +181,7 @@ public class TimeSheetFragment extends BaseFragment implements DatePickerControl
         notification7.setMSender("Le Thai Son");
         notification7.setMTittle("Thong bao hop khan cap");
         notification7.setMTime("14:32 PM, 06/10");
-        mArraylists.add(notification7);
+        mListNotifications.add(notification7);
 
         Notification notification8 = new Notification();
         notification8.setIsFavorite(true);
@@ -179,22 +191,58 @@ public class TimeSheetFragment extends BaseFragment implements DatePickerControl
         notification8.setMSender("Le Thai Son");
         notification8.setMTittle("Thong bao hop khan cap");
         notification8.setMTime("14:32 PM, 06/10");
-        mArraylists.add(notification8);
+        mListNotifications.add(notification8);
         mAdapter.notifyDataSetChanged();
     }
 
     @Override
-    public int getMaxYear() {
-        return 0;
+    public void onDateSelected(Date date) {
+        //getDate selected
+        getDayMonthYear(date);
+        // Mark calendar day
+        mRobotoCalendarView.markDayAsSelectedDay(date);
+        // Mark that day with random colors
+        final Random random = new Random(System.currentTimeMillis());
+        final int style = random.nextInt(3);
+        switch (style) {
+            case 0:
+                mRobotoCalendarView.markFirstUnderlineWithStyle(RobotoCalendarView.BLUE_COLOR, date);
+                break;
+            case 1:
+                mRobotoCalendarView.markSecondUnderlineWithStyle(RobotoCalendarView.GREEN_COLOR, date);
+                break;
+            case 2:
+                mRobotoCalendarView.markFirstUnderlineWithStyle(RobotoCalendarView.RED_COLOR, date);
+                break;
+            default:
+                break;
+        }
+    }
+
+    private void getDayMonthYear(Date date) {
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(date);
+        mYear = cal.get(Calendar.YEAR);
+        mMoth = cal.get(Calendar.MONTH);
+        mDay = cal.get(Calendar.DAY_OF_MONTH);
+        Toast.makeText(getActivity(), " " + mDay + "/" + (mMoth + 1) + "/" + mYear, Toast.LENGTH_LONG).show();
     }
 
     @Override
-    public void onDayOfMonthSelected(int year, int month, int day) {
-        Toast.makeText(getActivity(), "Reaquest API get notification on " + day + " - " + (month + 1) + " - " + year, Toast.LENGTH_LONG).show();
+    public void onRightButtonClick() {
+        mCurrentMonthIndex++;
+        updateCalendar();
     }
 
     @Override
-    public void onDateRangeSelected(SimpleMonthAdapter.SelectedDays<SimpleMonthAdapter.CalendarDay> selectedDays) {
+    public void onLeftButtonClick() {
+        mCurrentMonthIndex--;
+        updateCalendar();
+    }
 
+    private void updateCalendar() {
+        mCurrentCalendar = Calendar.getInstance(Locale.getDefault());
+        mCurrentCalendar.add(Calendar.MONTH, mCurrentMonthIndex);
+        mRobotoCalendarView.initializeCalendar(mCurrentCalendar);
     }
 }
