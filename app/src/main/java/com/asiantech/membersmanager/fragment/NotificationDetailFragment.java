@@ -20,8 +20,6 @@ import org.androidannotations.annotations.*;
 public class NotificationDetailFragment extends BaseFragment {
     @ViewById(R.id.imgAvataDetail)
     ImageView imgAvataDetail;
-    @ViewById(R.id.tvTittleDetails)
-    TextView tvTittleDetails;
     @ViewById(R.id.tvSenderDetail)
     TextView tvSenderDetail;
     @ViewById(R.id.tvTimeDetail)
@@ -42,7 +40,6 @@ public class NotificationDetailFragment extends BaseFragment {
 
     @AfterViews
     void afterViews(){
-        tvTittleDetails.setText(notification.getMTittle());
         imgAvataDetail.setImageResource(notification.getMAvata());
         tvSenderDetail.setText(notification.getMSender());
         tvTimeDetail.setText(notification.getMTime());

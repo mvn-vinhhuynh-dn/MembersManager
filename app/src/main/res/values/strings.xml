@@ -76,4 +76,6 @@
     <string name="tv.mail">new@gmail.com</string>
     <string name="tv.to">to:</string>
     <string name="tv.date">Date:</string>
+    <string name="tv.viewdetails">Xem chi tiết</string>
+    <string name="tv.inviviewdetails">Ẩn xem chi tiết</string>
 </resources>

@@ -52,6 +52,7 @@
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tvTimeDetail"
                         android:textColor="@color/color.blue"
+                        android:text="@string/tv.viewdetails"
                         android:textSize="@dimen/text.size.12sp"
                         android:textStyle="italic" />
 
@@ -63,7 +64,8 @@
                         android:textColor="@color/color.blue"
                         android:textSize="@dimen/text.size.12sp"
                         android:textStyle="italic"
-                        android:visibility="invisible" />
+                        android:visibility="invisible"
+                        android:text="@string/tv.inviviewdetails"/>
 
                     <RelativeLayout
                         android:id="@+id/rlViewDetails"
