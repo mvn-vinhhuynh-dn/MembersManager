@@ -98,4 +98,5 @@
     <dimen name="text.size.12sp">12sp</dimen>
     <dimen name="rl.magintop.detail.viewdetail">5dp</dimen>
     <dimen name="tv.magintop.content">20dp</dimen>
+    <dimen name="height">260dp</dimen>
 </resources>
