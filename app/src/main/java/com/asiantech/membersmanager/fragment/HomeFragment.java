@@ -214,6 +214,5 @@ public class HomeFragment extends BaseFragment implements CallDetail {
                 .notification(notification)
                 .build();
         replaceFragment(notificationDetailFragment, false);
-
     }
 }
