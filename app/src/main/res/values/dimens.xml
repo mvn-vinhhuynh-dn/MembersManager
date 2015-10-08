@@ -35,6 +35,7 @@
     <dimen name="linearlayout.padding.10dp">10dp</dimen>
     <dimen name="height.300dp">300dp</dimen>
     <dimen name="linearlayout.padding.20dp">20dp</dimen>
+    <dimen name="linearlayout.padding.30dp">30dp</dimen>
     <dimen name="view.marginbottom.10dp">10dp</dimen>
     <dimen name="textview.marginbottom.10dp">10dp</dimen>
     <dimen name="imageview.width.avatar_setting">50dp</dimen> 
@@ -98,4 +99,6 @@
     <dimen name="text.size.12sp">12sp</dimen>
     <dimen name="rl.magintop.detail.viewdetail">5dp</dimen>
     <dimen name="tv.magintop.content">20dp</dimen>
+    <dimen name="height">260dp</dimen>
+    <dimen name="calendarpager.height">300dp</dimen>
 </resources>

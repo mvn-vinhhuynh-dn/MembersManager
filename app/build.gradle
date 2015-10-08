@@ -3,6 +3,7 @@ apply plugin: 'com.neenbedankt.android-apt'
 buildscript {
     repositories {
         mavenCentral()
+        jcenter()
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:1.2.3'
@@ -58,4 +59,7 @@ dependencies {
     compile 'com.android.support:appcompat-v7:23.0.1'
     compile 'com.android.support:recyclerview-v7:23.0.1'
     compile 'com.daimajia.swipelayout:library:1.2.0@aar'
+    compile 'me.nlmartian.silkcal:library:0.1.1'
+    compile 'com.bartoszlipinski.recyclerviewheader:library:1.2.0'
+    compile project(':library')
 }

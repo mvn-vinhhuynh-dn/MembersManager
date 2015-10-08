@@ -72,7 +72,6 @@ public class VacationDayFragment extends BaseFragment implements ReasonDayOffAda
 
     @Click(R.id.tvSubmit)
     void submitMail() {
-
     }
 
     private void configRecycleView() {
