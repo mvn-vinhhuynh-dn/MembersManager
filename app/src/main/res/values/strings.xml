@@ -72,4 +72,8 @@
     <string name="test_different_reson">   Lý do khác </string>
     <string name="description_project">Tình trạng dự án đang tham gia</string>
     <string name="submit">Submit</string>
+    <string name="tv.from">From:</string>
+    <string name="tv.mail">new@gmail.com</string>
+    <string name="tv.to">to:</string>
+    <string name="tv.date">Date:</string>
 </resources>

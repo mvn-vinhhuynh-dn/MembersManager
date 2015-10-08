@@ -90,4 +90,12 @@
     <dimen name="height.edt">60dp</dimen>
     <dimen name="height.edt_more">100dp</dimen>
     <dimen name="img.delete.width.height">30dp</dimen>
+
+    <!--dimen fragment_details-->
+    <dimen name="ll.magin">16dp</dimen>
+    <dimen name="rl.magintop.detail">20dp</dimen>
+    <dimen name="rl.maginleft.detail">10dp</dimen>
+    <dimen name="text.size.12sp">12sp</dimen>
+    <dimen name="rl.magintop.detail.viewdetail">5dp</dimen>
+    <dimen name="tv.magintop.content">20dp</dimen>
 </resources>
