@@ -1,6 +1,7 @@
 package com.asiantech.membersmanager.fragment;
 
-
+import android.os.Handler;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
@@ -25,6 +26,8 @@ import java.util.ArrayList;
 public class HomeFragment extends BaseFragment implements CallDetail {
     @ViewById(R.id.recyclerHome)
     RecyclerView mRecycleHome;
+    @ViewById(R.id.swipeRefreshLayout)
+    SwipeRefreshLayout swipeRefreshLayout;
 
     private ArrayList<Notification> mArraylists;
     private HomeAdapter mAdapter;
@@ -40,7 +43,47 @@ public class HomeFragment extends BaseFragment implements CallDetail {
         mRecycleHome.setLayoutManager(new LinearLayoutManager(getActivity().getBaseContext()));
         mRecycleHome.addItemDecoration(new DividerItemDecoration(getResources().getDrawable(R.drawable.divider)));
         mRecycleHome.setAdapter(mAdapter);
+
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                //refreshItems();
+                new Handler().postDelayed(new Runnable() {
+
+                    @Override
+                    public void run() {
+                        Notification notification = new Notification();
+                        notification.setIsFavorite(true);
+                        notification.setIsHot(false);
+                        notification.setMAvata(R.drawable.p1);
+                        notification.setMContent("Thong basdsd fsdsdfffgdfgdfgdf");
+                        notification.setMSender("Le Thai Son");
+                        notification.setMTittle("Thong bao hop khan cap");
+                        notification.setMTime("14:32 PM, 06/10");
+                        mArraylists.add(notification);
+                        mAdapter.notifyDataSetChanged();
+                        swipeRefreshLayout.setRefreshing(false);
+                    }
+
+                }, 2000);
+            }
+        });
     }
+//    void refreshItems() {
+//        // Load items
+//        // ...
+//
+//        // Load complete
+//        onItemsLoadComplete();
+//    }
+//
+//    void onItemsLoadComplete() {
+//        // Update the adapter and notify data set changed
+//        // ...
+//
+//        // Stop refresh animation
+//        swipeRefreshLayout.setRefreshing(false);
+//    }
 
     @Override
     public void onResume() {
@@ -74,7 +117,41 @@ public class HomeFragment extends BaseFragment implements CallDetail {
         notification3.setIsFavorite(true);
         notification3.setIsHot(false);
         notification3.setMAvata(R.drawable.p3);
-        notification3.setMContent("Don xin nghi phep ngay. sdf sf  sdfsd f sdfsdfsdfsdf s dfs df sdfsdfsdf  sdf sdf sd fs df sdf s df sd gdfgdfg dfgdfg d df sdf s df   sd fsdfsdfsdfsdf  sdfsdf");
+        notification3.setMContent("Đã có lúc anh mong tim mình bé lại\n" +
+                "Để nỗi nhớ em không thể nào thêm nữa\n" +
+                "Đã có lúc anh mong ngừng thời gian trôi\n" +
+                "Để những dấu yêu sẽ không phai mờ\n" +
+                "\n" +
+                "Nếu không hát lên nặng lòng da diết\n" +
+                "Nếu không nói ra làm sao biết\n" +
+                "Anh thương em\n" +
+                "Anh sẽ nói em nghe những điều chưa bao giờ\n" +
+                "\n" +
+                "Bình minh khuất lấp sau màn đêm như nỗi lòng anh\n" +
+                "Chất chứa lâu nay em đâu nào hay biết\n" +
+                "Hoàng hôn tắt nắng hay vì anh không hiểu được em\n" +
+                "Dập tan bao yêu dấu lụi tàn\n" +
+                "\n" +
+                "Cất tiếng hát nghe sao lòng nhẹ cơn sầu\n" +
+                "Dẫu có chút vương, chút ân tình chôn giấu\n" +
+                "Đếm những nhớ thương thầm lặng trên tay\n" +
+                "Nghe sao buốt thêm, ướt đôi vai gầy.\n" +
+                "\n" +
+                "Nếu không hát lên nặng lòng da diết\n" +
+                "Nếu không nói ra làm sao biết\n" +
+                "Anh thương em\n" +
+                "Anh sẽ nói em nghe những điều chưa bao giờ\n" +
+                "\n" +
+                "Bình minh khuất lấp sau màn đêm như nỗi lòng anh\n" +
+                "Chất chứa lâu nay em đâu nào hay biết\n" +
+                "Hoàng hôn tắt nắng hay vì anh không hiểu được em\n" +
+                "Dập tan bao yêu dấu lụi tàn\n" +
+                "\n" +
+                "Vì anh câm nín chôn sâu yêu thương anh trao đến em,\n" +
+                "Lặng nhìn em lướt qua bên đời.\n" +
+                "Một mai ai biết cơn mê đưa em vào vòng tay mới.\n" +
+                "Anh sẽ chờ phía sau giấc mơ của em\n" +
+                "Anh sẽ chờ để nói những điều chưa bao giờ");
         notification3.setMSender("Le Thai Son");
         notification3.setMTittle("Thong bao hop khan cap");
         notification3.setMTime("14:32 PM, 06/10");
@@ -129,12 +206,14 @@ public class HomeFragment extends BaseFragment implements CallDetail {
         notification8.setMTittle("Thong bao hop khan cap");
         notification8.setMTime("14:32 PM, 06/10");
         mArraylists.add(notification8);
-        mArraylists.add(notification8);
-        mArraylists.add(notification8);
     }
 
     @Override
-    public void OnCallDetails() {
-        replaceFragment(new NotificationDetailFragment_(), false);
+    public void OnCallDetails(Notification notification) {
+        NotificationDetailFragment notificationDetailFragment = NotificationDetailFragment_.builder()
+                .notification(notification)
+                .build();
+        replaceFragment(notificationDetailFragment, false);
+
     }
 }
