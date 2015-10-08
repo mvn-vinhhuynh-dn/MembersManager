@@ -10,7 +10,6 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.asiantech.membersmanager.R;
-import com.asiantech.membersmanager.fragment.NotificationDetailFragment_;
 import com.asiantech.membersmanager.models.Notification;
 import com.asiantech.membersmanager.utils.CallDetail;
 
@@ -41,16 +40,16 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
+    public void onBindViewHolder(ViewHolder holder, final int position) {
         holder.imgAvata.setImageResource(mArraylists.get(position).getMAvata());
         holder.tvSender.setText(mArraylists.get(position).getMSender());
         holder.tvTittle.setText(mArraylists.get(position).getMTittle());
         holder.tvContent.setText(mArraylists.get(position).getMContent());
         holder.tvTime.setText(mArraylists.get(position).getMTime());
 
-        if (mArraylists.get(position).getIsHot()){
-
-        }else {
+        if (mArraylists.get(position).getIsHot()) {
+            holder.imgHot.setVisibility(View.VISIBLE);
+        } else {
             holder.imgHot.setVisibility(View.INVISIBLE);
         }
 
@@ -59,14 +58,14 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
         holder.rlTittle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               callDetail.OnCallDetails();
+                callDetail.OnCallDetails(mArraylists.get(position));
             }
         });
 
     }
 
     private void checkFavorite(final ViewHolder holder, final int position) {
-        if (mArraylists.get(position).getIsFavorite()){
+        if (mArraylists.get(position).getIsFavorite()) {
             holder.imgFavorite.setImageResource(R.drawable.ic_favorite);
         } else {
             holder.imgFavorite.setImageResource(R.drawable.ic_unfavorite);
@@ -75,7 +74,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
         holder.imgFavorite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (mArraylists.get(position).getIsFavorite()){
+                if (mArraylists.get(position).getIsFavorite()) {
                     holder.imgFavorite.setImageResource(R.drawable.ic_unfavorite);
                     mArraylists.get(position).setIsFavorite(false);
                 } else {
@@ -96,17 +95,18 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
         ImageView imgHot, imgFavorite, imgDelete;
         TextView tvSender, tvTittle, tvContent, tvTime;
         RelativeLayout rlTittle;
+
         public ViewHolder(View itemView) {
             super(itemView);
-            imgAvata = (com.asiantech.membersmanager.utils.CircleImageView)itemView.findViewById(R.id.imgAvata);
-            tvSender = (TextView)itemView.findViewById(R.id.tvSender);
-            tvTittle = (TextView)itemView.findViewById(R.id.tvTittle);
-            tvContent = (TextView)itemView.findViewById(R.id.tvContent);
-            tvTime = (TextView)itemView.findViewById(R.id.tvTime);
-            imgHot = (ImageView)itemView.findViewById(R.id.imgHot);
-            imgFavorite = (ImageView)itemView.findViewById(R.id.imgFavorite);
-            imgDelete = (ImageView)itemView.findViewById(R.id.imgDelete);
-            rlTittle = (RelativeLayout)itemView.findViewById(R.id.rlTop);
+            imgAvata = (com.asiantech.membersmanager.utils.CircleImageView) itemView.findViewById(R.id.imgAvata);
+            tvSender = (TextView) itemView.findViewById(R.id.tvSender);
+            tvTittle = (TextView) itemView.findViewById(R.id.tvTittle);
+            tvContent = (TextView) itemView.findViewById(R.id.tvContent);
+            tvTime = (TextView) itemView.findViewById(R.id.tvTime);
+            imgHot = (ImageView) itemView.findViewById(R.id.imgHot);
+            imgFavorite = (ImageView) itemView.findViewById(R.id.imgFavorite);
+            imgDelete = (ImageView) itemView.findViewById(R.id.imgDelete);
+            rlTittle = (RelativeLayout) itemView.findViewById(R.id.rlTop);
         }
     }
 

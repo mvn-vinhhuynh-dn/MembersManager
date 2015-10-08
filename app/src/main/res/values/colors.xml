@@ -49,4 +49,5 @@
     <color name="color.line">#ccc</color>
     <color name="color.black">#000</color>
     <color name="color.text.time">#3498DB</color>
+    <color name="color.blue">#5f82ec</color>
 </resources>
