@@ -34,8 +34,8 @@ public class NotificationDetailFragment extends BaseFragment {
     TextView tvViewDetails;
     @ViewById(R.id.tvInviViewDetails)
     TextView tvInviViewDetails;
-    @ViewById(R.id.imgFavoriteDetail)
-    ImageView imgFavoriteDetail;
+    @ViewById(R.id.tvTimeDetail1)
+    TextView tvTimeDetail1;
 
     @FragmentArg
     Notification notification;
@@ -47,6 +47,7 @@ public class NotificationDetailFragment extends BaseFragment {
         tvSenderDetail.setText(notification.getMSender());
         tvTimeDetail.setText(notification.getMTime());
         tvContentDetail.setText(notification.getMContent());
+        tvTimeDetail1.setText(notification.getMTime());
     }
 
     @Click(R.id.tvViewDetails)

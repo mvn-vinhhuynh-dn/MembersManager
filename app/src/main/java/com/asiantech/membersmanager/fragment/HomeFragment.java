@@ -38,7 +38,7 @@ public class HomeFragment extends BaseFragment implements CallDetail {
     }
 
     @AfterViews
-    void affterView() {
+    void afterView() {
         mAdapter = new HomeAdapter(getActivity(), mArraylists, this);
         mRecycleHome.setLayoutManager(new LinearLayoutManager(getActivity().getBaseContext()));
         mRecycleHome.addItemDecoration(new DividerItemDecoration(getResources().getDrawable(R.drawable.divider)));

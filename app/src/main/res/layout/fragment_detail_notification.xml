@@ -11,40 +11,13 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="16dp"
+            android:layout_margin="@dimen/ll.magin"
             android:orientation="vertical">
-
-            <RelativeLayout
-                android:id="@+id/rlTittle"
-                android:layout_width="match_parent"
-                android:layout_height="50dp">
-
-                <TextView
-                    android:id="@+id/tvTittleDetails"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="sadasd"
-                    android:textColor="@color/color.black"
-                    android:textSize="25sp" />
-
-                <ImageView
-                    android:id="@+id/imgFavoriteDetail"
-                    android:layout_width="@dimen/imageview.marginbottom.30dp"
-                    android:layout_height="@dimen/imageview.marginbottom.30dp"
-                    android:layout_alignParentRight="true"
-                    android:src="@drawable/ic_favorite" />
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/view.height.1dp"
-                    android:layout_alignParentBottom="true"
-                    android:background="#ccc" />
-            </RelativeLayout>
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp">
+                android:layout_marginTop="@dimen/rl.magintop.detail">
 
                 <com.asiantech.membersmanager.utils.CircleImageView
                     android:id="@+id/imgAvataDetail"
@@ -56,14 +29,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:layout_marginLeft="10dp"
+                    android:layout_marginLeft="@dimen/rl.maginleft.detail"
                     android:layout_toRightOf="@+id/imgAvataDetail">
 
                     <TextView
                         android:id="@+id/tvSenderDetail"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Le Xuan Phu"
                         android:textColor="@color/color.black" />
 
                     <TextView
@@ -71,8 +43,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tvSenderDetail"
-                        android:text="14:46, 07/10"
-                        android:textSize="12sp"
+                        android:textSize="@dimen/text.size.12sp"
                         android:textStyle="italic" />
 
                     <TextView
@@ -80,9 +51,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tvTimeDetail"
-                        android:text="Xem chi tiết..."
                         android:textColor="@color/color.blue"
-                        android:textSize="12sp"
+                        android:textSize="@dimen/text.size.12sp"
                         android:textStyle="italic" />
 
                     <TextView
@@ -90,9 +60,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tvTimeDetail"
-                        android:text="Ẩn xem chi tiết..."
                         android:textColor="@color/color.blue"
-                        android:textSize="12sp"
+                        android:textSize="@dimen/text.size.12sp"
                         android:textStyle="italic"
                         android:visibility="invisible" />
 
@@ -101,32 +70,32 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tvViewDetails"
-                        android:layout_marginTop="5dp"
+                        android:layout_marginTop="@dimen/rl.magintop.detail.viewdetail"
                         android:visibility="gone">
 
                         <TextView
                             android:id="@+id/tvFrom"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Từ:     "
-                            android:textSize="12sp" />
+                            android:text="@string/tv.from"
+                            android:textSize="@dimen/text.size.12sp" />
 
                         <TextView
                             android:id="@+id/tvMailSenderDetail"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_toRightOf="@+id/tvFrom"
-                            android:text="news@gmail.com"
+                            android:text="@string/tv.mail"
                             android:textColor="@color/color.blue"
-                            android:textSize="12sp" />
+                            android:textSize="@dimen/text.size.12sp" />
 
                         <TextView
                             android:id="@+id/tvTo"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/tvFrom"
-                            android:text="Tới:     "
-                            android:textSize="12sp" />
+                            android:text="@string/tv.to"
+                            android:textSize="@dimen/text.size.12sp" />
 
                         <TextView
                             android:id="@+id/tvMailReceiveDetail"
@@ -134,17 +103,17 @@
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/tvMailSenderDetail"
                             android:layout_toRightOf="@+id/tvTo"
-                            android:text="news@gmail.com"
+                            android:text="@string/tv.mail"
                             android:textColor="@color/color.blue"
-                            android:textSize="12sp" />
+                            android:textSize="@dimen/text.size.12sp" />
 
                         <TextView
                             android:id="@+id/tvDate"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/tvTo"
-                            android:text="Ngày:   "
-                            android:textSize="12sp" />
+                            android:text="@string/tv.date"
+                            android:textSize="@dimen/text.size.12sp" />
 
                         <TextView
                             android:id="@+id/tvTimeDetail1"
@@ -152,8 +121,7 @@
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/tvMailReceiveDetail"
                             android:layout_toRightOf="@+id/tvDate"
-                            android:text="14:05, 07 thag 10, 2015"
-                            android:textSize="12sp" />
+                            android:textSize="@dimen/text.size.12sp" />
 
                     </RelativeLayout>
                 </RelativeLayout>
@@ -163,8 +131,7 @@
                 android:id="@+id/tvContentDetail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:text="noi dung thu" />
+                android:layout_marginTop="@dimen/tv.magintop.content" />
         </LinearLayout>
     </ScrollView>
 </LinearLayout>
