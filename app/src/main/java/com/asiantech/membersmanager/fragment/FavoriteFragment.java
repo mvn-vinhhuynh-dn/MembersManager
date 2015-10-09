@@ -10,8 +10,8 @@ import com.asiantech.membersmanager.R;
 import com.asiantech.membersmanager.abstracts.BaseFragment;
 import com.asiantech.membersmanager.adapter.FavoriteAdapter;
 import com.asiantech.membersmanager.models.Notification;
-import com.asiantech.membersmanager.utils.CallDetail;
-import com.asiantech.membersmanager.utils.CallFavorite;
+import com.asiantech.membersmanager.interfaces.CallDetail;
+import com.asiantech.membersmanager.interfaces.CallFavorite;
 import com.asiantech.membersmanager.utils.DividerItemDecoration;
 
 import org.androidannotations.annotations.AfterViews;

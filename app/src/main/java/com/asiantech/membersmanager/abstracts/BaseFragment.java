@@ -1,6 +1,8 @@
 package com.asiantech.membersmanager.abstracts;
 
 import android.app.Activity;
+import android.content.Context;
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 
 import com.asiantech.membersmanager.MainActivity_;
@@ -11,7 +13,7 @@ import com.asiantech.membersmanager.MainActivity_;
  */
 public abstract class BaseFragment extends Fragment {
     protected OnBaseFragmentListener mOnBaseFragmentListener;
-
+    protected Context mContext;
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
@@ -23,6 +25,12 @@ public abstract class BaseFragment extends Fragment {
         }
     }
 
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        mContext = getActivity();
+    }
+
     protected void replaceFragment(Fragment fragment, boolean isBack) {
         if (getActivity() != null) {
             ((MainActivity_) getActivity()).changeFragment(fragment, isBack);
@@ -31,5 +39,7 @@ public abstract class BaseFragment extends Fragment {
 
     public interface OnBaseFragmentListener {
         void setTitleHeader(String title);
+
+        void setTypeHeader(int type);
     }
 }

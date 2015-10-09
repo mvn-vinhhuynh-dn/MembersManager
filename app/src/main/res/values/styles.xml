@@ -75,5 +75,17 @@
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:textColorPrimary">@color/textColorPrimary</item>
         <item name="android:windowBackground">@color/windowBackground</item>
+
+    </style>
+
+    <style name="text_size_title">
+        <item name="android:textSize">@dimen/button.textsize.18sp</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+
+    <style name="text_size_content">
+        <item name="android:textColor">@color/text_profile</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textSize">@dimen/button.textsize.20sp</item>
     </style>
 </resources>

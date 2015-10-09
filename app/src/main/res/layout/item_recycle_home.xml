@@ -39,7 +39,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <com.asiantech.membersmanager.utils.CircleImageView
+        <com.asiantech.membersmanager.views.CircleImageView
             android:id="@+id/imgAvata"
             android:layout_width="@dimen/circleImageview.width.height"
             android:layout_height="@dimen/circleImageview.width.height"

@@ -11,7 +11,8 @@ import android.widget.TextView;
 
 import com.asiantech.membersmanager.R;
 import com.asiantech.membersmanager.models.Notification;
-import com.asiantech.membersmanager.utils.CallDetail;
+import com.asiantech.membersmanager.interfaces.CallDetail;
+import com.asiantech.membersmanager.views.CircleImageView;
 
 import java.util.ArrayList;
 
@@ -90,7 +91,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        com.asiantech.membersmanager.utils.CircleImageView imgAvata;
+        CircleImageView imgAvata;
         ImageView imgHot;
         ImageView imgDelete;
         ImageView imgFavorite;
@@ -102,7 +103,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
 
         public ViewHolder(View itemView) {
             super(itemView);
-            imgAvata = (com.asiantech.membersmanager.utils.CircleImageView) itemView.findViewById(R.id.imgAvata);
+            imgAvata = (CircleImageView) itemView.findViewById(R.id.imgAvata);
             tvSender = (TextView) itemView.findViewById(R.id.tvSender);
             tvTittle = (TextView) itemView.findViewById(R.id.tvTittle);
             tvContent = (TextView) itemView.findViewById(R.id.tvContent);

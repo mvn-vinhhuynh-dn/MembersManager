@@ -51,4 +51,5 @@
     <color name="color.text.time">#3498DB</color>
     <color name="color.blue">#5f82ec</color>
     <color name="mdtp_accent_color">#004d40</color>
+    <color name="text_profile">#40c4ff</color>
 </resources>

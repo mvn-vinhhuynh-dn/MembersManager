@@ -5,11 +5,12 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
+import com.asiantech.membersmanager.MainActivity;
 import com.asiantech.membersmanager.R;
 import com.asiantech.membersmanager.abstracts.BaseFragment;
 import com.asiantech.membersmanager.adapter.HomeAdapter;
+import com.asiantech.membersmanager.interfaces.CallDetail;
 import com.asiantech.membersmanager.models.Notification;
-import com.asiantech.membersmanager.utils.CallDetail;
 import com.asiantech.membersmanager.utils.DividerItemDecoration;
 
 import org.androidannotations.annotations.AfterViews;
@@ -74,8 +75,10 @@ public class HomeFragment extends BaseFragment implements CallDetail {
     @Override
     public void onResume() {
         super.onResume();
-        if (mOnBaseFragmentListener != null)
+        if (mOnBaseFragmentListener != null) {
             mOnBaseFragmentListener.setTitleHeader(getString(R.string.home));
+            mOnBaseFragmentListener.setTypeHeader(MainActivity.TYPE_HOME);
+        }
     }
 
     private void fakedata() {

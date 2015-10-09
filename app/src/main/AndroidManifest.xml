@@ -19,6 +19,7 @@
         <activity
             android:name=".MainActivity_"
             android:windowSoftInputMode="adjustResize|stateHidden" />
+        <activity android:name=".activity.EditProfileActivity_"/>
     </application>
 
 </manifest>
