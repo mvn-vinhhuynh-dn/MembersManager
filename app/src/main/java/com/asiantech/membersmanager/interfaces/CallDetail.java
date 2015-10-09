@@ -1,4 +1,4 @@
-package com.asiantech.membersmanager.utils;
+package com.asiantech.membersmanager.interfaces;
 
 import com.asiantech.membersmanager.models.Notification;
 

@@ -6,44 +6,49 @@
     android:clickable="true"
     tools:ignore="ContentDescription">
 
-    <LinearLayout
+    <RelativeLayout
         android:id="@+id/nav_header_container"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/drawerfragment.rl.height"
-        android:background="@color/colorPrimary"
+        android:layout_height="wrap_content"
+        android:background="@color/background.login"
         android:padding="@dimen/drawerfragment.rl.padding">
 
-        <ImageView
+        <ImageView android:layout_marginTop="@dimen/textview.margintop.10dp"
             android:id="@+id/img_user"
             android:layout_width="@dimen/drawerfragment.img.width"
             android:layout_height="@dimen/drawerfragment.img.height"
             android:layout_gravity="center_vertical"
-            android:scaleType="fitCenter"
+            android:layout_marginLeft="@dimen/linearlayout.marginbottom.10dp"
             android:src="@drawable/ic_profile" />
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/img_user"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="@dimen/linearlayout.marginbottom.5dp"
             android:gravity="center_vertical"
             android:orientation="vertical"
-            android:padding="@dimen/ln.padding10">
+            android:paddingLeft="@dimen/linearlayout.padding.10dp">
 
             <TextView
                 android:id="@+id/tv_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/test_name"
-                android:textSize="@dimen/textview.textsize.20sp"
-                android:textStyle="bold" />
+                android:textColor="@color/white"
+                android:textSize="@dimen/text.size.12sp"
+                android:textStyle="italic" />
 
             <TextView
                 android:id="@+id/tv_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/test_email"
-                android:textSize="@dimen/edittext.textsize.16sp" />
+                android:textColor="@color/white"
+                android:textSize="@dimen/text.size.10sp" />
         </LinearLayout>
-    </LinearLayout>
+    </RelativeLayout>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycler"

@@ -7,6 +7,8 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.asiantech.membersmanager.abstracts.BaseFragment;
 import com.asiantech.membersmanager.fragment.DrawerFragment;
@@ -15,10 +17,12 @@ import com.asiantech.membersmanager.fragment.FavoriteFragment_;
 import com.asiantech.membersmanager.fragment.HelpAndFeedBackFragment_;
 import com.asiantech.membersmanager.fragment.HomeFragment_;
 import com.asiantech.membersmanager.fragment.NotificationDetailFragment;
+import com.asiantech.membersmanager.fragment.ProfileFragment_;
 import com.asiantech.membersmanager.fragment.TimeSheetFragment_;
 import com.asiantech.membersmanager.fragment.VacationDayFragment_;
 
 import org.androidannotations.annotations.AfterViews;
+import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.ViewById;
 
@@ -29,16 +33,26 @@ import org.androidannotations.annotations.ViewById;
 @EActivity(R.layout.activity_main)
 public class MainActivity extends AppCompatActivity implements DrawerFragment
         .FragmentDrawerListener, BaseFragment.OnBaseFragmentListener {
+    public static final int TYPE_BACK = 0;
+    public static final int TYPE_HOME = 1;
+    public static final int TYPE_EDIT = 2;
+    public static final int TYPE_SETTING = 3;
+    public static final int TYPE_CLOSE = 4;
     private DrawerFragment mDrawerFragment;
     @ViewById(R.id.toolbar)
     Toolbar mToolBar;
+    private ImageView mImgRight;
+    private ImageView mImgLeft;
+    private TextView mTvTItle;
+    private Fragment mContent;
 
     @AfterViews
     public void afterViews() {
         setSupportActionBar(mToolBar);
         if (getSupportActionBar() != null) {
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setDisplayHomeAsUpEnabled(false);
             getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_profile);
+
         }
         initView();
         initListener();
@@ -56,6 +70,9 @@ public class MainActivity extends AppCompatActivity implements DrawerFragment
                 getSupportFragmentManager().findFragmentById(R.id.fragment_navigation_drawer);
         mDrawerFragment.setUp(R.id.fragment_navigation_drawer,
                 (DrawerLayout) findViewById(R.id.drawer_layout), mToolBar);
+        mImgRight = (ImageView) mToolBar.findViewById(R.id.img_right);
+        mImgLeft = (ImageView) mToolBar.findViewById(R.id.img_left_button);
+        mTvTItle = (TextView) mToolBar.findViewById(R.id.tv_title);
     }
 
     private void initListener() {
@@ -119,6 +136,37 @@ public class MainActivity extends AppCompatActivity implements DrawerFragment
         setTitle(title);
     }
 
+    @Click(R.id.img_right)
+    void onEdit() {
+        if(mContent instanceof ProfileFragment_){
+            ((ProfileFragment_)mContent).clickRightImg();
+        }
+    }
+
+    @Override
+    public void setTypeHeader(int type) {
+        switch (type) {
+            case TYPE_BACK:
+                break;
+            case TYPE_CLOSE:
+                break;
+            case TYPE_EDIT:
+                mImgLeft.setVisibility(View.GONE);
+                mImgRight.setVisibility(View.VISIBLE);
+                mTvTItle.setVisibility(View.VISIBLE);
+                mImgRight.setImageResource(R.drawable.ic_mode_edit);
+                break;
+            case TYPE_HOME:
+                mImgLeft.setVisibility(View.GONE);
+                mImgRight.setVisibility(View.GONE);
+                mTvTItle.setVisibility(View.VISIBLE);
+                break;
+            case TYPE_SETTING:
+                break;
+
+        }
+    }
+
     // Change fragment with animation
     public void changeFragment(Fragment fragment, boolean isBack) {
         FragmentManager fragmentManager = getSupportFragmentManager();
@@ -126,6 +174,7 @@ public class MainActivity extends AppCompatActivity implements DrawerFragment
         fragmentTransaction.setCustomAnimations(R.anim.enter_from_right,
                 R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right);
         fragmentTransaction.replace(R.id.container_body, fragment);
+        mContent = fragment;
         //Add to back stack
         if (!isBack) {
             fragmentTransaction.addToBackStack(fragment.getTag());
@@ -146,10 +195,11 @@ public class MainActivity extends AppCompatActivity implements DrawerFragment
     }
 
     private void setTitle(String title) {
-        if (getSupportActionBar() != null) {
-            getSupportActionBar()
-                    .setTitle(title);
-        }
+        mTvTItle.setText(title);
+//        if (getSupportActionBar() != null) {
+//            getSupportActionBar()
+//                    .setTitle(title);
+//        }
     }
 
     @Override
@@ -164,4 +214,5 @@ public class MainActivity extends AppCompatActivity implements DrawerFragment
             finish();
         }
     }
+
 }
