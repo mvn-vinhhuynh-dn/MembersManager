@@ -78,4 +78,7 @@
     <string name="tv.date">Date:</string>
     <string name="tv.ViewDetails">Xem chi tiết</string>
     <string name="tv.inviViewDetails">Ẩn xem chi tiết</string>
+    <string name="from_day">Từ ngày</string>
+    <string name="to_day">Đến ngày</string>
+    <string name="day_test">12/10/2015</string>
 </resources>

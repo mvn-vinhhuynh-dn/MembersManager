@@ -7,13 +7,13 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.asiantech.membersmanager.R;
 import com.asiantech.membersmanager.abstracts.BaseFragment;
 import com.asiantech.membersmanager.adapter.ReasonDayOffAdapter;
 import com.asiantech.membersmanager.models.Reason;
 import com.asiantech.membersmanager.utils.MyLinearLayoutManager;
+import com.wdullaer.materialdatetimepicker.date.DatePickerDialog;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.CheckedChange;
@@ -22,30 +22,37 @@ import org.androidannotations.annotations.EFragment;
 import org.androidannotations.annotations.ViewById;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+
+import static com.wdullaer.materialdatetimepicker.date.DatePickerDialog.OnDateSetListener;
+import static com.wdullaer.materialdatetimepicker.date.DatePickerDialog.newInstance;
 
 /**
  * Copyright © 2015 AsianTech inc.
  * Created by VinhHlb on 10/6/15.
  */
 @EFragment(R.layout.fragment_vacation)
-public class VacationDayFragment extends BaseFragment implements ReasonDayOffAdapter.OnChooseReason {
+public class VacationDayFragment extends BaseFragment implements
+        ReasonDayOffAdapter.OnChooseReason,
+        OnDateSetListener {
+
     private ReasonDayOffAdapter mAdapter;
     private ArrayList<Reason> mDatas = new ArrayList<>();
     private ArrayList<Reason> mReasonChooseds = new ArrayList<>();
     @ViewById(R.id.rcViewResons)
     RecyclerView mRecycleViewReasons;
-    @ViewById(R.id.edtCc)
-    EditText mEdtCc;
-    @ViewById(R.id.edtSubject)
-    EditText mEdtSubject;
-    @ViewById(R.id.edtTo)
-    EditText mEdtTo;
     @ViewById(R.id.cbDifferentReson)
     CheckBox mCbChooseDifferentReason;
     @ViewById(R.id.edtDifferentReason)
     EditText mEdtDifferentReason;
     @ViewById(R.id.tvSubmit)
     TextView mtvSubmit;
+    @ViewById(R.id.tv_from_day)
+    TextView mtvFromDay;
+    @ViewById(R.id.tv_to_day)
+    TextView mtvToDay;
+    private boolean isToDay = false;
+    private boolean isFromDay = false;
 
     @AfterViews
     void afterView() {
@@ -74,8 +81,42 @@ public class VacationDayFragment extends BaseFragment implements ReasonDayOffAda
     void submitMail() {
     }
 
+    @Click(R.id.tv_to_day)
+    void chooseToday() {
+        isToDay = true;
+        isFromDay = false;
+        showDialogChooseDay();
+
+    }
+
+    @Click(R.id.tv_from_day)
+    void chooseFromDay() {
+        isToDay = false;
+        isFromDay = true;
+        showDialogChooseDay();
+    }
+
+    private void showDialogChooseDay() {
+        Calendar now = Calendar.getInstance();
+        DatePickerDialog dpd = newInstance(
+                this,
+                now.get(Calendar.YEAR),
+                now.get(Calendar.MONTH),
+                now.get(Calendar.DAY_OF_MONTH)
+        );
+        dpd.show(getActivity().getFragmentManager(), "Datepickerdialog");
+    }
+
+    private void setDefaultDate() {
+        Calendar calendar = Calendar.getInstance();
+        String curentDate = calendar.get(Calendar.DAY_OF_MONTH) + "/" + (calendar.get(Calendar.MONTH) + 1) + "/" + calendar.get(Calendar.YEAR);
+        mtvToDay.setText(curentDate);
+        mtvFromDay.setText(curentDate);
+    }
+
     private void configRecycleView() {
-        mRecycleViewReasons.setLayoutManager(new MyLinearLayoutManager(getActivity().getBaseContext(), LinearLayoutManager.VERTICAL, true));
+        mRecycleViewReasons.setLayoutManager(new MyLinearLayoutManager(getActivity()
+                .getBaseContext(), LinearLayoutManager.VERTICAL, true));
     }
 
     private void setAdapter() {
@@ -93,6 +134,7 @@ public class VacationDayFragment extends BaseFragment implements ReasonDayOffAda
                 mDatas.add(reason);
             }
         }
+        setDefaultDate();
     }
 
     @Override
@@ -108,6 +150,15 @@ public class VacationDayFragment extends BaseFragment implements ReasonDayOffAda
                 }
             }
         }
-        Toast.makeText(getActivity(), "size is " + mReasonChooseds.size(), Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void onDateSet(DatePickerDialog view, int year, int monthOfYear, int dayOfMonth) {
+        String date = dayOfMonth + "/" + (++monthOfYear) + "/" + year;
+        if (isToDay) {
+            mtvToDay.setText(date);
+        } else {
+            mtvFromDay.setText(date);
+        }
     }
 }

@@ -38,7 +38,7 @@
     <!--for sliding menu-->
     <color name="colorPrimary">#16A085</color>
     <color name="colorPrimaryDark">#16A085</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorAccent">#16A085</color>
     <color name="textColorPrimary">#FFFFFF</color>
     <color name="windowBackground">#FFFFFF</color>
     <color name="navigationBarColor">#000000</color>
@@ -50,4 +50,5 @@
     <color name="color.black">#000</color>
     <color name="color.text.time">#3498DB</color>
     <color name="color.blue">#5f82ec</color>
+    <color name="mdtp_accent_color">#004d40</color>
 </resources>
