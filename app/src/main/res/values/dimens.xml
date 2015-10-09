@@ -33,6 +33,7 @@
     <dimen name="tvTitleDetailTopNew.size_20sp">18sp</dimen>
     <dimen name="recylerView.margin_8dp">8dp</dimen>
     <dimen name="linearlayout.padding.10dp">10dp</dimen>
+    <dimen name="padding.0dp">0dp</dimen>
     <dimen name="height.300dp">300dp</dimen>
     <dimen name="linearlayout.padding.20dp">20dp</dimen>
     <dimen name="linearlayout.padding.30dp">30dp</dimen>

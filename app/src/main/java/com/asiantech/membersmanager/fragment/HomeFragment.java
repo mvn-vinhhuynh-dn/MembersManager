@@ -41,7 +41,8 @@ public class HomeFragment extends BaseFragment implements CallDetail {
     void afterView() {
         mAdapter = new HomeAdapter(getActivity(), mArraylists, this);
         mRecycleHome.setLayoutManager(new LinearLayoutManager(getActivity().getBaseContext()));
-        mRecycleHome.addItemDecoration(new DividerItemDecoration(getResources().getDrawable(R.drawable.divider)));
+        mRecycleHome.addItemDecoration(new DividerItemDecoration(getResources()
+                .getDrawable(R.drawable.divider)));
         mRecycleHome.setAdapter(mAdapter);
 
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
@@ -69,21 +70,6 @@ public class HomeFragment extends BaseFragment implements CallDetail {
             }
         });
     }
-//    void refreshItems() {
-//        // Load items
-//        // ...
-//
-//        // Load complete
-//        onItemsLoadComplete();
-//    }
-//
-//    void onItemsLoadComplete() {
-//        // Update the adapter and notify data set changed
-//        // ...
-//
-//        // Stop refresh animation
-//        swipeRefreshLayout.setRefreshing(false);
-//    }
 
     @Override
     public void onResume() {
@@ -210,7 +196,8 @@ public class HomeFragment extends BaseFragment implements CallDetail {
 
     @Override
     public void OnCallDetails(Notification notification) {
-        NotificationDetailFragment notificationDetailFragment = NotificationDetailFragment_.builder()
+        NotificationDetailFragment notificationDetailFragment = NotificationDetailFragment_
+                .builder()
                 .notification(notification)
                 .build();
         replaceFragment(notificationDetailFragment, false);

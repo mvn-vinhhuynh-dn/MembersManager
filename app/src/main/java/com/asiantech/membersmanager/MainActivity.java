@@ -27,7 +27,8 @@ import org.androidannotations.annotations.ViewById;
  * Created by VinhHlb on 12-03-2015.
  */
 @EActivity(R.layout.activity_main)
-public class MainActivity extends AppCompatActivity implements DrawerFragment.FragmentDrawerListener, BaseFragment.OnBaseFragmentListener {
+public class MainActivity extends AppCompatActivity implements DrawerFragment
+        .FragmentDrawerListener, BaseFragment.OnBaseFragmentListener {
     private DrawerFragment mDrawerFragment;
     @ViewById(R.id.toolbar)
     Toolbar mToolBar;
@@ -53,7 +54,8 @@ public class MainActivity extends AppCompatActivity implements DrawerFragment.Fr
     private void initView() {
         mDrawerFragment = (DrawerFragment_)
                 getSupportFragmentManager().findFragmentById(R.id.fragment_navigation_drawer);
-        mDrawerFragment.setUp(R.id.fragment_navigation_drawer, (DrawerLayout) findViewById(R.id.drawer_layout), mToolBar);
+        mDrawerFragment.setUp(R.id.fragment_navigation_drawer,
+                (DrawerLayout) findViewById(R.id.drawer_layout), mToolBar);
     }
 
     private void initListener() {
@@ -121,7 +123,8 @@ public class MainActivity extends AppCompatActivity implements DrawerFragment.Fr
     public void changeFragment(Fragment fragment, boolean isBack) {
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right);
+        fragmentTransaction.setCustomAnimations(R.anim.enter_from_right,
+                R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right);
         fragmentTransaction.replace(R.id.container_body, fragment);
         //Add to back stack
         if (!isBack) {

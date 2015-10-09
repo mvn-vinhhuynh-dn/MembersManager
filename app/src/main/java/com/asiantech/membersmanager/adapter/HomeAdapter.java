@@ -16,17 +16,16 @@ import com.asiantech.membersmanager.utils.CallDetail;
 import java.util.ArrayList;
 
 /**
- *
  * Created by xuanphu on 06/10/2015.
  */
 public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
     private Context mContext;
-    private ArrayList<Notification> mArraylists;
+    private ArrayList<Notification> mNotifications;
     private CallDetail callDetail;
 
-    public HomeAdapter(Context mContext, ArrayList<Notification> mArraylists, CallDetail callDetail) {
+    public HomeAdapter(Context mContext, ArrayList<Notification> notifications, CallDetail callDetail) {
         this.mContext = mContext;
-        this.mArraylists = mArraylists;
+        this.mNotifications = notifications;
         this.callDetail = callDetail;
     }
 
@@ -41,13 +40,13 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(ViewHolder holder, final int position) {
-        holder.imgAvata.setImageResource(mArraylists.get(position).getMAvata());
-        holder.tvSender.setText(mArraylists.get(position).getMSender());
-        holder.tvTittle.setText(mArraylists.get(position).getMTittle());
-        holder.tvContent.setText(mArraylists.get(position).getMContent());
-        holder.tvTime.setText(mArraylists.get(position).getMTime());
+        holder.imgAvata.setImageResource(mNotifications.get(position).getMAvata());
+        holder.tvSender.setText(mNotifications.get(position).getMSender());
+        holder.tvTittle.setText(mNotifications.get(position).getMTittle());
+        holder.tvContent.setText(mNotifications.get(position).getMContent());
+        holder.tvTime.setText(mNotifications.get(position).getMTime());
 
-        if (mArraylists.get(position).getIsHot()) {
+        if (mNotifications.get(position).getIsHot()) {
             holder.imgHot.setVisibility(View.VISIBLE);
         } else {
             holder.imgHot.setVisibility(View.INVISIBLE);
@@ -58,14 +57,14 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
         holder.rlTittle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                callDetail.OnCallDetails(mArraylists.get(position));
+                callDetail.OnCallDetails(mNotifications.get(position));
             }
         });
 
     }
 
     private void checkFavorite(final ViewHolder holder, final int position) {
-        if (mArraylists.get(position).getIsFavorite()) {
+        if (mNotifications.get(position).getIsFavorite()) {
             holder.imgFavorite.setImageResource(R.drawable.ic_favorite);
         } else {
             holder.imgFavorite.setImageResource(R.drawable.ic_unfavorite);
@@ -74,12 +73,12 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
         holder.imgFavorite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (mArraylists.get(position).getIsFavorite()) {
+                if (mNotifications.get(position).getIsFavorite()) {
                     holder.imgFavorite.setImageResource(R.drawable.ic_unfavorite);
-                    mArraylists.get(position).setIsFavorite(false);
+                    mNotifications.get(position).setIsFavorite(false);
                 } else {
                     holder.imgFavorite.setImageResource(R.drawable.ic_favorite);
-                    mArraylists.get(position).setIsFavorite(true);
+                    mNotifications.get(position).setIsFavorite(true);
                 }
             }
         });
@@ -87,13 +86,18 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
 
     @Override
     public int getItemCount() {
-        return mArraylists.size();
+        return mNotifications.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         com.asiantech.membersmanager.utils.CircleImageView imgAvata;
-        ImageView imgHot, imgFavorite, imgDelete;
-        TextView tvSender, tvTittle, tvContent, tvTime;
+        ImageView imgHot;
+        ImageView imgDelete;
+        ImageView imgFavorite;
+        TextView tvSender;
+        TextView tvTittle;
+        TextView tvContent;
+        TextView tvTime;
         RelativeLayout rlTittle;
 
         public ViewHolder(View itemView) {

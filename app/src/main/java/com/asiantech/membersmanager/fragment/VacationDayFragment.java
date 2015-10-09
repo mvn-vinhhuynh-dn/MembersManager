@@ -109,9 +109,10 @@ public class VacationDayFragment extends BaseFragment implements
 
     private void setDefaultDate() {
         Calendar calendar = Calendar.getInstance();
-        String curentDate = calendar.get(Calendar.DAY_OF_MONTH) + "/" + (calendar.get(Calendar.MONTH) + 1) + "/" + calendar.get(Calendar.YEAR);
-        mtvToDay.setText(curentDate);
-        mtvFromDay.setText(curentDate);
+        String currentDate = calendar.get(Calendar.DAY_OF_MONTH) + "/"
+                + (calendar.get(Calendar.MONTH) + 1) + "/" + calendar.get(Calendar.YEAR);
+        mtvToDay.setText(currentDate);
+        mtvFromDay.setText(currentDate);
     }
 
     private void configRecycleView() {
@@ -127,10 +128,12 @@ public class VacationDayFragment extends BaseFragment implements
     private void setDefaultData() {
         for (int i = 0; i < 5; i++) {
             if (i % 2 == 0) {
-                Reason reason = new Reason(getString(R.string.test_reson), i);
+                Reason reason
+                        = new Reason(getString(R.string.test_reson), i);
                 mDatas.add(reason);
             } else {
-                Reason reason = new Reason(getString(R.string.test_reson_demo), i);
+                Reason reason
+                        = new Reason(getString(R.string.test_reson_demo), i);
                 mDatas.add(reason);
             }
         }

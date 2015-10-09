@@ -17,18 +17,18 @@ import com.asiantech.membersmanager.utils.CallFavorite;
 import java.util.ArrayList;
 
 /**
- *
  * Created by xuanphu on 08/10/2015.
  */
-public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.ViewHolder>{
+public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.ViewHolder> {
     private Context mContext;
-    private ArrayList<Notification> mArraylists;
+    private ArrayList<Notification> mNotifications;
     private CallDetail callDetail;
     private CallFavorite callFavorite;
 
-    public FavoriteAdapter(Context mContext, ArrayList<Notification> mArraylists, CallDetail callDetail, CallFavorite callFavorite) {
+    public FavoriteAdapter(Context mContext, ArrayList<Notification> notifications,
+                           CallDetail callDetail, CallFavorite callFavorite) {
         this.mContext = mContext;
-        this.mArraylists = mArraylists;
+        this.mNotifications = notifications;
         this.callDetail = callDetail;
         this.callFavorite = callFavorite;
     }
@@ -43,30 +43,30 @@ public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.ViewHo
 
     @Override
     public void onBindViewHolder(ViewHolder holder, final int position) {
-            holder.imgAvata.setImageResource(mArraylists.get(position).getMAvata());
-            holder.tvSender.setText(mArraylists.get(position).getMSender());
-            holder.tvTittle.setText(mArraylists.get(position).getMTittle());
-            holder.tvContent.setText(mArraylists.get(position).getMContent());
-            holder.tvTime.setText(mArraylists.get(position).getMTime());
+        holder.imgAvata.setImageResource(mNotifications.get(position).getMAvata());
+        holder.tvSender.setText(mNotifications.get(position).getMSender());
+        holder.tvTittle.setText(mNotifications.get(position).getMTittle());
+        holder.tvContent.setText(mNotifications.get(position).getMContent());
+        holder.tvTime.setText(mNotifications.get(position).getMTime());
 
-            if (mArraylists.get(position).getIsHot()) {
-                holder.imgHot.setVisibility(View.VISIBLE);
-            } else {
-                holder.imgHot.setVisibility(View.INVISIBLE);
+        if (mNotifications.get(position).getIsHot()) {
+            holder.imgHot.setVisibility(View.VISIBLE);
+        } else {
+            holder.imgHot.setVisibility(View.INVISIBLE);
+        }
+
+        checkFavorite(holder, position);
+
+        holder.rlTittle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                callDetail.OnCallDetails(mNotifications.get(position));
             }
-
-            checkFavorite(holder, position);
-
-            holder.rlTittle.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    callDetail.OnCallDetails(mArraylists.get(position));
-                }
-            });
+        });
     }
 
     private void checkFavorite(final ViewHolder holder, final int position) {
-        if (mArraylists.get(position).getIsFavorite()) {
+        if (mNotifications.get(position).getIsFavorite()) {
             holder.imgFavorite.setImageResource(R.drawable.ic_favorite);
         } else {
             holder.imgFavorite.setImageResource(R.drawable.ic_unfavorite);
@@ -75,13 +75,13 @@ public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.ViewHo
         holder.imgFavorite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (mArraylists.get(position).getIsFavorite()) {
+                if (mNotifications.get(position).getIsFavorite()) {
                     holder.imgFavorite.setImageResource(R.drawable.ic_unfavorite);
-                    mArraylists.get(position).setIsFavorite(false);
-                    callFavorite.OnClickFavorite(position,false);
+                    mNotifications.get(position).setIsFavorite(false);
+                    callFavorite.OnClickFavorite(position, false);
                 } else {
                     holder.imgFavorite.setImageResource(R.drawable.ic_favorite);
-                    mArraylists.get(position).setIsFavorite(true);
+                    mNotifications.get(position).setIsFavorite(true);
                     callFavorite.OnClickFavorite(position, true);
                 }
             }
@@ -91,19 +91,25 @@ public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.ViewHo
 
     @Override
     public int getItemCount() {
-        return mArraylists.size();
+        return mNotifications.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder{
+    public class ViewHolder extends RecyclerView.ViewHolder {
 
         com.asiantech.membersmanager.utils.CircleImageView imgAvata;
-        ImageView imgHot, imgFavorite, imgDelete;
-        TextView tvSender, tvTittle, tvContent, tvTime;
+        ImageView imgHot;
+        ImageView imgFavorite;
+        ImageView imgDelete;
+        TextView tvContent;
+        TextView tvTime;
+        TextView tvSender;
+        TextView tvTittle;
         RelativeLayout rlTittle;
 
         public ViewHolder(View itemView) {
             super(itemView);
-            imgAvata = (com.asiantech.membersmanager.utils.CircleImageView) itemView.findViewById(R.id.imgAvata);
+            imgAvata = (com.asiantech.membersmanager.utils.CircleImageView)
+                    itemView.findViewById(R.id.imgAvata);
             tvSender = (TextView) itemView.findViewById(R.id.tvSender);
             tvTittle = (TextView) itemView.findViewById(R.id.tvTittle);
             tvContent = (TextView) itemView.findViewById(R.id.tvContent);
