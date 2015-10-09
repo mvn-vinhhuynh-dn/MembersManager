@@ -60,7 +60,7 @@ public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.ViewHo
             holder.rlTittle.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    callDetail.OnCallDetails(mArraylists.get(position));
+                    callDetail.OnCallDetails(mArraylists,position);
                 }
             });
     }
