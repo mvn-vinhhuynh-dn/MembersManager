@@ -89,7 +89,6 @@
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical"
                 android:orientation="vertical"
-                android:paddingEnd="@dimen/linearlayout.padding.10dp"
                 android:paddingLeft="@dimen/linearlayout.padding.10dp"
                 android:paddingStart="@dimen/linearlayout.padding.10dp">
 

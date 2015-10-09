@@ -53,12 +53,15 @@ public class DialogRegisterFragment extends DialogFragment {
     void initDialogRegister() {
         if (getDialog() != null) {
             getDialog().requestWindowFeature(Window.FEATURE_NO_TITLE);
-            getDialog().getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+            getDialog().getWindow()
+                    .setBackgroundDrawableResource(android.R.color.transparent);
             getDialog().setCanceledOnTouchOutside(false);
-            getDialog().getWindow().getAttributes().windowAnimations = R.style.DialogShowAnimation;
+            getDialog().getWindow()
+                    .getAttributes().windowAnimations = R.style.DialogShowAnimation;
 
         }
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity(), R.layout.item_spinner, mArrayTeams);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity(),
+                R.layout.item_spinner, mArrayTeams);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         mSpnTeamGroupSignUp.setAdapter(adapter);
     }

@@ -19,13 +19,15 @@ import java.util.ArrayList;
  * Copyright © 2015 AsianTech inc.
  * Created by VinhHlb on 10/7/15.
  */
-public class ReasonDayOffAdapter extends RecyclerView.Adapter<ReasonDayOffAdapter.MyViewHolder> {
+public class ReasonDayOffAdapter extends RecyclerView
+        .Adapter<ReasonDayOffAdapter.MyViewHolder> {
     private LayoutInflater mInflater;
     private ArrayList<Reason> mReasons = new ArrayList<>();
     private Context mContext;
     private OnChooseReason mListener;
 
-    public ReasonDayOffAdapter(Context context, ArrayList<Reason> reasons, OnChooseReason onChooseReason) {
+    public ReasonDayOffAdapter(Context context, ArrayList<Reason> reasons
+            , OnChooseReason onChooseReason) {
         mContext = context;
         mInflater = LayoutInflater.from(context);
         mReasons = reasons;

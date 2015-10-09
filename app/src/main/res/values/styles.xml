@@ -22,7 +22,7 @@
         <item name="android:background">@drawable/selector_btn_login</item>
         <item name="android:textAllCaps" tools:targetApi="ice_cream_sandwich">false</item>
         <item name="android:textColor">@android:color/white</item>
-        <item name="android:textSize">@dimen/button.textsize.18sp</item>
+        <item name="android:textSize">@dimen/button.textsize.16sp</item>
     </style>
 
     <style name="linearlayout_contains_edittext_2">
