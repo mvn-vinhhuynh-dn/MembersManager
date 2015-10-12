@@ -10,9 +10,9 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.asiantech.membersmanager.R;
+import com.asiantech.membersmanager.interfaces.CallDetail;
+import com.asiantech.membersmanager.interfaces.CallFavorite;
 import com.asiantech.membersmanager.models.Notification;
-import com.asiantech.membersmanager.utils.CallDetail;
-import com.asiantech.membersmanager.utils.CallFavorite;
 
 import java.util.ArrayList;
 
@@ -96,14 +96,14 @@ public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.ViewHo
 
     public class ViewHolder extends RecyclerView.ViewHolder{
 
-        com.asiantech.membersmanager.utils.CircleImageView imgAvata;
+        com.asiantech.membersmanager.views.CircleImageView imgAvata;
         ImageView imgHot, imgFavorite, imgDelete;
         TextView tvSender, tvTittle, tvContent, tvTime;
         RelativeLayout rlTittle;
 
         public ViewHolder(View itemView) {
             super(itemView);
-            imgAvata = (com.asiantech.membersmanager.utils.CircleImageView) itemView.findViewById(R.id.imgAvata);
+            imgAvata = (com.asiantech.membersmanager.views.CircleImageView) itemView.findViewById(R.id.imgAvata);
             tvSender = (TextView) itemView.findViewById(R.id.tvSender);
             tvTittle = (TextView) itemView.findViewById(R.id.tvTittle);
             tvContent = (TextView) itemView.findViewById(R.id.tvContent);

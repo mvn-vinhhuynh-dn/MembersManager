@@ -8,9 +8,10 @@ import android.support.v7.widget.RecyclerView;
 import com.asiantech.membersmanager.R;
 import com.asiantech.membersmanager.abstracts.BaseFragment;
 import com.asiantech.membersmanager.adapter.HomeAdapter;
+import com.asiantech.membersmanager.interfaces.CallDetail;
 import com.asiantech.membersmanager.models.Notification;
-import com.asiantech.membersmanager.utils.CallDetail;
 import com.asiantech.membersmanager.utils.DividerItemDecoration;
+import com.asiantech.membersmanager.utils.StickyHeaderDecoration;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.EFragment;
@@ -30,19 +31,24 @@ public class HomeFragment extends BaseFragment implements CallDetail {
     SwipeRefreshLayout swipeRefreshLayout;
 
     private ArrayList<Notification> mArraylists;
+    private ArrayList<Notification> mArraylistsHeader;
     private HomeAdapter mAdapter;
+    private StickyHeaderDecoration mDecor;
 
     public HomeFragment() {
         mArraylists = new ArrayList<>();
+        mArraylistsHeader = new ArrayList<>();
         fakedata();
     }
 
     @AfterViews
     void afterView() {
-        mAdapter = new HomeAdapter(getActivity(), mArraylists, this);
+        mAdapter = new HomeAdapter(getActivity(), mArraylists, mArraylistsHeader, this);
+        mDecor = new StickyHeaderDecoration(mAdapter);
         mRecycleHome.setLayoutManager(new LinearLayoutManager(getActivity().getBaseContext()));
         mRecycleHome.addItemDecoration(new DividerItemDecoration(getResources().getDrawable(R.drawable.divider)));
         mRecycleHome.setAdapter(mAdapter);
+        mRecycleHome.addItemDecoration(mDecor,1);
 
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
@@ -101,7 +107,7 @@ public class HomeFragment extends BaseFragment implements CallDetail {
         notification1.setMSender("Le Thai Son");
         notification1.setMTittle("Thong bao hop khan cap");
         notification1.setMTime("14:32 PM, 06/10");
-        mArraylists.add(notification1);
+        mArraylistsHeader.add(notification1);
 
         Notification notification2 = new Notification();
         notification2.setIsFavorite(false);
