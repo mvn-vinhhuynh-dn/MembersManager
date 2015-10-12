@@ -6,12 +6,13 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
+import com.asiantech.membersmanager.MainActivity;
 import com.asiantech.membersmanager.R;
 import com.asiantech.membersmanager.abstracts.BaseFragment;
 import com.asiantech.membersmanager.adapter.FavoriteAdapter;
-import com.asiantech.membersmanager.models.Notification;
 import com.asiantech.membersmanager.interfaces.CallDetail;
 import com.asiantech.membersmanager.interfaces.CallFavorite;
+import com.asiantech.membersmanager.models.Notification;
 import com.asiantech.membersmanager.utils.DividerItemDecoration;
 
 import org.androidannotations.annotations.AfterViews;
@@ -25,7 +26,7 @@ import java.util.ArrayList;
  * Created by VinhHlb on 10/5/15.
  */
 @EFragment(R.layout.fragment_favorite)
-public class FavoriteFragment extends BaseFragment implements CallDetail,CallFavorite{
+public class FavoriteFragment extends BaseFragment implements CallDetail, CallFavorite {
     @ViewById(R.id.recyclerFavorite)
     RecyclerView recyclerFavorite;
     @ViewById(R.id.swipeRefreshLayoutFavorite)
@@ -43,8 +44,8 @@ public class FavoriteFragment extends BaseFragment implements CallDetail,CallFav
 
     @AfterViews
     void afterView() {
-        for (int i=0; i<mArraylists.size();i++){
-            if (mArraylists.get(i).getIsFavorite()){
+        for (int i = 0; i < mArraylists.size(); i++) {
+            if (mArraylists.get(i).getIsFavorite()) {
                 mArraylistsTam.add(mArraylists.get(i));
             }
         }
@@ -189,8 +190,10 @@ public class FavoriteFragment extends BaseFragment implements CallDetail,CallFav
     @Override
     public void onResume() {
         super.onResume();
-        if (mOnBaseFragmentListener != null)
+        if (mOnBaseFragmentListener != null) {
             mOnBaseFragmentListener.setTitleHeader(getString(R.string.title_favorite));
+            mOnBaseFragmentListener.setTypeHeader(MainActivity.TYPE_HOME);
+        }
     }
 
     @Override

@@ -1,20 +1,17 @@
 package com.asiantech.membersmanager.fragment;
 
 import android.support.v4.view.ViewPager;
-import android.support.v7.widget.Toolbar;
-import android.util.Log;
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
 
+import com.asiantech.membersmanager.MainActivity;
 import com.asiantech.membersmanager.R;
 import com.asiantech.membersmanager.abstracts.BaseFragment;
 import com.asiantech.membersmanager.adapter.ViewPagerDetailsAdapter;
 import com.asiantech.membersmanager.models.Notification;
 
+import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.EFragment;
-import org.androidannotations.annotations.*;
+import org.androidannotations.annotations.FragmentArg;
+import org.androidannotations.annotations.ViewById;
 
 import java.util.ArrayList;
 
@@ -35,8 +32,8 @@ public class NotificationDetailFragment extends BaseFragment {
     int mPosition;
 
     @AfterViews
-    void afterViews(){
-        mViewpagerDetailsAdapter = new ViewPagerDetailsAdapter(mNotifications,getActivity());
+    void afterViews() {
+        mViewpagerDetailsAdapter = new ViewPagerDetailsAdapter(mNotifications, getActivity());
         viewpagerDetails.setAdapter(mViewpagerDetailsAdapter);
         viewpagerDetails.setCurrentItem(mPosition);
     }
@@ -44,7 +41,9 @@ public class NotificationDetailFragment extends BaseFragment {
     @Override
     public void onResume() {
         super.onResume();
-        if (mOnBaseFragmentListener != null)
+        if (mOnBaseFragmentListener != null) {
             mOnBaseFragmentListener.setTitleHeader(mNotifications.get(mPosition).getMTittle());
-  }
+            mOnBaseFragmentListener.setTypeHeader(MainActivity.TYPE_HOME);
+        }
+    }
 }
