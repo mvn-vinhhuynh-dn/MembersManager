@@ -17,10 +17,9 @@ import com.asiantech.membersmanager.models.Notification;
 import java.util.ArrayList;
 
 /**
- *
  * Created by xuanphu on 06/10/2015.
  */
-public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> implements StickyHeaderAdapter<HomeAdapter.HeaderHolder>{
+public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> implements StickyHeaderAdapter<HomeAdapter.HeaderHolder> {
     private Context mContext;
     private ArrayList<Notification> mArraylists;
     private ArrayList<Notification> mArraylistsHeader;
@@ -132,7 +131,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> im
         }
     }
 
-    //header ------
+    // header
     @Override
     public long getHeaderId(int position) {
         return 1;
@@ -146,10 +145,12 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> im
 
     @Override
     public void onBindHeaderViewHolder(HeaderHolder viewholder, int position) {
-        viewholder.imgAvataHeader.setImageResource(mArraylistsHeader.get(position).getMAvata());
-        viewholder.tvSenderHeader.setText(mArraylistsHeader.get(position).getMSender());
-        viewholder.tvTittleHeader.setText(mArraylistsHeader.get(position).getMTittle());
-        viewholder.tvContentHeader.setText(mArraylistsHeader.get(position).getMContent());
-        viewholder.tvTimeHeader.setText(mArraylistsHeader.get(position).getMTime());
+        if (position < mArraylistsHeader.size()) {
+            viewholder.imgAvataHeader.setImageResource(mArraylistsHeader.get(position).getMAvata());
+            viewholder.tvSenderHeader.setText(mArraylistsHeader.get(position).getMSender());
+            viewholder.tvTittleHeader.setText(mArraylistsHeader.get(position).getMTittle());
+            viewholder.tvContentHeader.setText(mArraylistsHeader.get(position).getMContent());
+            viewholder.tvTimeHeader.setText(mArraylistsHeader.get(position).getMTime());
+        }
     }
 }

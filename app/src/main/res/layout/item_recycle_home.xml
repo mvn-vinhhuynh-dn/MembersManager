@@ -3,7 +3,7 @@
     xmlns:swipe="http://schemas.android.com/apk/res-auto"
     android:id="@+id/swipe"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="@dimen/relativelayout.height.71dp"
     android:layout_marginBottom="@dimen/relativelayout.magin.bottom.top"
     android:layout_marginRight="@dimen/relativelayout.magin.left.right"
     android:layout_marginTop="@dimen/relativelayout.magin.bottom.top"

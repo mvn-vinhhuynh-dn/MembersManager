@@ -4,7 +4,6 @@
     android:id="@+id/swipeHeader"
     android:layout_width="match_parent"
     android:layout_height="@dimen/relativelayout.height.71dp"
-    android:layout_marginTop="@dimen/relativelayout.magin.bottom.top"
     android:background="@color/color.white"
     swipe:leftEdgeSwipeOffset="0dp"
     swipe:rightEdgeSwipeOffset="0dp">
