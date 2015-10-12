@@ -11,22 +11,22 @@ import android.widget.TextView;
 
 import com.asiantech.membersmanager.R;
 import com.asiantech.membersmanager.models.Notification;
-import com.asiantech.membersmanager.interfaces.CallDetail;
-import com.asiantech.membersmanager.views.CircleImageView;
+import com.asiantech.membersmanager.utils.CallDetail;
 
 import java.util.ArrayList;
 
 /**
+ *
  * Created by xuanphu on 06/10/2015.
  */
 public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
     private Context mContext;
-    private ArrayList<Notification> mNotifications;
+    private ArrayList<Notification> mArraylists;
     private CallDetail callDetail;
 
-    public HomeAdapter(Context mContext, ArrayList<Notification> notifications, CallDetail callDetail) {
+    public HomeAdapter(Context mContext, ArrayList<Notification> mArraylists, CallDetail callDetail) {
         this.mContext = mContext;
-        this.mNotifications = notifications;
+        this.mArraylists = mArraylists;
         this.callDetail = callDetail;
     }
 
@@ -41,13 +41,13 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(ViewHolder holder, final int position) {
-        holder.imgAvata.setImageResource(mNotifications.get(position).getMAvata());
-        holder.tvSender.setText(mNotifications.get(position).getMSender());
-        holder.tvTittle.setText(mNotifications.get(position).getMTittle());
-        holder.tvContent.setText(mNotifications.get(position).getMContent());
-        holder.tvTime.setText(mNotifications.get(position).getMTime());
+        holder.imgAvata.setImageResource(mArraylists.get(position).getMAvata());
+        holder.tvSender.setText(mArraylists.get(position).getMSender());
+        holder.tvTittle.setText(mArraylists.get(position).getMTittle());
+        holder.tvContent.setText(mArraylists.get(position).getMContent());
+        holder.tvTime.setText(mArraylists.get(position).getMTime());
 
-        if (mNotifications.get(position).getIsHot()) {
+        if (mArraylists.get(position).getIsHot()) {
             holder.imgHot.setVisibility(View.VISIBLE);
         } else {
             holder.imgHot.setVisibility(View.INVISIBLE);
@@ -58,14 +58,14 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
         holder.rlTittle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                callDetail.OnCallDetails(mNotifications.get(position));
+                callDetail.OnCallDetails(mArraylists, position);
             }
         });
 
     }
 
     private void checkFavorite(final ViewHolder holder, final int position) {
-        if (mNotifications.get(position).getIsFavorite()) {
+        if (mArraylists.get(position).getIsFavorite()) {
             holder.imgFavorite.setImageResource(R.drawable.ic_favorite);
         } else {
             holder.imgFavorite.setImageResource(R.drawable.ic_unfavorite);
@@ -74,12 +74,12 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
         holder.imgFavorite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (mNotifications.get(position).getIsFavorite()) {
+                if (mArraylists.get(position).getIsFavorite()) {
                     holder.imgFavorite.setImageResource(R.drawable.ic_unfavorite);
-                    mNotifications.get(position).setIsFavorite(false);
+                    mArraylists.get(position).setIsFavorite(false);
                 } else {
                     holder.imgFavorite.setImageResource(R.drawable.ic_favorite);
-                    mNotifications.get(position).setIsFavorite(true);
+                    mArraylists.get(position).setIsFavorite(true);
                 }
             }
         });
@@ -87,23 +87,18 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
 
     @Override
     public int getItemCount() {
-        return mNotifications.size();
+        return mArraylists.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        CircleImageView imgAvata;
-        ImageView imgHot;
-        ImageView imgDelete;
-        ImageView imgFavorite;
-        TextView tvSender;
-        TextView tvTittle;
-        TextView tvContent;
-        TextView tvTime;
+        com.asiantech.membersmanager.utils.CircleImageView imgAvata;
+        ImageView imgHot, imgFavorite, imgDelete;
+        TextView tvSender, tvTittle, tvContent, tvTime;
         RelativeLayout rlTittle;
 
         public ViewHolder(View itemView) {
             super(itemView);
-            imgAvata = (CircleImageView) itemView.findViewById(R.id.imgAvata);
+            imgAvata = (com.asiantech.membersmanager.utils.CircleImageView) itemView.findViewById(R.id.imgAvata);
             tvSender = (TextView) itemView.findViewById(R.id.tvSender);
             tvTittle = (TextView) itemView.findViewById(R.id.tvTittle);
             tvContent = (TextView) itemView.findViewById(R.id.tvContent);

@@ -194,9 +194,10 @@ public class FavoriteFragment extends BaseFragment implements CallDetail,CallFav
     }
 
     @Override
-    public void OnCallDetails(Notification notification) {
+    public void OnCallDetails(ArrayList<Notification> arrayList, int position) {
         NotificationDetailFragment notificationDetailFragment = NotificationDetailFragment_.builder()
-                .notification(notification)
+                .mNotifications(arrayList)
+                .mPosition(position)
                 .build();
         replaceFragment(notificationDetailFragment, false);
     }
