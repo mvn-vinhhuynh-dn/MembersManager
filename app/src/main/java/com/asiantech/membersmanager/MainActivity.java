@@ -1,16 +1,20 @@
 package com.asiantech.membersmanager;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.asiantech.membersmanager.abstracts.BaseFragment;
+import com.asiantech.membersmanager.dialog.DialogChooseImage;
 import com.asiantech.membersmanager.fragment.DrawerFragment;
 import com.asiantech.membersmanager.fragment.DrawerFragment_;
 import com.asiantech.membersmanager.fragment.FavoriteFragment_;
@@ -53,12 +57,10 @@ public class MainActivity extends AppCompatActivity implements DrawerFragment
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(false);
             getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_profile);
-
         }
         initView();
         initListener();
         setDefaultFragment();
-
     }
 
     private void setDefaultFragment() {
@@ -222,4 +224,12 @@ public class MainActivity extends AppCompatActivity implements DrawerFragment
         }
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == DialogChooseImage.CAMERA_REQUEST && resultCode == RESULT_OK) {
+            Uri path = data.getData();
+            Log.d("vinhhlb", "path is " + path);
+        }
+    }
 }

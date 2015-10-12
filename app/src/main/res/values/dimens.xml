@@ -71,6 +71,7 @@
     <dimen name="drawerfragment.tv.marginLeft">10dp</dimen>
     <dimen name="drawerfragment.tv.margin">10dp</dimen>
     <dimen name="ln.padding10">10dp</dimen>
+    <dimen name="ln.padding8">8dp</dimen>
     <dimen name="drawerfragment.recycle.paddingLeft">5dp</dimen>
     <dimen name="itemdraw.width">32dp</dimen>
     <dimen name="itemdraw.height">32dp</dimen>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/transparent"
+    android:orientation="vertical"
+    android:padding="@dimen/ln.padding8">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/dr_layout_corner_white_gray_color"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/txt_btn_take_photo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="@dimen/ln.padding10"
+            android:text="@string/take_photo"
+            android:textColor="@color/dialog_choose_image_tv_bg"
+            android:textSize="@dimen/textsize.16sp"
+            android:textStyle="normal" />
+
+        <View style="@style/view_line" />
+
+        <TextView
+            android:id="@+id/txt_btn_choose_photo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="@dimen/ln.padding10"
+            android:text="@string/choose_photo"
+            android:textColor="@color/dialog_choose_image_tv_bg"
+            android:textSize="@dimen/textsize.16sp"
+            android:textStyle="normal" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/linearlayout.marginbottom.10dp"
+        android:layout_marginTop="@dimen/textview.margintop.15dp"
+        android:background="@drawable/dr_layout_corner_white_gray_color"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/txt_btn_cancel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="@dimen/ln.padding10"
+            android:text="@string/cancel"
+            android:textColor="@color/dialog_choose_image_tv_bg"
+            android:textSize="@dimen/textsize.16sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+</LinearLayout>

@@ -191,7 +191,7 @@ public class LoginActivity extends AppCompatActivity {
         DialogRegisterFragment dialogRegister = new DialogRegisterFragment_();
         FragmentManager fmRegister = getSupportFragmentManager();
         FragmentTransaction ftRegister = fmRegister.beginTransaction();
-        dialogRegister.show(ftRegister, "Register Fragment");
+        dialogRegister.show(ftRegister, "Register Dialog");
     }
 
     @Click(R.id.btnForgot)
@@ -199,7 +199,7 @@ public class LoginActivity extends AppCompatActivity {
         DialogForgotFragment dialogRegister = new DialogForgotFragment_();
         FragmentManager fmForgot = getSupportFragmentManager();
         FragmentTransaction ftForgot = fmForgot.beginTransaction();
-        dialogRegister.show(ftForgot, "Forgot Fragment");
+        dialogRegister.show(ftForgot, "Forgot Dialog");
     }
 
     // Init handler message
