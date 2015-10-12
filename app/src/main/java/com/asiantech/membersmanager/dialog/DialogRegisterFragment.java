@@ -1,10 +1,12 @@
 package com.asiantech.membersmanager.dialog;
 
 import android.support.v4.app.DialogFragment;
+import android.view.View;
 import android.view.Window;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.Spinner;
 
@@ -14,6 +16,7 @@ import com.asiantech.membersmanager.utils.Validation;
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EFragment;
+import org.androidannotations.annotations.FocusChange;
 import org.androidannotations.annotations.ViewById;
 import org.androidannotations.annotations.res.StringArrayRes;
 
@@ -48,6 +51,18 @@ public class DialogRegisterFragment extends DialogFragment {
 
     @ViewById(R.id.btnRegister)
     Button mBtnRegister;
+
+    @ViewById(R.id.llUserNameSignUp)
+    LinearLayout mlnUserNameSignUp;
+
+    @ViewById(R.id.llConfirmPasswordSignUp)
+    LinearLayout mlnConfirmPassSignUp;
+
+    @ViewById(R.id.llEmailSignUp)
+    LinearLayout mlnEmailSignUp;
+
+    @ViewById(R.id.llPasswordSignUp)
+    LinearLayout mlnPassWordSignUp;
 
     @AfterViews
     void initDialogRegister() {
@@ -91,6 +106,50 @@ public class DialogRegisterFragment extends DialogFragment {
     void closeDialog() {
         if (getActivity() != null && getDialog().isShowing()) {
             this.dismiss();
+        }
+    }
+
+    @FocusChange({R.id.etEmailSignUp})
+    void focusChangedEdtEmail(View hello, boolean hasFocus) {
+        if (hasFocus) {
+            mlnEmailSignUp.setBackgroundDrawable(getResources()
+                    .getDrawable(R.drawable.bg_edit_text_register_focus));
+        } else {
+            mlnEmailSignUp.setBackground(getResources()
+                    .getDrawable(R.drawable.bg_edit_text_normal));
+        }
+    }
+
+    @FocusChange({R.id.etUserNameSignUp})
+    void focusChangedEdtUsername(View hello, boolean hasFocus) {
+        if (hasFocus) {
+            mlnUserNameSignUp.setBackgroundDrawable(getResources()
+                    .getDrawable(R.drawable.bg_edit_text_register_focus));
+        } else {
+            mlnUserNameSignUp.setBackground(getResources()
+                    .getDrawable(R.drawable.bg_edit_text_normal));
+        }
+    }
+
+    @FocusChange({R.id.etPasswordSignUp})
+    void focusChangedEdtPassWord(View hello, boolean hasFocus) {
+        if (hasFocus) {
+            mlnPassWordSignUp.setBackgroundDrawable(getResources()
+                    .getDrawable(R.drawable.bg_edit_text_register_focus));
+        } else {
+            mlnPassWordSignUp.setBackground(getResources()
+                    .getDrawable(R.drawable.bg_edit_text_normal));
+        }
+    }
+
+    @FocusChange({R.id.etConfirmPasswordSignUp})
+    void focusChangedEdtConfirmPass(View hello, boolean hasFocus) {
+        if (hasFocus) {
+            mlnConfirmPassSignUp.setBackgroundDrawable(getResources()
+                    .getDrawable(R.drawable.bg_edit_text_register_focus));
+        } else {
+            mlnConfirmPassSignUp.setBackground(getResources()
+                    .getDrawable(R.drawable.bg_edit_text_normal));
         }
     }
 }
