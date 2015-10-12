@@ -6,7 +6,6 @@
     android:layout_height="wrap_content"
     android:layout_marginBottom="@dimen/relativelayout.magin.bottom.top"
     android:layout_marginRight="@dimen/relativelayout.magin.left.right"
-    android:layout_marginTop="@dimen/relativelayout.magin.bottom.top"
     android:background="@color/color.white"
     android:paddingLeft="@dimen/ln.padding10"
     swipe:leftEdgeSwipeOffset="0dp"

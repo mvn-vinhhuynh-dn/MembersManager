@@ -36,7 +36,6 @@ public class HomeFragment extends BaseFragment implements CallDetail {
     private ArrayList<Notification> mArraylists;
     private ArrayList<Notification> mArraylistsHeader;
     private HomeAdapter mAdapter;
-   // private StickyHeaderDecoration mDecor;
 
     public HomeFragment() {
         mArraylists = new ArrayList<>();
@@ -83,7 +82,7 @@ public class HomeFragment extends BaseFragment implements CallDetail {
                         notification.setIsFavorite(true);
                         notification.setIsHot(false);
                         notification.setMAvata(R.drawable.p1);
-                        notification.setMContent("Thong basdsd fsdsdfffgdfgdfgdf");
+                        notification.setMContent("Thong bao");
                         notification.setMSender("Le Thai Son");
                         notification.setMTittle("Thong bao hop khan cap");
                         notification.setMTime("14:32 PM, 06/10");
@@ -126,17 +125,25 @@ public class HomeFragment extends BaseFragment implements CallDetail {
         notification1.setIsFavorite(true);
         notification1.setIsHot(true);
         notification1.setMAvata(R.drawable.p1);
-        notification1.setMContent("Thong basdsd fsdsdf");
+        notification1.setMContent("Đã có lúc anh mong tim mình bé lại\n" +
+                "Để nỗi nhớ em không thể nào thêm nữa\\n\" +\n" +
+                "Đã có lúc anh mong ngừng thời gian trôi\\n\" +\n" +
+                "Để những dấu yêu sẽ không phai mờ\\n\"");
         notification1.setMSender("Le Thai Son");
         notification1.setMTittle("Thong bao hop khan cap");
         notification1.setMTime("14:32 PM, 06/10");
+        mArraylistsHeader.add(notification1);
+        mArraylistsHeader.add(notification1);
         mArraylistsHeader.add(notification1);
 
         Notification notification2 = new Notification();
         notification2.setIsFavorite(false);
         notification2.setIsHot(false);
         notification2.setMAvata(R.drawable.p2);
-        notification2.setMContent("Thong basdsd fsdsdf");
+        notification2.setMContent("Đã có lúc anh mong tim mình bé lại\n" +
+                "Để nỗi nhớ em không thể nào thêm nữa\\n\" +\n" +
+                "Đã có lúc anh mong ngừng thời gian trôi\\n\" +\n" +
+                "Để những dấu yêu sẽ không phai mờ\\n\"");
         notification2.setMSender("Le Thai Son");
         notification2.setMTittle("Thong bao hop khan cap");
         notification2.setMTime("14:32 PM, 06/10");
@@ -190,7 +197,10 @@ public class HomeFragment extends BaseFragment implements CallDetail {
         notification4.setIsFavorite(false);
         notification4.setIsHot(false);
         notification4.setMAvata(R.drawable.p4);
-        notification4.setMContent("Thong basdsd fsdsdfffgdfgdfgdf ");
+        notification4.setMContent("Đã có lúc anh mong tim mình bé lại\n" +
+                "Để nỗi nhớ em không thể nào thêm nữa\\n\" +\n" +
+                "Đã có lúc anh mong ngừng thời gian trôi\\n\" +\n" +
+                "Để những dấu yêu sẽ không phai mờ\\n\"");
         notification4.setMSender("Le Thai Son");
         notification4.setMTittle("Thong bao hop khan cap");
         notification4.setMTime("14:32 PM, 06/10");
@@ -200,7 +210,10 @@ public class HomeFragment extends BaseFragment implements CallDetail {
         notification5.setIsFavorite(true);
         notification5.setIsHot(false);
         notification5.setMAvata(R.drawable.p2);
-        notification5.setMContent("Thong basdsd ");
+        notification5.setMContent("Đã có lúc anh mong tim mình bé lại\n" +
+                "Để nỗi nhớ em không thể nào thêm nữa\\n\" +\n" +
+                "Đã có lúc anh mong ngừng thời gian trôi\\n\" +\n" +
+                "Để những dấu yêu sẽ không phai mờ\\n\"");
         notification5.setMSender("Le Thai Son");
         notification5.setMTittle("Thong bao hop khan cap");
         notification5.setMTime("14:32 PM, 06/10");
@@ -210,7 +223,10 @@ public class HomeFragment extends BaseFragment implements CallDetail {
         notification6.setIsFavorite(true);
         notification6.setIsHot(false);
         notification6.setMAvata(R.drawable.p3);
-        notification6.setMContent("Thong basdsd fsdsdfffgdfgdfgdf");
+        notification6.setMContent("Đã có lúc anh mong tim mình bé lại\n" +
+                "Để nỗi nhớ em không thể nào thêm nữa\\n\" +\n" +
+                "Đã có lúc anh mong ngừng thời gian trôi\\n\" +\n" +
+                "Để những dấu yêu sẽ không phai mờ\\n\"");
         notification6.setMSender("Le Thai Son");
         notification6.setMTittle("Thong bao hop khan cap");
         notification6.setMTime("14:32 PM, 06/10");
@@ -220,7 +236,10 @@ public class HomeFragment extends BaseFragment implements CallDetail {
         notification7.setIsFavorite(true);
         notification7.setIsHot(false);
         notification7.setMAvata(R.drawable.p1);
-        notification7.setMContent("Thong basdsd fsdsdfffgdfgdfgdf");
+        notification7.setMContent("Đã có lúc anh mong tim mình bé lại\n" +
+                "Để nỗi nhớ em không thể nào thêm nữa\\n\" +\n" +
+                "Đã có lúc anh mong ngừng thời gian trôi\\n\" +\n" +
+                "Để những dấu yêu sẽ không phai mờ\\n\"");
         notification7.setMSender("Le Thai Son");
         notification7.setMTittle("Thong bao hop khan cap");
         notification7.setMTime("14:32 PM, 06/10");
@@ -230,7 +249,10 @@ public class HomeFragment extends BaseFragment implements CallDetail {
         notification8.setIsFavorite(true);
         notification8.setIsHot(false);
         notification8.setMAvata(R.drawable.p1);
-        notification8.setMContent("Thong basdsd fsdsdfffgdfgdfgdf");
+        notification8.setMContent("Đã có lúc anh mong tim mình bé lại\n" +
+                "Để nỗi nhớ em không thể nào thêm nữa\\n\" +\n" +
+                "Đã có lúc anh mong ngừng thời gian trôi\\n\" +\n" +
+                "Để những dấu yêu sẽ không phai mờ\\n\"");
         notification8.setMSender("Le Thai Son");
         notification8.setMTittle("Thong bao hop khan cap");
         notification8.setMTime("14:32 PM, 06/10");

@@ -100,11 +100,13 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> im
 
     @Override
     public void onBindHeaderViewHolder(HeaderHolder holder, int position) {
+        if (position < mArraylistsHeader.size()){
         holder.imgAvataHeader.setImageResource(mArraylistsHeader.get(position).getMAvata());
         holder.tvSenderHeader.setText(mArraylistsHeader.get(position).getMSender());
         holder.tvTittleHeader.setText(mArraylistsHeader.get(position).getMTittle());
         holder.tvContentHeader.setText(mArraylistsHeader.get(position).getMContent());
         holder.tvTimeHeader.setText(mArraylistsHeader.get(position).getMTime());
+        }
     }
 // item ==-------
     @Override
@@ -146,30 +148,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> im
             tvContentHeader = (TextView) itemView.findViewById(R.id.tvContentHeader);
             tvTimeHeader = (TextView) itemView.findViewById(R.id.tvTimeHeader);
             imgHotHeader = (ImageView) itemView.findViewById(R.id.imgHotHeader);
-            imgFavoriteHeader = (ImageView) itemView.findViewById(R.id.imgFavoriteHeader);
-            imgDeleteHeader = (ImageView) itemView.findViewById(R.id.imgDeleteHeader);
             rlTittleHeader = (RelativeLayout) itemView.findViewById(R.id.rlTopHeader);
         }
     }
-
-//    //header ------
-//    @Override
-//    public long getHeaderId(int position) {
-//        return 1;
-//    }
-//
-//    @Override
-//    public HeaderHolder onCreateHeaderViewHolder(ViewGroup parent) {
-//        final View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_header_fragment_home, parent, false);
-//        return new HeaderHolder(view);
-//    }
-//
-//    @Override
-//    public void onBindHeaderViewHolder(HeaderHolder viewholder, int position) {
-//        viewholder.imgAvataHeader.setImageResource(mArraylistsHeader.get(position).getMAvata());
-//        viewholder.tvSenderHeader.setText(mArraylistsHeader.get(position).getMSender());
-//        viewholder.tvTittleHeader.setText(mArraylistsHeader.get(position).getMTittle());
-//        viewholder.tvContentHeader.setText(mArraylistsHeader.get(position).getMContent());
-//        viewholder.tvTimeHeader.setText(mArraylistsHeader.get(position).getMTime());
-//    }
 }

@@ -1,46 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.daimajia.swipe.SwipeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:swipe="http://schemas.android.com/apk/res-auto"
     android:id="@+id/swipeHeader"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/relativelayout.height.71dp"
-    android:layout_marginTop="@dimen/relativelayout.magin.bottom.top"
+    android:layout_height="@dimen/relativelayout.height.81dp"
     android:background="@color/color.white"
     swipe:leftEdgeSwipeOffset="0dp"
     swipe:rightEdgeSwipeOffset="0dp">
 
-    <!--Bottom View For Right to Left-->
-    <LinearLayout
-        android:id="@+id/linerlayoutRightHeader"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:weightSum="2">
-
-        <ImageView
-            android:id="@+id/imgFavoriteHeader"
-            android:layout_width="@dimen/img.delete.width.height"
-            android:layout_height="@dimen/img.delete.width.height"
-            android:layout_weight="1"
-            android:src="@drawable/ic_unfavorite" />
-
-        <ImageView
-            android:id="@+id/imgDeleteHeader"
-            android:layout_width="@dimen/img.delete.width.height"
-            android:layout_height="@dimen/img.delete.width.height"
-            android:layout_weight="1"
-            android:src="@drawable/ic_delete" />
-    </LinearLayout>
-
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_alignParentBottom="true"
-            android:background="#ccc" />
 
         <com.asiantech.membersmanager.views.CircleImageView
             android:id="@+id/imgAvataHeader"
@@ -116,5 +86,22 @@
                     android:textStyle="italic" />
             </LinearLayout>
         </LinearLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Còn 2 tin ..."
+            android:layout_above="@+id/viewLine"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/textview.maginright"
+            android:textSize="@dimen/textview.time.size"
+            android:textStyle="italic"
+            android:textColor="@color/color.blue"
+            />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_alignParentBottom="true"
+            android:background="#ccc"
+            android:id="@+id/viewLine"/>
     </RelativeLayout>
-</com.daimajia.swipe.SwipeLayout>
+</RelativeLayout>
