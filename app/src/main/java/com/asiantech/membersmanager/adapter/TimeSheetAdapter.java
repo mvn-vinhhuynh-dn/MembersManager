@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.asiantech.membersmanager.R;
 import com.asiantech.membersmanager.models.Notification;
+import com.asiantech.membersmanager.views.CircleImageView;
 
 import java.util.ArrayList;
 
@@ -18,7 +19,8 @@ import java.util.ArrayList;
  * Copyright © 2015 AsianTech inc.
  * Created by VinhHlb on 10/8/15.
  */
-public class TimeSheetAdapter extends RecyclerView.Adapter<TimeSheetAdapter.ViewHolder> {
+public class TimeSheetAdapter extends RecyclerView
+        .Adapter<TimeSheetAdapter.ViewHolder> {
     private ArrayList<Notification> mDatas = new ArrayList<>();
     private Context mContext;
 
@@ -64,14 +66,14 @@ public class TimeSheetAdapter extends RecyclerView.Adapter<TimeSheetAdapter.View
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        com.asiantech.membersmanager.utils.CircleImageView imgAvata;
+        CircleImageView imgAvata;
         ImageView imgHot, imgFavorite, imgDelete;
         TextView tvSender, tvTittle, tvContent, tvTime;
         RelativeLayout rlTittle;
 
         public ViewHolder(View itemView) {
             super(itemView);
-            imgAvata = (com.asiantech.membersmanager.utils.CircleImageView) itemView.findViewById(R.id.imgAvata);
+            imgAvata = (CircleImageView) itemView.findViewById(R.id.imgAvata);
             tvSender = (TextView) itemView.findViewById(R.id.tvSender);
             tvTittle = (TextView) itemView.findViewById(R.id.tvTittle);
             tvContent = (TextView) itemView.findViewById(R.id.tvContent);

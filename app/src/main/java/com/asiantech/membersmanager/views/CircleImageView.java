@@ -1,4 +1,4 @@
-package com.asiantech.membersmanager.utils;
+package com.asiantech.membersmanager.views;
 
 import android.content.Context;
 import android.content.res.TypedArray;

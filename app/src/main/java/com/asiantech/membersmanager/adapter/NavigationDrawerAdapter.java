@@ -19,7 +19,8 @@ import java.util.List;
  * Copyright © 2015 AsianTech inc.
  * Created by VinhHlb on 12-03-2015.
  */
-public class NavigationDrawerAdapter extends RecyclerView.Adapter<NavigationDrawerAdapter.MyViewHolder> {
+public class NavigationDrawerAdapter extends RecyclerView
+        .Adapter<NavigationDrawerAdapter.MyViewHolder> {
     List<NavigationDrawerItem> mDatas = Collections.emptyList();
     private LayoutInflater mInflater;
     private Context mContext;
@@ -46,28 +47,34 @@ public class NavigationDrawerAdapter extends RecyclerView.Adapter<NavigationDraw
     public void onBindViewHolder(MyViewHolder holder, int position) {
         switch (position) {
             case 0:
-                holder.imageView.setBackgroundDrawable(mContext.getResources().getDrawable(R.drawable.ic_home));
+                holder.imageView.setBackgroundDrawable(mContext.getResources()
+                        .getDrawable(R.drawable.ic_home));
                 holder.title.setText(R.string.home);
                 break;
             case 1:
-                holder.imageView.setBackgroundDrawable(mContext.getResources().getDrawable(R.drawable.ic_favorite_menu));
+                holder.imageView.setBackgroundDrawable(mContext.getResources()
+                        .getDrawable(R.drawable.ic_favorite_menu));
                 holder.title.setText(R.string.menu_favorite);
                 break;
             case 2:
-                holder.imageView.setBackgroundDrawable(mContext.getResources().getDrawable(R.drawable.ic_time_sheet));
+                holder.imageView.setBackgroundDrawable(mContext.getResources()
+                        .getDrawable(R.drawable.ic_time_sheet));
                 holder.title.setText(R.string.time_sheet);
                 break;
             case 3:
-                holder.imageView.setBackgroundDrawable(mContext.getResources().getDrawable(R.drawable.ic_mail_menu));
+                holder.imageView.setBackgroundDrawable(mContext.getResources()
+                        .getDrawable(R.drawable.ic_mail_menu));
                 holder.title.setText(R.string.out_work);
                 break;
             case 4:
-                holder.imageView.setBackgroundDrawable(mContext.getResources().getDrawable(R.drawable.ic_help_feedback));
+                holder.imageView.setBackgroundDrawable(mContext.getResources()
+                        .getDrawable(R.drawable.ic_help_feedback));
                 holder.title.setText(R.string.help_feedback);
                 break;
 
             case 5:
-                holder.imageView.setBackgroundDrawable(mContext.getResources().getDrawable(R.drawable.ic_logout));
+                holder.imageView.setBackgroundDrawable(mContext.getResources()
+                        .getDrawable(R.drawable.ic_logout));
                 holder.title.setText(R.string.logout);
                 break;
 

@@ -28,21 +28,22 @@
                     android:layout_height="@dimen/linearlayout.width"
                     android:background="@drawable/bg_text_view"
                     android:gravity="center"
-                    android:text="@string/to_email"
+                    android:text="@string/from_day"
                     android:textSize="@dimen/button.textsize.14sp" />
 
-                <EditText
-                    android:id="@+id/edtTo"
+                <TextView
+                    android:id="@+id/tv_from_day"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/linearlayout.width"
                     android:layout_marginLeft="@dimen/drawerfragment.tv.marginLeft"
                     android:layout_marginStart="@dimen/drawerfragment.tv.marginLeft"
-                    android:background="@drawable/bg_edit_text"
-                    android:inputType="textEmailAddress"
+                    android:background="@drawable/bg_text_view"
+                    android:gravity="center_vertical"
                     android:padding="@dimen/linearlayout.padding.4dp"
                     android:singleLine="true"
+                    android:text="@string/day_test"
                     android:textColor="@color/color.black"
-                    android:textSize="@dimen/button.textsize.14sp" />
+                    android:textSize="@dimen/button.textsize.16sp" />
             </LinearLayout>
 
             <LinearLayout
@@ -58,50 +59,22 @@
                     android:layout_height="@dimen/linearlayout.width"
                     android:background="@drawable/bg_text_view"
                     android:gravity="center"
-                    android:text="@string/cc_email"
+                    android:text="@string/to_day"
                     android:textSize="@dimen/button.textsize.14sp" />
-
-                <EditText
-                    android:id="@+id/edtCc"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/linearlayout.width"
-                    android:layout_marginLeft="@dimen/drawerfragment.tv.marginLeft"
-                    android:layout_marginStart="@dimen/drawerfragment.tv.marginLeft"
-                    android:background="@drawable/bg_edit_text"
-                    android:inputType="textEmailAddress"
-                    android:padding="@dimen/linearlayout.padding.4dp"
-                    android:singleLine="true"
-                    android:textColor="@color/color.black"
-                    android:textSize="@dimen/button.textsize.14sp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/ln_subject"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/lnHeight"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/tvSubject"
-                    android:layout_width="@dimen/tv.width"
-                    android:layout_height="@dimen/linearlayout.width"
-                    android:gravity="center"
-                    android:text="@string/subject"
-                    android:textSize="@dimen/button.textsize.14sp" />
-
-                <EditText
-                    android:id="@+id/edtSubject"
+                    android:id="@+id/tv_to_day"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/linearlayout.width"
                     android:layout_marginLeft="@dimen/drawerfragment.tv.marginLeft"
                     android:layout_marginStart="@dimen/drawerfragment.tv.marginLeft"
-                    android:background="@drawable/bg_edit_text"
-                    android:inputType="text"
+                    android:background="@drawable/bg_text_view"
+                    android:gravity="center_vertical"
                     android:padding="@dimen/linearlayout.padding.4dp"
                     android:singleLine="true"
+                    android:text="@string/day_test"
                     android:textColor="@color/color.black"
-                    android:textSize="@dimen/button.textsize.14sp" />
+                    android:textSize="@dimen/button.textsize.16sp" />
             </LinearLayout>
 
             <android.support.v7.widget.RecyclerView
@@ -116,7 +89,6 @@
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical"
                 android:orientation="vertical"
-                android:paddingEnd="@dimen/linearlayout.padding.10dp"
                 android:paddingLeft="@dimen/linearlayout.padding.10dp"
                 android:paddingStart="@dimen/linearlayout.padding.10dp">
 

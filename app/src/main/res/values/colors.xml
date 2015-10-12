@@ -3,7 +3,7 @@
     <color name="background.login">#16A085</color>
     <color name="linearlayout.background.edittext">#1affffff</color>
     <color name="edittext.textcolorhint.login">#73ffffff</color>
-    <color name="button.background.signin.normal">#ff5722</color>
+    <color name="button.background.signin.normal">#e51c23</color>
     <color name="button.background.signin.pressed">#ff8a65</color>
     <color name="button.background.signup.normal">#5bb967</color>
     <color name="taptrip.background">#222628</color>
@@ -38,7 +38,7 @@
     <!--for sliding menu-->
     <color name="colorPrimary">#16A085</color>
     <color name="colorPrimaryDark">#16A085</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorAccent">#16A085</color>
     <color name="textColorPrimary">#FFFFFF</color>
     <color name="windowBackground">#FFFFFF</color>
     <color name="navigationBarColor">#000000</color>
@@ -50,4 +50,6 @@
     <color name="color.black">#000</color>
     <color name="color.text.time">#3498DB</color>
     <color name="color.blue">#5f82ec</color>
+    <color name="mdtp_accent_color">#004d40</color>
+    <color name="text_profile">#40c4ff</color>
 </resources>

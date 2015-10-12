@@ -9,10 +9,9 @@ import android.support.v7.widget.RecyclerView;
 import com.asiantech.membersmanager.R;
 import com.asiantech.membersmanager.abstracts.BaseFragment;
 import com.asiantech.membersmanager.adapter.FavoriteAdapter;
-import com.asiantech.membersmanager.adapter.HomeAdapter;
 import com.asiantech.membersmanager.models.Notification;
-import com.asiantech.membersmanager.utils.CallDetail;
-import com.asiantech.membersmanager.utils.CallFavorite;
+import com.asiantech.membersmanager.interfaces.CallDetail;
+import com.asiantech.membersmanager.interfaces.CallFavorite;
 import com.asiantech.membersmanager.utils.DividerItemDecoration;
 
 import org.androidannotations.annotations.AfterViews;
@@ -51,7 +50,8 @@ public class FavoriteFragment extends BaseFragment implements CallDetail,CallFav
         }
         mAdapter = new FavoriteAdapter(getActivity(), mArraylistsTam, this, this);
         recyclerFavorite.setLayoutManager(new LinearLayoutManager(getActivity().getBaseContext()));
-        recyclerFavorite.addItemDecoration(new DividerItemDecoration(getResources().getDrawable(R.drawable.divider)));
+        recyclerFavorite.addItemDecoration(new DividerItemDecoration(getResources()
+                .getDrawable(R.drawable.divider)));
         recyclerFavorite.setAdapter(mAdapter);
 
         swipeRefreshLayoutFavorite.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {

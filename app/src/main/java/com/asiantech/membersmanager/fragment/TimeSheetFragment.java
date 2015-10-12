@@ -51,7 +51,8 @@ public class TimeSheetFragment extends BaseFragment implements RobotoCalendarLis
     }
 
     private void initData() {
-        mRecycleTimeSheet.setLayoutManager(new LinearLayoutManager(getActivity().getBaseContext()));
+        mRecycleTimeSheet.setLayoutManager(new LinearLayoutManager(getActivity()
+                .getBaseContext()));
         mRecyclerViewHeader.attachTo(mRecycleTimeSheet);
         mRobotoCalendarView.setRobotoCalendarListener(this);
         mCurrentMonthIndex = 0;
@@ -62,8 +63,10 @@ public class TimeSheetFragment extends BaseFragment implements RobotoCalendarLis
     }
 
     private void initView() {
-        mRecyclerViewHeader = RecyclerViewHeader.fromXml(getActivity(), R.layout.header_recyclerview);
-        mRobotoCalendarView = (RobotoCalendarView) mRecyclerViewHeader.findViewById(R.id.robotoCalendarPicker);
+        mRecyclerViewHeader = RecyclerViewHeader
+                .fromXml(getActivity(), R.layout.header_recyclerview);
+        mRobotoCalendarView = (RobotoCalendarView) mRecyclerViewHeader
+                .findViewById(R.id.robotoCalendarPicker);
     }
 
     private void setAdapter() {
@@ -206,13 +209,16 @@ public class TimeSheetFragment extends BaseFragment implements RobotoCalendarLis
         final int style = random.nextInt(3);
         switch (style) {
             case 0:
-                mRobotoCalendarView.markFirstUnderlineWithStyle(RobotoCalendarView.BLUE_COLOR, date);
+                mRobotoCalendarView
+                        .markFirstUnderlineWithStyle(RobotoCalendarView.BLUE_COLOR, date);
                 break;
             case 1:
-                mRobotoCalendarView.markSecondUnderlineWithStyle(RobotoCalendarView.GREEN_COLOR, date);
+                mRobotoCalendarView
+                        .markSecondUnderlineWithStyle(RobotoCalendarView.GREEN_COLOR, date);
                 break;
             case 2:
-                mRobotoCalendarView.markFirstUnderlineWithStyle(RobotoCalendarView.RED_COLOR, date);
+                mRobotoCalendarView
+                        .markFirstUnderlineWithStyle(RobotoCalendarView.RED_COLOR, date);
                 break;
             default:
                 break;
@@ -225,7 +231,10 @@ public class TimeSheetFragment extends BaseFragment implements RobotoCalendarLis
         mYear = cal.get(Calendar.YEAR);
         mMoth = cal.get(Calendar.MONTH);
         mDay = cal.get(Calendar.DAY_OF_MONTH);
-        Toast.makeText(getActivity(), " " + mDay + "/" + (mMoth + 1) + "/" + mYear, Toast.LENGTH_LONG).show();
+        Toast.makeText(getActivity(), " " + mDay + "/"
+                + (mMoth + 1) + "/"
+                + mYear, Toast.LENGTH_LONG)
+                .show();
     }
 
     @Override

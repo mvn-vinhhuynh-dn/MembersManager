@@ -69,7 +69,8 @@ public class DrawerFragment extends BaseFragment {
 
     private void initListener() {
         mRecycleView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        mRecycleView.addOnItemTouchListener(new RecyclerTouchListener(getActivity(), mRecycleView, new ClickListener() {
+        mRecycleView.addOnItemTouchListener(new RecyclerTouchListener(getActivity(),
+                mRecycleView, new ClickListener() {
             @Override
             public void onClick(View view, int position) {
                 drawerListener.onDrawerItemSelected(view, position);
@@ -136,9 +137,12 @@ public class DrawerFragment extends BaseFragment {
         private GestureDetector gestureDetector;
         private ClickListener clickListener;
 
-        public RecyclerTouchListener(Context context, final RecyclerView recyclerView, final ClickListener clickListener) {
+        public RecyclerTouchListener(Context context,
+                                     final RecyclerView recyclerView,
+                                     final ClickListener clickListener) {
             this.clickListener = clickListener;
-            gestureDetector = new GestureDetector(context, new GestureDetector.SimpleOnGestureListener() {
+            gestureDetector = new GestureDetector(context,
+                    new GestureDetector.SimpleOnGestureListener() {
                 @Override
                 public boolean onSingleTapUp(MotionEvent e) {
                     return true;

@@ -112,7 +112,8 @@ public class LoginActivity extends AppCompatActivity {
         if (mHandlerShowLogo != null && mRunable != null) {
             mHandlerShowLogo.removeCallbacks(mRunable);
         }
-        ColorStateList colorStateList = getResources().getColorStateList(R.color.button_signup_forgot);
+        ColorStateList colorStateList = getResources()
+                .getColorStateList(R.color.button_signup_forgot);
         mBtnSignUp.setTextColor(colorStateList);
         mBtnForgot.setTextColor(colorStateList);
         mImgAsian.startAnimation(mAnimLeft);
@@ -156,18 +157,22 @@ public class LoginActivity extends AppCompatActivity {
     @FocusChange({R.id.etEmailSignIn})
     void focusChangedEdtEmail(View hello, boolean hasFocus) {
         if (hasFocus) {
-            mLlEmail.setBackgroundDrawable(getResources().getDrawable(R.drawable.bg_edit_text_focus));
+            mLlEmail.setBackgroundDrawable(getResources()
+                    .getDrawable(R.drawable.bg_edit_text_focus));
         } else {
-            mLlEmail.setBackground(getResources().getDrawable(R.drawable.bg_edit_text_normal));
+            mLlEmail.setBackground(getResources()
+                    .getDrawable(R.drawable.bg_edit_text_normal));
         }
     }
 
     @FocusChange({R.id.etPasswordSignIn})
     void focusChangedEdtPass(View hello, boolean hasFocus) {
         if (hasFocus) {
-            mLlPassword.setBackgroundDrawable(getResources().getDrawable(R.drawable.bg_edit_text_focus));
+            mLlPassword.setBackgroundDrawable(getResources()
+                    .getDrawable(R.drawable.bg_edit_text_focus));
         } else {
-            mLlPassword.setBackground(getResources().getDrawable(R.drawable.bg_edit_text_normal));
+            mLlPassword.setBackground(getResources()
+                    .getDrawable(R.drawable.bg_edit_text_normal));
         }
     }
 
