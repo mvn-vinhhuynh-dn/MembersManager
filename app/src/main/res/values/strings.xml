@@ -112,4 +112,5 @@
     <string name="edit">edit</string>
     <string name="edt_profile">Edit Profile</string>
     <string name="hot_detail">Hot Notification Detail</string>
+    <string name="edit_profile">Chỉnh sửa thông tin</string>
 </resources>

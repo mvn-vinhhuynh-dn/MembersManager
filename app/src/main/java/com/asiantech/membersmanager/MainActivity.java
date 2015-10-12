@@ -38,6 +38,7 @@ public class MainActivity extends AppCompatActivity implements DrawerFragment
     public static final int TYPE_EDIT = 2;
     public static final int TYPE_SETTING = 3;
     public static final int TYPE_CLOSE = 4;
+    public static final int TYPE_DONE = 5;
     private DrawerFragment mDrawerFragment;
     @ViewById(R.id.toolbar)
     Toolbar mToolBar;
@@ -138,8 +139,12 @@ public class MainActivity extends AppCompatActivity implements DrawerFragment
 
     @Click(R.id.img_right)
     void onEdit() {
-        if(mContent instanceof ProfileFragment_){
-            ((ProfileFragment_)mContent).clickRightImg();
+        if (mContent instanceof ProfileFragment_) {
+            if (!((ProfileFragment_) mContent).isEditing) {
+                ((ProfileFragment_) mContent).clickEdit();
+            } else {
+                ((ProfileFragment_) mContent).clickDone();
+            }
         }
     }
 
@@ -162,6 +167,12 @@ public class MainActivity extends AppCompatActivity implements DrawerFragment
                 mTvTItle.setVisibility(View.VISIBLE);
                 break;
             case TYPE_SETTING:
+                break;
+            case TYPE_DONE:
+                mImgLeft.setVisibility(View.GONE);
+                mImgRight.setVisibility(View.VISIBLE);
+                mTvTItle.setVisibility(View.VISIBLE);
+                mImgRight.setImageResource(R.drawable.ic_done_white);
                 break;
 
         }

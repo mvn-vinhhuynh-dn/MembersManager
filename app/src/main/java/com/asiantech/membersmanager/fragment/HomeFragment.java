@@ -76,21 +76,6 @@ public class HomeFragment extends BaseFragment implements CallDetail {
             }
         });
     }
-//    void refreshItems() {
-//        // Load items
-//        // ...
-//
-//        // Load complete
-//        onItemsLoadComplete();
-//    }
-//
-//    void onItemsLoadComplete() {
-//        // Update the adapter and notify data set changed
-//        // ...
-//
-//        // Stop refresh animation
-//        swipeRefreshLayout.setRefreshing(false);
-//    }
 
     @Override
     public void onResume() {
