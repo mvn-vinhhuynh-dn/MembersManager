@@ -47,6 +47,7 @@
             android:layout_width="@dimen/circleImageview.width.height"
             android:layout_height="@dimen/circleImageview.width.height"
             android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/ln.padding10"
             android:src="@drawable/img_android" />
 
         <RelativeLayout

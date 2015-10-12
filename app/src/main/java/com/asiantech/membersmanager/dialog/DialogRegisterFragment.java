@@ -86,4 +86,11 @@ public class DialogRegisterFragment extends DialogFragment {
             // Do Register Function
         }
     }
+
+    @Click(R.id.img_close_dialog)
+    void closeDialog() {
+        if (getActivity() != null && getDialog().isShowing()) {
+            this.dismiss();
+        }
+    }
 }
