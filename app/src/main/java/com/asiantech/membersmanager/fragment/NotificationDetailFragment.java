@@ -1,17 +1,19 @@
 package com.asiantech.membersmanager.fragment;
 
-import android.support.v7.widget.Toolbar;
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
+import android.support.v4.view.ViewPager;
 
+import com.asiantech.membersmanager.MainActivity;
 import com.asiantech.membersmanager.R;
 import com.asiantech.membersmanager.abstracts.BaseFragment;
+import com.asiantech.membersmanager.adapter.ViewPagerDetailsAdapter;
 import com.asiantech.membersmanager.models.Notification;
 
+import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.EFragment;
-import org.androidannotations.annotations.*;
+import org.androidannotations.annotations.FragmentArg;
+import org.androidannotations.annotations.ViewById;
+
+import java.util.ArrayList;
 
 /**
  * Copyright © 2015 AsianTech inc.
@@ -19,51 +21,29 @@ import org.androidannotations.annotations.*;
  */
 @EFragment(R.layout.fragment_detail_notification)
 public class NotificationDetailFragment extends BaseFragment {
-    @ViewById(R.id.imgAvataDetail)
-    ImageView imgAvataDetail;
-    @ViewById(R.id.tvSenderDetail)
-    TextView tvSenderDetail;
-    @ViewById(R.id.tvTimeDetail)
-    TextView tvTimeDetail;
-    @ViewById(R.id.tvContentDetail)
-    TextView tvContentDetail;
-    @ViewById(R.id.rlViewDetails)
-    RelativeLayout rlViewDetails;
-    @ViewById(R.id.tvViewDetails)
-    TextView tvViewDetails;
-    @ViewById(R.id.tvInviViewDetails)
-    TextView tvInviViewDetails;
-    @ViewById(R.id.tvTimeDetail1)
-    TextView tvTimeDetail1;
+
+    @ViewById(R.id.viewpagerDetails)
+    ViewPager viewpagerDetails;
+    private ViewPagerDetailsAdapter mViewpagerDetailsAdapter;
 
     @FragmentArg
-    Notification notification;
+    ArrayList<Notification> mNotifications;
+    @FragmentArg
+    int mPosition;
 
     @AfterViews
-    void afterViews(){
-        imgAvataDetail.setImageResource(notification.getMAvata());
-        tvSenderDetail.setText(notification.getMSender());
-        tvTimeDetail.setText(notification.getMTime());
-        tvContentDetail.setText(notification.getMContent());
-        tvTimeDetail1.setText(notification.getMTime());
+    void afterViews() {
+        mViewpagerDetailsAdapter = new ViewPagerDetailsAdapter(mNotifications, getActivity());
+        viewpagerDetails.setAdapter(mViewpagerDetailsAdapter);
+        viewpagerDetails.setCurrentItem(mPosition);
     }
 
-    @Click(R.id.tvViewDetails)
-    void viewDetails(){
-        tvViewDetails.setVisibility(View.INVISIBLE);
-        tvInviViewDetails.setVisibility(View.VISIBLE);
-        rlViewDetails.setVisibility(View.VISIBLE);
-    }
-    @Click(R.id.tvInviViewDetails)
-    void inviViewDetails(){
-        tvViewDetails.setVisibility(View.VISIBLE);
-        tvInviViewDetails.setVisibility(View.INVISIBLE);
-        rlViewDetails.setVisibility(View.GONE);
-    }
     @Override
     public void onResume() {
         super.onResume();
-        if (mOnBaseFragmentListener != null)
-            mOnBaseFragmentListener.setTitleHeader(notification.getMTittle());
+        if (mOnBaseFragmentListener != null) {
+            mOnBaseFragmentListener.setTitleHeader(mNotifications.get(mPosition).getMTittle());
+            mOnBaseFragmentListener.setTypeHeader(MainActivity.TYPE_HOME);
+        }
     }
 }

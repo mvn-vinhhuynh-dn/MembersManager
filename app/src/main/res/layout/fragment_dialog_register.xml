@@ -5,6 +5,13 @@
     android:background="@color/dialog.background.register"
     android:paddingBottom="@dimen/relativelayout.padding.10dp">
 
+    <ImageView android:id="@+id/img_close_dialog"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:src="@drawable/ic_close_white" />
+
     <TextView
         android:id="@+id/tvTitleSignUp"
         android:layout_width="wrap_content"

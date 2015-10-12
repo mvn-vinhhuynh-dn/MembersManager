@@ -117,4 +117,5 @@
     <dimen name="tv.magintop.content">20dp</dimen>
     <dimen name="height">260dp</dimen>
     <dimen name="calendarpager.height">300dp</dimen>
+    <dimen name="linearlayout.margin">16dp</dimen>
 </resources>

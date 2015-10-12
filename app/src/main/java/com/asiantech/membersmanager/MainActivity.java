@@ -196,10 +196,6 @@ public class MainActivity extends AppCompatActivity implements DrawerFragment
 
     private void setTitle(String title) {
         mTvTItle.setText(title);
-//        if (getSupportActionBar() != null) {
-//            getSupportActionBar()
-//                    .setTitle(title);
-//        }
     }
 
     @Override
