@@ -82,6 +82,7 @@
     <dimen name="linearlayout.width">30dp</dimen>
 
     <!--dimen item recycle home-->
+    <dimen name="relativelayout.height.81dp">81dp</dimen>
     <dimen name="relativelayout.height.71dp">71dp</dimen>
     <dimen name="relativelayout.magin.bottom.top">5dp</dimen>
     <dimen name="relativelayout.magin.left.right">10dp</dimen>
@@ -119,4 +120,5 @@
     <dimen name="height">260dp</dimen>
     <dimen name="calendarpager.height">300dp</dimen>
     <dimen name="linearlayout.margin">16dp</dimen>
+    <dimen name="textview.maginright">12dp</dimen>
 </resources>
