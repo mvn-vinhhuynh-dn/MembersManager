@@ -1,276 +1,276 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:scrollbars="none">
 
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scrollbars="none">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/rl_image_profile"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/width.120dp">
+
+            <ImageView
+                android:id="@+id/img_backgroud"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/width.120dp"
+                android:background="@drawable/bg_test_profile" />
+
+            <com.asiantech.membersmanager.views.CircleImageView
+                android:id="@+id/cir_avatar"
+                android:layout_width="@dimen/drawerfragment.img.width"
+                android:layout_height="@dimen/drawerfragment.img.width"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/textview.margintop.10dp"
+                android:layout_marginStart="@dimen/textview.margintop.10dp"
+                android:src="@drawable/p4" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@+id/cir_avatar"
+                android:layout_toRightOf="@+id/cir_avatar"
+                android:orientation="vertical"
+                android:paddingLeft="@dimen/linearlayout.marginbottom.5dp">
+
+                <TextView
+                    android:id="@+id/tvName"
+                    style="@style/text_size_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/test_name" />
+
+                <TextView
+                    android:id="@+id/tvTeam"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/test_email"
+                    android:textSize="@dimen/text.size.14sp"
+                    android:textStyle="italic" />
+            </LinearLayout>
+        </RelativeLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:padding="@dimen/textview.margintop.10dp">
 
-            <RelativeLayout
-                android:id="@+id/rl_image_profile"
+            <TextView
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/width.120dp">
+                android:layout_height="@dimen/linearlayout.height.30dp"
+                android:gravity="center_vertical"
+                android:text="@string/info_use"
+                android:textColor="@color/text_profile"
+                android:textSize="@dimen/button.textsize.18sp"
+                android:textStyle="italic" />
 
-                <ImageView
-                    android:id="@+id/img_backgroud"
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/text_profile" />
+            <!--info name-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:paddingLeft="@dimen/ln.padding10">
+
+                <TextView
+                    style="@style/text_size_title"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/width.120dp"
-                    android:background="@drawable/bg_test_profile" />
+                    android:layout_height="@dimen/textview.margintop.25dp"
+                    android:text="@string/test_full_name" />
 
-                <com.asiantech.membersmanager.views.CircleImageView
-                    android:id="@+id/cir_avatar"
-                    android:layout_width="@dimen/drawerfragment.img.width"
-                    android:layout_height="@dimen/drawerfragment.img.width"
-                    android:layout_centerVertical="true"
-                    android:layout_marginLeft="@dimen/textview.margintop.10dp"
-                    android:layout_marginStart="@dimen/textview.margintop.10dp"
-                    android:src="@drawable/p4" />
-
-                <LinearLayout
+                <TextView
+                    style="@style/text_size_content"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_toRightOf="@+id/cir_avatar"
-                    android:orientation="vertical"
-                    android:paddingLeft="@dimen/linearlayout.marginbottom.5dp">
+                    android:layout_height="@dimen/textview.margintop.25dp"
+                    android:text="@string/test_full_name_info"
 
-                    <TextView
-                        android:id="@+id/tvName"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/test_name"
-                       style="@style/text_size_title" />
+                    />
+                <!--info dob-->
+                <TextView
+                    style="@style/text_size_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/textview.margintop.25dp"
+                    android:text="@string/test_dbo" />
 
-                    <TextView
-                        android:id="@+id/tvTeam"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/test_email"
-                        android:textSize="@dimen/text.size.14sp"
-                        android:textStyle="italic" />
-                </LinearLayout>
-            </RelativeLayout>
+                <TextView
+                    style="@style/text_size_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/textview.margintop.25dp"
+                    android:text="@string/test_dob"
+
+                    />
+                <!--info language-->
+                <TextView
+                    style="@style/text_size_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/textview.margintop.25dp"
+                    android:text="@string/test_language" />
+
+                <TextView
+                    style="@style/text_size_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/textview.margintop.30dp"
+                    android:text="@string/test_info_language"
+
+                    />
+
+                <TextView
+                    style="@style/text_size_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/textview.margintop.30dp"
+                    android:text="@string/test_info_language_eng" />
+
+                <!--info address-->
+                <TextView
+                    style="@style/text_size_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/textview.margintop.25dp"
+                    android:text="@string/test_city" />
+
+                <TextView
+                    style="@style/text_size_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/textview.margintop.25dp"
+                    android:text="@string/test_info_city" />
+
+                <TextView
+                    style="@style/text_size_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/textview.margintop.25dp"
+                    android:text="@string/test_country" />
+
+                <TextView
+                    style="@style/text_size_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/textview.margintop.25dp"
+                    android:text="@string/test_info_country" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/linearlayout.height.30dp"
+                android:layout_marginTop="@dimen/linearlayout.marginbottom.5dp"
+                android:gravity="center_vertical"
+                android:text="@string/info_contact"
+                android:textColor="@color/text_profile"
+                android:textSize="@dimen/button.textsize.18sp"
+                android:textStyle="italic" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/text_profile" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
-                android:padding="@dimen/textview.margintop.10dp">
+                android:paddingLeft="@dimen/ln.padding10">
 
                 <TextView
+                    style="@style/text_size_title"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/linearlayout.height.30dp"
-                    android:gravity="center_vertical"
-                    android:text="@string/info_use"
-                    android:textColor="@color/text_profile"
-                    android:textSize="@dimen/button.textsize.18sp" />
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="@color/text_profile" />
-                <!--info name-->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:paddingLeft="@dimen/ln.padding10">
-
-                    <TextView
-                        style="@style/text_size_title"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/textview.margintop.25dp"
-                        android:text="@string/test_full_name" />
-
-                    <TextView
-                        style="@style/text_size_content"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/textview.margintop.25dp"
-                        android:text="@string/test_full_name_info"
-
-                        />
-                    <!--info dob-->
-                    <TextView
-                        style="@style/text_size_title"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/textview.margintop.25dp"
-                        android:text="@string/test_dbo" />
-
-                    <TextView
-                        style="@style/text_size_content"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/textview.margintop.25dp"
-                        android:text="@string/test_dob"
-
-                        />
-                    <!--info language-->
-                    <TextView
-                        style="@style/text_size_title"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/textview.margintop.25dp"
-                        android:text="@string/test_language" />
-
-                    <TextView
-                        style="@style/text_size_content"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/textview.margintop.30dp"
-                        android:text="@string/test_info_language"
-
-                        />
-
-                    <TextView
-                        style="@style/text_size_content"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/textview.margintop.30dp"
-                        android:text="@string/test_info_language_eng" />
-
-                    <!--info address-->
-                    <TextView
-                        style="@style/text_size_title"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/textview.margintop.25dp"
-                        android:text="@string/test_city" />
-
-                    <TextView
-                        style="@style/text_size_content"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/textview.margintop.25dp"
-                        android:text="@string/test_info_city" />
-
-                    <TextView
-                        style="@style/text_size_title"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/textview.margintop.25dp"
-                        android:text="@string/test_country" />
-
-                    <TextView
-                        style="@style/text_size_content"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/textview.margintop.25dp"
-                        android:text="@string/test_info_country" />
-                </LinearLayout>
+                    android:layout_height="@dimen/textview.margintop.25dp"
+                    android:text="@string/test_email_contact" />
 
                 <TextView
+                    style="@style/text_size_content"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/linearlayout.height.30dp"
-                    android:gravity="center_vertical"
-                    android:text="@string/info_contact"
-                    android:textColor="@color/text_profile"
-                    android:textSize="@dimen/button.textsize.18sp" />
+                    android:layout_height="@dimen/textview.margintop.25dp"
+                    android:text="@string/test_mail_info" />
 
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="@color/text_profile" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:paddingLeft="@dimen/ln.padding10">
-
-                    <TextView
-                        style="@style/text_size_title"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/textview.margintop.25dp"
-                        android:text="@string/test_email_contact" />
-
-                    <TextView
-                        style="@style/text_size_content"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/textview.margintop.25dp"
-                        android:text="@string/test_mail_info" />
-
-
-                    <TextView
-                        style="@style/text_size_title"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/textview.margintop.25dp"
-                        android:text="@string/test_phone_num" />
-
-                    <TextView
-                        style="@style/text_size_content"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/textview.margintop.25dp"
-                        android:text="@string/test_info_phone_num" />
-
-                    <TextView
-                        style="@style/text_size_title"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/textview.margintop.25dp"
-                        android:text="@string/test_home_phone_num" />
-
-                    <TextView
-                        style="@style/text_size_content"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/textview.margintop.25dp"
-                        android:text="@string/test_info_phone_num_home" />
-                </LinearLayout>
 
                 <TextView
+                    style="@style/text_size_title"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/linearlayout.height.30dp"
-                    android:gravity="center_vertical"
-                    android:text="@string/info_company"
-                    android:textColor="@color/text_profile"
-                    android:textSize="@dimen/button.textsize.18sp" />
+                    android:layout_height="@dimen/textview.margintop.25dp"
+                    android:text="@string/test_phone_num" />
 
-                <View
+                <TextView
+                    style="@style/text_size_content"
                     android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="@color/text_profile" />
+                    android:layout_height="@dimen/textview.margintop.25dp"
+                    android:text="@string/test_info_phone_num" />
 
-                <LinearLayout
+                <TextView
+                    style="@style/text_size_title"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:paddingLeft="@dimen/ln.padding10">
+                    android:layout_height="@dimen/textview.margintop.25dp"
+                    android:text="@string/test_home_phone_num" />
 
-                    <TextView
-                        style="@style/text_size_title"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/textview.margintop.25dp"
-                        android:text="@string/test_git_mail" />
+                <TextView
+                    style="@style/text_size_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/textview.margintop.25dp"
+                    android:text="@string/test_info_phone_num_home" />
+            </LinearLayout>
 
-                    <TextView
-                        style="@style/text_size_content"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/textview.margintop.25dp"
-                        android:text="@string/test_mail_info" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/linearlayout.height.30dp"
+                android:layout_marginTop="@dimen/linearlayout.marginbottom.5dp"
+                android:gravity="center_vertical"
+                android:text="@string/info_company"
+                android:textColor="@color/text_profile"
+                android:textSize="@dimen/button.textsize.18sp"
+                android:textStyle="italic" />
 
-                    <TextView
-                        style="@style/text_size_title"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/textview.margintop.25dp"
-                        android:text="@string/test_position" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/text_profile" />
 
-                    <TextView
-                        style="@style/text_size_content"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/textview.margintop.25dp"
-                        android:text="@string/test_position_info" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:paddingLeft="@dimen/ln.padding10">
 
-                    <TextView
-                        style="@style/text_size_title"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/textview.margintop.25dp"
-                        android:text="@string/test_num_dayoff" />
+                <TextView
+                    style="@style/text_size_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/textview.margintop.25dp"
+                    android:text="@string/test_git_mail" />
 
-                    <TextView
-                        style="@style/text_size_content"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/textview.margintop.25dp"
-                        android:text="@string/test_dayoff_info" />
-                </LinearLayout>
+                <TextView
+                    style="@style/text_size_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/textview.margintop.25dp"
+                    android:text="@string/test_mail_info" />
+
+                <TextView
+                    style="@style/text_size_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/textview.margintop.25dp"
+                    android:text="@string/test_position" />
+
+                <TextView
+                    style="@style/text_size_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/textview.margintop.25dp"
+                    android:text="@string/test_position_info" />
+
+                <TextView
+                    style="@style/text_size_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/textview.margintop.25dp"
+                    android:text="@string/test_num_dayoff" />
+
+                <TextView
+                    style="@style/text_size_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/textview.margintop.25dp"
+                    android:text="@string/test_dayoff_info" />
             </LinearLayout>
         </LinearLayout>
-    </ScrollView>
-</LinearLayout>
+    </LinearLayout>
+</ScrollView>
