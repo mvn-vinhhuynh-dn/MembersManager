@@ -61,9 +61,9 @@ public class ProfileFragment extends BaseFragment {
     TextView mTvPosition;
 
     @ViewById(R.id.edt_home_phone)
-    EditText mEdtHomeFone;
+    EditText mEdtHomePhone;
     @ViewById(R.id.tv_home_phone)
-    TextView mTvHomeFone;
+    TextView mTvHomePhone;
     @ViewById(R.id.img_edit_avata)
     ImageView mImgEditAvatar;
     public boolean isEditing = false;
@@ -112,7 +112,7 @@ public class ProfileFragment extends BaseFragment {
         mEdtCountry.setVisibility(View.VISIBLE);
         mEdtDob.setVisibility(View.VISIBLE);
         mEdtGitHupMail.setVisibility(View.VISIBLE);
-        mEdtHomeFone.setVisibility(View.VISIBLE);
+        mEdtHomePhone.setVisibility(View.VISIBLE);
         mEdtMailAddress.setVisibility(View.VISIBLE);
         mEdtPhoneNum.setVisibility(View.VISIBLE);
         mEdtPosition.setVisibility(View.VISIBLE);
@@ -123,7 +123,7 @@ public class ProfileFragment extends BaseFragment {
         mEdtCountry.setText(mTvCountry.getText());
         mEdtDob.setText(mTvDob.getText());
         mEdtGitHupMail.setText(mTvGitHupMail.getText());
-        mEdtHomeFone.setText(mTvHomeFone.getText());
+        mEdtHomePhone.setText(mTvHomePhone.getText());
         mEdtMailAddress.setText(mTvMailAddress.getText());
         mEdtPhoneNum.setText(mTvPhoneNum.getText());
         mEdtPosition.setText(mTvPosition.getText());
@@ -136,7 +136,7 @@ public class ProfileFragment extends BaseFragment {
         mTvCountry.setText("");
         mTvDob.setText("");
         mTvGitHupMail.setText("");
-        mTvHomeFone.setText("");
+        mTvHomePhone.setText("");
     }
 
     private void showProfileInfor() {
@@ -144,7 +144,7 @@ public class ProfileFragment extends BaseFragment {
         mEdtCountry.setVisibility(View.GONE);
         mEdtDob.setVisibility(View.GONE);
         mEdtGitHupMail.setVisibility(View.GONE);
-        mEdtHomeFone.setVisibility(View.GONE);
+        mEdtHomePhone.setVisibility(View.GONE);
         mEdtMailAddress.setVisibility(View.GONE);
         mEdtName.setVisibility(View.GONE);
         mEdtPhoneNum.setVisibility(View.GONE);
@@ -160,7 +160,7 @@ public class ProfileFragment extends BaseFragment {
         mTvCountry.setText(mEdtCountry.getText());
         mTvDob.setText(mEdtDob.getText());
         mTvGitHupMail.setText(mEdtGitHupMail.getText());
-        mTvHomeFone.setText(mEdtHomeFone.getText());
+        mTvHomePhone.setText(mEdtHomePhone.getText());
     }
 
     private void setFocusBackgroud(EditText editText) {
@@ -183,7 +183,7 @@ public class ProfileFragment extends BaseFragment {
                     setFocusBackgroud(mEdtName);
                     break;
                 case R.id.edt_home_phone:
-                    setFocusBackgroud(mEdtHomeFone);
+                    setFocusBackgroud(mEdtHomePhone);
                     break;
                 case R.id.edt_fone_num:
                     setFocusBackgroud(mEdtPhoneNum);
@@ -213,7 +213,7 @@ public class ProfileFragment extends BaseFragment {
                     setDefaultBackgroud(mEdtName);
                     break;
                 case R.id.edt_home_phone:
-                    setDefaultBackgroud(mEdtHomeFone);
+                    setDefaultBackgroud(mEdtHomePhone);
                     break;
                 case R.id.edt_fone_num:
                     setDefaultBackgroud(mEdtPhoneNum);
