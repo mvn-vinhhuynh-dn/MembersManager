@@ -11,15 +11,16 @@ import android.widget.TextView;
 
 import com.asiantech.membersmanager.R;
 import com.asiantech.membersmanager.interfaces.CallDetail;
-import com.asiantech.membersmanager.interfaces.StickyHeaderAdapter;
 import com.asiantech.membersmanager.models.Notification;
+import com.timehop.stickyheadersrecyclerview.StickyRecyclerHeadersAdapter;
 
 import java.util.ArrayList;
 
 /**
+ *
  * Created by xuanphu on 06/10/2015.
  */
-public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> implements StickyHeaderAdapter<HomeAdapter.HeaderHolder> {
+public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> implements StickyRecyclerHeadersAdapter<HomeAdapter.HeaderHolder>{
     private Context mContext;
     private ArrayList<Notification> mArraylists;
     private ArrayList<Notification> mArraylistsHeader;
@@ -85,7 +86,29 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> im
             }
         });
     }
+//header ----------
+    @Override
+    public long getHeaderId(int position) {
+        return 1;
+    }
 
+    @Override
+    public HeaderHolder onCreateHeaderViewHolder(ViewGroup parent) {
+        final View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_header_fragment_home, parent, false);
+        return new HeaderHolder(view);
+    }
+
+    @Override
+    public void onBindHeaderViewHolder(HeaderHolder holder, int position) {
+        if (position < mArraylistsHeader.size()){
+        holder.imgAvataHeader.setImageResource(mArraylistsHeader.get(position).getMAvata());
+        holder.tvSenderHeader.setText(mArraylistsHeader.get(position).getMSender());
+        holder.tvTittleHeader.setText(mArraylistsHeader.get(position).getMTittle());
+        holder.tvContentHeader.setText(mArraylistsHeader.get(position).getMContent());
+        holder.tvTimeHeader.setText(mArraylistsHeader.get(position).getMTime());
+        }
+    }
+// item ==-------
     @Override
     public int getItemCount() {
         return mArraylists.size();
@@ -111,7 +134,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> im
         }
     }
 
-    static class HeaderHolder extends RecyclerView.ViewHolder {
+    public class HeaderHolder extends RecyclerView.ViewHolder {
         com.asiantech.membersmanager.views.CircleImageView imgAvataHeader;
         ImageView imgHotHeader, imgFavoriteHeader, imgDeleteHeader;
         TextView tvSenderHeader, tvTittleHeader, tvContentHeader, tvTimeHeader;
@@ -125,32 +148,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> im
             tvContentHeader = (TextView) itemView.findViewById(R.id.tvContentHeader);
             tvTimeHeader = (TextView) itemView.findViewById(R.id.tvTimeHeader);
             imgHotHeader = (ImageView) itemView.findViewById(R.id.imgHotHeader);
-            imgFavoriteHeader = (ImageView) itemView.findViewById(R.id.imgFavoriteHeader);
-            imgDeleteHeader = (ImageView) itemView.findViewById(R.id.imgDeleteHeader);
             rlTittleHeader = (RelativeLayout) itemView.findViewById(R.id.rlTopHeader);
-        }
-    }
-
-    // header
-    @Override
-    public long getHeaderId(int position) {
-        return 1;
-    }
-
-    @Override
-    public HeaderHolder onCreateHeaderViewHolder(ViewGroup parent) {
-        final View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_header_fragment_home, parent, false);
-        return new HeaderHolder(view);
-    }
-
-    @Override
-    public void onBindHeaderViewHolder(HeaderHolder viewholder, int position) {
-        if (position < mArraylistsHeader.size()) {
-            viewholder.imgAvataHeader.setImageResource(mArraylistsHeader.get(position).getMAvata());
-            viewholder.tvSenderHeader.setText(mArraylistsHeader.get(position).getMSender());
-            viewholder.tvTittleHeader.setText(mArraylistsHeader.get(position).getMTittle());
-            viewholder.tvContentHeader.setText(mArraylistsHeader.get(position).getMContent());
-            viewholder.tvTimeHeader.setText(mArraylistsHeader.get(position).getMTime());
         }
     }
 }
