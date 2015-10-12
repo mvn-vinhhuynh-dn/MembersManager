@@ -4,6 +4,7 @@ import android.os.Handler;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 
 import com.asiantech.membersmanager.MainActivity;
 import com.asiantech.membersmanager.R;
@@ -12,7 +13,8 @@ import com.asiantech.membersmanager.adapter.HomeAdapter;
 import com.asiantech.membersmanager.interfaces.CallDetail;
 import com.asiantech.membersmanager.models.Notification;
 import com.asiantech.membersmanager.utils.DividerItemDecoration;
-import com.asiantech.membersmanager.utils.StickyHeaderDecoration;
+import com.timehop.stickyheadersrecyclerview.StickyRecyclerHeadersDecoration;
+import com.timehop.stickyheadersrecyclerview.StickyRecyclerHeadersTouchListener;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.EFragment;
@@ -34,7 +36,7 @@ public class HomeFragment extends BaseFragment implements CallDetail {
     private ArrayList<Notification> mArraylists;
     private ArrayList<Notification> mArraylistsHeader;
     private HomeAdapter mAdapter;
-    private StickyHeaderDecoration mDecor;
+   // private StickyHeaderDecoration mDecor;
 
     public HomeFragment() {
         mArraylists = new ArrayList<>();
@@ -45,11 +47,29 @@ public class HomeFragment extends BaseFragment implements CallDetail {
     @AfterViews
     void afterView() {
         mAdapter = new HomeAdapter(getActivity(), mArraylists, mArraylistsHeader, this);
-        mDecor = new StickyHeaderDecoration(mAdapter);
+        //add header
+        final StickyRecyclerHeadersDecoration headersDecor = new StickyRecyclerHeadersDecoration(mAdapter);
+
         mRecycleHome.setLayoutManager(new LinearLayoutManager(getActivity().getBaseContext()));
         mRecycleHome.addItemDecoration(new DividerItemDecoration(getResources().getDrawable(R.drawable.divider)));
         mRecycleHome.setAdapter(mAdapter);
-        mRecycleHome.addItemDecoration(mDecor, 1);
+        mRecycleHome.addItemDecoration(headersDecor);
+
+        // Add touch listeners
+        StickyRecyclerHeadersTouchListener touchListener =
+                new StickyRecyclerHeadersTouchListener(mRecycleHome, headersDecor);
+        touchListener.setOnHeaderClickListener(
+                new StickyRecyclerHeadersTouchListener.OnHeaderClickListener() {
+                    @Override
+                    public void onHeaderClick(View header, int position, long headerId) {
+                        DetailHotNotificationFragment detailHotNotificationFragment = DetailHotNotificationFragment_.builder()
+                                .mNotifications(mArraylistsHeader)
+                                .mPosition(position)
+                                .build();
+                        replaceFragment(detailHotNotificationFragment, false);
+                    }
+                });
+        mRecycleHome.addOnItemTouchListener(touchListener);
 
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
