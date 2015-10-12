@@ -5,12 +5,11 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
-import com.asiantech.membersmanager.MainActivity;
 import com.asiantech.membersmanager.R;
 import com.asiantech.membersmanager.abstracts.BaseFragment;
 import com.asiantech.membersmanager.adapter.HomeAdapter;
-import com.asiantech.membersmanager.interfaces.CallDetail;
 import com.asiantech.membersmanager.models.Notification;
+import com.asiantech.membersmanager.utils.CallDetail;
 import com.asiantech.membersmanager.utils.DividerItemDecoration;
 
 import org.androidannotations.annotations.AfterViews;
@@ -42,8 +41,7 @@ public class HomeFragment extends BaseFragment implements CallDetail {
     void afterView() {
         mAdapter = new HomeAdapter(getActivity(), mArraylists, this);
         mRecycleHome.setLayoutManager(new LinearLayoutManager(getActivity().getBaseContext()));
-        mRecycleHome.addItemDecoration(new DividerItemDecoration(getResources()
-                .getDrawable(R.drawable.divider)));
+        mRecycleHome.addItemDecoration(new DividerItemDecoration(getResources().getDrawable(R.drawable.divider)));
         mRecycleHome.setAdapter(mAdapter);
 
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
@@ -71,14 +69,27 @@ public class HomeFragment extends BaseFragment implements CallDetail {
             }
         });
     }
+//    void refreshItems() {
+//        // Load items
+//        // ...
+//
+//        // Load complete
+//        onItemsLoadComplete();
+//    }
+//
+//    void onItemsLoadComplete() {
+//        // Update the adapter and notify data set changed
+//        // ...
+//
+//        // Stop refresh animation
+//        swipeRefreshLayout.setRefreshing(false);
+//    }
 
     @Override
     public void onResume() {
         super.onResume();
-        if (mOnBaseFragmentListener != null) {
+        if (mOnBaseFragmentListener != null)
             mOnBaseFragmentListener.setTitleHeader(getString(R.string.home));
-            mOnBaseFragmentListener.setTypeHeader(MainActivity.TYPE_HOME);
-        }
     }
 
     private void fakedata() {
@@ -198,10 +209,10 @@ public class HomeFragment extends BaseFragment implements CallDetail {
     }
 
     @Override
-    public void OnCallDetails(Notification notification) {
-        NotificationDetailFragment notificationDetailFragment = NotificationDetailFragment_
-                .builder()
-                .notification(notification)
+    public void OnCallDetails(ArrayList<Notification> arrayList, int position) {
+        NotificationDetailFragment notificationDetailFragment = NotificationDetailFragment_.builder()
+                .mNotifications(arrayList)
+                .mPosition(position)
                 .build();
         replaceFragment(notificationDetailFragment, false);
     }
