@@ -5,6 +5,7 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
+import com.asiantech.membersmanager.MainActivity;
 import com.asiantech.membersmanager.R;
 import com.asiantech.membersmanager.abstracts.BaseFragment;
 import com.asiantech.membersmanager.adapter.HomeAdapter;
@@ -48,7 +49,7 @@ public class HomeFragment extends BaseFragment implements CallDetail {
         mRecycleHome.setLayoutManager(new LinearLayoutManager(getActivity().getBaseContext()));
         mRecycleHome.addItemDecoration(new DividerItemDecoration(getResources().getDrawable(R.drawable.divider)));
         mRecycleHome.setAdapter(mAdapter);
-        mRecycleHome.addItemDecoration(mDecor,1);
+        mRecycleHome.addItemDecoration(mDecor, 1);
 
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
@@ -94,8 +95,10 @@ public class HomeFragment extends BaseFragment implements CallDetail {
     @Override
     public void onResume() {
         super.onResume();
-        if (mOnBaseFragmentListener != null)
+        if (mOnBaseFragmentListener != null) {
             mOnBaseFragmentListener.setTitleHeader(getString(R.string.home));
+            mOnBaseFragmentListener.setTypeHeader(MainActivity.TYPE_HOME);
+        }
     }
 
     private void fakedata() {

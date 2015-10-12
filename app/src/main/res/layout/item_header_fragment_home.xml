@@ -35,11 +35,13 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="#ccc"
-            android:layout_alignParentBottom="true"/>
+            android:layout_alignParentBottom="true"
+            android:background="#ccc" />
+
         <com.asiantech.membersmanager.views.CircleImageView
             android:id="@+id/imgAvataHeader"
             android:layout_width="@dimen/circleImageview.width.height"
@@ -52,6 +54,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/relative.sender.maginleft"
+            android:layout_marginRight="@dimen/relative.sender.maginleft"
             android:layout_toRightOf="@+id/imgAvataHeader">
 
             <TextView
