@@ -1,5 +1,7 @@
 package com.asiantech.membersmanager.fragment;
 
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -8,7 +10,10 @@ import android.widget.TextView;
 import com.asiantech.membersmanager.MainActivity;
 import com.asiantech.membersmanager.R;
 import com.asiantech.membersmanager.abstracts.BaseFragment;
+import com.asiantech.membersmanager.dialog.DialogChooseImage;
+import com.asiantech.membersmanager.dialog.DialogChooseImage_;
 
+import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EFragment;
 import org.androidannotations.annotations.FocusChange;
 import org.androidannotations.annotations.ViewById;
@@ -97,6 +102,13 @@ public class ProfileFragment extends BaseFragment {
         reloadData();
     }
 
+    private void showDialogChooseImage() {
+        DialogChooseImage dialogChooseImage = new DialogChooseImage_();
+        FragmentManager fmRegister = getActivity().getSupportFragmentManager();
+        FragmentTransaction ftChooseImage = fmRegister.beginTransaction();
+        dialogChooseImage.show(ftChooseImage, "ChooseImage Dialog");
+    }
+
     private void reloadData() {
         //TOdo reloadata
     }
@@ -171,6 +183,11 @@ public class ProfileFragment extends BaseFragment {
     private void setDefaultBackgroud(EditText editText) {
         editText.setBackgroundDrawable(getResources()
                 .getDrawable(R.drawable.bg_edt_edit_profile));
+    }
+
+    @Click(R.id.img_edit_avata)
+    void editAvatar() {
+        showDialogChooseImage();
     }
 
     @FocusChange({R.id.edt_name, R.id.edt_home_phone, R.id.edt_position,

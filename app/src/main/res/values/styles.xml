@@ -64,6 +64,12 @@
         <item name="android:layout_marginBottom">@dimen/view.marginbottom.10dp</item>
     </style>
 
+    <style name="view_line">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0.5dp</item>
+        <item name="android:background">#e8edeb</item>
+    </style>
+
     <style name="button_register">
         <item name="android:layout_centerInParent">true</item>
         <item name="android:layout_marginBottom">@dimen/view.marginbottom.10dp</item>
