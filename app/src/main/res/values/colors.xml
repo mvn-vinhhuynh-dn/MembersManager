@@ -3,8 +3,10 @@
     <color name="background.login">#16A085</color>
     <color name="linearlayout.background.edittext">#1affffff</color>
     <color name="edittext.textcolorhint.login">#73ffffff</color>
+    <color name="button.background.reset.normal">#0a8f08</color>
     <color name="button.background.signin.normal">#e51c23</color>
     <color name="button.background.signin.pressed">#ff8a65</color>
+    <color name="button.background.reset.pressed">#e51c23</color>
     <color name="button.background.signup.normal">#5bb967</color>
     <color name="taptrip.background">#222628</color>
     <color name="view.background">#666666</color> 

@@ -25,6 +25,15 @@
         <item name="android:textSize">@dimen/button.textsize.16sp</item>
     </style>
 
+    <style name="button_reset_pass">
+        <item name="android:layout_marginLeft">@dimen/linearlayout.margin.40dp</item>
+        <item name="android:layout_marginRight">@dimen/linearlayout.margin.40dp</item>
+        <item name="android:background">@drawable/selector_btn_login</item>
+        <item name="android:textAllCaps" tools:targetApi="ice_cream_sandwich">false</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">@dimen/button.textsize.16sp</item>
+    </style>
+
     <style name="linearlayout_contains_edittext_2">
         <item name="android:layout_marginBottom">@dimen/linearlayout.marginbottom.10dp</item>
         <item name="android:layout_marginLeft">@dimen/linearlayout.margin.30dp</item>

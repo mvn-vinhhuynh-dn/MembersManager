@@ -18,6 +18,8 @@ import android.widget.RelativeLayout;
 
 import com.asiantech.membersmanager.MainActivity_;
 import com.asiantech.membersmanager.R;
+import com.asiantech.membersmanager.dialog.DialogForgotFragment;
+import com.asiantech.membersmanager.dialog.DialogForgotFragment_;
 import com.asiantech.membersmanager.dialog.DialogRegisterFragment;
 import com.asiantech.membersmanager.dialog.DialogRegisterFragment_;
 
@@ -190,6 +192,14 @@ public class LoginActivity extends AppCompatActivity {
         FragmentManager fmRegister = getSupportFragmentManager();
         FragmentTransaction ftRegister = fmRegister.beginTransaction();
         dialogRegister.show(ftRegister, "Register Fragment");
+    }
+
+    @Click(R.id.btnForgot)
+    void clickForgot() {
+        DialogForgotFragment dialogRegister = new DialogForgotFragment_();
+        FragmentManager fmForgot = getSupportFragmentManager();
+        FragmentTransaction ftForgot = fmForgot.beginTransaction();
+        dialogRegister.show(ftForgot, "Forgot Fragment");
     }
 
     // Init handler message
