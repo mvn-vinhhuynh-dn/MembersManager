@@ -55,4 +55,5 @@
     <color name="mdtp_accent_color">#004d40</color>
     <color name="text_profile">#40c4ff</color>
     <color name="dialog_choose_image_tv_bg">#0072ff</color>
+    <color name="radiobutton_text_color">#757575</color>
 </resources>

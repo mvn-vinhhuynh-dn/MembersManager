@@ -1,18 +1,15 @@
 package com.asiantech.membersmanager.fragment;
 
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.asiantech.membersmanager.MainActivity;
 import com.asiantech.membersmanager.R;
 import com.asiantech.membersmanager.abstracts.BaseFragment;
-import com.asiantech.membersmanager.adapter.ReasonDayOffAdapter;
-import com.asiantech.membersmanager.models.Reason;
-import com.asiantech.membersmanager.utils.MyLinearLayoutManager;
 import com.wdullaer.materialdatetimepicker.date.DatePickerDialog;
 
 import org.androidannotations.annotations.AfterViews;
@@ -21,7 +18,6 @@ import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EFragment;
 import org.androidannotations.annotations.ViewById;
 
-import java.util.ArrayList;
 import java.util.Calendar;
 
 import static com.wdullaer.materialdatetimepicker.date.DatePickerDialog.OnDateSetListener;
@@ -32,21 +28,12 @@ import static com.wdullaer.materialdatetimepicker.date.DatePickerDialog.newInsta
  * Created by VinhHlb on 10/6/15.
  */
 @EFragment(R.layout.fragment_vacation)
-public class VacationDayFragment extends BaseFragment implements
-        ReasonDayOffAdapter.OnChooseReason,
-        OnDateSetListener {
+public class VacationDayFragment extends BaseFragment implements OnDateSetListener {
 
-    private ReasonDayOffAdapter mAdapter;
-    private ArrayList<Reason> mDatas = new ArrayList<>();
-    private ArrayList<Reason> mReasonChooseds = new ArrayList<>();
-    @ViewById(R.id.rcViewResons)
-    RecyclerView mRecycleViewReasons;
     @ViewById(R.id.cbDifferentReson)
     CheckBox mCbChooseDifferentReason;
     @ViewById(R.id.edtDifferentReason)
     EditText mEdtDifferentReason;
-    @ViewById(R.id.tvSubmit)
-    TextView mtvSubmit;
     @ViewById(R.id.tv_from_day)
     TextView mtvFromDay;
     @ViewById(R.id.tv_to_day)
@@ -56,20 +43,20 @@ public class VacationDayFragment extends BaseFragment implements
 
     @AfterViews
     void afterView() {
-        configRecycleView();
-        setDefaultData();
-        setAdapter();
+        setDefaultDate();
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        if (mOnBaseFragmentListener != null)
+        if (mOnBaseFragmentListener != null) {
             mOnBaseFragmentListener.setTitleHeader(getString(R.string.vacation_day));
+            mOnBaseFragmentListener.setTypeHeader(MainActivity.TYPE_SENT);
+        }
     }
 
     @CheckedChange(R.id.cbDifferentReson)
-    void checkedChanged(CompoundButton hello, boolean isChecked) {
+    void checkedChangedCheckBox(CompoundButton hello, boolean isChecked) {
         if (isChecked) {
             mEdtDifferentReason.setVisibility(View.VISIBLE);
         } else {
@@ -77,8 +64,27 @@ public class VacationDayFragment extends BaseFragment implements
         }
     }
 
-    @Click(R.id.tvSubmit)
-    void submitMail() {
+    @CheckedChange({R.id.rdChoose_one, R.id.rdChoose_two,
+            R.id.rdChoose_three, R.id.rdChoose_four, R.id.rdChoose_five})
+    void checkChangeRadioButton(CompoundButton hello, boolean isChecked) {
+        if (isChecked) {
+            switch (hello.getId()) {
+                case R.id.rdChoose_one:
+                    break;
+                case R.id.rdChoose_two:
+                    break;
+                case R.id.rdChoose_three:
+                    break;
+                case R.id.rdChoose_four:
+                    break;
+                case R.id.rdChoose_five:
+                    break;
+            }
+        }
+    }
+
+    public void clickSentMail() {
+        Toast.makeText(getActivity(), "sent", Toast.LENGTH_SHORT).show();
     }
 
     @Click(R.id.tv_to_day)
@@ -113,46 +119,6 @@ public class VacationDayFragment extends BaseFragment implements
                 + (calendar.get(Calendar.MONTH) + 1) + "/" + calendar.get(Calendar.YEAR);
         mtvToDay.setText(currentDate);
         mtvFromDay.setText(currentDate);
-    }
-
-    private void configRecycleView() {
-        mRecycleViewReasons.setLayoutManager(new MyLinearLayoutManager(getActivity()
-                .getBaseContext(), LinearLayoutManager.VERTICAL, true));
-    }
-
-    private void setAdapter() {
-        mAdapter = new ReasonDayOffAdapter(getActivity(), mDatas, this);
-        mRecycleViewReasons.setAdapter(mAdapter);
-    }
-
-    private void setDefaultData() {
-        for (int i = 0; i < 5; i++) {
-            if (i % 2 == 0) {
-                Reason reason
-                        = new Reason(getString(R.string.test_reson), i);
-                mDatas.add(reason);
-            } else {
-                Reason reason
-                        = new Reason(getString(R.string.test_reson_demo), i);
-                mDatas.add(reason);
-            }
-        }
-        setDefaultDate();
-    }
-
-    @Override
-    public void onShowReason(Reason reasonChoosed, boolean isAdd) {
-        if (isAdd) {
-            mReasonChooseds.add(reasonChoosed);
-        } else {
-            if (mReasonChooseds.size() > 0) {
-                for (int i = 0; i < mReasonChooseds.size(); i++) {
-                    if (reasonChoosed.getId() == mReasonChooseds.get(i).getId()) {
-                        mReasonChooseds.remove(i);
-                    }
-                }
-            }
-        }
     }
 
     @Override

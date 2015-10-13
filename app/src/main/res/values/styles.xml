@@ -70,6 +70,27 @@
         <item name="android:background">#e8edeb</item>
     </style>
 
+    <style name="tv_datetime_vacation_day">
+        <item name="android:textSize">@dimen/button.textsize.16sp</item>
+        <item name="android:textColor">@color/color.black</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:padding">@dimen/linearlayout.padding.4dp</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:background">@drawable/bg_text_view</item>
+        <item name="android:layout_height">@dimen/linearlayout.width</item>
+        <item name="android:layout_width">match_parent</item>
+    </style>
+
+    <style name="radiobutton_choose_reason">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:textSize">@dimen/textsize.14sp</item>
+        <item name="android:textColor">@color/radiobutton_text_color</item>
+        <item name="android:maxLines">2</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:layout_height">@dimen/nav_drawer_height</item>
+    </style>
+
     <style name="button_register">
         <item name="android:layout_centerInParent">true</item>
         <item name="android:layout_marginBottom">@dimen/view.marginbottom.10dp</item>

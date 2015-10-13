@@ -1,153 +1,146 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:scrollbars="none"
+    android:layout_height="match_parent">
 
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scrollbars="none">
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/linearlayout.padding.10dp">
+
+        <LinearLayout
+            android:id="@+id/ln_to_email"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/lnHeight"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvTo"
+                android:layout_width="@dimen/tv.width"
+                android:layout_height="@dimen/linearlayout.width"
+                android:background="@drawable/bg_text_view"
+                android:gravity="center"
+                android:text="@string/from_day"
+                android:textSize="@dimen/button.textsize.14sp" />
+
+            <TextView
+                android:id="@+id/tv_from_day"
+                style="@style/tv_datetime_vacation_day"
+                android:layout_marginLeft="@dimen/drawerfragment.tv.marginLeft"
+                android:layout_marginStart="@dimen/drawerfragment.tv.marginLeft"
+                android:text="@string/day_test" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ln_cc_email"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/lnHeight"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvCc"
+                android:layout_width="@dimen/tv.width"
+                android:layout_height="@dimen/linearlayout.width"
+                android:background="@drawable/bg_text_view"
+                android:gravity="center"
+                android:text="@string/to_day"
+                android:textSize="@dimen/button.textsize.14sp" />
+
+            <TextView
+                android:id="@+id/tv_to_day"
+                style="@style/tv_datetime_vacation_day"
+                android:layout_marginLeft="@dimen/drawerfragment.tv.marginLeft"
+                android:layout_marginStart="@dimen/drawerfragment.tv.marginLeft"
+                android:text="@string/day_test" />
+        </LinearLayout>
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            android:padding="@dimen/linearlayout.padding.10dp">
+
+            <RadioButton
+                android:id="@+id/rdChoose_one"
+                style="@style/radiobutton_choose_reason"
+                android:text="@string/test_reson" />
+
+            <RadioButton
+                android:id="@+id/rdChoose_two"
+                style="@style/radiobutton_choose_reason"
+                android:text="@string/test_reson" />
+
+            <RadioButton
+                android:id="@+id/rdChoose_three"
+                style="@style/radiobutton_choose_reason"
+                android:text="@string/test_reson" />
+
+            <RadioButton
+                android:id="@+id/rdChoose_four"
+                style="@style/radiobutton_choose_reason"
+                android:text="@string/test_reson" />
+
+            <RadioButton
+                android:id="@+id/rdChoose_five"
+                style="@style/radiobutton_choose_reason"
+                android:text="@string/test_reson" />
+        </RadioGroup>
+
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="@dimen/linearlayout.padding.10dp">
+            android:gravity="center_vertical"
+            android:orientation="vertical">
 
-            <LinearLayout
-                android:id="@+id/ln_to_email"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/lnHeight"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/tvTo"
-                    android:layout_width="@dimen/tv.width"
-                    android:layout_height="@dimen/linearlayout.width"
-                    android:background="@drawable/bg_text_view"
-                    android:gravity="center"
-                    android:text="@string/from_day"
-                    android:textSize="@dimen/button.textsize.14sp" />
-
-                <TextView
-                    android:id="@+id/tv_from_day"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/linearlayout.width"
-                    android:layout_marginLeft="@dimen/drawerfragment.tv.marginLeft"
-                    android:layout_marginStart="@dimen/drawerfragment.tv.marginLeft"
-                    android:background="@drawable/bg_text_view"
-                    android:gravity="center_vertical"
-                    android:padding="@dimen/linearlayout.padding.4dp"
-                    android:singleLine="true"
-                    android:text="@string/day_test"
-                    android:textColor="@color/color.black"
-                    android:textSize="@dimen/button.textsize.16sp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/ln_cc_email"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/lnHeight"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/tvCc"
-                    android:layout_width="@dimen/tv.width"
-                    android:layout_height="@dimen/linearlayout.width"
-                    android:background="@drawable/bg_text_view"
-                    android:gravity="center"
-                    android:text="@string/to_day"
-                    android:textSize="@dimen/button.textsize.14sp" />
-
-                <TextView
-                    android:id="@+id/tv_to_day"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/linearlayout.width"
-                    android:layout_marginLeft="@dimen/drawerfragment.tv.marginLeft"
-                    android:layout_marginStart="@dimen/drawerfragment.tv.marginLeft"
-                    android:background="@drawable/bg_text_view"
-                    android:gravity="center_vertical"
-                    android:padding="@dimen/linearlayout.padding.4dp"
-                    android:singleLine="true"
-                    android:text="@string/day_test"
-                    android:textColor="@color/color.black"
-                    android:textSize="@dimen/button.textsize.16sp" />
-            </LinearLayout>
-
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/rcViewResons"
+            <CheckBox
+                android:id="@+id/cbDifferentReson"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingLeft="@dimen/linearlayout.padding.10dp"
-                android:paddingRight="@dimen/linearlayout.padding.10dp" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:orientation="vertical"
-                android:paddingLeft="@dimen/linearlayout.padding.10dp"
-                android:paddingStart="@dimen/linearlayout.padding.10dp">
-
-                <CheckBox
-                    android:id="@+id/cbDifferentReson"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/linearlayout.padding.10dp"
-                    android:layout_marginStart="@dimen/linearlayout.padding.10dp"
-                    android:background="@drawable/custom_check_box"
-                    android:text="@string/test_different_reson"
-                    android:textSize="@dimen/textsize.16sp" />
-
-                <EditText
-                    android:id="@+id/edtDifferentReason"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/height.edt"
-                    android:layout_marginLeft="@dimen/drawerfragment.rl.padding"
-                    android:layout_marginStart="@dimen/drawerfragment.rl.padding"
-                    android:layout_marginTop="10dp"
-                    android:background="@drawable/bg_edit_text"
-                    android:gravity="top"
-                    android:inputType="text"
-                    android:maxLines="3"
-                    android:padding="5dp"
-                    android:textColor="@color/color.black"
-                    android:textSize="@dimen/textsize.14sp"
-                    android:visibility="gone" />
-            </LinearLayout>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/linearlayout.width"
-                android:layout_marginTop="@dimen/linearlayout.marginbottom.10dp"
-                android:text="@string/description_project"
-                android:textSize="@dimen/button.textsize.16sp" />
+                android:layout_marginLeft="@dimen/linearlayout.padding.10dp"
+                android:layout_marginStart="@dimen/linearlayout.padding.10dp"
+                android:background="@drawable/custom_check_box"
+                android:text="@string/test_different_reson"
+                android:textSize="@dimen/textsize.16sp" />
 
             <EditText
-                android:id="@+id/edt_description_project"
+                android:id="@+id/edtDifferentReason"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/height.edt_more"
-                android:layout_marginTop="@dimen/linearlayout.marginbottom.10dp"
+                android:layout_height="@dimen/height.edt"
+                android:layout_marginLeft="@dimen/drawerfragment.rl.padding"
+                android:layout_marginStart="@dimen/drawerfragment.rl.padding"
+                android:layout_marginTop="10dp"
                 android:background="@drawable/bg_edit_text"
                 android:gravity="top"
                 android:inputType="text"
+                android:maxLines="3"
                 android:padding="5dp"
                 android:textColor="@color/color.black"
-                android:textSize="@dimen/textsize.14sp" />
-
-            <TextView
-                android:id="@+id/tvSubmit"
-                android:layout_width="@dimen/tv.heigth.100dp"
-                android:layout_height="@dimen/tv.width.30dp"
-                android:layout_gravity="end"
-                android:layout_marginTop="@dimen/linearlayout.marginbottom.10dp"
-                android:background="@drawable/bg_text_view_submit"
-                android:gravity="center"
-                android:text="@string/submit"
-                android:textSize="@dimen/button.textsize.18sp" />
+                android:textSize="@dimen/textsize.14sp"
+                android:visibility="gone" />
         </LinearLayout>
-    </ScrollView>
-</LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/linearlayout.width"
+            android:layout_marginTop="@dimen/linearlayout.marginbottom.10dp"
+            android:text="@string/description_project"
+            android:textSize="@dimen/button.textsize.16sp" />
+
+        <EditText
+            android:id="@+id/edt_description_project"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height.edt_more"
+            android:layout_marginTop="@dimen/linearlayout.marginbottom.10dp"
+            android:background="@drawable/bg_edit_text"
+            android:gravity="top"
+            android:inputType="text"
+            android:padding="5dp"
+            android:textColor="@color/color.black"
+            android:textSize="@dimen/textsize.14sp" />
+    </LinearLayout>
+</ScrollView>
