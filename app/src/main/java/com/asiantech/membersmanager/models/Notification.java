@@ -14,7 +14,7 @@ public class Notification implements Serializable {
     private String mTittle;
     private String mContent;
     private String mTime;
-    private Boolean isCheck;
+    private Boolean isChecked = false;
     private Boolean isFavorite;
     private Boolean isHot;
 }

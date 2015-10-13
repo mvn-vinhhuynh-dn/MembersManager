@@ -4,10 +4,7 @@
     android:id="@+id/swipe"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="@dimen/relativelayout.magin.bottom.top"
-    android:layout_marginRight="@dimen/relativelayout.magin.left.right"
     android:background="@color/color.white"
-    android:paddingLeft="@dimen/ln.padding10"
     swipe:leftEdgeSwipeOffset="0dp"
     swipe:rightEdgeSwipeOffset="0dp">
 
@@ -35,8 +32,11 @@
     </LinearLayout>
 
     <RelativeLayout
+        android:id="@+id/rlparent"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/linearlayout.padding.10dp"
+        android:paddingRight="@dimen/relativelayout.magin.left.right">
 
         <com.asiantech.membersmanager.views.CircleImageView
             android:id="@+id/imgAvata"
