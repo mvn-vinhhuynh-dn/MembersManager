@@ -42,8 +42,16 @@ public class NotificationDetailFragment extends BaseFragment {
     public void onResume() {
         super.onResume();
         if (mOnBaseFragmentListener != null) {
-            mOnBaseFragmentListener.setTitleHeader(mNotifications.get(mPosition).getMTittle());
-            mOnBaseFragmentListener.setTypeHeader(MainActivity.TYPE_HOME);
+            mOnBaseFragmentListener.setTitleHeader(getString(R.string.detail));
+            mOnBaseFragmentListener.setTypeHeader(MainActivity.TYPE_DETAILS);
+        }
+    }
+
+    public void clickFavorite(){
+        if (mNotifications.get(mPosition).getIsFavorite()){
+            mNotifications.get(mPosition).setIsFavorite(false);
+        } else {
+            mNotifications.get(mPosition).setIsFavorite(true);
         }
     }
 }

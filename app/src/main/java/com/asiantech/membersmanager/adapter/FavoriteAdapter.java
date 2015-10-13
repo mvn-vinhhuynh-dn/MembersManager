@@ -13,6 +13,7 @@ import com.asiantech.membersmanager.R;
 import com.asiantech.membersmanager.interfaces.CallDetail;
 import com.asiantech.membersmanager.interfaces.CallFavorite;
 import com.asiantech.membersmanager.models.Notification;
+import com.asiantech.membersmanager.views.CircleImageView;
 
 import java.util.ArrayList;
 
@@ -96,14 +97,19 @@ public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.ViewHo
 
     public class ViewHolder extends RecyclerView.ViewHolder{
 
-        com.asiantech.membersmanager.views.CircleImageView imgAvata;
-        ImageView imgHot, imgFavorite, imgDelete;
-        TextView tvSender, tvTittle, tvContent, tvTime;
+        CircleImageView imgAvata;
+        ImageView imgHot;
+        ImageView imgFavorite;
+        ImageView imgDelete;
+        TextView tvSender;
+        TextView tvTittle;
+        TextView tvContent;
+        TextView tvTime;
         RelativeLayout rlTittle;
 
         public ViewHolder(View itemView) {
             super(itemView);
-            imgAvata = (com.asiantech.membersmanager.views.CircleImageView) itemView.findViewById(R.id.imgAvata);
+            imgAvata = (CircleImageView) itemView.findViewById(R.id.imgAvata);
             tvSender = (TextView) itemView.findViewById(R.id.tvSender);
             tvTittle = (TextView) itemView.findViewById(R.id.tvTittle);
             tvContent = (TextView) itemView.findViewById(R.id.tvContent);

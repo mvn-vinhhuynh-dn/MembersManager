@@ -10,16 +10,19 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.asiantech.membersmanager.abstracts.BaseFragment;
 import com.asiantech.membersmanager.activity.LoginActivity_;
 import com.asiantech.membersmanager.dialog.DialogChooseImage;
+import com.asiantech.membersmanager.fragment.DetailHotNotificationFragment_;
 import com.asiantech.membersmanager.fragment.DrawerFragment;
 import com.asiantech.membersmanager.fragment.DrawerFragment_;
 import com.asiantech.membersmanager.fragment.FavoriteFragment_;
 import com.asiantech.membersmanager.fragment.HelpAndFeedBackFragment_;
 import com.asiantech.membersmanager.fragment.HomeFragment_;
 import com.asiantech.membersmanager.fragment.NotificationDetailFragment;
+import com.asiantech.membersmanager.fragment.NotificationDetailFragment_;
 import com.asiantech.membersmanager.fragment.ProfileFragment_;
 import com.asiantech.membersmanager.fragment.TimeSheetFragment_;
 import com.asiantech.membersmanager.fragment.VacationDayFragment_;
@@ -43,6 +46,7 @@ public class MainActivity extends AppCompatActivity implements DrawerFragment
     public static final int TYPE_SETTING = 3;
     public static final int TYPE_CLOSE = 4;
     public static final int TYPE_DONE = 5;
+    public static final int TYPE_DETAILS = 7;
     public static final int TYPE_SENT = 6;
     private DrawerFragment mDrawerFragment;
     @ViewById(R.id.toolbar)
@@ -156,6 +160,9 @@ public class MainActivity extends AppCompatActivity implements DrawerFragment
         } else if (mContent instanceof VacationDayFragment_) {
             ((VacationDayFragment_) mContent).clickSentMail();
         }
+        if (mContent instanceof NotificationDetailFragment_ || mContent instanceof DetailHotNotificationFragment_){
+          Toast.makeText(getBaseContext(),"Click Favorite", Toast.LENGTH_SHORT).show();
+        }
     }
 
     @Override
@@ -183,6 +190,12 @@ public class MainActivity extends AppCompatActivity implements DrawerFragment
                 mImgRight.setVisibility(View.VISIBLE);
                 mTvTItle.setVisibility(View.VISIBLE);
                 mImgRight.setImageResource(R.drawable.ic_done_white);
+                break;
+            case TYPE_DETAILS:
+                mImgLeft.setVisibility(View.GONE);
+                mImgRight.setVisibility(View.VISIBLE);
+                mTvTItle.setVisibility(View.VISIBLE);
+                mImgRight.setImageResource(R.drawable.ic_favorite);
                 break;
             case TYPE_SENT:
                 mImgLeft.setVisibility(View.GONE);
