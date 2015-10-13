@@ -43,7 +43,8 @@
                 android:layout_marginRight="@dimen/textview.sender.maginright"
                 android:layout_toLeftOf="@+id/imgHotHeader"
                 android:textColor="@color/color.text.time"
-                android:textSize="@dimen/textview.time.size" />
+                android:textSize="@dimen/textview.time.size"
+                android:textStyle="bold"/>
 
             <ImageView
                 android:id="@+id/imgHotHeader"
@@ -59,7 +60,8 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tvSenderHeader"
                 android:textColor="@color/color.black"
-                android:textSize="@dimen/textview.title.size" />
+                android:textSize="@dimen/textview.title.size"
+                android:textStyle="bold"/>
 
         </RelativeLayout>
 

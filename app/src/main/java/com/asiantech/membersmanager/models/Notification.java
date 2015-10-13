@@ -17,4 +17,5 @@ public class Notification implements Serializable {
     private Boolean isChecked = false;
     private Boolean isFavorite;
     private Boolean isHot;
+    private Boolean isRead;
 }

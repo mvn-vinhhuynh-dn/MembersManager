@@ -42,7 +42,7 @@ public class DetailHotNotificationFragment extends BaseFragment {
         super.onResume();
         if (mOnBaseFragmentListener != null) {
             mOnBaseFragmentListener.setTitleHeader(getString(R.string.hot_detail));
-            mOnBaseFragmentListener.setTypeHeader(MainActivity.TYPE_HOME);
+            mOnBaseFragmentListener.setTypeHeader(MainActivity.TYPE_DETAILS);
         }
     }
 }

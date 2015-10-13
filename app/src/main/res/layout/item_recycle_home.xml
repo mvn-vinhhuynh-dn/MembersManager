@@ -11,17 +11,10 @@
     <!--Bottom View For Right to Left-->
     <LinearLayout
         android:id="@+id/linerlayoutRight"
-        android:layout_width="wrap_content"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:weightSum="2">
-
-        <ImageView
-            android:id="@+id/imgFavorite"
-            android:layout_width="@dimen/img.delete.width.height"
-            android:layout_height="@dimen/img.delete.width.height"
-            android:layout_weight="1"
-            android:src="@drawable/ic_unfavorite" />
+        android:weightSum="1">
 
         <ImageView
             android:id="@+id/imgDelete"
@@ -43,7 +36,8 @@
             android:layout_width="@dimen/circleImageview.width.height"
             android:layout_height="@dimen/circleImageview.width.height"
             android:layout_centerVertical="true"
-            android:src="@drawable/img_android" />
+            android:src="@drawable/img_android"
+            android:layout_marginLeft="@dimen/linearlayout.padding.10dp"/>
 
         <RelativeLayout
             android:id="@+id/rlTop"
@@ -85,30 +79,30 @@
                 android:textColor="@color/color.black"
                 android:textSize="@dimen/textview.title.size" />
 
-        </RelativeLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/rlTop"
-            android:layout_marginLeft="@dimen/linerlayout.tittle.maginleft"
-            android:layout_toRightOf="@+id/imgAvata"
-            android:orientation="vertical">
-
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvTittle"
+                android:weightSum="2">
 
                 <TextView
                     android:id="@+id/tvContent"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_weight="2"
                     android:ellipsize="end"
                     android:maxLines="2"
                     android:paddingBottom="@dimen/textview.content.paddingbottom"
                     android:textSize="@dimen/textview.content.size"
                     android:textStyle="italic" />
+
+                <ImageView
+                    android:id="@+id/imgFavorite"
+                    android:layout_width="@dimen/img.delete.width.height"
+                    android:layout_height="@dimen/img.delete.width.height"
+                    android:layout_weight="1"
+                    android:src="@drawable/ic_unfavorite" />
             </LinearLayout>
-        </LinearLayout>
+        </RelativeLayout>
     </RelativeLayout>
 </com.daimajia.swipe.SwipeLayout>

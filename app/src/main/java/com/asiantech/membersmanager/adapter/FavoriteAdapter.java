@@ -20,7 +20,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *
  * Created by xuanphu on 08/10/2015.
  */
 public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.ViewHolder> {
@@ -134,13 +133,16 @@ public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.ViewHo
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-
         CircleImageView imgAvata;
-        ImageView imgHot, imgFavorite, imgDelete;
-        TextView tvSender, tvTittle, tvContent, tvTime;
+        ImageView imgHot;
+        ImageView imgFavorite;
+        ImageView imgDelete;
+        TextView tvSender;
+        TextView tvTittle;
+        TextView tvContent;
+        TextView tvTime;
         RelativeLayout rlTittle;
         SwipeLayout swipeLayout;
-
         public ViewHolder(View itemView) {
             super(itemView);
             imgAvata = (CircleImageView) itemView.findViewById(R.id.imgAvata);
