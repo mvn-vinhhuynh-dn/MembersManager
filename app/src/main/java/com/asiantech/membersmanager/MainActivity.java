@@ -51,9 +51,11 @@ public class MainActivity extends AppCompatActivity implements DrawerFragment
     private ImageView mImgLeft;
     private TextView mTvTItle;
     private Fragment mContent;
-
+    public static MainActivity_ mMainActivity;
     @AfterViews
     public void afterViews() {
+
+        mMainActivity = (MainActivity_)this;
         setSupportActionBar(mToolBar);
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(false);
@@ -185,8 +187,7 @@ public class MainActivity extends AppCompatActivity implements DrawerFragment
     public void changeFragment(Fragment fragment, boolean isBack) {
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.setCustomAnimations(R.anim.enter_from_right,
-                R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right);
+        fragmentTransaction.setCustomAnimations(R.anim.enter_anim, R.anim.exit_anim, R.anim.pop_enter, R.anim.pop_exit);
         fragmentTransaction.replace(R.id.container_body, fragment);
         mContent = fragment;
         //Add to back stack
