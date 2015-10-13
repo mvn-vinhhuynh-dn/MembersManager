@@ -24,6 +24,9 @@ import org.androidannotations.annotations.ViewById;
 
 import java.util.ArrayList;
 
+import jp.wasabeef.recyclerview.animators.adapters.AlphaInAnimationAdapter;
+import jp.wasabeef.recyclerview.animators.adapters.ScaleInAnimationAdapter;
+
 /**
  * Copyright © 2015 AsianTech inc.
  * Created by VinhHlb on 10/5/15.
@@ -50,10 +53,17 @@ public class HomeFragment extends BaseFragment implements CallDetail {
         mAdapter = new HomeAdapter(getActivity(), mArraylists, mArraylistsHeader, this);
         //add header
         final StickyRecyclerHeadersDecoration headersDecor = new StickyRecyclerHeadersDecoration(mAdapter);
-
-        mRecycleHome.setLayoutManager(new LinearLayoutManager(getActivity().getBaseContext()));
+        // Config recycleview
+        mRecycleHome.setLayoutManager(new LinearLayoutManager(getActivity()));
         mRecycleHome.addItemDecoration(new DividerItemDecoration(getResources().getDrawable(R.drawable.divider)));
-        mRecycleHome.setAdapter(mAdapter);
+        // Add animation
+        AlphaInAnimationAdapter alphaAdapter = new AlphaInAnimationAdapter(mAdapter);
+        ScaleInAnimationAdapter scaleAdapter = new ScaleInAnimationAdapter(alphaAdapter);
+        scaleAdapter.setDuration(500);
+        scaleAdapter.setFirstOnly(false);
+
+        // setAdapter
+        mRecycleHome.setAdapter(scaleAdapter);
         mRecycleHome.addItemDecoration(headersDecor);
 
         // Add touch listeners
@@ -99,21 +109,6 @@ public class HomeFragment extends BaseFragment implements CallDetail {
             }
         });
     }
-//    void refreshItems() {
-//        // Load items
-//        // ...
-//
-//        // Load complete
-//        onItemsLoadComplete();
-//    }
-//
-//    void onItemsLoadComplete() {
-//        // Update the adapter and notify data set changed
-//        // ...
-//
-//        // Stop refresh animation
-//        swipeRefreshLayout.setRefreshing(false);
-//    }
 
     @Override
     public void onResume() {
@@ -270,6 +265,21 @@ public class HomeFragment extends BaseFragment implements CallDetail {
         notification8.setMTittle("Thong bao hop khan cap");
         notification8.setMTime("14:32 PM, 06/10");
         mArraylists.add(notification8);
+
+        for (int i = 0; i < 40; i++) {
+            Notification notification = new Notification();
+            notification.setIsFavorite(true);
+            notification.setIsHot(false);
+            notification.setMAvata(R.drawable.p1);
+            notification.setMContent("Đã có lúc anh mong tim mình bé lại\n" +
+                    "Để nỗi nhớ em không thể nào thêm nữa\\n\" +\n" +
+                    "Đã có lúc anh mong ngừng thời gian trôi\\n\" +\n" +
+                    "Để những dấu yêu sẽ không phai mờ\\n\"");
+            notification.setMSender("Le Thai Son");
+            notification.setMTittle("Thong bao hop khan cap");
+            notification.setMTime("14:32 PM, 06/10");
+            mArraylists.add(notification);
+        }
     }
 
     @Override

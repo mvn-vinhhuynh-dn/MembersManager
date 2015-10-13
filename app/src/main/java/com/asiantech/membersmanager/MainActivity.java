@@ -1,20 +1,19 @@
 package com.asiantech.membersmanager;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.asiantech.membersmanager.abstracts.BaseFragment;
+import com.asiantech.membersmanager.activity.LoginActivity_;
 import com.asiantech.membersmanager.dialog.DialogChooseImage;
 import com.asiantech.membersmanager.fragment.DetailHotNotificationFragment_;
 import com.asiantech.membersmanager.fragment.DrawerFragment;
@@ -48,6 +47,7 @@ public class MainActivity extends AppCompatActivity implements DrawerFragment
     public static final int TYPE_CLOSE = 4;
     public static final int TYPE_DONE = 5;
     public static final int TYPE_DETAILS = 7;
+    public static final int TYPE_SENT = 6;
     private DrawerFragment mDrawerFragment;
     @ViewById(R.id.toolbar)
     Toolbar mToolBar;
@@ -56,10 +56,11 @@ public class MainActivity extends AppCompatActivity implements DrawerFragment
     private TextView mTvTItle;
     private Fragment mContent;
     public static MainActivity_ mMainActivity;
+
     @AfterViews
     public void afterViews() {
 
-        mMainActivity = (MainActivity_)this;
+        mMainActivity = (MainActivity_) this;
         setSupportActionBar(mToolBar);
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(false);
@@ -100,7 +101,6 @@ public class MainActivity extends AppCompatActivity implements DrawerFragment
         switch (position) {
             case 0:
                 fragment = new HomeFragment_();
-                Log.d("----","aaaa");
                 title = getString(R.string.title_home);
                 break;
             case 1:
@@ -121,6 +121,8 @@ public class MainActivity extends AppCompatActivity implements DrawerFragment
                 break;
             case 5:
                 //TOdo Logout function
+                LoginActivity_.intent(MainActivity.this).start();
+                finish();
                 break;
             default:
                 break;
@@ -155,6 +157,8 @@ public class MainActivity extends AppCompatActivity implements DrawerFragment
             } else {
                 ((ProfileFragment_) mContent).clickDone();
             }
+        } else if (mContent instanceof VacationDayFragment_) {
+            ((VacationDayFragment_) mContent).clickSentMail();
         }
         if (mContent instanceof NotificationDetailFragment_ || mContent instanceof DetailHotNotificationFragment_){
           Toast.makeText(getBaseContext(),"Click Favorite", Toast.LENGTH_SHORT).show();
@@ -193,6 +197,13 @@ public class MainActivity extends AppCompatActivity implements DrawerFragment
                 mTvTItle.setVisibility(View.VISIBLE);
                 mImgRight.setImageResource(R.drawable.ic_favorite);
                 break;
+            case TYPE_SENT:
+                mImgLeft.setVisibility(View.GONE);
+                mImgRight.setVisibility(View.VISIBLE);
+                mTvTItle.setVisibility(View.VISIBLE);
+                mImgRight.setImageResource(R.drawable.ic_send_white);
+                break;
+
         }
     }
 
@@ -241,10 +252,7 @@ public class MainActivity extends AppCompatActivity implements DrawerFragment
 
     @OnActivityResult(DialogChooseImage.CAMERA_REQUEST)
     void onResult(int resultCode, Intent data) {
-        Log.d("vinhhlb", "activity foresult");
         if (resultCode == RESULT_OK) {
-            Uri path = data.getData();
-            Log.d("vinhhlb", "path is " + path);
         }
     }
 }

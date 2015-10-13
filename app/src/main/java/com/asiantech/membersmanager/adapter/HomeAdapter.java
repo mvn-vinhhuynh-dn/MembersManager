@@ -14,19 +14,20 @@ import com.asiantech.membersmanager.R;
 import com.asiantech.membersmanager.interfaces.CallDetail;
 import com.asiantech.membersmanager.models.Notification;
 import com.asiantech.membersmanager.views.CircleImageView;
+import com.daimajia.swipe.SwipeLayout;
 import com.timehop.stickyheadersrecyclerview.StickyRecyclerHeadersAdapter;
 
 import java.util.ArrayList;
 
 /**
- *
  * Created by xuanphu on 06/10/2015.
  */
-public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> implements StickyRecyclerHeadersAdapter<HomeAdapter.HeaderHolder>{
+public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> implements StickyRecyclerHeadersAdapter<HomeAdapter.HeaderHolder> {
     private Context mContext;
     private ArrayList<Notification> mArraylists;
     private ArrayList<Notification> mArraylistsHeader;
     private CallDetail callDetail;
+    private int lastPosition = -1;
 
     public HomeAdapter(Context mContext, ArrayList<Notification> mArraylists, ArrayList<Notification> mArraylistsHeader, CallDetail callDetail) {
         this.mContext = mContext;
@@ -112,6 +113,8 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> im
     }
 
 //header ----------
+
+    //header ----------
     @Override
     public long getHeaderId(int position) {
         return 1;
@@ -125,13 +128,20 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> im
 
     @Override
     public void onBindHeaderViewHolder(HeaderHolder holder, int position) {
-        if (position < mArraylistsHeader.size()){
-        holder.imgAvataHeader.setImageResource(mArraylistsHeader.get(position).getMAvata());
-        holder.tvSenderHeader.setText(mArraylistsHeader.get(position).getMSender());
-        holder.tvTittleHeader.setText(mArraylistsHeader.get(position).getMTittle());
-        holder.tvContentHeader.setText(mArraylistsHeader.get(position).getMContent());
-        holder.tvTimeHeader.setText(mArraylistsHeader.get(position).getMTime());
+        if (position < mArraylistsHeader.size()) {
+            holder.imgAvataHeader.setImageResource(mArraylistsHeader.get(position).getMAvata());
+            holder.tvSenderHeader.setText(mArraylistsHeader.get(position).getMSender());
+            holder.tvTittleHeader.setText(mArraylistsHeader.get(position).getMTittle());
+            holder.tvContentHeader.setText(mArraylistsHeader.get(position).getMContent());
+            holder.tvTimeHeader.setText(mArraylistsHeader.get(position).getMTime());
             checkReadHeader(holder, position);
+            if (position < mArraylistsHeader.size()) {
+                holder.imgAvataHeader.setImageResource(mArraylistsHeader.get(position).getMAvata());
+                holder.tvSenderHeader.setText(mArraylistsHeader.get(position).getMSender());
+                holder.tvTittleHeader.setText(mArraylistsHeader.get(position).getMTittle());
+                holder.tvContentHeader.setText(mArraylistsHeader.get(position).getMContent());
+                holder.tvTimeHeader.setText(mArraylistsHeader.get(position).getMTime());
+            }
         }
     }
 
@@ -149,6 +159,8 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> im
     }
 
     // item ==-------
+
+    // item ==-------
     @Override
     public int getItemCount() {
         return mArraylists.size();
@@ -164,6 +176,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> im
         TextView tvContent;
         TextView tvTime;
         RelativeLayout rlTittle;
+        SwipeLayout swipeLayout;
         RelativeLayout rlItem;
 
         public ViewHolder(View itemView) {
@@ -177,6 +190,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> im
             imgFavorite = (ImageView) itemView.findViewById(R.id.imgFavorite);
             imgDelete = (ImageView) itemView.findViewById(R.id.imgDelete);
             rlTittle = (RelativeLayout) itemView.findViewById(R.id.rlTop);
+            swipeLayout = (SwipeLayout) itemView.findViewById(R.id.swipe);
             rlItem = (RelativeLayout) itemView.findViewById(R.id.rlItem);
         }
     }
