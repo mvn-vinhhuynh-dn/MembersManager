@@ -1,16 +1,20 @@
 package com.asiantech.membersmanager;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.asiantech.membersmanager.abstracts.BaseFragment;
+import com.asiantech.membersmanager.dialog.DialogChooseImage;
 import com.asiantech.membersmanager.fragment.DrawerFragment;
 import com.asiantech.membersmanager.fragment.DrawerFragment_;
 import com.asiantech.membersmanager.fragment.FavoriteFragment_;
@@ -24,6 +28,7 @@ import com.asiantech.membersmanager.fragment.VacationDayFragment_;
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EActivity;
+import org.androidannotations.annotations.OnActivityResult;
 import org.androidannotations.annotations.ViewById;
 
 /**
@@ -38,6 +43,7 @@ public class MainActivity extends AppCompatActivity implements DrawerFragment
     public static final int TYPE_EDIT = 2;
     public static final int TYPE_SETTING = 3;
     public static final int TYPE_CLOSE = 4;
+    public static final int TYPE_DONE = 5;
     private DrawerFragment mDrawerFragment;
     @ViewById(R.id.toolbar)
     Toolbar mToolBar;
@@ -45,19 +51,19 @@ public class MainActivity extends AppCompatActivity implements DrawerFragment
     private ImageView mImgLeft;
     private TextView mTvTItle;
     private Fragment mContent;
-
+    public static MainActivity_ mMainActivity;
     @AfterViews
     public void afterViews() {
+
+        mMainActivity = (MainActivity_)this;
         setSupportActionBar(mToolBar);
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(false);
             getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_profile);
-
         }
         initView();
         initListener();
         setDefaultFragment();
-
     }
 
     private void setDefaultFragment() {
@@ -138,8 +144,12 @@ public class MainActivity extends AppCompatActivity implements DrawerFragment
 
     @Click(R.id.img_right)
     void onEdit() {
-        if(mContent instanceof ProfileFragment_){
-            ((ProfileFragment_)mContent).clickRightImg();
+        if (mContent instanceof ProfileFragment_) {
+            if (!((ProfileFragment_) mContent).isEditing) {
+                ((ProfileFragment_) mContent).clickEdit();
+            } else {
+                ((ProfileFragment_) mContent).clickDone();
+            }
         }
     }
 
@@ -163,6 +173,12 @@ public class MainActivity extends AppCompatActivity implements DrawerFragment
                 break;
             case TYPE_SETTING:
                 break;
+            case TYPE_DONE:
+                mImgLeft.setVisibility(View.GONE);
+                mImgRight.setVisibility(View.VISIBLE);
+                mTvTItle.setVisibility(View.VISIBLE);
+                mImgRight.setImageResource(R.drawable.ic_done_white);
+                break;
 
         }
     }
@@ -171,8 +187,7 @@ public class MainActivity extends AppCompatActivity implements DrawerFragment
     public void changeFragment(Fragment fragment, boolean isBack) {
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.setCustomAnimations(R.anim.enter_from_right,
-                R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right);
+        fragmentTransaction.setCustomAnimations(R.anim.enter_anim, R.anim.exit_anim, R.anim.pop_enter, R.anim.pop_exit);
         fragmentTransaction.replace(R.id.container_body, fragment);
         mContent = fragment;
         //Add to back stack
@@ -196,10 +211,6 @@ public class MainActivity extends AppCompatActivity implements DrawerFragment
 
     private void setTitle(String title) {
         mTvTItle.setText(title);
-//        if (getSupportActionBar() != null) {
-//            getSupportActionBar()
-//                    .setTitle(title);
-//        }
     }
 
     @Override
@@ -215,4 +226,12 @@ public class MainActivity extends AppCompatActivity implements DrawerFragment
         }
     }
 
+    @OnActivityResult(DialogChooseImage.CAMERA_REQUEST)
+    void onResult(int resultCode, Intent data) {
+        Log.d("vinhhlb", "activity foresult");
+        if (resultCode == RESULT_OK) {
+            Uri path = data.getData();
+            Log.d("vinhhlb", "path is " + path);
+        }
+    }
 }

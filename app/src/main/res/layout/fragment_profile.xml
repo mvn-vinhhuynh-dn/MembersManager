@@ -1,276 +1,418 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:scrollbars="none">
 
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scrollbars="none">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-        <LinearLayout
+        <RelativeLayout
+            android:id="@+id/rl_image_profile"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_height="@dimen/width.120dp">
+
+            <ImageView
+                android:id="@+id/img_backgroud"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/width.120dp"
+                android:background="@drawable/bg_test_profile" />
 
             <RelativeLayout
-                android:id="@+id/rl_image_profile"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/width.120dp">
-
-                <ImageView
-                    android:id="@+id/img_backgroud"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/width.120dp"
-                    android:background="@drawable/bg_test_profile" />
+                android:id="@+id/rlAvata"
+                android:layout_width="@dimen/drawerfragment.img.width"
+                android:layout_height="@dimen/drawerfragment.img.width"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/textview.margintop.10dp"
+                android:layout_marginStart="@dimen/textview.margintop.10dp">
 
                 <com.asiantech.membersmanager.views.CircleImageView
                     android:id="@+id/cir_avatar"
-                    android:layout_width="@dimen/drawerfragment.img.width"
-                    android:layout_height="@dimen/drawerfragment.img.width"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:layout_centerVertical="true"
-                    android:layout_marginLeft="@dimen/textview.margintop.10dp"
-                    android:layout_marginStart="@dimen/textview.margintop.10dp"
                     android:src="@drawable/p4" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_toRightOf="@+id/cir_avatar"
-                    android:orientation="vertical"
-                    android:paddingLeft="@dimen/linearlayout.marginbottom.5dp">
-
-                    <TextView
-                        android:id="@+id/tvName"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/test_name"
-                       style="@style/text_size_title" />
-
-                    <TextView
-                        android:id="@+id/tvTeam"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/test_email"
-                        android:textSize="@dimen/text.size.14sp"
-                        android:textStyle="italic" />
-                </LinearLayout>
+                <ImageView
+                    android:id="@+id/img_edit_avata"
+                    android:layout_width="@dimen/textview.margintop.20dp"
+                    android:layout_height="@dimen/textview.margintop.20dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:src="@drawable/ic_edit_image"
+                    android:visibility="invisible" />
             </RelativeLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@+id/rlAvata"
+                android:layout_toRightOf="@+id/rlAvata"
                 android:orientation="vertical"
-                android:padding="@dimen/textview.margintop.10dp">
+                android:paddingLeft="@dimen/linearlayout.marginbottom.5dp">
 
                 <TextView
+                    android:id="@+id/tvName"
+                    style="@style/text_size_title"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/linearlayout.height.30dp"
-                    android:gravity="center_vertical"
-                    android:text="@string/info_use"
-                    android:textColor="@color/text_profile"
-                    android:textSize="@dimen/button.textsize.18sp" />
+                    android:layout_height="wrap_content"
+                    android:text="@string/test_name" />
 
-                <View
+                <TextView
+                    android:id="@+id/tvTeam"
                     android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="@color/text_profile" />
-                <!--info name-->
-                <LinearLayout
+                    android:layout_height="wrap_content"
+                    android:text="@string/test_email"
+                    android:textSize="@dimen/text.size.14sp"
+                    android:textStyle="italic" />
+            </LinearLayout>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="@dimen/textview.margintop.10dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/linearlayout.height.30dp"
+                android:gravity="center_vertical"
+                android:text="@string/info_use"
+                android:textColor="@color/text_profile"
+                android:textSize="@dimen/button.textsize.18sp"
+                android:textStyle="italic" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/text_profile" />
+            <!--info name-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:paddingLeft="@dimen/ln.padding10">
+
+                <TextView
+                    style="@style/text_size_title"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:paddingLeft="@dimen/ln.padding10">
+                    android:layout_height="@dimen/textview.margintop.25dp"
+                    android:text="@string/test_full_name" />
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
 
                     <TextView
-                        style="@style/text_size_title"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/textview.margintop.25dp"
-                        android:text="@string/test_full_name" />
-
-                    <TextView
+                        android:id="@+id/tv_name"
                         style="@style/text_size_content"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/textview.margintop.25dp"
                         android:text="@string/test_full_name_info"
+                        android:visibility="visible" />
 
-                        />
-                    <!--info dob-->
-                    <TextView
-                        style="@style/text_size_title"
+                    <EditText
+                        android:id="@+id/edt_name"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/textview.margintop.25dp"
-                        android:text="@string/test_dbo" />
+                        android:background="@drawable/bg_edt_edit_profile"
+                        android:paddingLeft="@dimen/linearlayout.marginbottom.5dp"
+                        android:text="@string/test_full_name_info"
+                        android:textColor="@color/color.black"
+                        android:visibility="invisible">
+                        <requestFocus />
+                    </EditText>
+                </RelativeLayout>
+
+                <!--info dob-->
+                <TextView
+                    style="@style/text_size_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/textview.margintop.25dp"
+                    android:text="@string/test_dbo" />
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
 
                     <TextView
+                        android:id="@+id/tv_dob"
                         style="@style/text_size_content"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/textview.margintop.25dp"
+                        android:text="@string/test_dob" />
+
+                    <EditText
+                        android:id="@+id/edt_dob"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/textview.margintop.25dp"
+                        android:background="@drawable/bg_edt_edit_profile"
+                        android:paddingLeft="@dimen/linearlayout.marginbottom.5dp"
                         android:text="@string/test_dob"
+                        android:textColor="@color/color.black"
+                        android:visibility="invisible" />
+                </RelativeLayout>
 
-                        />
-                    <!--info language-->
-                    <TextView
-                        style="@style/text_size_title"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/textview.margintop.25dp"
-                        android:text="@string/test_language" />
+                <!--info address-->
+                <TextView
+                    style="@style/text_size_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/textview.margintop.25dp"
+                    android:text="@string/test_city" />
 
-                    <TextView
-                        style="@style/text_size_content"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/textview.margintop.30dp"
-                        android:text="@string/test_info_language"
-
-                        />
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
 
                     <TextView
-                        style="@style/text_size_content"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/textview.margintop.30dp"
-                        android:text="@string/test_info_language_eng" />
-
-                    <!--info address-->
-                    <TextView
-                        style="@style/text_size_title"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/textview.margintop.25dp"
-                        android:text="@string/test_city" />
-
-                    <TextView
+                        android:id="@+id/tv_city"
                         style="@style/text_size_content"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/textview.margintop.25dp"
                         android:text="@string/test_info_city" />
 
-                    <TextView
-                        style="@style/text_size_title"
+                    <EditText
+                        android:id="@+id/edt_city"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/textview.margintop.25dp"
-                        android:text="@string/test_country" />
+                        android:background="@drawable/bg_edt_edit_profile"
+                        android:paddingLeft="@dimen/linearlayout.marginbottom.5dp"
+                        android:text="@string/test_info_city"
+                        android:textColor="@color/color.black"
+                        android:visibility="invisible" />
+                </RelativeLayout>
+
+                <TextView
+                    style="@style/text_size_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/textview.margintop.25dp"
+                    android:text="@string/test_country" />
+
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
 
                     <TextView
+                        android:id="@+id/tv_country"
                         style="@style/text_size_content"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/textview.margintop.25dp"
                         android:text="@string/test_info_country" />
-                </LinearLayout>
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/linearlayout.height.30dp"
-                    android:gravity="center_vertical"
-                    android:text="@string/info_contact"
-                    android:textColor="@color/text_profile"
-                    android:textSize="@dimen/button.textsize.18sp" />
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="@color/text_profile" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:paddingLeft="@dimen/ln.padding10">
-
-                    <TextView
-                        style="@style/text_size_title"
+                    <EditText
+                        android:id="@+id/edt_country"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/textview.margintop.25dp"
-                        android:text="@string/test_email_contact" />
+                        android:background="@drawable/bg_edt_edit_profile"
+                        android:paddingLeft="@dimen/linearlayout.marginbottom.5dp"
+                        android:text="@string/test_info_country"
+                        android:textColor="@color/color.black"
+                        android:visibility="invisible" />
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/linearlayout.height.30dp"
+                android:layout_marginTop="@dimen/linearlayout.marginbottom.5dp"
+                android:gravity="center_vertical"
+                android:text="@string/info_contact"
+                android:textColor="@color/text_profile"
+                android:textSize="@dimen/button.textsize.18sp"
+                android:textStyle="italic" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/text_profile" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:paddingLeft="@dimen/ln.padding10">
+
+                <TextView
+                    style="@style/text_size_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/textview.margintop.25dp"
+                    android:text="@string/test_email_contact" />
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
 
                     <TextView
+                        android:id="@+id/tv_mail_address"
                         style="@style/text_size_content"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/textview.margintop.25dp"
                         android:text="@string/test_mail_info" />
 
-
-                    <TextView
-                        style="@style/text_size_title"
+                    <EditText
+                        android:id="@+id/edt_mail_address"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/textview.margintop.25dp"
-                        android:text="@string/test_phone_num" />
+                        android:background="@drawable/bg_edt_edit_profile"
+                        android:paddingLeft="@dimen/linearlayout.marginbottom.5dp"
+                        android:text="@string/test_mail_info"
+                        android:textColor="@color/color.black"
+                        android:visibility="invisible" />
+                </RelativeLayout>
+
+                <TextView
+                    style="@style/text_size_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/textview.margintop.25dp"
+                    android:text="@string/test_phone_num" />
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
 
                     <TextView
+                        android:id="@+id/tv_fone_num"
                         style="@style/text_size_content"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/textview.margintop.25dp"
                         android:text="@string/test_info_phone_num" />
 
-                    <TextView
-                        style="@style/text_size_title"
+                    <EditText
+                        android:id="@+id/edt_fone_num"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/textview.margintop.25dp"
-                        android:text="@string/test_home_phone_num" />
+                        android:background="@drawable/bg_edt_edit_profile"
+                        android:paddingLeft="@dimen/linearlayout.marginbottom.5dp"
+                        android:text="@string/test_info_phone_num"
+                        android:textColor="@color/color.black"
+                        android:visibility="invisible" />
+                </RelativeLayout>
+
+                <TextView
+                    style="@style/text_size_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/textview.margintop.25dp"
+                    android:text="@string/test_home_phone_num" />
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
 
                     <TextView
+                        android:id="@+id/tv_home_phone"
                         style="@style/text_size_content"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/textview.margintop.25dp"
                         android:text="@string/test_info_phone_num_home" />
-                </LinearLayout>
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/linearlayout.height.30dp"
-                    android:gravity="center_vertical"
-                    android:text="@string/info_company"
-                    android:textColor="@color/text_profile"
-                    android:textSize="@dimen/button.textsize.18sp" />
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="@color/text_profile" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:paddingLeft="@dimen/ln.padding10">
-
-                    <TextView
-                        style="@style/text_size_title"
+                    <EditText
+                        android:id="@+id/edt_home_phone"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/textview.margintop.25dp"
-                        android:text="@string/test_git_mail" />
+                        android:background="@drawable/bg_edt_edit_profile"
+                        android:paddingLeft="@dimen/linearlayout.marginbottom.5dp"
+                        android:text="@string/test_info_phone_num_home"
+                        android:textColor="@color/color.black"
+                        android:visibility="invisible" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/linearlayout.height.30dp"
+                android:layout_marginTop="@dimen/linearlayout.marginbottom.5dp"
+                android:gravity="center_vertical"
+                android:text="@string/info_company"
+                android:textColor="@color/text_profile"
+                android:textSize="@dimen/button.textsize.18sp"
+                android:textStyle="italic" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/text_profile" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:paddingLeft="@dimen/ln.padding10">
+
+                <TextView
+                    style="@style/text_size_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/textview.margintop.25dp"
+                    android:text="@string/test_git_mail" />
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
 
                     <TextView
+                        android:id="@+id/tv_githup_mail"
                         style="@style/text_size_content"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/textview.margintop.25dp"
                         android:text="@string/test_mail_info" />
 
-                    <TextView
-                        style="@style/text_size_title"
+                    <EditText
+                        android:id="@+id/edt_githup_mail"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/textview.margintop.25dp"
-                        android:text="@string/test_position" />
+                        android:background="@drawable/bg_edt_edit_profile"
+                        android:paddingLeft="@dimen/linearlayout.marginbottom.5dp"
+                        android:text="@string/test_mail_info"
+                        android:textColor="@color/color.black"
+                        android:visibility="invisible" />
+                </RelativeLayout>
+
+                <TextView
+                    style="@style/text_size_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/textview.margintop.25dp"
+                    android:text="@string/test_position" />
+
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
 
                     <TextView
+                        android:id="@+id/tv_position"
                         style="@style/text_size_content"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/textview.margintop.25dp"
                         android:text="@string/test_position_info" />
 
-                    <TextView
-                        style="@style/text_size_title"
+                    <EditText
+                        android:id="@+id/edt_position"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/textview.margintop.25dp"
-                        android:text="@string/test_num_dayoff" />
+                        android:background="@drawable/bg_edt_edit_profile"
+                        android:paddingLeft="@dimen/linearlayout.marginbottom.5dp"
+                        android:text="@string/test_position_info"
+                        android:textColor="@color/color.black"
+                        android:visibility="invisible" />
+                </RelativeLayout>
 
-                    <TextView
-                        style="@style/text_size_content"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/textview.margintop.25dp"
-                        android:text="@string/test_dayoff_info" />
-                </LinearLayout>
+                <TextView
+                    style="@style/text_size_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/textview.margintop.25dp"
+                    android:text="@string/test_num_dayoff" />
+
+                <TextView
+                    style="@style/text_size_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/textview.margintop.25dp"
+                    android:text="@string/test_dayoff_info" />
             </LinearLayout>
         </LinearLayout>
-    </ScrollView>
-</LinearLayout>
+    </LinearLayout>
+</ScrollView>

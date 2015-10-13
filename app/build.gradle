@@ -20,7 +20,7 @@ android {
 
     defaultConfig {
         applicationId "com.asiantech.membersmanager"
-        minSdkVersion 14
+        minSdkVersion 15
         targetSdkVersion 22
         versionCode 1
         versionName "1.0"
@@ -37,6 +37,13 @@ apt {
     arguments {
         resourcePackageName android.defaultConfig.applicationId
         androidManifestFile variant.outputs[0].processResources.manifestFile
+
+        // If you're using Android NBS flavors you should use the following line instead of hard-coded packageName
+        // resourcePackageName android.defaultConfig.packageName
+
+        // You can set optional annotation processing options here, like these commented options:
+        // logLevel 'INFO'
+        // logFile '/var/log/aa.log'
     }
 }
 
@@ -58,5 +65,6 @@ dependencies {
     compile 'com.wdullaer:materialdatetimepicker:1.5.3'
     compile 'com.bartoszlipinski.recyclerviewheader:library:1.2.0'
     compile 'com.wdullaer:materialdatetimepicker:1.5+'
+    compile 'com.timehop.stickyheadersrecyclerview:library:0.4.2@aar'
     compile project(':library')
 }

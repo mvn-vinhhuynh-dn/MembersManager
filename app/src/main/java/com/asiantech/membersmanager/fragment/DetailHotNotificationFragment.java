@@ -6,6 +6,7 @@ import com.asiantech.membersmanager.MainActivity;
 import com.asiantech.membersmanager.R;
 import com.asiantech.membersmanager.abstracts.BaseFragment;
 import com.asiantech.membersmanager.adapter.ViewPagerDetailsAdapter;
+import com.asiantech.membersmanager.adapter.ViewPagerDetailsHotAdapter;
 import com.asiantech.membersmanager.models.Notification;
 
 import org.androidannotations.annotations.AfterViews;
@@ -17,14 +18,13 @@ import java.util.ArrayList;
 
 /**
  * Copyright © 2015 AsianTech inc.
- * Created by VinhHlb on 10/5/15.
+ * Created by VinhHlb on 10/12/15.
  */
-@EFragment(R.layout.fragment_detail_notification)
-public class NotificationDetailFragment extends BaseFragment {
-
-    @ViewById(R.id.viewpagerDetails)
-    ViewPager viewpagerDetails;
-    private ViewPagerDetailsAdapter mViewpagerDetailsAdapter;
+@EFragment(R.layout.fragment_detail_hot_notification)
+public class DetailHotNotificationFragment extends BaseFragment {
+    @ViewById(R.id.viewpagerDetailsHot)
+    ViewPager viewpagerDetailsHot;
+    private ViewPagerDetailsHotAdapter mViewpagerDetailsHotAdapter;
 
     @FragmentArg
     ArrayList<Notification> mNotifications;
@@ -33,16 +33,15 @@ public class NotificationDetailFragment extends BaseFragment {
 
     @AfterViews
     void afterViews() {
-        mViewpagerDetailsAdapter = new ViewPagerDetailsAdapter(mNotifications, getActivity());
-        viewpagerDetails.setAdapter(mViewpagerDetailsAdapter);
-        viewpagerDetails.setCurrentItem(mPosition);
+        mViewpagerDetailsHotAdapter = new ViewPagerDetailsHotAdapter(mNotifications, getActivity());
+        viewpagerDetailsHot.setAdapter(mViewpagerDetailsHotAdapter);
+        viewpagerDetailsHot.setCurrentItem(mPosition);
     }
-
     @Override
     public void onResume() {
         super.onResume();
         if (mOnBaseFragmentListener != null) {
-            mOnBaseFragmentListener.setTitleHeader(mNotifications.get(mPosition).getMTittle());
+            mOnBaseFragmentListener.setTitleHeader(getString(R.string.hot_detail));
             mOnBaseFragmentListener.setTypeHeader(MainActivity.TYPE_HOME);
         }
     }
