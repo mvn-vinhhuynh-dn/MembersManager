@@ -191,7 +191,6 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> im
             imgDelete = (ImageView) itemView.findViewById(R.id.imgDelete);
             rlTittle = (RelativeLayout) itemView.findViewById(R.id.rlTop);
             swipeLayout = (SwipeLayout) itemView.findViewById(R.id.swipe);
-            rlItem = (RelativeLayout) itemView.findViewById(R.id.rlItem);
         }
     }
 

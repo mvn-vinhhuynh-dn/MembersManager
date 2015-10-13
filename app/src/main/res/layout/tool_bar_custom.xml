@@ -36,6 +36,15 @@
             android:id="@+id/img_right"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/linearlayout.marginbottom.5dp"
             android:contentDescription="@string/app_name" />
+
+        <TextView
+            android:id="@+id/tv_numdetele"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="7"
+            android:textColor="@color/white"
+            android:visibility="gone" />
     </LinearLayout>
 </android.support.v7.widget.Toolbar>

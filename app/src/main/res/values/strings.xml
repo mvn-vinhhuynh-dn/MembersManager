@@ -116,5 +116,6 @@
     <string name="take_photo">Chụp hình mới</string>
     <string name="choose_photo">Tải ảnh lên</string>
     <string name="cancel">Thoát</string>
+    <string name="title_favorite_delete">RemoveDelete</string>
     <string name="detail">Notification Detail</string>
 </resources>

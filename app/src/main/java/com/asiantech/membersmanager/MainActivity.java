@@ -48,6 +48,7 @@ public class MainActivity extends AppCompatActivity implements DrawerFragment
     public static final int TYPE_DONE = 5;
     public static final int TYPE_DETAILS = 7;
     public static final int TYPE_SENT = 6;
+    public static final int TYPE_DELETE = 8;
     private DrawerFragment mDrawerFragment;
     @ViewById(R.id.toolbar)
     Toolbar mToolBar;
@@ -55,6 +56,7 @@ public class MainActivity extends AppCompatActivity implements DrawerFragment
     private ImageView mImgLeft;
     private TextView mTvTItle;
     private Fragment mContent;
+    private TextView mtvNumDelete;
     public static MainActivity_ mMainActivity;
 
     @AfterViews
@@ -84,6 +86,7 @@ public class MainActivity extends AppCompatActivity implements DrawerFragment
         mImgRight = (ImageView) mToolBar.findViewById(R.id.img_right);
         mImgLeft = (ImageView) mToolBar.findViewById(R.id.img_left_button);
         mTvTItle = (TextView) mToolBar.findViewById(R.id.tv_title);
+        mtvNumDelete = (TextView) mToolBar.findViewById(R.id.tv_numdetele);
     }
 
     private void initListener() {
@@ -159,6 +162,8 @@ public class MainActivity extends AppCompatActivity implements DrawerFragment
             }
         } else if (mContent instanceof VacationDayFragment_) {
             ((VacationDayFragment_) mContent).clickSentMail();
+        } else if (mContent instanceof FavoriteFragment_) {
+            ((FavoriteFragment_) mContent).onDelete();
         }
         if (mContent instanceof NotificationDetailFragment_ || mContent instanceof DetailHotNotificationFragment_){
           Toast.makeText(getBaseContext(),"Click Favorite", Toast.LENGTH_SHORT).show();
@@ -176,10 +181,12 @@ public class MainActivity extends AppCompatActivity implements DrawerFragment
                 mImgLeft.setVisibility(View.GONE);
                 mImgRight.setVisibility(View.VISIBLE);
                 mTvTItle.setVisibility(View.VISIBLE);
+                mtvNumDelete.setVisibility(View.GONE);
                 mImgRight.setImageResource(R.drawable.ic_mode_edit);
                 break;
             case TYPE_HOME:
                 mImgLeft.setVisibility(View.GONE);
+                mtvNumDelete.setVisibility(View.GONE);
                 mImgRight.setVisibility(View.GONE);
                 mTvTItle.setVisibility(View.VISIBLE);
                 break;
@@ -188,6 +195,7 @@ public class MainActivity extends AppCompatActivity implements DrawerFragment
             case TYPE_DONE:
                 mImgLeft.setVisibility(View.GONE);
                 mImgRight.setVisibility(View.VISIBLE);
+                mtvNumDelete.setVisibility(View.GONE);
                 mTvTItle.setVisibility(View.VISIBLE);
                 mImgRight.setImageResource(R.drawable.ic_done_white);
                 break;
@@ -202,9 +210,22 @@ public class MainActivity extends AppCompatActivity implements DrawerFragment
                 mImgRight.setVisibility(View.VISIBLE);
                 mTvTItle.setVisibility(View.VISIBLE);
                 mImgRight.setImageResource(R.drawable.ic_send_white);
+                mtvNumDelete.setVisibility(View.GONE);
+                break;
+            case TYPE_DELETE:
+                mtvNumDelete.setVisibility(View.VISIBLE);
+                mImgLeft.setVisibility(View.GONE);
+                mImgRight.setVisibility(View.VISIBLE);
+                mTvTItle.setVisibility(View.VISIBLE);
+                mImgRight.setImageResource(R.drawable.ic_delete_white);
                 break;
 
         }
+    }
+
+    @Override
+    public void updateTvRight(int num) {
+        mtvNumDelete.setText(""+num);
     }
 
     // Change fragment with animation

@@ -25,9 +25,11 @@
     </LinearLayout>
 
     <RelativeLayout
+        android:id="@+id/rlparent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/rlItem">
+        android:paddingLeft="@dimen/linearlayout.padding.10dp"
+        android:paddingRight="@dimen/relativelayout.magin.left.right">
 
         <com.asiantech.membersmanager.views.CircleImageView
             android:id="@+id/imgAvata"
@@ -35,7 +37,7 @@
             android:layout_height="@dimen/circleImageview.width.height"
             android:layout_centerVertical="true"
             android:src="@drawable/img_android"
-            android:layout_marginLeft="10dp"/>
+            android:layout_marginLeft="@dimen/linearlayout.padding.10dp"/>
 
         <RelativeLayout
             android:id="@+id/rlTop"
@@ -101,7 +103,6 @@
                     android:layout_weight="1"
                     android:src="@drawable/ic_unfavorite" />
             </LinearLayout>
-
         </RelativeLayout>
     </RelativeLayout>
 </com.daimajia.swipe.SwipeLayout>

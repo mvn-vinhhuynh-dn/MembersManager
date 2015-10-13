@@ -40,7 +40,7 @@ public abstract class BaseFragment extends Fragment {
 
     public interface OnBaseFragmentListener {
         void setTitleHeader(String title);
-
         void setTypeHeader(int type);
+        void updateTvRight(int num);
     }
 }

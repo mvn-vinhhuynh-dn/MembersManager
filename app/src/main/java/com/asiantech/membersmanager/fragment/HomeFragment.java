@@ -1,11 +1,9 @@
 package com.asiantech.membersmanager.fragment;
 
-import android.content.Context;
 import android.os.Handler;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
 
 import com.asiantech.membersmanager.MainActivity;
@@ -270,6 +268,7 @@ public class HomeFragment extends BaseFragment implements CallDetail {
             Notification notification = new Notification();
             notification.setIsFavorite(true);
             notification.setIsHot(false);
+            notification.setIsRead(false);
             notification.setMAvata(R.drawable.p1);
             notification.setMContent("Đã có lúc anh mong tim mình bé lại\n" +
                     "Để nỗi nhớ em không thể nào thêm nữa\\n\" +\n" +
