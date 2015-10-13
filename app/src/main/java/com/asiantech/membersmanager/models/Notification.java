@@ -5,6 +5,7 @@ import java.io.Serializable;
 import lombok.Data;
 
 /**
+ *
  * Created by xuanphu on 06/10/2015.
  */
 @Data
@@ -14,7 +15,7 @@ public class Notification implements Serializable {
     private String mTittle;
     private String mContent;
     private String mTime;
-    private Boolean isCheck;
     private Boolean isFavorite;
     private Boolean isHot;
+    private Boolean isRead;
 }

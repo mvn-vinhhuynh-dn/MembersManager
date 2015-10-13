@@ -1,9 +1,11 @@
 package com.asiantech.membersmanager.fragment;
 
+import android.content.Context;
 import android.os.Handler;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 
 import com.asiantech.membersmanager.MainActivity;
@@ -61,6 +63,7 @@ public class HomeFragment extends BaseFragment implements CallDetail {
                 new StickyRecyclerHeadersTouchListener.OnHeaderClickListener() {
                     @Override
                     public void onHeaderClick(View header, int position, long headerId) {
+                        mArraylistsHeader.get(position).setIsRead(true);
                         DetailHotNotificationFragment detailHotNotificationFragment = DetailHotNotificationFragment_.builder()
                                 .mNotifications(mArraylistsHeader)
                                 .mPosition(position)
@@ -81,6 +84,7 @@ public class HomeFragment extends BaseFragment implements CallDetail {
                         Notification notification = new Notification();
                         notification.setIsFavorite(true);
                         notification.setIsHot(false);
+                        notification.setIsRead(false);
                         notification.setMAvata(R.drawable.p1);
                         notification.setMContent("Thong bao");
                         notification.setMSender("Le Thai Son");
@@ -117,6 +121,7 @@ public class HomeFragment extends BaseFragment implements CallDetail {
         if (mOnBaseFragmentListener != null) {
             mOnBaseFragmentListener.setTitleHeader(getString(R.string.home));
             mOnBaseFragmentListener.setTypeHeader(MainActivity.TYPE_HOME);
+            mAdapter.notifyDataSetChanged();
         }
     }
 
@@ -124,6 +129,7 @@ public class HomeFragment extends BaseFragment implements CallDetail {
         Notification notification1 = new Notification();
         notification1.setIsFavorite(true);
         notification1.setIsHot(true);
+        notification1.setIsRead(false);
         notification1.setMAvata(R.drawable.p1);
         notification1.setMContent("Đã có lúc anh mong tim mình bé lại\n" +
                 "Để nỗi nhớ em không thể nào thêm nữa\\n\" +\n" +
@@ -139,6 +145,7 @@ public class HomeFragment extends BaseFragment implements CallDetail {
         Notification notification2 = new Notification();
         notification2.setIsFavorite(false);
         notification2.setIsHot(false);
+        notification2.setIsRead(false);
         notification2.setMAvata(R.drawable.p2);
         notification2.setMContent("Đã có lúc anh mong tim mình bé lại\n" +
                 "Để nỗi nhớ em không thể nào thêm nữa\\n\" +\n" +
@@ -152,7 +159,8 @@ public class HomeFragment extends BaseFragment implements CallDetail {
         Notification notification3 = new Notification();
         notification3.setIsFavorite(true);
         notification3.setIsHot(false);
-        notification3.setMAvata(R.drawable.p3);
+        notification3.setIsRead(false);
+        notification3.setMAvata(R.drawable.p4);
         notification3.setMContent("Đã có lúc anh mong tim mình bé lại\n" +
                 "Để nỗi nhớ em không thể nào thêm nữa\n" +
                 "Đã có lúc anh mong ngừng thời gian trôi\n" +
@@ -196,6 +204,7 @@ public class HomeFragment extends BaseFragment implements CallDetail {
         Notification notification4 = new Notification();
         notification4.setIsFavorite(false);
         notification4.setIsHot(false);
+        notification4.setIsRead(true);
         notification4.setMAvata(R.drawable.p4);
         notification4.setMContent("Đã có lúc anh mong tim mình bé lại\n" +
                 "Để nỗi nhớ em không thể nào thêm nữa\\n\" +\n" +
@@ -209,6 +218,7 @@ public class HomeFragment extends BaseFragment implements CallDetail {
         Notification notification5 = new Notification();
         notification5.setIsFavorite(true);
         notification5.setIsHot(false);
+        notification5.setIsRead(false);
         notification5.setMAvata(R.drawable.p2);
         notification5.setMContent("Đã có lúc anh mong tim mình bé lại\n" +
                 "Để nỗi nhớ em không thể nào thêm nữa\\n\" +\n" +
@@ -222,6 +232,7 @@ public class HomeFragment extends BaseFragment implements CallDetail {
         Notification notification6 = new Notification();
         notification6.setIsFavorite(true);
         notification6.setIsHot(false);
+        notification6.setIsRead(false);
         notification6.setMAvata(R.drawable.p3);
         notification6.setMContent("Đã có lúc anh mong tim mình bé lại\n" +
                 "Để nỗi nhớ em không thể nào thêm nữa\\n\" +\n" +
@@ -235,6 +246,7 @@ public class HomeFragment extends BaseFragment implements CallDetail {
         Notification notification7 = new Notification();
         notification7.setIsFavorite(true);
         notification7.setIsHot(false);
+        notification7.setIsRead(false);
         notification7.setMAvata(R.drawable.p1);
         notification7.setMContent("Đã có lúc anh mong tim mình bé lại\n" +
                 "Để nỗi nhớ em không thể nào thêm nữa\\n\" +\n" +
@@ -248,6 +260,7 @@ public class HomeFragment extends BaseFragment implements CallDetail {
         Notification notification8 = new Notification();
         notification8.setIsFavorite(true);
         notification8.setIsHot(false);
+        notification8.setIsRead(false);
         notification8.setMAvata(R.drawable.p1);
         notification8.setMContent("Đã có lúc anh mong tim mình bé lại\n" +
                 "Để nỗi nhớ em không thể nào thêm nữa\\n\" +\n" +
@@ -261,6 +274,7 @@ public class HomeFragment extends BaseFragment implements CallDetail {
 
     @Override
     public void OnCallDetails(ArrayList<Notification> arrayList, int position) {
+        mArraylists.get(position).setIsRead(true);
         NotificationDetailFragment notificationDetailFragment = NotificationDetailFragment_.builder()
                 .mNotifications(arrayList)
                 .mPosition(position)

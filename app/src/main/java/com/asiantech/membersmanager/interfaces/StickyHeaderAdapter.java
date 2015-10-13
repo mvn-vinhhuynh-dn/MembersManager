@@ -4,6 +4,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.ViewGroup;
 
 /**
+ *
  * Created by xuanphu on 11/10/2015.
  */
 public interface StickyHeaderAdapter<T extends RecyclerView.ViewHolder> {

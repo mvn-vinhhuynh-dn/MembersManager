@@ -1,6 +1,7 @@
 package com.asiantech.membersmanager.adapter;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +13,7 @@ import android.widget.TextView;
 import com.asiantech.membersmanager.R;
 import com.asiantech.membersmanager.interfaces.CallDetail;
 import com.asiantech.membersmanager.models.Notification;
+import com.asiantech.membersmanager.views.CircleImageView;
 import com.timehop.stickyheadersrecyclerview.StickyRecyclerHeadersAdapter;
 
 import java.util.ArrayList;
@@ -56,11 +58,19 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> im
         }
 
         checkFavorite(holder, position);
+        checkRead(holder,position);
 
         holder.rlTittle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 callDetail.OnCallDetails(mArraylists, position);
+            }
+        });
+
+        holder.imgAvata.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //-----------------
             }
         });
 
@@ -85,7 +95,22 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> im
                 }
             }
         });
+
     }
+
+    private void checkRead(final ViewHolder holder, final int position) {
+        if (mArraylists.get(position).getIsRead()) {
+            holder.tvSender.setTypeface(null, Typeface.NORMAL);
+            holder.tvTime.setTypeface(null, Typeface.NORMAL);
+            holder.tvTittle.setTypeface(null, Typeface.NORMAL);
+        }
+        else {
+            holder.tvSender.setTypeface(null, Typeface.BOLD);
+            holder.tvTime.setTypeface(null, Typeface.BOLD);
+            holder.tvTittle.setTypeface(null, Typeface.BOLD);
+        }
+    }
+
 //header ----------
     @Override
     public long getHeaderId(int position) {
@@ -106,23 +131,44 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> im
         holder.tvTittleHeader.setText(mArraylistsHeader.get(position).getMTittle());
         holder.tvContentHeader.setText(mArraylistsHeader.get(position).getMContent());
         holder.tvTimeHeader.setText(mArraylistsHeader.get(position).getMTime());
+            checkReadHeader(holder, position);
         }
     }
-// item ==-------
+
+    private void checkReadHeader(HeaderHolder holder, int position) {
+        if (mArraylists.get(position).getIsRead()) {
+            holder.tvSenderHeader.setTypeface(null, Typeface.NORMAL);
+            holder.tvTimeHeader.setTypeface(null, Typeface.NORMAL);
+            holder.tvTittleHeader.setTypeface(null, Typeface.NORMAL);
+        }
+        else {
+            holder.tvSenderHeader.setTypeface(null, Typeface.BOLD);
+            holder.tvTimeHeader.setTypeface(null, Typeface.BOLD);
+            holder.tvTittleHeader.setTypeface(null, Typeface.BOLD);
+        }
+    }
+
+    // item ==-------
     @Override
     public int getItemCount() {
         return mArraylists.size();
     }
 
     static class ViewHolder extends RecyclerView.ViewHolder {
-        com.asiantech.membersmanager.views.CircleImageView imgAvata;
-        ImageView imgHot, imgFavorite, imgDelete;
-        TextView tvSender, tvTittle, tvContent, tvTime;
+        CircleImageView imgAvata;
+        ImageView imgHot;
+        ImageView imgFavorite;
+        ImageView imgDelete;
+        TextView tvSender;
+        TextView tvTittle;
+        TextView tvContent;
+        TextView tvTime;
         RelativeLayout rlTittle;
+        RelativeLayout rlItem;
 
         public ViewHolder(View itemView) {
             super(itemView);
-            imgAvata = (com.asiantech.membersmanager.views.CircleImageView) itemView.findViewById(R.id.imgAvata);
+            imgAvata = (CircleImageView) itemView.findViewById(R.id.imgAvata);
             tvSender = (TextView) itemView.findViewById(R.id.tvSender);
             tvTittle = (TextView) itemView.findViewById(R.id.tvTittle);
             tvContent = (TextView) itemView.findViewById(R.id.tvContent);
@@ -131,18 +177,22 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> im
             imgFavorite = (ImageView) itemView.findViewById(R.id.imgFavorite);
             imgDelete = (ImageView) itemView.findViewById(R.id.imgDelete);
             rlTittle = (RelativeLayout) itemView.findViewById(R.id.rlTop);
+            rlItem = (RelativeLayout) itemView.findViewById(R.id.rlItem);
         }
     }
 
     public class HeaderHolder extends RecyclerView.ViewHolder {
-        com.asiantech.membersmanager.views.CircleImageView imgAvataHeader;
-        ImageView imgHotHeader, imgFavoriteHeader, imgDeleteHeader;
-        TextView tvSenderHeader, tvTittleHeader, tvContentHeader, tvTimeHeader;
+        CircleImageView imgAvataHeader;
+        ImageView imgHotHeader;
+        TextView tvSenderHeader;
+        TextView tvTittleHeader;
+        TextView tvContentHeader;
+        TextView tvTimeHeader;
         RelativeLayout rlTittleHeader;
 
         public HeaderHolder(View itemView) {
             super(itemView);
-            imgAvataHeader = (com.asiantech.membersmanager.views.CircleImageView) itemView.findViewById(R.id.imgAvataHeader);
+            imgAvataHeader = (CircleImageView) itemView.findViewById(R.id.imgAvataHeader);
             tvSenderHeader = (TextView) itemView.findViewById(R.id.tvSenderHeader);
             tvTittleHeader = (TextView) itemView.findViewById(R.id.tvTittleHeader);
             tvContentHeader = (TextView) itemView.findViewById(R.id.tvContentHeader);
