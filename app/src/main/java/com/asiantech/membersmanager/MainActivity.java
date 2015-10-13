@@ -28,6 +28,7 @@ import com.asiantech.membersmanager.fragment.VacationDayFragment_;
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EActivity;
+import org.androidannotations.annotations.OnActivityResult;
 import org.androidannotations.annotations.ViewById;
 
 /**
@@ -224,10 +225,10 @@ public class MainActivity extends AppCompatActivity implements DrawerFragment
         }
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == DialogChooseImage.CAMERA_REQUEST && resultCode == RESULT_OK) {
+    @OnActivityResult(DialogChooseImage.CAMERA_REQUEST)
+    void onResult(int resultCode, Intent data) {
+        Log.d("vinhhlb", "activity foresult");
+        if (resultCode == RESULT_OK) {
             Uri path = data.getData();
             Log.d("vinhhlb", "path is " + path);
         }

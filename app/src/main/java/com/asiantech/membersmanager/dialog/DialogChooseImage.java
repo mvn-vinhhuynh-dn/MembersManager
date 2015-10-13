@@ -15,6 +15,7 @@ import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EFragment;
 
 import java.io.File;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -41,15 +42,19 @@ public class DialogChooseImage extends DialogFragment {
 
     @Click(R.id.txt_btn_take_photo)
     void takePhoto() {
-        Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
-        File dir = new File(Environment.getExternalStorageDirectory()
-                + "/AST");
-        if (!dir.exists())
-            dir.mkdir();
-        File file = new File(Environment.getExternalStorageDirectory(),
-                "/AST/Image" + new Date().getTime() + ".jpg");
-        intent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(file));
-        getActivity().startActivityForResult(intent, CAMERA_REQUEST);
+        //camera stuff
+        Intent imageIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+
+        //folder stuff
+        File imagesFolder = new File(Environment.getExternalStorageDirectory(), "AST");
+        imagesFolder.mkdirs();
+
+        File image = new File(imagesFolder, "image" + timeStamp + ".png");
+        Uri uriSavedImage = Uri.fromFile(image);
+
+        imageIntent.putExtra(MediaStore.EXTRA_OUTPUT, uriSavedImage);
+        getActivity().startActivityForResult(imageIntent, CAMERA_REQUEST);
     }
 
     @Click(R.id.txt_btn_choose_photo)
