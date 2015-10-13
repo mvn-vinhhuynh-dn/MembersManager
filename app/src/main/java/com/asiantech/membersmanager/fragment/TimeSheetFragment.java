@@ -23,6 +23,9 @@ import java.util.Date;
 import java.util.Locale;
 import java.util.Random;
 
+import jp.wasabeef.recyclerview.animators.adapters.AlphaInAnimationAdapter;
+import jp.wasabeef.recyclerview.animators.adapters.ScaleInAnimationAdapter;
+
 /**
  * Copyright © 2015 AsianTech inc.
  * Created by VinhHlb on 10/6/15.
@@ -72,7 +75,12 @@ public class TimeSheetFragment extends BaseFragment implements RobotoCalendarLis
 
     private void setAdapter() {
         mAdapter = new TimeSheetAdapter(getActivity(), mListNotifications);
-        mRecycleTimeSheet.setAdapter(mAdapter);
+        // Add animation
+        AlphaInAnimationAdapter alphaAdapter = new AlphaInAnimationAdapter(mAdapter);
+        ScaleInAnimationAdapter scaleAdapter = new ScaleInAnimationAdapter(alphaAdapter);
+        scaleAdapter.setDuration(500);
+        scaleAdapter.setFirstOnly(false);
+        mRecycleTimeSheet.setAdapter(scaleAdapter);
     }
 
     @Override
