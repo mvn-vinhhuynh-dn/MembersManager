@@ -41,7 +41,7 @@ public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.ViewHo
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View rootView = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.item_recycle_home, parent, false);
+                .inflate(R.layout.item_recycle_favorite, parent, false);
         ViewHolder viewHolder = new ViewHolder(rootView);
         return viewHolder;
     }
@@ -49,11 +49,11 @@ public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.ViewHo
     @Override
     public void onBindViewHolder(ViewHolder holder, final int position) {
         if (!mArraylists.get(position).getIsChecked()) {
-            holder.imgAvata.setImageResource(mArraylists.get(position).getMAvata());
+            holder.imgAvataOne.setImageResource(mArraylists.get(position).getMAvata());
             holder.swipeLayout.setBackgroundColor(mContext
                     .getResources().getColor(R.color.white));
         } else {
-            holder.imgAvata.setImageResource(R.drawable.ic_checked);
+            holder.imgAvataOne.setImageResource(R.drawable.ic_checked);
             holder.swipeLayout.setBackgroundDrawable(mContext
                     .getResources().getDrawable(R.drawable.shadow_view));
         }
@@ -61,7 +61,7 @@ public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.ViewHo
         holder.tvTittle.setText(mArraylists.get(position).getMTittle());
         holder.tvContent.setText(mArraylists.get(position).getMContent());
         holder.tvTime.setText(mArraylists.get(position).getMTime());
-        holder.imgAvata.setTag(position);
+        holder.imgAvataOne.setTag(position);
         if (mArraylists.get(position).getIsHot()) {
             holder.imgHot.setVisibility(View.VISIBLE);
         } else {
@@ -99,7 +99,7 @@ public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.ViewHo
                 }
             }
         });
-        holder.imgAvata.setOnClickListener(new View.OnClickListener() {
+        holder.imgAvataOne.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 int myPos = (Integer) v.getTag();
@@ -133,7 +133,7 @@ public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.ViewHo
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        CircleImageView imgAvata;
+        CircleImageView imgAvataOne;
         ImageView imgHot;
         ImageView imgFavorite;
         ImageView imgDelete;
@@ -143,18 +143,19 @@ public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.ViewHo
         TextView tvTime;
         RelativeLayout rlTittle;
         SwipeLayout swipeLayout;
+
         public ViewHolder(View itemView) {
             super(itemView);
-            imgAvata = (CircleImageView) itemView.findViewById(R.id.imgAvata);
-            tvSender = (TextView) itemView.findViewById(R.id.tvSender);
-            tvTittle = (TextView) itemView.findViewById(R.id.tvTittle);
-            tvContent = (TextView) itemView.findViewById(R.id.tvContent);
-            tvTime = (TextView) itemView.findViewById(R.id.tvTime);
-            imgHot = (ImageView) itemView.findViewById(R.id.imgHot);
-            imgFavorite = (ImageView) itemView.findViewById(R.id.imgFavorite);
-            imgDelete = (ImageView) itemView.findViewById(R.id.imgDelete);
-            rlTittle = (RelativeLayout) itemView.findViewById(R.id.rlTop);
-            swipeLayout = (SwipeLayout) itemView.findViewById(R.id.swipe);
+            imgAvataOne = (CircleImageView) itemView.findViewById(R.id.imgAvata_favorite_one);
+            tvSender = (TextView) itemView.findViewById(R.id.tvSender_favorite);
+            tvTittle = (TextView) itemView.findViewById(R.id.tvTittle_favorite);
+            tvContent = (TextView) itemView.findViewById(R.id.tvContent_favorite);
+            tvTime = (TextView) itemView.findViewById(R.id.tvTime_favorite);
+            imgHot = (ImageView) itemView.findViewById(R.id.imgHot_favorite);
+            imgFavorite = (ImageView) itemView.findViewById(R.id.imgFavorite_favorite);
+            imgDelete = (ImageView) itemView.findViewById(R.id.imgDelete_favorite);
+            rlTittle = (RelativeLayout) itemView.findViewById(R.id.rlTop_favorite);
+            swipeLayout = (SwipeLayout) itemView.findViewById(R.id.swipe_favorite);
         }
     }
 

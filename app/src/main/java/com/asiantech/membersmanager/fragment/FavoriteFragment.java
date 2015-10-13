@@ -23,6 +23,7 @@ import org.androidannotations.annotations.ViewById;
 import java.util.ArrayList;
 import java.util.List;
 
+import jp.wasabeef.recyclerview.animators.adapters.AlphaInAnimationAdapter;
 import jp.wasabeef.recyclerview.animators.adapters.ScaleInAnimationAdapter;
 
 /**
@@ -60,12 +61,11 @@ public class FavoriteFragment extends BaseFragment implements CallDetail, CallFa
                 .getDrawable(R.drawable.divider)));
 
         // Add animation
-//        AlphaInAnimationAdapter alphaAdapter = new AlphaInAnimationAdapter(mAdapter);
-//        mScaleInAnimationAdapter = new ScaleInAnimationAdapter(alphaAdapter);
-//        mScaleInAnimationAdapter.setDuration(500);
+        AlphaInAnimationAdapter alphaAdapter = new AlphaInAnimationAdapter(mAdapter);
+        mScaleInAnimationAdapter = new ScaleInAnimationAdapter(alphaAdapter);
+        mScaleInAnimationAdapter.setDuration(500);
 //        mScaleInAnimationAdapter.setFirstOnly(false);
-
-        recyclerFavorite.setAdapter(mAdapter);
+        recyclerFavorite.setAdapter(mScaleInAnimationAdapter);
 
         swipeRefreshLayoutFavorite.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
@@ -164,11 +164,11 @@ public class FavoriteFragment extends BaseFragment implements CallDetail, CallFa
             mOnBaseFragmentListener.setTitleHeader(getString(R.string.title_favorite_delete));
             mOnBaseFragmentListener.setTypeHeader(MainActivity.TYPE_DELETE);
             mOnBaseFragmentListener.updateTvRight(integers.size());
-            mAdapter.notifyDataSetChanged();
+            mScaleInAnimationAdapter.notifyDataSetChanged();
         } else {
             mOnBaseFragmentListener.setTitleHeader(getString(R.string.title_favorite));
             mOnBaseFragmentListener.setTypeHeader(MainActivity.TYPE_HOME);
-            mAdapter.notifyDataSetChanged();
+            mScaleInAnimationAdapter.notifyDataSetChanged();
         }
     }
 }
