@@ -21,6 +21,9 @@ import org.androidannotations.annotations.ViewById;
 
 import java.util.ArrayList;
 
+import jp.wasabeef.recyclerview.animators.adapters.AlphaInAnimationAdapter;
+import jp.wasabeef.recyclerview.animators.adapters.ScaleInAnimationAdapter;
+
 /**
  * Copyright © 2015 AsianTech inc.
  * Created by VinhHlb on 10/5/15.
@@ -53,7 +56,14 @@ public class FavoriteFragment extends BaseFragment implements CallDetail, CallFa
         recyclerFavorite.setLayoutManager(new LinearLayoutManager(getActivity().getBaseContext()));
         recyclerFavorite.addItemDecoration(new DividerItemDecoration(getResources()
                 .getDrawable(R.drawable.divider)));
-        recyclerFavorite.setAdapter(mAdapter);
+
+        // Add animation
+        AlphaInAnimationAdapter alphaAdapter = new AlphaInAnimationAdapter(mAdapter);
+        ScaleInAnimationAdapter scaleAdapter = new ScaleInAnimationAdapter(alphaAdapter);
+        scaleAdapter.setDuration(500);
+        scaleAdapter.setFirstOnly(false);
+
+        recyclerFavorite.setAdapter(scaleAdapter);
 
         swipeRefreshLayoutFavorite.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
