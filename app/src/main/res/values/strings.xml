@@ -118,4 +118,5 @@
     <string name="cancel">Thoát</string>
     <string name="title_favorite_delete">RemoveDelete</string>
     <string name="detail">Notification Detail</string>
+    <string name="unread">Còn 2 tin ...</string>
 </resources>
