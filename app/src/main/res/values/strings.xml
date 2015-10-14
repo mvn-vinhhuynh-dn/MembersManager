@@ -1,26 +1,26 @@
 <resources>
     <string name="app_name">MembersManager</string>
     <string name="textview.text.welcome_to_asiantech_inc_family">Welcome To AsianTech Family</string>
-    <string name="edittext.hint.last_name">User Name</string>
-    <string name="edittext.hint.email">Email</string>
-    <string name="edittext.hint.password">Password</string>
-    <string name="button.text.sign_in">Sign In</string>
-    <string name="button.text.new_here_sign_up">New here? Sign Up</string>
-    <string name="button.text.forgot_password">Forgot password?</string>
-    <string name="edittext.hint.confirm_password">Confirm Password</string>
-    <string name="button.text.sign_up">Sign Up</string>
-    <string name="textview.text.register_account">Register Account</string>
-    <string name="textview.text.forgot_your_password">Forgot Your Password</string>
-    <string name="button.text.reset_password">Reset Password</string>
+    <string name="edittext.hint.last_name">Tên đăng nhập</string>
+    <string name="edittext.hint.email">Tên đăng nhập</string>
+    <string name="edittext.hint.password">Mật khẩu</string>
+    <string name="button.text.sign_in">Đăng nhập</string>
+    <string name="button.text.new_here_sign_up">Đăng ký</string>
+    <string name="button.text.forgot_password">Quên mật khẩu</string>
+    <string name="edittext.hint.confirm_password">Xác nhận mật khẩu</string>
+    <string name="button.text.sign_up">Đăng ký</string>
+    <string name="textview.text.register_account">Đăng ký</string>
+    <string name="textview.text.forgot_your_password">Quên mật khẩu</string>
+    <string name="button.text.reset_password">Tạo lại mật khẩu</string>
 
-    <string name="error_invalid_email">Email address is invalid</string>
-    <string name="error_invalid_password">Password is too short</string>
-    <string name="error_invalid_confirm_password">Password confirm do not match</string>
-    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_invalid_email">Mail không chính xác</string>
+    <string name="error_invalid_password">Mật khẩu quá ngắn</string>
+    <string name="error_invalid_confirm_password">Mật khẩu xác nhận không đúng</string>
+    <string name="error_incorrect_password">Mật khẩu chính xác</string>
     <string name="error_field_required">This field is required</string>
     <string name="hint_name">Email</string>
-    <string name="drawer_open">Open</string>
-    <string name="drawer_close">Close</string>
+    <string name="drawer_open">Mở</string>
+    <string name="drawer_close">Đóng</string>
 
     <!--spinner when register-->
     <string-array name="array_team">
@@ -45,25 +45,25 @@
     </string-array>
 
     <!--navigation items-->
-    <string name="nav_item_home">Home</string>
-    <string name="nav_item_friends">Friends</string>
-    <string name="nav_item_notifications">Messages</string>
-    <string name="title_home">Home</string>
-    <string name="title_favorite">Favorite</string>
-    <string name="title_detail">Details</string>
+    <string name="nav_item_home">Trang chủ</string>
+    <string name="nav_item_friends">Bạn bè</string>
+    <string name="nav_item_notifications">Tin nhắn</string>
+    <string name="title_home">Trang chủ</string>
+    <string name="title_favorite">Tin nổi bậc</string>
+    <string name="title_detail">Chi tiết</string>
     <string name="test_name">Vinh Huynh</string>
     <string name="test_email">vinhhlb@asiantech.vn</string>
-    <string name="menu_favorite">Favorite Notification</string>
-    <string name="time_sheet">Time sheet</string>
-    <string name="out_work">Vacation days</string>
-    <string name="help_feedback">Help and feedBack</string>
-    <string name="logout">Logout</string>
-    <string name="home">Home</string>
-    <string name="vacation_day">Vacation Day</string>
-    <string name="profile">Profile</string>
-    <string name="textview.delete">Delete</string>
-    <string name="textview.share">Share</string>
-    <string name="input_email"> To email address...</string>
+    <string name="menu_favorite">Thông báo ghi chú</string>
+    <string name="time_sheet">Thời gian biểu</string>
+    <string name="out_work">Nghỉ phép</string>
+    <string name="help_feedback">Trợ giúp và phản hồi</string>
+    <string name="logout">Đăng xuất</string>
+    <string name="home">Trang chủ</string>
+    <string name="vacation_day">Nghỉ phép</string>
+    <string name="profile">Trang cá nhân</string>
+    <string name="textview.delete">Xóa</string>
+    <string name="textview.share">Chia sẻ</string>
+    <string name="input_email">Gửi đến mail...</string>
     <string name="to_email">To:</string>
     <string name="cc_email">Cc:</string>
     <string name="subject">Subject:</string>
@@ -71,11 +71,11 @@
     <string name="test_reson_demo">Dự án rãnh, xin phép nghỉ đi chơi cùng gia đình từ ngày 1 tới ngày 10</string>
     <string name="test_different_reson">   Lý do khác </string>
     <string name="description_project">Tình trạng dự án đang tham gia</string>
-    <string name="submit">Submit</string>
-    <string name="tv.from">From:</string>
+    <string name="submit">Xác nhận</string>
+    <string name="tv.from">Từ:</string>
     <string name="tv.mail">new@gmail.com</string>
-    <string name="tv.to">to:</string>
-    <string name="tv.date">Date:</string>
+    <string name="tv.to">Đến:</string>
+    <string name="tv.date">Ngày:</string>
     <string name="tv.ViewDetails">Xem chi tiết</string>
     <string name="tv.inviViewDetails">Ẩn xem chi tiết</string>
     <string name="from_day">Từ ngày</string>
@@ -109,14 +109,14 @@
     <string name="test_num_dayoff">Number of Dayoff</string>
     <string name="test_dayoff_info">10</string>
     <string name="back">back</string>
-    <string name="edit">edit</string>
-    <string name="edt_profile">Edit Profile</string>
-    <string name="hot_detail">Hot Notification Detail</string>
+    <string name="edit">Chỉnh sửa</string>
+    <string name="edt_profile">Chỉnh sửa thông tin cá nhân</string>
+    <string name="hot_detail">Chi tiết thông báo </string>
     <string name="edit_profile">Chỉnh sửa thông tin</string>
     <string name="take_photo">Chụp hình mới</string>
     <string name="choose_photo">Tải ảnh lên</string>
     <string name="cancel">Thoát</string>
     <string name="title_favorite_delete">RemoveDelete</string>
-    <string name="detail">Notification Detail</string>
+    <string name="detail">Chi tiết thông báo</string>
     <string name="unread">Còn 2 tin ...</string>
 </resources>
