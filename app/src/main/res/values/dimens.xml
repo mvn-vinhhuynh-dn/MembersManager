@@ -18,6 +18,7 @@
     <dimen name="linearlayout.marginbottom.10dp">10dp</dimen>
     <dimen name="linearlayout.marginbottom.5dp">5dp</dimen>
     <dimen name="linearlayout.padding.4dp">4dp</dimen>
+    <dimen name="height.120dp">120dp</dimen>
     <dimen name="edittext.paddingleft.4dp">4dp</dimen>
     <dimen name="edittext.textsize.16sp">16sp</dimen>
     <dimen name="button.height.44dp">44dp</dimen>
@@ -39,6 +40,7 @@
     <dimen name="tvTitleDetailTopNew.size_20sp">18sp</dimen>
     <dimen name="recylerView.margin_8dp">8dp</dimen>
     <dimen name="linearlayout.padding.10dp">10dp</dimen>
+    <dimen name="height.150dp">150dp</dimen>
     <dimen name="padding.0dp">0dp</dimen>
     <dimen name="height.300dp">300dp</dimen>
     <dimen name="height.250dp">250dp</dimen>

@@ -73,15 +73,14 @@ public class TimeSheetAdapter extends RecyclerView
 
         public ViewHolder(View itemView) {
             super(itemView);
-            imgAvata = (CircleImageView) itemView.findViewById(R.id.imgAvata_favorite);
-            tvSender = (TextView) itemView.findViewById(R.id.tvSender_favorite);
-            tvTittle = (TextView) itemView.findViewById(R.id.tvTittle_favorite);
-            tvContent = (TextView) itemView.findViewById(R.id.tvContent_favorite);
-            tvTime = (TextView) itemView.findViewById(R.id.tvTime_favorite);
-            imgHot = (ImageView) itemView.findViewById(R.id.imgHot_favorite);
-            imgFavorite = (ImageView) itemView.findViewById(R.id.imgFavorite_favorite);
-            imgDelete = (ImageView) itemView.findViewById(R.id.imgDelete_favorite);
-            rlTittle = (RelativeLayout) itemView.findViewById(R.id.rlTop_favorite);
+            imgAvata = (CircleImageView) itemView.findViewById(R.id.imgAvata);
+            tvSender = (TextView) itemView.findViewById(R.id.tvSender);
+            tvTittle = (TextView) itemView.findViewById(R.id.tvTittle);
+            tvContent = (TextView) itemView.findViewById(R.id.tvContent);
+            tvTime = (TextView) itemView.findViewById(R.id.tvTime);
+            imgHot = (ImageView) itemView.findViewById(R.id.imgHot);
+            imgFavorite = (ImageView) itemView.findViewById(R.id.imgFavorite);
+            rlTittle = (RelativeLayout) itemView.findViewById(R.id.rlTop);
         }
     }
 

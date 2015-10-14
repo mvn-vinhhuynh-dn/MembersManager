@@ -45,7 +45,7 @@
                         android:textSize="@dimen/text.size.12sp"
                         android:textStyle="italic" />
 
-                    <TextView
+                    <TextView android:visibility="gone"
                         android:id="@+id/tvViewDetails"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -64,7 +64,7 @@
                         android:textColor="@color/color.blue"
                         android:textSize="@dimen/text.size.12sp"
                         android:textStyle="italic"
-                        android:visibility="invisible" />
+                        android:visibility="gone" />
 
                     <RelativeLayout
                         android:id="@+id/rlViewDetails"
