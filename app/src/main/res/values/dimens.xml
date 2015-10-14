@@ -93,7 +93,7 @@
     <dimen name="textview.sender.size">15sp</dimen>
     <dimen name="textview.sender.maginright">5dp</dimen>
     <dimen name="textview.time.size">12sp</dimen>
-    <dimen name="imagehot.width.height">15dp</dimen>
+    <dimen name="imagehot.width.height">25dp</dimen>
     <dimen name="imagehot.magin">2dp</dimen>
     <dimen name="linerlayout.tittle.maginleft">10dp</dimen>
     <dimen name="textview.title.size">14sp</dimen>
