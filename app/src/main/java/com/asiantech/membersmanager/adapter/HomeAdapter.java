@@ -14,31 +14,29 @@ import com.asiantech.membersmanager.R;
 import com.asiantech.membersmanager.interfaces.CallDetail;
 import com.asiantech.membersmanager.models.Notification;
 import com.asiantech.membersmanager.views.CircleImageView;
-import com.timehop.stickyheadersrecyclerview.StickyRecyclerHeadersAdapter;
 
 import java.util.ArrayList;
 
 /**
  * Created by xuanphu on 06/10/2015.
  */
-public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> implements StickyRecyclerHeadersAdapter<HomeAdapter.HeaderHolder> {
+public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
     private Context mContext;
     private ArrayList<Notification> mArraylists;
-    private ArrayList<Notification> mArraylistsHeader;
     private CallDetail callDetail;
-    private int lastPosition = -1;
 
-    public HomeAdapter(Context mContext, ArrayList<Notification> mArraylists, ArrayList<Notification> mArraylistsHeader, CallDetail callDetail) {
+    public HomeAdapter(Context mContext, ArrayList<Notification>
+            mArraylists, CallDetail callDetail) {
         this.mContext = mContext;
         this.mArraylists = mArraylists;
-        this.mArraylistsHeader = mArraylistsHeader;
         this.callDetail = callDetail;
     }
 
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View rootView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_recycle_home, parent, false);
+        View rootView = LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.item_recycle_home, parent, false);
         ViewHolder viewHolder = new ViewHolder(rootView);
         return viewHolder;
     }
@@ -66,14 +64,6 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> im
                 callDetail.OnCallDetails(mArraylists, position);
             }
         });
-
-        holder.imgAvata.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //-----------------
-            }
-        });
-
     }
 
     private void checkFavorite(final ViewHolder holder, final int position) {
@@ -114,54 +104,6 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> im
         }
     }
 
-//header ----------
-
-    //header ----------
-    @Override
-    public long getHeaderId(int position) {
-        return 1;
-    }
-
-    @Override
-    public HeaderHolder onCreateHeaderViewHolder(ViewGroup parent) {
-        final View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_header_fragment_home, parent, false);
-        return new HeaderHolder(view);
-    }
-
-    @Override
-    public void onBindHeaderViewHolder(HeaderHolder holder, int position) {
-        if (position < mArraylistsHeader.size()) {
-            holder.imgAvataHeader.setImageResource(mArraylistsHeader.get(position).getMAvata());
-            holder.tvSenderHeader.setText(mArraylistsHeader.get(position).getMSender());
-            holder.tvTittleHeader.setText(mArraylistsHeader.get(position).getMTittle());
-            holder.tvContentHeader.setText(mArraylistsHeader.get(position).getMContent());
-            holder.tvTimeHeader.setText(mArraylistsHeader.get(position).getMTime());
-            checkReadHeader(holder, position);
-            if (position < mArraylistsHeader.size()) {
-                holder.imgAvataHeader.setImageResource(mArraylistsHeader.get(position).getMAvata());
-                holder.tvSenderHeader.setText(mArraylistsHeader.get(position).getMSender());
-                holder.tvTittleHeader.setText(mArraylistsHeader.get(position).getMTittle());
-                holder.tvContentHeader.setText(mArraylistsHeader.get(position).getMContent());
-                holder.tvTimeHeader.setText(mArraylistsHeader.get(position).getMTime());
-            }
-        }
-    }
-
-    private void checkReadHeader(HeaderHolder holder, int position) {
-        if (mArraylists.get(position).getIsRead()) {
-            holder.tvSenderHeader.setTypeface(null, Typeface.NORMAL);
-            holder.tvTimeHeader.setTypeface(null, Typeface.NORMAL);
-            holder.tvTittleHeader.setTypeface(null, Typeface.NORMAL);
-        } else {
-            holder.tvSenderHeader.setTypeface(null, Typeface.BOLD);
-            holder.tvTimeHeader.setTypeface(null, Typeface.BOLD);
-            holder.tvTittleHeader.setTypeface(null, Typeface.BOLD);
-        }
-    }
-
-    // item ==-------
-
-    // item ==-------
     @Override
     public int getItemCount() {
         return mArraylists.size();
@@ -190,27 +132,6 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> im
             imgFavorite = (ImageView) itemView.findViewById(R.id.imgFavorite);
             rlTittle = (RelativeLayout) itemView.findViewById(R.id.rlTop);
             rlParent = (RelativeLayout) itemView.findViewById(R.id.rlparent);
-        }
-    }
-
-    public class HeaderHolder extends RecyclerView.ViewHolder {
-        CircleImageView imgAvataHeader;
-        ImageView imgHotHeader;
-        TextView tvSenderHeader;
-        TextView tvTittleHeader;
-        TextView tvContentHeader;
-        TextView tvTimeHeader;
-        RelativeLayout rlTittleHeader;
-
-        public HeaderHolder(View itemView) {
-            super(itemView);
-            imgAvataHeader = (CircleImageView) itemView.findViewById(R.id.imgAvataHeader);
-            tvSenderHeader = (TextView) itemView.findViewById(R.id.tvSenderHeader);
-            tvTittleHeader = (TextView) itemView.findViewById(R.id.tvTittleHeader);
-            tvContentHeader = (TextView) itemView.findViewById(R.id.tvContentHeader);
-            tvTimeHeader = (TextView) itemView.findViewById(R.id.tvTimeHeader);
-            imgHotHeader = (ImageView) itemView.findViewById(R.id.imgHotHeader);
-            rlTittleHeader = (RelativeLayout) itemView.findViewById(R.id.rlTopHeader);
         }
     }
 }
