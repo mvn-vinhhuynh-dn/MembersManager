@@ -56,10 +56,10 @@ public class HomeFragment extends BaseFragment implements CallDetail {
         ScaleInAnimationAdapter scaleAdapter = new ScaleInAnimationAdapter(alphaAdapter);
         scaleAdapter.setDuration(500);
         scaleAdapter.setFirstOnly(false);
-
+        mSwipeRefreshLayout.setEnabled(true);
         // setAdapter
         mRecycleHome.setAdapter(scaleAdapter);
-
+        mSwipeRefreshLayout.setColorSchemeResources(R.color.colorPrimary);
         mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {

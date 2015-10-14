@@ -13,20 +13,22 @@
         android:background="@color/background.login"
         android:padding="@dimen/drawerfragment.rl.padding">
 
-        <ImageView android:layout_marginTop="@dimen/textview.margintop.10dp"
+        <ImageView
             android:id="@+id/img_user"
             android:layout_width="@dimen/drawerfragment.img.width"
             android:layout_height="@dimen/drawerfragment.img.height"
             android:layout_gravity="center_vertical"
+            android:layout_marginBottom="@dimen/ln.padding10"
             android:layout_marginLeft="@dimen/linearlayout.marginbottom.10dp"
+            android:layout_marginTop="@dimen/ln.padding10"
             android:src="@drawable/ic_profile" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/img_user"
             android:layout_centerVertical="true"
             android:layout_marginTop="@dimen/linearlayout.marginbottom.5dp"
+            android:layout_toRightOf="@+id/img_user"
             android:gravity="center_vertical"
             android:orientation="vertical"
             android:paddingLeft="@dimen/linearlayout.padding.10dp">
@@ -35,9 +37,10 @@
                 android:id="@+id/tv_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/ln.padding10"
                 android:text="@string/test_name"
                 android:textColor="@color/white"
-                android:textSize="@dimen/text.size.12sp"
+                android:textSize="@dimen/text.size.14sp"
                 android:textStyle="italic" />
 
             <TextView
@@ -46,7 +49,17 @@
                 android:layout_height="wrap_content"
                 android:text="@string/test_email"
                 android:textColor="@color/white"
-                android:textSize="@dimen/text.size.10sp" />
+                android:textSize="@dimen/text.size.12sp"
+                android:textStyle="italic" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/ln.padding10"
+                android:text="@string/test_num_day"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text.size.12sp"
+                android:textStyle="italic" />
         </LinearLayout>
     </RelativeLayout>
 
