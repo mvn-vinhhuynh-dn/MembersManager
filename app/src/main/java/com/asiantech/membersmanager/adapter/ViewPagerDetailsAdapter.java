@@ -43,11 +43,6 @@ public class ViewPagerDetailsAdapter extends PagerAdapter {
         TextView tvSenderDetail;
         TextView tvTimeDetail;
         TextView tvContentDetail;
-        TextView tvTimeDetail1;
-
-        final RelativeLayout rlViewDetails;
-        final TextView tvViewDetails;
-        final TextView tvInviViewDetails;
 
         inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View itemView = inflater.inflate(R.layout.item_fragment_details, container, false);
@@ -55,34 +50,12 @@ public class ViewPagerDetailsAdapter extends PagerAdapter {
         tvSenderDetail = (TextView)itemView.findViewById(R.id.tvSenderDetail);
         tvTimeDetail = (TextView)itemView.findViewById(R.id.tvTimeDetail);
         tvContentDetail = (TextView)itemView.findViewById(R.id.tvContentDetail);
-        tvTimeDetail1 = (TextView)itemView.findViewById(R.id.tvTimeDetail1);
-
-        rlViewDetails = (RelativeLayout)itemView.findViewById(R.id.rlViewDetails);
-        tvViewDetails = (TextView)itemView.findViewById(R.id.tvViewDetails);
-        tvInviViewDetails = (TextView)itemView.findViewById(R.id.tvInviViewDetails);
 
         imgAvataDetail.setImageResource(mArraylists.get(position).getMAvata());
         tvSenderDetail.setText(mArraylists.get(position).getMSender());
         tvTimeDetail.setText(mArraylists.get(position).getMTime());
         tvContentDetail.setText(mArraylists.get(position).getMContent());
-        tvTimeDetail1.setText(mArraylists.get(position).getMTime());
 
-        tvViewDetails.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                tvViewDetails.setVisibility(View.INVISIBLE);
-                tvInviViewDetails.setVisibility(View.VISIBLE);
-                rlViewDetails.setVisibility(View.VISIBLE);
-            }
-        });
-        tvInviViewDetails.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                tvViewDetails.setVisibility(View.VISIBLE);
-                tvInviViewDetails.setVisibility(View.INVISIBLE);
-                rlViewDetails.setVisibility(View.GONE);
-            }
-        });
         container.addView(itemView);
         return itemView;
     }

@@ -11,7 +11,6 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-
             android:orientation="vertical">
 
             <RelativeLayout
@@ -44,86 +43,6 @@
                         android:layout_below="@+id/tvSenderDetail"
                         android:textSize="@dimen/text.size.12sp"
                         android:textStyle="italic" />
-
-                    <TextView android:visibility="gone"
-                        android:id="@+id/tvViewDetails"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/tvTimeDetail"
-                        android:text="@string/tv.ViewDetails"
-                        android:textColor="@color/color.blue"
-                        android:textSize="@dimen/text.size.12sp"
-                        android:textStyle="italic" />
-
-                    <TextView
-                        android:id="@+id/tvInviViewDetails"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/tvTimeDetail"
-                        android:text="@string/tv.inviViewDetails"
-                        android:textColor="@color/color.blue"
-                        android:textSize="@dimen/text.size.12sp"
-                        android:textStyle="italic"
-                        android:visibility="gone" />
-
-                    <RelativeLayout
-                        android:id="@+id/rlViewDetails"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/tvViewDetails"
-                        android:layout_marginTop="@dimen/rl.magintop.detail.viewdetail"
-                        android:visibility="gone">
-
-                        <TextView
-                            android:id="@+id/tvFrom"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/tv.from"
-                            android:textSize="@dimen/text.size.12sp" />
-
-                        <TextView
-                            android:id="@+id/tvMailSenderDetail"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_toRightOf="@+id/tvFrom"
-                            android:text="@string/tv.mail"
-                            android:textColor="@color/color.blue"
-                            android:textSize="@dimen/text.size.12sp" />
-
-                        <TextView
-                            android:id="@+id/tvTo"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@+id/tvFrom"
-                            android:text="@string/tv.to"
-                            android:textSize="@dimen/text.size.12sp" />
-
-                        <TextView
-                            android:id="@+id/tvMailReceiveDetail"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@+id/tvMailSenderDetail"
-                            android:layout_toRightOf="@+id/tvTo"
-                            android:text="@string/tv.mail"
-                            android:textColor="@color/color.blue"
-                            android:textSize="@dimen/text.size.12sp" />
-
-                        <TextView
-                            android:id="@+id/tvDate"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@+id/tvTo"
-                            android:text="@string/tv.date"
-                            android:textSize="@dimen/text.size.12sp" />
-
-                        <TextView
-                            android:id="@+id/tvTimeDetail1"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@+id/tvMailReceiveDetail"
-                            android:layout_toRightOf="@+id/tvDate"
-                            android:textSize="@dimen/text.size.12sp" />
-                    </RelativeLayout>
                 </RelativeLayout>
             </RelativeLayout>
 

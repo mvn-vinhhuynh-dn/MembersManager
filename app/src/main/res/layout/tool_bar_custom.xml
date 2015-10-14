@@ -31,19 +31,27 @@
             android:paddingLeft="@dimen/linearlayout.marginbottom.5dp"
             android:textColor="@color/white"
             android:textSize="@dimen/textview.textsize.20sp" />
-
+        <ImageView
+            android:id="@+id/imgFavoriteToolBar"
+            android:layout_width="@dimen/img.delete.width.height"
+            android:layout_height="@dimen/img.delete.width.height"
+            android:layout_marginRight="@dimen/linearlayout.marginbottom.5dp"
+            android:layout_marginEnd="@dimen/linearlayout.marginbottom.5dp"
+            android:contentDescription="@string/app_name"
+            android:visibility="gone"
+            />
         <ImageView
             android:id="@+id/img_right"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="@dimen/linearlayout.marginbottom.5dp"
-            android:contentDescription="@string/app_name" />
-
+            android:layout_marginEnd="@dimen/linearlayout.marginbottom.5dp"
+            android:contentDescription="@string/app_name"
+            android:visibility="gone"/>
         <TextView
             android:id="@+id/tv_numdetele"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="7"
             android:textColor="@color/white"
             android:visibility="gone" />
     </LinearLayout>
