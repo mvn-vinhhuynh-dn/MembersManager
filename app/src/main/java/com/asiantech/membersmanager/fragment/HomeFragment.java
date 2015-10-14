@@ -4,7 +4,6 @@ import android.os.Handler;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.View;
 
 import com.asiantech.membersmanager.MainActivity;
 import com.asiantech.membersmanager.R;
@@ -13,8 +12,6 @@ import com.asiantech.membersmanager.adapter.HomeAdapter;
 import com.asiantech.membersmanager.interfaces.CallDetail;
 import com.asiantech.membersmanager.models.Notification;
 import com.asiantech.membersmanager.utils.DividerItemDecoration;
-import com.timehop.stickyheadersrecyclerview.StickyRecyclerHeadersDecoration;
-import com.timehop.stickyheadersrecyclerview.StickyRecyclerHeadersTouchListener;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.EFragment;
@@ -34,25 +31,25 @@ public class HomeFragment extends BaseFragment implements CallDetail {
     @ViewById(R.id.recyclerHome)
     RecyclerView mRecycleHome;
     @ViewById(R.id.swipeRefreshLayout)
-    SwipeRefreshLayout swipeRefreshLayout;
+    SwipeRefreshLayout mSwipeRefreshLayout;
 
     private ArrayList<Notification> mArraylists;
     private ArrayList<Notification> mArraylistsHeader;
     private HomeAdapter mAdapter;
+    private LinearLayoutManager mLinearLayoutManager;
 
     public HomeFragment() {
         mArraylists = new ArrayList<>();
         mArraylistsHeader = new ArrayList<>();
-        fakedata();
+        setDefaultData();
     }
 
     @AfterViews
     void afterView() {
-        mAdapter = new HomeAdapter(getActivity(), mArraylists, mArraylistsHeader, this);
-        //add header
-        final StickyRecyclerHeadersDecoration headersDecor = new StickyRecyclerHeadersDecoration(mAdapter);
+        mAdapter = new HomeAdapter(getActivity(), mArraylists, this);
         // Config recycleview
-        mRecycleHome.setLayoutManager(new LinearLayoutManager(getActivity()));
+        mLinearLayoutManager = new LinearLayoutManager(getActivity());
+        mRecycleHome.setLayoutManager(mLinearLayoutManager);
         mRecycleHome.addItemDecoration(new DividerItemDecoration(getResources().getDrawable(R.drawable.divider)));
         // Add animation
         AlphaInAnimationAdapter alphaAdapter = new AlphaInAnimationAdapter(mAdapter);
@@ -62,26 +59,8 @@ public class HomeFragment extends BaseFragment implements CallDetail {
 
         // setAdapter
         mRecycleHome.setAdapter(scaleAdapter);
-        mRecycleHome.addItemDecoration(headersDecor);
 
-        // Add touch listeners
-        StickyRecyclerHeadersTouchListener touchListener =
-                new StickyRecyclerHeadersTouchListener(mRecycleHome, headersDecor);
-        touchListener.setOnHeaderClickListener(
-                new StickyRecyclerHeadersTouchListener.OnHeaderClickListener() {
-                    @Override
-                    public void onHeaderClick(View header, int position, long headerId) {
-                        mArraylistsHeader.get(position).setIsRead(true);
-                        DetailHotNotificationFragment detailHotNotificationFragment = DetailHotNotificationFragment_.builder()
-                                .mNotifications(mArraylistsHeader)
-                                .mPosition(position)
-                                .build();
-                        replaceFragment(detailHotNotificationFragment, false);
-                    }
-                });
-        mRecycleHome.addOnItemTouchListener(touchListener);
-
-        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+        mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
                 //refreshItems();
@@ -100,10 +79,23 @@ public class HomeFragment extends BaseFragment implements CallDetail {
                         notification.setMTime("14:32 PM, 06/10");
                         mArraylists.add(notification);
                         mAdapter.notifyDataSetChanged();
-                        swipeRefreshLayout.setRefreshing(false);
+                        mSwipeRefreshLayout.setRefreshing(false);
                     }
 
                 }, 2000);
+            }
+        });
+        mRecycleHome.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+                // add swipeRefresh listener
+                int passVisibleItems = mLinearLayoutManager.findFirstVisibleItemPosition();
+                if (passVisibleItems == 0) {
+                    mSwipeRefreshLayout.setEnabled(true);
+                } else {
+                    mSwipeRefreshLayout.setEnabled(false);
+                }
             }
         });
     }
@@ -118,7 +110,7 @@ public class HomeFragment extends BaseFragment implements CallDetail {
         }
     }
 
-    private void fakedata() {
+    private void setDefaultData() {
         Notification notification1 = new Notification();
         notification1.setIsFavorite(true);
         notification1.setIsHot(true);

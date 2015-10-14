@@ -4,9 +4,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recyclerHome"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scrollbars="none" />
+        android:layout_height="match_parent">
+
+        <include
+            android:id="@+id/rl_top_home"
+            layout="@layout/item_header_fragment_home" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerHome"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/rl_top_home"
+            android:scrollbars="none" />
+    </RelativeLayout>
 </android.support.v4.widget.SwipeRefreshLayout>
