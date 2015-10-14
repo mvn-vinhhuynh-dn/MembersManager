@@ -1,6 +1,7 @@
 package com.asiantech.membersmanager.fragment;
 
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 
 import com.asiantech.membersmanager.MainActivity;
 import com.asiantech.membersmanager.R;
@@ -47,8 +48,12 @@ public class NotificationDetailFragment extends BaseFragment {
         }
     }
 
-    public void clickFavorite(){
-        if (mNotifications.get(mPosition).getIsFavorite()){
+    public boolean checkFavorite() {
+        return mNotifications.get(mPosition).getIsFavorite();
+    }
+
+    public void changeFavorite() {
+        if (mNotifications.get(mPosition).getIsFavorite()) {
             mNotifications.get(mPosition).setIsFavorite(false);
         } else {
             mNotifications.get(mPosition).setIsFavorite(true);

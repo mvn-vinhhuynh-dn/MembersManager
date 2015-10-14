@@ -52,11 +52,18 @@ public class MainActivity extends AppCompatActivity implements DrawerFragment
     private DrawerFragment mDrawerFragment;
     @ViewById(R.id.toolbar)
     Toolbar mToolBar;
-    private ImageView mImgRight;
-    private ImageView mImgLeft;
-    private TextView mTvTItle;
+    @ViewById(R.id.imgFavoriteToolBar)
+    ImageView imgFavoriteToolBar;
+    @ViewById(R.id.img_right)
+    ImageView mImgRight;
+    @ViewById(R.id.img_left_button)
+    ImageView mImgLeft;
+    @ViewById(R.id.tv_title)
+    TextView mTvTItle;
+    @ViewById(R.id.tv_numdetele)
+    TextView mtvNumDelete;
+    private Boolean mCheckFavorite;
     private Fragment mContent;
-    private TextView mtvNumDelete;
     public static MainActivity_ mMainActivity;
 
     @AfterViews
@@ -83,10 +90,6 @@ public class MainActivity extends AppCompatActivity implements DrawerFragment
                 getSupportFragmentManager().findFragmentById(R.id.fragment_navigation_drawer);
         mDrawerFragment.setUp(R.id.fragment_navigation_drawer,
                 (DrawerLayout) findViewById(R.id.drawer_layout), mToolBar);
-        mImgRight = (ImageView) mToolBar.findViewById(R.id.img_right);
-        mImgLeft = (ImageView) mToolBar.findViewById(R.id.img_left_button);
-        mTvTItle = (TextView) mToolBar.findViewById(R.id.tv_title);
-        mtvNumDelete = (TextView) mToolBar.findViewById(R.id.tv_numdetele);
     }
 
     private void initListener() {
@@ -165,8 +168,20 @@ public class MainActivity extends AppCompatActivity implements DrawerFragment
         } else if (mContent instanceof FavoriteFragment_) {
             ((FavoriteFragment_) mContent).onDelete();
         }
-        if (mContent instanceof NotificationDetailFragment_ || mContent instanceof DetailHotNotificationFragment_){
-          Toast.makeText(getBaseContext(),"Click Favorite", Toast.LENGTH_SHORT).show();
+    }
+    @Click(R.id.imgFavoriteToolBar)
+    void onFavorite(){
+        if (mContent instanceof NotificationDetailFragment_){
+            if (mCheckFavorite){
+                imgFavoriteToolBar.setImageResource(R.drawable.ic_unfavorite);
+                mCheckFavorite = false;
+                ((NotificationDetailFragment_) mContent).changeFavorite();
+            } else {
+                imgFavoriteToolBar.setImageResource(R.drawable.ic_favorite);
+                mCheckFavorite = true;
+                ((NotificationDetailFragment_) mContent).changeFavorite();
+            }
+
         }
     }
 
@@ -182,12 +197,14 @@ public class MainActivity extends AppCompatActivity implements DrawerFragment
                 mImgRight.setVisibility(View.VISIBLE);
                 mTvTItle.setVisibility(View.VISIBLE);
                 mtvNumDelete.setVisibility(View.GONE);
+                imgFavoriteToolBar.setVisibility(View.GONE);
                 mImgRight.setImageResource(R.drawable.ic_mode_edit);
                 break;
             case TYPE_HOME:
                 mImgLeft.setVisibility(View.GONE);
                 mtvNumDelete.setVisibility(View.GONE);
                 mImgRight.setVisibility(View.GONE);
+                imgFavoriteToolBar.setVisibility(View.GONE);
                 mTvTItle.setVisibility(View.VISIBLE);
                 break;
             case TYPE_SETTING:
@@ -197,15 +214,23 @@ public class MainActivity extends AppCompatActivity implements DrawerFragment
                 mImgRight.setVisibility(View.VISIBLE);
                 mtvNumDelete.setVisibility(View.GONE);
                 mTvTItle.setVisibility(View.VISIBLE);
+                imgFavoriteToolBar.setVisibility(View.GONE);
                 mImgRight.setImageResource(R.drawable.ic_done_white);
                 break;
             case TYPE_DETAILS:
                 mImgLeft.setVisibility(View.GONE);
-                mImgRight.setVisibility(View.VISIBLE);
+                mImgRight.setVisibility(View.GONE);
                 mTvTItle.setVisibility(View.VISIBLE);
-                mImgRight.setImageResource(R.drawable.ic_favorite);
+                imgFavoriteToolBar.setVisibility(View.VISIBLE);
+                mCheckFavorite = ((NotificationDetailFragment_)mContent).checkFavorite();
+                if (mCheckFavorite){
+                    imgFavoriteToolBar.setImageResource(R.drawable.ic_favorite);
+                } else {
+                    imgFavoriteToolBar.setImageResource(R.drawable.ic_unfavorite);
+                }
                 break;
             case TYPE_SENT:
+                imgFavoriteToolBar.setVisibility(View.GONE);
                 mImgLeft.setVisibility(View.GONE);
                 mImgRight.setVisibility(View.VISIBLE);
                 mTvTItle.setVisibility(View.VISIBLE);
@@ -213,6 +238,7 @@ public class MainActivity extends AppCompatActivity implements DrawerFragment
                 mtvNumDelete.setVisibility(View.GONE);
                 break;
             case TYPE_DELETE:
+                imgFavoriteToolBar.setVisibility(View.GONE);
                 mtvNumDelete.setVisibility(View.VISIBLE);
                 mImgLeft.setVisibility(View.GONE);
                 mImgRight.setVisibility(View.VISIBLE);
