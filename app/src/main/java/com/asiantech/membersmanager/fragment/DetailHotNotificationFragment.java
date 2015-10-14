@@ -37,12 +37,25 @@ public class DetailHotNotificationFragment extends BaseFragment {
         viewpagerDetailsHot.setAdapter(mViewpagerDetailsHotAdapter);
         viewpagerDetailsHot.setCurrentItem(mPosition);
     }
+
     @Override
     public void onResume() {
         super.onResume();
         if (mOnBaseFragmentListener != null) {
             mOnBaseFragmentListener.setTitleHeader(getString(R.string.hot_detail));
             mOnBaseFragmentListener.setTypeHeader(MainActivity.TYPE_DETAILS);
+        }
+    }
+
+    public boolean checkFavorite() {
+        return mNotifications.get(mPosition).getIsFavorite();
+    }
+
+    public void changeFavorite() {
+        if (mNotifications.get(mPosition).getIsFavorite()) {
+            mNotifications.get(mPosition).setIsFavorite(false);
+        } else {
+            mNotifications.get(mPosition).setIsFavorite(true);
         }
     }
 }

@@ -181,7 +181,17 @@ public class MainActivity extends AppCompatActivity implements DrawerFragment
                 mCheckFavorite = true;
                 ((NotificationDetailFragment_) mContent).changeFavorite();
             }
-
+        }
+        if (mContent instanceof DetailHotNotificationFragment_){
+            if (mCheckFavorite){
+                imgFavoriteToolBar.setImageResource(R.drawable.ic_unfavorite);
+                mCheckFavorite = false;
+                ((DetailHotNotificationFragment_) mContent).changeFavorite();
+            } else {
+                imgFavoriteToolBar.setImageResource(R.drawable.ic_favorite);
+                mCheckFavorite = true;
+                ((DetailHotNotificationFragment_) mContent).changeFavorite();
+            }
         }
     }
 
@@ -222,7 +232,14 @@ public class MainActivity extends AppCompatActivity implements DrawerFragment
                 mImgRight.setVisibility(View.GONE);
                 mTvTItle.setVisibility(View.VISIBLE);
                 imgFavoriteToolBar.setVisibility(View.VISIBLE);
-                mCheckFavorite = ((NotificationDetailFragment_)mContent).checkFavorite();
+
+                if (mContent instanceof NotificationDetailFragment_){
+                    mCheckFavorite = ((NotificationDetailFragment_)mContent).checkFavorite();
+                }
+                if (mContent instanceof DetailHotNotificationFragment_){
+                    mCheckFavorite = ((DetailHotNotificationFragment_)mContent).checkFavorite();
+                }
+
                 if (mCheckFavorite){
                     imgFavoriteToolBar.setImageResource(R.drawable.ic_favorite);
                 } else {

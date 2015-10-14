@@ -4,6 +4,10 @@ import android.os.Handler;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.asiantech.membersmanager.MainActivity;
 import com.asiantech.membersmanager.R;
@@ -12,11 +16,14 @@ import com.asiantech.membersmanager.adapter.HomeAdapter;
 import com.asiantech.membersmanager.interfaces.CallDetail;
 import com.asiantech.membersmanager.models.Notification;
 import com.asiantech.membersmanager.utils.DividerItemDecoration;
+import com.asiantech.membersmanager.views.CircleImageView;
 
 import org.androidannotations.annotations.AfterViews;
+import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EFragment;
 import org.androidannotations.annotations.ViewById;
 
+import java.awt.font.TextAttribute;
 import java.util.ArrayList;
 
 import jp.wasabeef.recyclerview.animators.adapters.AlphaInAnimationAdapter;
@@ -32,6 +39,16 @@ public class HomeFragment extends BaseFragment implements CallDetail {
     RecyclerView mRecycleHome;
     @ViewById(R.id.swipeRefreshLayout)
     SwipeRefreshLayout mSwipeRefreshLayout;
+    @ViewById(R.id.imgAvataHeader)
+    CircleImageView imgAvataHeader;
+    @ViewById(R.id.tvSenderHeader)
+    TextView tvSenderHeader;
+    @ViewById(R.id.tvTittleHeader)
+    TextView tvTittleHeader;
+    @ViewById(R.id.tvContentHeader)
+    TextView tvContentHeader;
+    @ViewById(R.id.tvTimeHeader)
+    TextView tvTimeHeader;
 
     private ArrayList<Notification> mArraylists;
     private ArrayList<Notification> mArraylistsHeader;
@@ -46,6 +63,7 @@ public class HomeFragment extends BaseFragment implements CallDetail {
 
     @AfterViews
     void afterView() {
+        setNotificationHot();
         mAdapter = new HomeAdapter(getActivity(), mArraylists, this);
         // Config recycleview
         mLinearLayoutManager = new LinearLayoutManager(getActivity());
@@ -100,6 +118,22 @@ public class HomeFragment extends BaseFragment implements CallDetail {
         });
     }
 
+    private void setNotificationHot() {
+        imgAvataHeader.setImageResource(mArraylistsHeader.get(0).getMAvata());
+        tvSenderHeader.setText(mArraylistsHeader.get(0).getMSender());
+        tvTittleHeader.setText(mArraylistsHeader.get(0).getMTittle());
+        tvTimeHeader.setText(mArraylistsHeader.get(0).getMTime());
+        tvContentHeader.setText(mArraylistsHeader.get(0).getMContent());
+
+    }
+    @Click(R.id.swipeHeader)
+    void clickItem(){
+        DetailHotNotificationFragment detailHotNotificationFragment = DetailHotNotificationFragment_.builder()
+                .mNotifications(mArraylistsHeader)
+                .mPosition(0)
+                .build();
+        replaceFragment(detailHotNotificationFragment, false);
+    }
     @Override
     public void onResume() {
         super.onResume();

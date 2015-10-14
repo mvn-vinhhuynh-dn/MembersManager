@@ -84,7 +84,7 @@
     <dimen name="linearlayout.width">30dp</dimen>
 
     <!--dimen item recycle home-->
-    <dimen name="relativelayout.height.81dp">81dp</dimen>
+    <dimen name="relativelayout.height.81dp">86dp</dimen>
     <dimen name="relativelayout.height.71dp">71dp</dimen>
     <dimen name="relativelayout.magin.bottom.top">5dp</dimen>
     <dimen name="relativelayout.magin.left.right">10dp</dimen>

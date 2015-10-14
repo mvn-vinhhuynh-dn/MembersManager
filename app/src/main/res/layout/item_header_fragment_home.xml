@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:swipe="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/swipeHeader"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/relativelayout.height.81dp"
+    android:layout_height="91dp"
     android:background="@color/color.white"
-
     swipe:leftEdgeSwipeOffset="0dp"
     swipe:rightEdgeSwipeOffset="0dp">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:id="@+id/swipeHeader">
 
         <com.asiantech.membersmanager.views.CircleImageView
             android:id="@+id/imgAvataHeader"
@@ -41,6 +40,7 @@
                 android:id="@+id/tvTimeHeader"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:paddingTop="@dimen/linearlayout.marginbottom.5dp"
                 android:layout_marginRight="@dimen/textview.sender.maginright"
                 android:layout_toLeftOf="@+id/imgHotHeader"
                 android:textColor="@color/color.text.time"
@@ -66,17 +66,13 @@
 
         </RelativeLayout>
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/rlTopHeader"
             android:layout_marginLeft="@dimen/linerlayout.tittle.maginleft"
             android:layout_toRightOf="@+id/imgAvataHeader"
-            android:orientation="vertical">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+            >
 
                 <TextView
                     android:id="@+id/tvContentHeader"
@@ -87,21 +83,22 @@
                     android:paddingBottom="@dimen/textview.content.paddingbottom"
                     android:textSize="@dimen/textview.content.size"
                     android:textStyle="italic" />
-            </LinearLayout>
-        </LinearLayout>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_above="@+id/viewLine"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_marginEnd="@dimen/textview.maginright"
-            android:layout_marginRight="@dimen/textview.maginright"
-            android:text="@string/unread"
-            android:textColor="@color/color.blue"
-            android:textSize="@dimen/textview.time.size"
-            android:textStyle="italic" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginEnd="@dimen/textview.maginright"
+                android:layout_marginRight="@dimen/textview.maginright"
+                android:paddingBottom="4dp"
+                android:paddingTop="2dp"
+                android:text="@string/unread"
+                android:textColor="@color/color.blue"
+                android:textSize="@dimen/text.size.10sp"
+                android:textStyle="italic"
+                android:layout_alignParentBottom="true"/>
+        </RelativeLayout>
 
         <View
             android:id="@+id/viewLine"
