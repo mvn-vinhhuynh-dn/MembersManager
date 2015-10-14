@@ -14,7 +14,6 @@ import com.asiantech.membersmanager.R;
 import com.asiantech.membersmanager.interfaces.CallDetail;
 import com.asiantech.membersmanager.models.Notification;
 import com.asiantech.membersmanager.views.CircleImageView;
-import com.daimajia.swipe.SwipeLayout;
 import com.timehop.stickyheadersrecyclerview.StickyRecyclerHeadersAdapter;
 
 import java.util.ArrayList;
@@ -59,7 +58,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> im
         }
 
         checkFavorite(holder, position);
-        checkRead(holder,position);
+        checkRead(holder, position);
 
         holder.rlTittle.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -104,11 +103,14 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> im
             holder.tvSender.setTypeface(null, Typeface.NORMAL);
             holder.tvTime.setTypeface(null, Typeface.NORMAL);
             holder.tvTittle.setTypeface(null, Typeface.NORMAL);
-        }
-        else {
+            holder.rlParent.setBackgroundColor(mContext
+                    .getResources().getColor(R.color.white));
+        } else {
             holder.tvSender.setTypeface(null, Typeface.BOLD);
             holder.tvTime.setTypeface(null, Typeface.BOLD);
             holder.tvTittle.setTypeface(null, Typeface.BOLD);
+            holder.rlParent.setBackgroundDrawable(mContext
+                    .getResources().getDrawable(R.drawable.shadow_view));
         }
     }
 
@@ -150,8 +152,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> im
             holder.tvSenderHeader.setTypeface(null, Typeface.NORMAL);
             holder.tvTimeHeader.setTypeface(null, Typeface.NORMAL);
             holder.tvTittleHeader.setTypeface(null, Typeface.NORMAL);
-        }
-        else {
+        } else {
             holder.tvSenderHeader.setTypeface(null, Typeface.BOLD);
             holder.tvTimeHeader.setTypeface(null, Typeface.BOLD);
             holder.tvTittleHeader.setTypeface(null, Typeface.BOLD);
@@ -176,21 +177,19 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> im
         TextView tvContent;
         TextView tvTime;
         RelativeLayout rlTittle;
-        SwipeLayout swipeLayout;
-        RelativeLayout rlItem;
+        RelativeLayout rlParent;
 
         public ViewHolder(View itemView) {
             super(itemView);
-            imgAvata = (CircleImageView) itemView.findViewById(R.id.imgAvata_favorite);
-            tvSender = (TextView) itemView.findViewById(R.id.tvSender_favorite);
-            tvTittle = (TextView) itemView.findViewById(R.id.tvTittle_favorite);
-            tvContent = (TextView) itemView.findViewById(R.id.tvContent_favorite);
-            tvTime = (TextView) itemView.findViewById(R.id.tvTime_favorite);
-            imgHot = (ImageView) itemView.findViewById(R.id.imgHot_favorite);
-            imgFavorite = (ImageView) itemView.findViewById(R.id.imgFavorite_favorite);
-            imgDelete = (ImageView) itemView.findViewById(R.id.imgDelete_favorite);
-            rlTittle = (RelativeLayout) itemView.findViewById(R.id.rlTop_favorite);
-            swipeLayout = (SwipeLayout) itemView.findViewById(R.id.swipe_favorite);
+            imgAvata = (CircleImageView) itemView.findViewById(R.id.imgAvata);
+            tvSender = (TextView) itemView.findViewById(R.id.tvSender);
+            tvTittle = (TextView) itemView.findViewById(R.id.tvTittle);
+            tvContent = (TextView) itemView.findViewById(R.id.tvContent);
+            tvTime = (TextView) itemView.findViewById(R.id.tvTime);
+            imgHot = (ImageView) itemView.findViewById(R.id.imgHot);
+            imgFavorite = (ImageView) itemView.findViewById(R.id.imgFavorite);
+            rlTittle = (RelativeLayout) itemView.findViewById(R.id.rlTop);
+            rlParent = (RelativeLayout) itemView.findViewById(R.id.rlparent);
         }
     }
 

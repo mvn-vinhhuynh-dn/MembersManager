@@ -46,6 +46,18 @@ public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.ViewHo
         return viewHolder;
     }
 
+    public void removeAt(int position, int countDeleted, int maxCountDelete) {
+        mArraylists.remove(position);
+        notifyItemRemoved(position);
+        if (countDeleted == maxCountDelete) {
+            notifyDataSetChanged();
+        }
+    }
+
+    public void clearSizeDelete() {
+        mIntegers.clear();
+    }
+
     @Override
     public void onBindViewHolder(ViewHolder holder, final int position) {
         if (!mArraylists.get(position).getIsChecked()) {
@@ -62,6 +74,7 @@ public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.ViewHo
         holder.tvContent.setText(mArraylists.get(position).getMContent());
         holder.tvTime.setText(mArraylists.get(position).getMTime());
         holder.imgAvataOne.setTag(position);
+        holder.swipeLayout.setTag(position);
         if (mArraylists.get(position).getIsHot()) {
             holder.imgHot.setVisibility(View.VISIBLE);
         } else {
@@ -117,10 +130,10 @@ public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.ViewHo
         });
     }
 
-    private void removeItemOnList(int num, List<Integer> integers) {
+    private void removeItemOnList(Integer num, List<Integer> integers) {
         if (integers.size() > 0) {
             for (int i = 0; i < integers.size(); i++) {
-                if (num == integers.get(i)) {
+                if (num == (integers.get(i))) {
                     integers.remove(i);
                 }
             }

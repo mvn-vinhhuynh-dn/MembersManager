@@ -21,6 +21,7 @@ import org.androidannotations.annotations.EFragment;
 import org.androidannotations.annotations.ViewById;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import jp.wasabeef.recyclerview.animators.adapters.AlphaInAnimationAdapter;
@@ -41,6 +42,7 @@ public class FavoriteFragment extends BaseFragment implements CallDetail, CallFa
     private ArrayList<Notification> mArraylistsTam;
     private FavoriteAdapter mAdapter;
     private ScaleInAnimationAdapter mScaleInAnimationAdapter;
+    private List<Integer> mIntegers = new ArrayList<>();
 
     public FavoriteFragment() {
         mArraylistsTam = new ArrayList<>();
@@ -89,14 +91,15 @@ public class FavoriteFragment extends BaseFragment implements CallDetail, CallFa
             notification3.setIsFavorite(true);
             notification3.setIsHot(false);
             notification3.setMAvata(R.drawable.p3);
-            notification3.setMContent("Đã có lúc anh mong tim mình bé lại\n" +
-                    "Để nỗi nhớ em không thể nào thêm nữa\n" +
-                    "Đã có lúc anh mong ngừng thời gian trôi\n" +
-                    "Để những dấu yêu sẽ không phai mờ\n" +
-                    "\n" +
-                    "Nếu không hát lên nặng lòng da diết\n" +
-                    "Nếu không nói ra làm sao biết\n" +
-                    "Anh thương em\n" +
+            notification3.setIsChecked(false);
+            notification3.setMContent("Đã có lúc anh mong tim mình bé lại " +
+                    "Để nỗi nhớ em không thể nào thêm nữa" +
+                    "Đã có lúc anh mong ngừng thời gian trôi " +
+                    "Để những dấu yêu sẽ không phai mờ" +
+                    "" +
+                    "Nếu không hát lên nặng lòng da diết" +
+                    "Nếu không nói ra làm sao biết" +
+                    "Anh thương em" +
                     "Anh sẽ nói em nghe những điều chưa bao giờ\n" +
                     "\n" +
                     "Bình minh khuất lấp sau màn đêm như nỗi lòng anh\n" +
@@ -125,7 +128,7 @@ public class FavoriteFragment extends BaseFragment implements CallDetail, CallFa
                     "Anh sẽ chờ phía sau giấc mơ của em\n" +
                     "Anh sẽ chờ để nói những điều chưa bao giờ");
             notification3.setMSender("Le Thai Son");
-            notification3.setMTittle("Thong bao hop khan cap");
+            notification3.setMTittle("Thong bao hop khan cap---" + i);
             notification3.setMTime("14:32 PM, 06/10");
             mArraylists.add(notification3);
         }
@@ -155,11 +158,25 @@ public class FavoriteFragment extends BaseFragment implements CallDetail, CallFa
     }
 
     public void onDelete() {
-        //TODO delete function
+        Collections.sort(mIntegers);
+        if (mIntegers.size() < mArraylistsTam.size()) {
+            for (int i = 0; i < mIntegers.size(); i++) {
+                int num = mIntegers.get(i);
+                mArraylistsTam.remove(num - i);
+            }
+            //clear numDeletes
+            mAdapter.notifyDataSetChanged();
+            mScaleInAnimationAdapter.notifyDataSetChanged();
+            mAdapter.clearSizeDelete();
+            //Update header
+            mOnBaseFragmentListener.setTitleHeader(getString(R.string.title_favorite));
+            mOnBaseFragmentListener.setTypeHeader(MainActivity.TYPE_HOME);
+        }
     }
 
     @Override
     public void removeFavorite(List<Integer> integers) {
+        //Update header
         if (integers.size() > 0) {
             mOnBaseFragmentListener.setTitleHeader(getString(R.string.title_favorite_delete));
             mOnBaseFragmentListener.setTypeHeader(MainActivity.TYPE_DELETE);
@@ -170,5 +187,8 @@ public class FavoriteFragment extends BaseFragment implements CallDetail, CallFa
             mOnBaseFragmentListener.setTypeHeader(MainActivity.TYPE_HOME);
             mScaleInAnimationAdapter.notifyDataSetChanged();
         }
+        //Do delete
+        mIntegers.clear();
+        mIntegers.addAll(integers);
     }
 }

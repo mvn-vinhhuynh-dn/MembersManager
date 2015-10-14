@@ -5,13 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@color/color.white"
+    android:paddingBottom="@dimen/linearlayout.marginbottom.5dp"
+    android:paddingTop="@dimen/linearlayout.marginbottom.5dp"
     swipe:leftEdgeSwipeOffset="0dp"
     swipe:rightEdgeSwipeOffset="0dp">
 
     <!--Bottom View For Right to Left-->
     <LinearLayout
         android:id="@+id/linerlayoutRight_favorite"
-        android:layout_width="100dp"
+        android:layout_width="@dimen/height.120dp"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:weightSum="1">
@@ -21,15 +23,15 @@
             android:layout_width="@dimen/img.delete.width.height"
             android:layout_height="@dimen/img.delete.width.height"
             android:layout_weight="1"
-            android:src="@drawable/ic_delete" />
+            android:src="@drawable/ic_delete_cyan"
+            android:visibility="visible" />
     </LinearLayout>
 
     <RelativeLayout
         android:id="@+id/rlparent_favorite"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingLeft="@dimen/linearlayout.padding.10dp"
-        android:paddingRight="@dimen/relativelayout.magin.left.right">
+        android:paddingLeft="@dimen/linearlayout.padding.10dp">
 
         <com.asiantech.membersmanager.views.CircleImageView
             android:id="@+id/imgAvata_favorite_one"
