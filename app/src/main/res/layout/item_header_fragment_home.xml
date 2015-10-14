@@ -3,7 +3,7 @@
     xmlns:swipe="http://schemas.android.com/apk/res-auto"
     android:id="@+id/swipeHeader"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/relativelayout.height.81dp"
+    android:layout_height="@dimen/relativelayout.height.81dp" android:paddingTop="@dimen/linearlayout.marginbottom.5dp"
     android:background="@color/color.white"
     swipe:leftEdgeSwipeOffset="0dp"
     swipe:rightEdgeSwipeOffset="0dp">

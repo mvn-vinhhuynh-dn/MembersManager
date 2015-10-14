@@ -45,7 +45,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/relative.sender.maginleft"
-            android:layout_toRightOf="@+id/imgAvata_favorite_one">
+            android:layout_toRightOf="@+id/imgAvata_favorite_one"
+           >
 
             <TextView
                 android:id="@+id/tvSender_favorite"

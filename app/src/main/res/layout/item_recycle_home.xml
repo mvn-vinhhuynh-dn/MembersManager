@@ -9,8 +9,10 @@
         android:id="@+id/rlparent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/linearlayout.marginbottom.5dp"
         android:paddingLeft="@dimen/linearlayout.padding.10dp"
-        android:paddingRight="@dimen/linearlayout.marginbottom.5dp">
+        android:paddingRight="@dimen/linearlayout.marginbottom.5dp"
+        android:paddingTop="@dimen/linearlayout.marginbottom.5dp">
 
         <com.asiantech.membersmanager.views.CircleImageView
             android:id="@+id/imgAvata"
