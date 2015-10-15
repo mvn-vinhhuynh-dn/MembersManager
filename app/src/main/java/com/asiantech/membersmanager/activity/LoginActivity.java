@@ -20,8 +20,7 @@ import com.asiantech.membersmanager.MainActivity_;
 import com.asiantech.membersmanager.R;
 import com.asiantech.membersmanager.dialog.DialogForgotFragment;
 import com.asiantech.membersmanager.dialog.DialogForgotFragment_;
-import com.asiantech.membersmanager.dialog.DialogRegisterFragment;
-import com.asiantech.membersmanager.dialog.DialogRegisterFragment_;
+import com.asiantech.membersmanager.utils.SoftKeyboardStateWatcher;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Click;
@@ -69,9 +68,6 @@ public class LoginActivity extends AppCompatActivity {
     @ViewById(R.id.btnForgot)
     Button mBtnForgot;
 
-    @ViewById(R.id.btnSignUp)
-    Button mBtnSignUp;
-
     @ViewById(R.id.etEmailSignIn)
     EditText mEtEmailSignIn;
 
@@ -92,10 +88,12 @@ public class LoginActivity extends AppCompatActivity {
 
     @ViewById(R.id.pbLoadingSignIn)
     ProgressBar mPbLoadingSignIn;
+    private SoftKeyboardStateWatcher softKeyboardStateWatcher;
 
     @AfterViews
     public void afterView() {
         setDelayStartAnim();
+        setListener();
     }
 
     private void setDelayStartAnim() {
@@ -110,13 +108,40 @@ public class LoginActivity extends AppCompatActivity {
         mHandlerShowLogo.postDelayed(mRunable, 1000);
     }
 
+    private void setListener() {
+        softKeyboardStateWatcher
+                = new SoftKeyboardStateWatcher(findViewById(R.id.login_activity));
+        softKeyboardStateWatcher.addSoftKeyboardStateListener(new SoftKeyboardStateWatcher.SoftKeyboardStateListener() {
+            @Override
+            public void onSoftKeyboardOpened(int keyboardHeightInPx) {
+                setMarginWhenShow(true);
+            }
+
+            @Override
+            public void onSoftKeyboardClosed() {
+                setMarginWhenShow(false);
+            }
+        });
+    }
+
+    private void setMarginWhenShow(boolean isShow) {
+        int paddingPixel = 50;
+        float density = LoginActivity.this.getResources().getDisplayMetrics().density;
+        int paddingDp = (int) (paddingPixel * density);
+        if (isShow) {
+            mImgTech.setPadding(0, paddingDp, 0, 0);
+
+        } else {
+            mImgTech.setPadding(0, 0, 0, paddingDp);
+        }
+    }
+
     private void startAnimation() {
         if (mHandlerShowLogo != null && mRunable != null) {
             mHandlerShowLogo.removeCallbacks(mRunable);
         }
         ColorStateList colorStateList = getResources()
                 .getColorStateList(R.color.button_signup_forgot);
-        mBtnSignUp.setTextColor(colorStateList);
         mBtnForgot.setTextColor(colorStateList);
         mImgAsian.startAnimation(mAnimLeft);
         mImgTech.startAnimation(mAnimRight);
@@ -178,20 +203,11 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
-
     @Click(R.id.btnSignIn)
     void clickSignIn() {
         MainActivity_.intent(LoginActivity.this).start();
         overridePendingTransition(R.anim.trans_left_in, R.anim.trans_left_out);
         finish();
-    }
-
-    @Click(R.id.btnSignUp)
-    void clickSignUp() {
-        DialogRegisterFragment dialogRegister = new DialogRegisterFragment_();
-        FragmentManager fmRegister = getSupportFragmentManager();
-        FragmentTransaction ftRegister = fmRegister.beginTransaction();
-        dialogRegister.show(ftRegister, "Register Dialog");
     }
 
     @Click(R.id.btnForgot)
@@ -223,8 +239,6 @@ public class LoginActivity extends AppCompatActivity {
                     mRlSignIn.startAnimation(mAnimUp);
                     mBtnForgot.setVisibility(View.VISIBLE);
                     mBtnForgot.startAnimation(mAnimUp);
-                    mBtnSignUp.setVisibility(View.VISIBLE);
-                    mBtnSignUp.startAnimation(mAnimUp);
                     break;
             }
             return false;

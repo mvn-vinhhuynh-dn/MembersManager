@@ -48,19 +48,17 @@ public class ViewPagerDetailsHotAdapter extends PagerAdapter {
 
         final RelativeLayout rlViewDetailsHot;
         final TextView tvViewDetailsHot;
-        final TextView tvInviViewDetailsHot;
 
         inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View itemView = inflater.inflate(R.layout.item_fragment_details_hot, container, false);
-        imgAvataDetailHot = (CircleImageView)itemView.findViewById(R.id.imgAvataDetailHot);
-        tvSenderDetailHot = (TextView)itemView.findViewById(R.id.tvSenderDetailHot);
-        tvTimeDetailHot = (TextView)itemView.findViewById(R.id.tvTimeDetailHot);
-        tvContentDetailHot = (TextView)itemView.findViewById(R.id.tvContentDetailHot);
-        tvTimeDetail1Hot = (TextView)itemView.findViewById(R.id.tvTimeDetail1Hot);
+        imgAvataDetailHot = (CircleImageView) itemView.findViewById(R.id.imgAvataDetailHot);
+        tvSenderDetailHot = (TextView) itemView.findViewById(R.id.tvSenderDetailHot);
+        tvTimeDetailHot = (TextView) itemView.findViewById(R.id.tvTimeDetailHot);
+        tvContentDetailHot = (TextView) itemView.findViewById(R.id.tvContentDetailHot);
+        tvTimeDetail1Hot = (TextView) itemView.findViewById(R.id.tvTimeDetail1Hot);
 
-        rlViewDetailsHot = (RelativeLayout)itemView.findViewById(R.id.rlViewDetailsHot);
-        tvViewDetailsHot = (TextView)itemView.findViewById(R.id.tvViewDetailsHot);
-        tvInviViewDetailsHot = (TextView)itemView.findViewById(R.id.tvInviViewDetailsHot);
+        rlViewDetailsHot = (RelativeLayout) itemView.findViewById(R.id.rlViewDetailsHot);
+        tvViewDetailsHot = (TextView) itemView.findViewById(R.id.tvViewDetailsHot);
 
         imgAvataDetailHot.setImageResource(mArraylists.get(position).getMAvata());
         tvSenderDetailHot.setText(mArraylists.get(position).getMSender());
@@ -72,16 +70,7 @@ public class ViewPagerDetailsHotAdapter extends PagerAdapter {
             @Override
             public void onClick(View v) {
                 tvViewDetailsHot.setVisibility(View.INVISIBLE);
-                tvInviViewDetailsHot.setVisibility(View.VISIBLE);
                 rlViewDetailsHot.setVisibility(View.VISIBLE);
-            }
-        });
-        tvInviViewDetailsHot.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                tvViewDetailsHot.setVisibility(View.VISIBLE);
-                tvInviViewDetailsHot.setVisibility(View.INVISIBLE);
-                rlViewDetailsHot.setVisibility(View.GONE);
             }
         });
         container.addView(itemView);

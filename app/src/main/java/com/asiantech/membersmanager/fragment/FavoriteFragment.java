@@ -219,7 +219,6 @@ public class FavoriteFragment extends BaseFragment implements CallDetailItem, Ca
     @Override
     public void removeSingleItems(int pos, SwipeLayout swipeLayout) {
         mScaleInAnimationAdapter.setFirstOnly(true);
-        mScaleInAnimationAdapter.notifyDataSetChanged();
         SwipeItemRecyclerMangerImpl mSwipeItemRecyclerMangerImpl = mAdapter.getSwipeItemRecyclerMangerImpl();
         mSwipeItemRecyclerMangerImpl.removeShownLayouts(swipeLayout);
         mArraylistsTam.remove(pos);

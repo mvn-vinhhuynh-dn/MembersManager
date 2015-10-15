@@ -55,7 +55,6 @@ public class TimeSheetAdapter extends RecyclerView
         holder.rlTittle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                callDetail.OnCallDetails(mArraylists.get(position));
             }
         });
     }
