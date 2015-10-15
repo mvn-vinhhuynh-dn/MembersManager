@@ -11,24 +11,29 @@ import java.util.List;
  * Copyright © 2015 AsianTech inc.
  * Created by VinhHlb on 10/15/15.
  */
+
+/**
+ * This class to handler keyboard when show or hide.
+ */
 public class SoftKeyboardStateWatcher implements ViewTreeObserver.OnGlobalLayoutListener {
 
     public interface SoftKeyboardStateListener {
         void onSoftKeyboardOpened(int keyboardHeightInPx);
+
         void onSoftKeyboardClosed();
     }
 
     private final List<SoftKeyboardStateListener> listeners = new LinkedList<SoftKeyboardStateListener>();
     private final View activityRootView;
-    private int        lastSoftKeyboardHeightInPx;
-    private boolean    isSoftKeyboardOpened;
+    private int lastSoftKeyboardHeightInPx;
+    private boolean isSoftKeyboardOpened;
 
     public SoftKeyboardStateWatcher(View activityRootView) {
         this(activityRootView, false);
     }
 
     public SoftKeyboardStateWatcher(View activityRootView, boolean isSoftKeyboardOpened) {
-        this.activityRootView     = activityRootView;
+        this.activityRootView = activityRootView;
         this.isSoftKeyboardOpened = isSoftKeyboardOpened;
         activityRootView.getViewTreeObserver().addOnGlobalLayoutListener(this);
     }
