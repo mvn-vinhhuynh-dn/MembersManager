@@ -88,7 +88,6 @@ public class LoginActivity extends AppCompatActivity {
 
     @ViewById(R.id.pbLoadingSignIn)
     ProgressBar mPbLoadingSignIn;
-    private SoftKeyboardStateWatcher softKeyboardStateWatcher;
 
     @AfterViews
     public void afterView() {
@@ -109,8 +108,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void setListener() {
-        softKeyboardStateWatcher
-                = new SoftKeyboardStateWatcher(findViewById(R.id.login_activity));
+        SoftKeyboardStateWatcher softKeyboardStateWatcher = new SoftKeyboardStateWatcher(findViewById(R.id.login_activity));
         softKeyboardStateWatcher.addSoftKeyboardStateListener(new SoftKeyboardStateWatcher.SoftKeyboardStateListener() {
             @Override
             public void onSoftKeyboardOpened(int keyboardHeightInPx) {
