@@ -45,16 +45,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/relative.sender.maginleft"
-            android:layout_toRightOf="@+id/imgAvata_favorite_one"
-           >
+            android:layout_toRightOf="@+id/imgAvata_favorite_one">
 
             <TextView
                 android:id="@+id/tvSender_favorite"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/color.black"
-                android:textSize="@dimen/textview.sender.size"
-                android:textStyle="bold" />
+                android:textSize="@dimen/textview.sender.size" />
 
             <TextView
                 android:id="@+id/tvTime_favorite"
@@ -71,7 +69,7 @@
                 android:layout_height="@dimen/imagehot.width.height"
                 android:layout_alignParentRight="true"
                 android:layout_margin="@dimen/imagehot.magin"
-                android:src="@drawable/ic_hot" />
+                android:src="@drawable/ic_new" />
 
             <TextView
                 android:id="@+id/tvTittle_favorite"
@@ -98,7 +96,7 @@
                     android:textSize="@dimen/textview.content.size"
                     android:textStyle="italic" />
 
-                <ImageView
+                <ImageView android:visibility="gone"
                     android:id="@+id/imgFavorite_favorite"
                     android:layout_width="@dimen/img.delete.width.height"
                     android:layout_height="@dimen/img.delete.width.height"
