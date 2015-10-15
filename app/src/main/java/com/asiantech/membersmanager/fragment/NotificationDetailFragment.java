@@ -1,7 +1,6 @@
 package com.asiantech.membersmanager.fragment;
 
 import android.support.v4.view.ViewPager;
-import android.util.Log;
 
 import com.asiantech.membersmanager.MainActivity;
 import com.asiantech.membersmanager.R;
@@ -34,9 +33,17 @@ public class NotificationDetailFragment extends BaseFragment {
 
     @AfterViews
     void afterViews() {
+        //set adapter
+        setAdapter();
+        //setDeault position
+        viewpagerDetails.setCurrentItem(mPosition);
+        //add listener
+        initListener();
+    }
+
+    private void setAdapter() {
         mViewpagerDetailsAdapter = new ViewPagerDetailsAdapter(mNotifications, getActivity());
         viewpagerDetails.setAdapter(mViewpagerDetailsAdapter);
-        viewpagerDetails.setCurrentItem(mPosition);
     }
 
     @Override
@@ -58,5 +65,24 @@ public class NotificationDetailFragment extends BaseFragment {
         } else {
             mNotifications.get(mPosition).setIsFavorite(true);
         }
+    }
+
+    private void initListener() {
+        viewpagerDetails.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                mPosition = position;
+                mOnBaseFragmentListener.setTitleHeader(getString(R.string.hot_detail));
+                mOnBaseFragmentListener.setTypeHeader(MainActivity.TYPE_DETAILS);
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+            }
+        });
     }
 }

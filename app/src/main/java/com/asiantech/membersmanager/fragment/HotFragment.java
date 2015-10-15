@@ -36,26 +36,38 @@ public class HotFragment extends BaseFragment implements CallDetailItem {
     SwipeRefreshLayout mSwipeRefreshLayoutHot;
     private HomeAdapter mAdapter;
     private LinearLayoutManager mLinearLayoutManager;
-
+    private ScaleInAnimationAdapter scaleAdapter;
     @FragmentArg
     ArrayList<Notification> mNotifications;
 
     @AfterViews
-    void afterViews(){
-        mAdapter = new HomeAdapter(getActivity(), mNotifications, this);
-        // Config recycleview
+    void afterViews() {
+        initView();
+        setListener();
+        setAdapter();
+    }
+
+    private void initView() {
+        mSwipeRefreshLayoutHot.setColorSchemeResources(R.color.colorPrimary);
+        // Config recycleView
         mLinearLayoutManager = new LinearLayoutManager(getActivity());
         mRecyclerHot.setLayoutManager(mLinearLayoutManager);
         mRecyclerHot.addItemDecoration(new DividerItemDecoration(getResources().getDrawable(R.drawable.divider)));
+    }
+
+    private void setAdapter() {
+        mAdapter = new HomeAdapter(getActivity(), mNotifications, this);
         // Add animation
         AlphaInAnimationAdapter alphaAdapter = new AlphaInAnimationAdapter(mAdapter);
-        final ScaleInAnimationAdapter scaleAdapter = new ScaleInAnimationAdapter(alphaAdapter);
+        scaleAdapter = new ScaleInAnimationAdapter(alphaAdapter);
         scaleAdapter.setDuration(500);
         scaleAdapter.setFirstOnly(false);
         mSwipeRefreshLayoutHot.setEnabled(true);
         // setAdapter
         mRecyclerHot.setAdapter(scaleAdapter);
-        mSwipeRefreshLayoutHot.setColorSchemeResources(R.color.colorPrimary);
+    }
+
+    private void setListener() {
         mSwipeRefreshLayoutHot.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
@@ -92,8 +104,8 @@ public class HotFragment extends BaseFragment implements CallDetailItem {
         if (mOnBaseFragmentListener != null) {
             mOnBaseFragmentListener.setTitleHeader(getString(R.string.hot));
             mOnBaseFragmentListener.setTypeHeader(MainActivity.TYPE_HOME);
-            for (int i= 0 ; i< mNotifications.size();i++){
-                Log.d("----> hhot  ", mNotifications.get(i).getIsRead()+"");
+            for (int i = 0; i < mNotifications.size(); i++) {
+                Log.d("----> hhot  ", mNotifications.get(i).getIsRead() + "");
             }
         }
     }
@@ -101,10 +113,6 @@ public class HotFragment extends BaseFragment implements CallDetailItem {
     @Override
     public void OnCallDetails(ArrayList<Notification> arrayList, int position) {
         mNotifications.get(position).setIsRead(true);
-        Log.d("----> hhot  ", position +"");
-        for (int i= 0 ; i< mNotifications.size();i++){
-            Log.d("----> hhot --- ", mNotifications.get(i).getIsRead()+"");
-        }
         DetailHotNotificationFragment detailHotNotificationFragment = DetailHotNotificationFragment_.builder()
                 .mNotifications(arrayList)
                 .mPosition(position)

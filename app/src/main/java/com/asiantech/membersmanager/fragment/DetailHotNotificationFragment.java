@@ -5,7 +5,6 @@ import android.support.v4.view.ViewPager;
 import com.asiantech.membersmanager.MainActivity;
 import com.asiantech.membersmanager.R;
 import com.asiantech.membersmanager.abstracts.BaseFragment;
-import com.asiantech.membersmanager.adapter.ViewPagerDetailsAdapter;
 import com.asiantech.membersmanager.adapter.ViewPagerDetailsHotAdapter;
 import com.asiantech.membersmanager.models.Notification;
 
@@ -36,6 +35,26 @@ public class DetailHotNotificationFragment extends BaseFragment {
         mViewpagerDetailsHotAdapter = new ViewPagerDetailsHotAdapter(mNotifications, getActivity());
         viewpagerDetailsHot.setAdapter(mViewpagerDetailsHotAdapter);
         viewpagerDetailsHot.setCurrentItem(mPosition);
+        initListener();
+    }
+
+    private void initListener() {
+        viewpagerDetailsHot.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                mPosition = position;
+                mOnBaseFragmentListener.setTitleHeader(getString(R.string.hot_detail));
+                mOnBaseFragmentListener.setTypeHeader(MainActivity.TYPE_DETAILS);
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+            }
+        });
     }
 
     @Override

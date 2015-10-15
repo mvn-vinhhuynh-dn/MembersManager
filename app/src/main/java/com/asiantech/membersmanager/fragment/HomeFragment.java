@@ -120,7 +120,7 @@ public class HomeFragment extends BaseFragment implements CallDetailItem {
 
     private void setNotificationHot() {
         int sumRead = 0;
-        for (int i = 0;i<mArraylistsHeader.size();i++){
+        for (int i = 0; i < mArraylistsHeader.size(); i++) {
             if (!mArraylistsHeader.get(i).getIsRead()) {
                 imgAvataHeader.setImageResource(mArraylistsHeader.get(i).getMAvata());
                 tvSenderHeader.setText(mArraylistsHeader.get(i).getMSender());
@@ -132,12 +132,12 @@ public class HomeFragment extends BaseFragment implements CallDetailItem {
                 break;
             }
         }
-        for (int i = 0;i<mArraylistsHeader.size();i++){
+        for (int i = 0; i < mArraylistsHeader.size(); i++) {
             if (!mArraylistsHeader.get(i).getIsRead()) {
-                sumRead = sumRead +1;
+                sumRead = sumRead + 1;
             }
         }
-        if (sumRead == 0){
+        if (sumRead == 0) {
             imgAvataHeader.setImageResource(mArraylistsHeader.get(0).getMAvata());
             tvSenderHeader.setText(mArraylistsHeader.get(0).getMSender());
             tvTittleHeader.setText(mArraylistsHeader.get(0).getMTittle());
@@ -148,13 +148,15 @@ public class HomeFragment extends BaseFragment implements CallDetailItem {
         }
         tvSumRead.setText("Còn " + sumRead + " tin...");
     }
+
     @Click(R.id.swipeHeader)
-    void clickItem(){
+    void clickItem() {
         HotFragment hotFragment = HotFragment_.builder()
                 .mNotifications(mArraylistsHeader)
                 .build();
         replaceFragment(hotFragment, false);
     }
+
     @Override
     public void onResume() {
         super.onResume();
@@ -168,9 +170,13 @@ public class HomeFragment extends BaseFragment implements CallDetailItem {
 
     private void setDefaultData() {
 
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 10; i++) {
             Notification notification = new Notification();
-            notification.setIsFavorite(false);
+            if (i % 2 == 0) {
+                notification.setIsFavorite(true);
+            } else {
+                notification.setIsFavorite(false);
+            }
             notification.setIsHot(true);
             notification.setIsRead(false);
             notification.setMAvata(R.drawable.p2);
