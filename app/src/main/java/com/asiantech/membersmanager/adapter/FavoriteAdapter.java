@@ -1,6 +1,7 @@
 package com.asiantech.membersmanager.adapter;
 
 import android.content.Context;
+import android.os.SystemClock;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +16,8 @@ import com.asiantech.membersmanager.interfaces.CallFavorite;
 import com.asiantech.membersmanager.models.Notification;
 import com.asiantech.membersmanager.views.CircleImageView;
 import com.daimajia.swipe.SwipeLayout;
+import com.daimajia.swipe.adapters.RecyclerSwipeAdapter;
+import com.daimajia.swipe.implments.SwipeItemRecyclerMangerImpl;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,13 +25,15 @@ import java.util.List;
 /**
  * Created by xuanphu on 08/10/2015.
  */
-public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.ViewHolder> {
+public class FavoriteAdapter extends RecyclerSwipeAdapter<FavoriteAdapter.ViewHolder> {
     private Context mContext;
     private ArrayList<Notification> mArraylists;
     private CallDetail callDetail;
     private CallFavorite callFavorite;
     private List<Integer> mIntegers = new ArrayList<>();
     private RemoveFavorite mRemoveFavorite;
+    private long mLastClickTime = 0;
+    private boolean mIsClickItem = false;
 
     public FavoriteAdapter(Context mContext, ArrayList<Notification> mArraylists, CallDetail callDetail, CallFavorite callFavorite, RemoveFavorite removeFavorite) {
         this.mContext = mContext;
@@ -46,20 +51,12 @@ public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.ViewHo
         return viewHolder;
     }
 
-    public void removeAt(int position, int countDeleted, int maxCountDelete) {
-        mArraylists.remove(position);
-        notifyItemRemoved(position);
-        if (countDeleted == maxCountDelete) {
-            notifyDataSetChanged();
-        }
-    }
-
     public void clearSizeDelete() {
         mIntegers.clear();
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, final int position) {
+    public void onBindViewHolder(final ViewHolder holder, final int position) {
         if (!mArraylists.get(position).getIsChecked()) {
             holder.imgAvataOne.setImageResource(mArraylists.get(position).getMAvata());
             holder.swipeLayout.setBackgroundColor(mContext
@@ -75,6 +72,19 @@ public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.ViewHo
         holder.tvTime.setText(mArraylists.get(position).getMTime());
         holder.imgAvataOne.setTag(position);
         holder.swipeLayout.setTag(position);
+        holder.rlTittle.setTag(position);
+        holder.swipeLayout.setLeft(100);
+        holder.swipeLayout.setShowMode(SwipeLayout.ShowMode.PullOut);
+
+        if (mIsClickItem) {
+            holder.imgAvataOne.setEnabled(true);
+        } else {
+            holder.imgAvataOne.setEnabled(false);
+        }
+
+        // Drag From Left
+        holder.swipeLayout.addDrag(SwipeLayout.DragEdge.Right, holder.swipeLayout.findViewById(R.id.linerlayoutRight_favorite));
+
         if (mArraylists.get(position).getIsHot()) {
             holder.imgHot.setVisibility(View.VISIBLE);
         } else {
@@ -89,6 +99,44 @@ public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.ViewHo
                 callDetail.OnCallDetails(mArraylists, position);
             }
         });
+        holder.imgDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (SystemClock.elapsedRealtime() - mLastClickTime < 2000) {
+                    return;
+                }
+                mLastClickTime = SystemClock.elapsedRealtime();
+                mRemoveFavorite.removeSingleItems(position, holder.swipeLayout);
+            }
+        });
+        holder.rlTittle.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                int myPos = (Integer) v.getTag();
+                mIsClickItem = true;
+                if (mArraylists.get(myPos).getIsChecked()) {
+                    mArraylists.get(myPos).setIsChecked(false);
+                    removeItemOnList(myPos, mIntegers);
+                    mRemoveFavorite.removeFavorite(mIntegers);
+
+                } else {
+                    mArraylists.get(myPos).setIsChecked(true);
+                    mIntegers.add(myPos);
+                    mRemoveFavorite.removeFavorite(mIntegers);
+                }
+                return true;
+            }
+        });
+        // mItemManger is member in RecyclerSwipeAdapter Class
+        mItemManger.bindView(holder.itemView, position);
+    }
+
+    public void setIsClick(boolean isClick) {
+        mIsClickItem = isClick;
+    }
+
+    public SwipeItemRecyclerMangerImpl getSwipeItemRecyclerMangerImpl() {
+        return mItemManger;
     }
 
     private void checkFavorite(final ViewHolder holder, final int position) {
@@ -116,6 +164,7 @@ public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.ViewHo
             @Override
             public void onClick(View v) {
                 int myPos = (Integer) v.getTag();
+
                 if (mArraylists.get(myPos).getIsChecked()) {
                     mArraylists.get(myPos).setIsChecked(false);
                     removeItemOnList(myPos, mIntegers);
@@ -125,6 +174,11 @@ public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.ViewHo
                     mArraylists.get(myPos).setIsChecked(true);
                     mIntegers.add(myPos);
                     mRemoveFavorite.removeFavorite(mIntegers);
+                }
+                if (mIntegers.size() == 0) {
+                    setIsClick(false);
+                } else {
+                    setIsClick(true);
                 }
             }
         });
@@ -143,6 +197,11 @@ public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.ViewHo
     @Override
     public int getItemCount() {
         return mArraylists.size();
+    }
+
+    @Override
+    public int getSwipeLayoutResourceId(int position) {
+        return R.id.swipe_favorite;
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -174,5 +233,7 @@ public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.ViewHo
 
     public interface RemoveFavorite {
         void removeFavorite(List<Integer> integers);
+
+        void removeSingleItems(int pos, SwipeLayout swipeLayout);
     }
 }

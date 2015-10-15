@@ -5,6 +5,7 @@ import android.os.Handler;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 
 import com.asiantech.membersmanager.MainActivity;
 import com.asiantech.membersmanager.R;
@@ -15,6 +16,8 @@ import com.asiantech.membersmanager.interfaces.CallDetail;
 import com.asiantech.membersmanager.interfaces.CallFavorite;
 import com.asiantech.membersmanager.models.Notification;
 import com.asiantech.membersmanager.utils.DividerItemDecoration;
+import com.daimajia.swipe.SwipeLayout;
+import com.daimajia.swipe.implments.SwipeItemRecyclerMangerImpl;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.EFragment;
@@ -36,27 +39,27 @@ public class FavoriteFragment extends BaseFragment implements CallDetail, CallFa
     @ViewById(R.id.recyclerFavorite)
     RecyclerView recyclerFavorite;
     @ViewById(R.id.swipeRefreshLayoutFavorite)
-    SwipeRefreshLayout swipeRefreshLayoutFavorite;
+    SwipeRefreshLayout mSwipeRefreshLayoutFavorite;
 
     private ArrayList<Notification> mArraylists;
     private ArrayList<Notification> mArraylistsTam;
     private FavoriteAdapter mAdapter;
     private ScaleInAnimationAdapter mScaleInAnimationAdapter;
-    private List<Integer> mIntegers = new ArrayList<>();
+    private List<Integer> mIntegers;
 
     public FavoriteFragment() {
+        mIntegers = new ArrayList<>();
         mArraylistsTam = new ArrayList<>();
         mArraylists = new ArrayList<>();
-        fakedata();
     }
 
     @AfterViews
     void afterView() {
-        for (int i = 0; i < mArraylists.size(); i++) {
-            if (mArraylists.get(i).getIsFavorite()) {
-                mArraylistsTam.add(mArraylists.get(i));
-            }
-        }
+        setAdapter();
+        addListener();
+    }
+
+    private void setAdapter() {
         mAdapter = new FavoriteAdapter(getActivity(), mArraylistsTam, this, this, this);
         recyclerFavorite.setLayoutManager(new LinearLayoutManager(getActivity().getBaseContext()));
         recyclerFavorite.addItemDecoration(new DividerItemDecoration(getResources()
@@ -68,8 +71,10 @@ public class FavoriteFragment extends BaseFragment implements CallDetail, CallFa
         mScaleInAnimationAdapter.setDuration(500);
 //        mScaleInAnimationAdapter.setFirstOnly(false);
         recyclerFavorite.setAdapter(mScaleInAnimationAdapter);
+    }
 
-        swipeRefreshLayoutFavorite.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+    private void addListener() {
+        mSwipeRefreshLayoutFavorite.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
                 new Handler().postDelayed(new Runnable() {
@@ -77,7 +82,7 @@ public class FavoriteFragment extends BaseFragment implements CallDetail, CallFa
                     @Override
                     public void run() {
                         mAdapter.notifyDataSetChanged();
-                        swipeRefreshLayoutFavorite.setRefreshing(false);
+                        mSwipeRefreshLayoutFavorite.setRefreshing(false);
                     }
 
                 }, 2000);
@@ -86,6 +91,7 @@ public class FavoriteFragment extends BaseFragment implements CallDetail, CallFa
     }
 
     private void fakedata() {
+        mArraylists.clear();
         for (int i = 0; i < 20; i++) {
             Notification notification3 = new Notification();
             notification3.setIsFavorite(true);
@@ -132,15 +138,26 @@ public class FavoriteFragment extends BaseFragment implements CallDetail, CallFa
             notification3.setMTime("14:32 PM, 06/10");
             mArraylists.add(notification3);
         }
+        mArraylistsTam.clear();
+        for (int i = 0; i < mArraylists.size(); i++) {
+            if (mArraylists.get(i).getIsFavorite()) {
+                mArraylistsTam.add(mArraylists.get(i));
+            }
+        }
+        mScaleInAnimationAdapter.notifyDataSetChanged();
     }
 
     @Override
     public void onResume() {
         super.onResume();
+        mIntegers.clear();
+        mAdapter.clearSizeDelete();
+        mAdapter.setIsClick(false);
         if (mOnBaseFragmentListener != null) {
             mOnBaseFragmentListener.setTitleHeader(getString(R.string.title_favorite));
             mOnBaseFragmentListener.setTypeHeader(MainActivity.TYPE_HOME);
         }
+        fakedata();
     }
 
     @Override
@@ -154,30 +171,33 @@ public class FavoriteFragment extends BaseFragment implements CallDetail, CallFa
 
     @Override
     public void OnClickFavorite(int position, boolean isFavorite) {
-        mArraylists.get(position).setIsFavorite(isFavorite);
+        mArraylistsTam.get(position).setIsFavorite(isFavorite);
     }
 
     public void onDelete() {
+        Log.d("vvvvv", "click delete");
         Collections.sort(mIntegers);
         if (mIntegers.size() < mArraylistsTam.size()) {
             for (int i = 0; i < mIntegers.size(); i++) {
                 int num = mIntegers.get(i);
                 mArraylistsTam.remove(num - i);
+                mScaleInAnimationAdapter.notifyItemRemoved(mIntegers.get(i));
+                mScaleInAnimationAdapter.notifyItemRangeChanged(mIntegers.get(i), mArraylistsTam.size());
             }
-            //clear numDeletes
-            mAdapter.notifyDataSetChanged();
-            mScaleInAnimationAdapter.notifyDataSetChanged();
             mAdapter.clearSizeDelete();
             //Update header
             mOnBaseFragmentListener.setTitleHeader(getString(R.string.title_favorite));
             mOnBaseFragmentListener.setTypeHeader(MainActivity.TYPE_HOME);
         }
+        mAdapter.setIsClick(false);
     }
 
     @Override
     public void removeFavorite(List<Integer> integers) {
         //Update header
+        Log.d("vvvvv", "click removeFavorite" + integers.size());
         if (integers.size() > 0) {
+            Log.d("vvvvv", "click removeFavorite" + integers.get(0));
             mOnBaseFragmentListener.setTitleHeader(getString(R.string.title_favorite_delete));
             mOnBaseFragmentListener.setTypeHeader(MainActivity.TYPE_DELETE);
             mOnBaseFragmentListener.updateTvRight(integers.size());
@@ -190,5 +210,15 @@ public class FavoriteFragment extends BaseFragment implements CallDetail, CallFa
         //Do delete
         mIntegers.clear();
         mIntegers.addAll(integers);
+    }
+
+    @Override
+    public void removeSingleItems(int pos, SwipeLayout swipeLayout) {
+        SwipeItemRecyclerMangerImpl mSwipeItemRecyclerMangerImpl = mAdapter.getSwipeItemRecyclerMangerImpl();
+        mSwipeItemRecyclerMangerImpl.removeShownLayouts(swipeLayout);
+        mArraylistsTam.remove(pos);
+        mScaleInAnimationAdapter.notifyItemRemoved(pos);
+        mScaleInAnimationAdapter.notifyItemRangeChanged(pos, mArraylistsTam.size());
+        mSwipeItemRecyclerMangerImpl.closeAllItems();
     }
 }
