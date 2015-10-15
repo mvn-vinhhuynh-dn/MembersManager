@@ -45,7 +45,15 @@
                         android:textStyle="italic" />
                 </RelativeLayout>
             </RelativeLayout>
-
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:id="@+id/tvTittleDetail"
+                android:textStyle="bold"
+                android:textSize="@dimen/button.textsize.16sp"
+                android:textColor="@color/color.black"
+                android:layout_marginTop="@dimen/tv.magintop.content"/>
             <TextView
                 android:id="@+id/tvContentDetail"
                 android:layout_width="match_parent"

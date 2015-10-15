@@ -43,6 +43,7 @@ public class ViewPagerDetailsAdapter extends PagerAdapter {
         TextView tvSenderDetail;
         TextView tvTimeDetail;
         TextView tvContentDetail;
+        TextView tvTitleDetail;
 
         inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View itemView = inflater.inflate(R.layout.item_fragment_details, container, false);
@@ -50,11 +51,13 @@ public class ViewPagerDetailsAdapter extends PagerAdapter {
         tvSenderDetail = (TextView)itemView.findViewById(R.id.tvSenderDetail);
         tvTimeDetail = (TextView)itemView.findViewById(R.id.tvTimeDetail);
         tvContentDetail = (TextView)itemView.findViewById(R.id.tvContentDetail);
+        tvTitleDetail = (TextView)itemView.findViewById(R.id.tvTittleDetail);
 
         imgAvataDetail.setImageResource(mArraylists.get(position).getMAvata());
         tvSenderDetail.setText(mArraylists.get(position).getMSender());
         tvTimeDetail.setText(mArraylists.get(position).getMTime());
         tvContentDetail.setText(mArraylists.get(position).getMContent());
+        tvTitleDetail.setText(mArraylists.get(position).getMTittle());
 
         container.addView(itemView);
         return itemView;

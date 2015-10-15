@@ -82,7 +82,8 @@
                     android:maxLines="2"
                     android:paddingBottom="@dimen/textview.content.paddingbottom"
                     android:textSize="@dimen/textview.content.size"
-                    android:textStyle="italic" />
+                    android:textStyle="italic"
+                    android:layout_marginRight="@dimen/textview.maginright"/>
 
             <TextView
                 android:id="@+id/tvSumRead"
