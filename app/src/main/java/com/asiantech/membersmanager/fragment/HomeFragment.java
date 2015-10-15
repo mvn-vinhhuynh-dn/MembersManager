@@ -180,10 +180,7 @@ public class HomeFragment extends BaseFragment implements CallDetailItem {
             notification.setIsHot(true);
             notification.setIsRead(false);
             notification.setMAvata(R.drawable.p2);
-            notification.setMContent("Đã có lúc anh mong tim mình bé lại\n" +
-                    "Để nỗi nhớ em không thể nào thêm nữa\\n\" +\n" +
-                    "Đã có lúc anh mong ngừng thời gian trôi\\n\" +\n" +
-                    "Để những dấu yêu sẽ không phai mờ\\n\"");
+            notification.setMContent("Đã có lúc anh mong tim mình bé lại Để nỗi nhớ em không thể nào thêm nữa Để nỗi nhớ em không thể nào thêm nữa Để nỗi nhớ em không thể nào thêm nữa Để nỗi nhớ em không thể nào thêm nữa Để nỗi nhớ em không thể nào thêm nữa ");
             notification.setMSender("Le Thai Son");
             notification.setMTittle("Thong bao hop khan cap");
             notification.setMTime("14:32 PM, 06/10");
