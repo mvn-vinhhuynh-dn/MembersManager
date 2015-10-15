@@ -48,11 +48,11 @@ public class ViewPagerDetailsHotAdapter extends PagerAdapter {
 
         inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View itemView = inflater.inflate(R.layout.item_fragment_details_hot, container, false);
-        imgAvataDetailHot = (CircleImageView)itemView.findViewById(R.id.imgAvataDetailHot);
-        tvSenderDetailHot = (TextView)itemView.findViewById(R.id.tvSenderDetailHot);
-        tvTimeDetailHot = (TextView)itemView.findViewById(R.id.tvTimeDetailHot);
-        tvContentDetailHot = (TextView)itemView.findViewById(R.id.tvContentDetailHot);
         tvTitleDetailHot = (TextView)itemView.findViewById(R.id.tvTittleDetailHot);
+        imgAvataDetailHot = (CircleImageView) itemView.findViewById(R.id.imgAvataDetailHot);
+        tvSenderDetailHot = (TextView) itemView.findViewById(R.id.tvSenderDetailHot);
+        tvTimeDetailHot = (TextView) itemView.findViewById(R.id.tvTimeDetailHot);
+        tvContentDetailHot = (TextView) itemView.findViewById(R.id.tvContentDetailHot);
 
         imgAvataDetailHot.setImageResource(mArraylists.get(position).getMAvata());
         tvSenderDetailHot.setText(mArraylists.get(position).getMSender());

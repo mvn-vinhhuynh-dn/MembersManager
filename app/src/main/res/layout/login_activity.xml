@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/login_activity"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background.login"
-    android:padding="@dimen/relativelayout.padding.10dp">
+    android:background="@color/colorPrimary"
+    android:paddingLeft="@dimen/relativelayout.padding.10dp"
+    android:paddingRight="@dimen/relativelayout.padding.10dp"
+    android:paddingTop="@dimen/relativelayout.padding.10dp">
 
     <LinearLayout
         android:id="@+id/llImgLogo"
@@ -107,7 +110,6 @@
             android:layout_centerInParent="true"
             android:padding="@dimen/progressbar.padding.6dp"
             android:visibility="gone" />
-
     </RelativeLayout>
 
     <Button
@@ -120,16 +122,4 @@
         android:layout_alignParentStart="true"
         android:text="@string/button.text.forgot_password"
         android:visibility="invisible" />
-
-    <Button
-        android:id="@+id/btnSignUp"
-        style="@style/button_forgot_sign_up"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:text="@string/button.text.new_here_sign_up"
-        android:visibility="invisible" />
-
 </RelativeLayout>
