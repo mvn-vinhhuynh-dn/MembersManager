@@ -4,9 +4,6 @@ import android.os.Handler;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.asiantech.membersmanager.MainActivity;
@@ -23,7 +20,6 @@ import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EFragment;
 import org.androidannotations.annotations.ViewById;
 
-import java.awt.font.TextAttribute;
 import java.util.ArrayList;
 
 import jp.wasabeef.recyclerview.animators.adapters.AlphaInAnimationAdapter;
@@ -126,14 +122,16 @@ public class HomeFragment extends BaseFragment implements CallDetail {
         tvContentHeader.setText(mArraylistsHeader.get(0).getMContent());
 
     }
+
     @Click(R.id.swipeHeader)
-    void clickItem(){
+    void clickItem() {
         DetailHotNotificationFragment detailHotNotificationFragment = DetailHotNotificationFragment_.builder()
                 .mNotifications(mArraylistsHeader)
                 .mPosition(0)
                 .build();
         replaceFragment(detailHotNotificationFragment, false);
     }
+
     @Override
     public void onResume() {
         super.onResume();
@@ -158,7 +156,7 @@ public class HomeFragment extends BaseFragment implements CallDetail {
         notification1.setMTittle("Thong bao hop khan cap");
         notification1.setMTime("14:32 PM, 06/10");
         mArraylistsHeader.add(notification1);
-        mArraylistsHeader.add(notification1);
+
         mArraylistsHeader.add(notification1);
 
         Notification notification2 = new Notification();
@@ -174,6 +172,7 @@ public class HomeFragment extends BaseFragment implements CallDetail {
         notification2.setMTittle("Thong bao hop khan cap");
         notification2.setMTime("14:32 PM, 06/10");
         mArraylists.add(notification2);
+        mArraylistsHeader.add(notification2);
 
         Notification notification3 = new Notification();
         notification3.setIsFavorite(true);
