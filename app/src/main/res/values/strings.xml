@@ -59,6 +59,7 @@
     <string name="help_feedback">Trợ giúp và phản hồi</string>
     <string name="logout">Đăng xuất</string>
     <string name="home">Trang chủ</string>
+    <string name="hot">Tin quan trọng</string>
     <string name="vacation_day">Nghỉ phép</string>
     <string name="profile">Trang cá nhân</string>
     <string name="textview.delete">Xóa</string>

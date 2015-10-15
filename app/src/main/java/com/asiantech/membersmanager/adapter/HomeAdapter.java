@@ -11,22 +11,23 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.asiantech.membersmanager.R;
-import com.asiantech.membersmanager.interfaces.CallDetail;
+import com.asiantech.membersmanager.interfaces.CallDetailItem;
 import com.asiantech.membersmanager.models.Notification;
 import com.asiantech.membersmanager.views.CircleImageView;
 
 import java.util.ArrayList;
 
 /**
+ * Copyright © 2015 AsianTech inc.
  * Created by xuanphu on 06/10/2015.
  */
 public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
     private Context mContext;
     private ArrayList<Notification> mArraylists;
-    private CallDetail callDetail;
+    private CallDetailItem callDetail;
 
     public HomeAdapter(Context mContext, ArrayList<Notification>
-            mArraylists, CallDetail callDetail) {
+            mArraylists, CallDetailItem callDetail) {
         this.mContext = mContext;
         this.mArraylists = mArraylists;
         this.callDetail = callDetail;
@@ -37,8 +38,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View rootView = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.item_recycle_home, parent, false);
-        ViewHolder viewHolder = new ViewHolder(rootView);
-        return viewHolder;
+        return new ViewHolder(rootView);
     }
 
     @Override
@@ -113,7 +113,6 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
         CircleImageView imgAvata;
         ImageView imgHot;
         ImageView imgFavorite;
-        ImageView imgDelete;
         TextView tvSender;
         TextView tvTittle;
         TextView tvContent;
