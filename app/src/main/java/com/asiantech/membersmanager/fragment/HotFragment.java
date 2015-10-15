@@ -4,12 +4,11 @@ import android.os.Handler;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 
 import com.asiantech.membersmanager.MainActivity;
 import com.asiantech.membersmanager.R;
 import com.asiantech.membersmanager.abstracts.BaseFragment;
-import com.asiantech.membersmanager.adapter.HomeAdapter;
+import com.asiantech.membersmanager.adapter.HotNotificationAdapter;
 import com.asiantech.membersmanager.interfaces.CallDetailItem;
 import com.asiantech.membersmanager.models.Notification;
 import com.asiantech.membersmanager.utils.DividerItemDecoration;
@@ -34,9 +33,9 @@ public class HotFragment extends BaseFragment implements CallDetailItem {
     RecyclerView mRecyclerHot;
     @ViewById(R.id.swipeRefreshLayoutHot)
     SwipeRefreshLayout mSwipeRefreshLayoutHot;
-    private HomeAdapter mAdapter;
+    private HotNotificationAdapter mAdapter;
     private LinearLayoutManager mLinearLayoutManager;
-    private ScaleInAnimationAdapter scaleAdapter;
+    private ScaleInAnimationAdapter mScaleAdapter;
     @FragmentArg
     ArrayList<Notification> mNotifications;
 
@@ -56,15 +55,15 @@ public class HotFragment extends BaseFragment implements CallDetailItem {
     }
 
     private void setAdapter() {
-        mAdapter = new HomeAdapter(getActivity(), mNotifications, this);
+        mAdapter = new HotNotificationAdapter(getActivity(), mNotifications, this);
         // Add animation
         AlphaInAnimationAdapter alphaAdapter = new AlphaInAnimationAdapter(mAdapter);
-        scaleAdapter = new ScaleInAnimationAdapter(alphaAdapter);
-        scaleAdapter.setDuration(500);
-        scaleAdapter.setFirstOnly(false);
+        mScaleAdapter = new ScaleInAnimationAdapter(alphaAdapter);
+        mScaleAdapter.setDuration(500);
+        mScaleAdapter.setFirstOnly(false);
         mSwipeRefreshLayoutHot.setEnabled(true);
         // setAdapter
-        mRecyclerHot.setAdapter(scaleAdapter);
+        mRecyclerHot.setAdapter(mScaleAdapter);
     }
 
     private void setListener() {
@@ -89,7 +88,7 @@ public class HotFragment extends BaseFragment implements CallDetailItem {
                         notification.setMTittle("Thong bao hop khan cap");
                         notification.setMTime("14:32 PM, 06/10");
                         mNotifications.add(notification);
-                        scaleAdapter.notifyDataSetChanged();
+                        mScaleAdapter.notifyDataSetChanged();
                         mSwipeRefreshLayoutHot.setRefreshing(false);
                     }
 
@@ -104,9 +103,6 @@ public class HotFragment extends BaseFragment implements CallDetailItem {
         if (mOnBaseFragmentListener != null) {
             mOnBaseFragmentListener.setTitleHeader(getString(R.string.hot));
             mOnBaseFragmentListener.setTypeHeader(MainActivity.TYPE_HOME);
-            for (int i = 0; i < mNotifications.size(); i++) {
-                Log.d("----> hhot  ", mNotifications.get(i).getIsRead() + "");
-            }
         }
     }
 

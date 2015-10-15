@@ -69,7 +69,7 @@ public class FavoriteFragment extends BaseFragment implements CallDetailItem, Ca
         AlphaInAnimationAdapter alphaAdapter = new AlphaInAnimationAdapter(mAdapter);
         mScaleInAnimationAdapter = new ScaleInAnimationAdapter(alphaAdapter);
         mScaleInAnimationAdapter.setDuration(500);
-//        mScaleInAnimationAdapter.setFirstOnly(false);
+        mScaleInAnimationAdapter.setFirstOnly(false);
         recyclerFavorite.setAdapter(mScaleInAnimationAdapter);
     }
 
@@ -190,19 +190,23 @@ public class FavoriteFragment extends BaseFragment implements CallDetailItem, Ca
             mOnBaseFragmentListener.setTypeHeader(MainActivity.TYPE_HOME);
         }
         mAdapter.setIsClick(false);
+        mScaleInAnimationAdapter.setFirstOnly(false);
+        mScaleInAnimationAdapter.notifyDataSetChanged();
     }
 
     @Override
     public void removeFavorite(List<Integer> integers) {
         //Update header
-        Log.d("vvvvv", "click removeFavorite" + integers.size());
         if (integers.size() > 0) {
-            Log.d("vvvvv", "click removeFavorite" + integers.get(0));
+            mScaleInAnimationAdapter.setFirstOnly(true);
+            mScaleInAnimationAdapter.notifyDataSetChanged();
             mOnBaseFragmentListener.setTitleHeader(getString(R.string.title_favorite_delete));
             mOnBaseFragmentListener.setTypeHeader(MainActivity.TYPE_DELETE);
             mOnBaseFragmentListener.updateTvRight(integers.size());
             mScaleInAnimationAdapter.notifyDataSetChanged();
         } else {
+            mScaleInAnimationAdapter.setFirstOnly(true);
+            mScaleInAnimationAdapter.notifyDataSetChanged();
             mOnBaseFragmentListener.setTitleHeader(getString(R.string.title_favorite));
             mOnBaseFragmentListener.setTypeHeader(MainActivity.TYPE_HOME);
             mScaleInAnimationAdapter.notifyDataSetChanged();
@@ -214,6 +218,8 @@ public class FavoriteFragment extends BaseFragment implements CallDetailItem, Ca
 
     @Override
     public void removeSingleItems(int pos, SwipeLayout swipeLayout) {
+        mScaleInAnimationAdapter.setFirstOnly(true);
+        mScaleInAnimationAdapter.notifyDataSetChanged();
         SwipeItemRecyclerMangerImpl mSwipeItemRecyclerMangerImpl = mAdapter.getSwipeItemRecyclerMangerImpl();
         mSwipeItemRecyclerMangerImpl.removeShownLayouts(swipeLayout);
         mArraylistsTam.remove(pos);
