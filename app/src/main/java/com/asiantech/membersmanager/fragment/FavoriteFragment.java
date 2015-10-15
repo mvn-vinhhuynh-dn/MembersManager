@@ -12,7 +12,7 @@ import com.asiantech.membersmanager.R;
 import com.asiantech.membersmanager.abstracts.BaseFragment;
 import com.asiantech.membersmanager.adapter.FavoriteAdapter;
 import com.asiantech.membersmanager.adapter.FavoriteAdapter.RemoveFavorite;
-import com.asiantech.membersmanager.interfaces.CallDetail;
+import com.asiantech.membersmanager.interfaces.CallDetailItem;
 import com.asiantech.membersmanager.interfaces.CallFavorite;
 import com.asiantech.membersmanager.models.Notification;
 import com.asiantech.membersmanager.utils.DividerItemDecoration;
@@ -35,7 +35,7 @@ import jp.wasabeef.recyclerview.animators.adapters.ScaleInAnimationAdapter;
  * Created by VinhHlb on 10/5/15.
  */
 @EFragment(R.layout.fragment_favorite)
-public class FavoriteFragment extends BaseFragment implements CallDetail, CallFavorite, RemoveFavorite {
+public class FavoriteFragment extends BaseFragment implements CallDetailItem, CallFavorite, RemoveFavorite {
     @ViewById(R.id.recyclerFavorite)
     RecyclerView recyclerFavorite;
     @ViewById(R.id.swipeRefreshLayoutFavorite)

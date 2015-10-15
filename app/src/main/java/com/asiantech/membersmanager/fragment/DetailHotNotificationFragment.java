@@ -1,7 +1,6 @@
 package com.asiantech.membersmanager.fragment;
 
 import android.support.v4.view.ViewPager;
-import android.util.Log;
 
 import com.asiantech.membersmanager.MainActivity;
 import com.asiantech.membersmanager.R;
@@ -43,20 +42,17 @@ public class DetailHotNotificationFragment extends BaseFragment {
         viewpagerDetailsHot.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
             }
 
             @Override
             public void onPageSelected(int position) {
-//                Log.d("vinhh", "curent onPageSelected pos " + position);
-                mPosition  = position;
+                mPosition = position;
                 mOnBaseFragmentListener.setTitleHeader(getString(R.string.hot_detail));
                 mOnBaseFragmentListener.setTypeHeader(MainActivity.TYPE_DETAILS);
             }
 
             @Override
             public void onPageScrollStateChanged(int state) {
-                Log.d("vinhh", "curent scroll pos " + state);
             }
         });
     }

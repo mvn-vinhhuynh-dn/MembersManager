@@ -9,7 +9,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:id="@+id/swipeHeader">
 
         <com.asiantech.membersmanager.views.CircleImageView
@@ -53,7 +53,7 @@
                 android:layout_height="@dimen/imagehot.width.height"
                 android:layout_alignParentRight="true"
                 android:layout_margin="@dimen/imagehot.magin"
-                android:src="@drawable/ic_new" />
+                android:src="@drawable/ic_hot" />
 
             <TextView
                 android:id="@+id/tvTittleHeader"
@@ -85,6 +85,7 @@
                     android:textStyle="italic" />
 
             <TextView
+                android:id="@+id/tvSumRead"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"

@@ -7,6 +7,6 @@ import java.util.ArrayList;
 /**
  * Created by xuanphu on 07/10/2015.
  */
-public interface CallDetail {
+public interface CallDetailItem {
     void OnCallDetails(ArrayList<Notification> arrayList, int position);
 }

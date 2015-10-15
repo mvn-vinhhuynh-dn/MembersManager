@@ -11,7 +11,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.asiantech.membersmanager.R;
-import com.asiantech.membersmanager.interfaces.CallDetail;
+import com.asiantech.membersmanager.interfaces.CallDetailItem;
 import com.asiantech.membersmanager.interfaces.CallFavorite;
 import com.asiantech.membersmanager.models.Notification;
 import com.asiantech.membersmanager.views.CircleImageView;
@@ -28,14 +28,14 @@ import java.util.List;
 public class FavoriteAdapter extends RecyclerSwipeAdapter<FavoriteAdapter.ViewHolder> {
     private Context mContext;
     private ArrayList<Notification> mArraylists;
-    private CallDetail callDetail;
+    private CallDetailItem callDetail;
     private CallFavorite callFavorite;
     private List<Integer> mIntegers = new ArrayList<>();
     private RemoveFavorite mRemoveFavorite;
     private long mLastClickTime = 0;
     private boolean mIsClickItem = false;
 
-    public FavoriteAdapter(Context mContext, ArrayList<Notification> mArraylists, CallDetail callDetail, CallFavorite callFavorite, RemoveFavorite removeFavorite) {
+    public FavoriteAdapter(Context mContext, ArrayList<Notification> mArraylists, CallDetailItem callDetail, CallFavorite callFavorite, RemoveFavorite removeFavorite) {
         this.mContext = mContext;
         this.mArraylists = mArraylists;
         this.callDetail = callDetail;
