@@ -180,10 +180,8 @@ public class HomeFragment extends BaseFragment implements CallDetailItem {
             notification.setIsHot(true);
             notification.setIsRead(false);
             notification.setMAvata(R.drawable.p2);
-            notification.setMContent("Đã có lúc anh mong tim mình bé lại\n" +
-                    "Để nỗi nhớ em không thể nào thêm nữa\\n\" +\n" +
-                    "Đã có lúc anh mong ngừng thời gian trôi\\n\" +\n" +
-                    "Để những dấu yêu sẽ không phai mờ\\n\"");
+            notification.setMContent("Đã có lúc anh mong tim mình bé lại. Để nỗi nhớ em không thể " +
+                    "nào thêm nữa. Đã có lúc anh mong ngừng thời gian trôi. Để những dấu yêu sẽ không phai mờ");
             notification.setMSender("Le Thai Son");
             notification.setMTittle("Thong bao hop khan cap");
             notification.setMTime("14:32 PM, 06/10");
@@ -196,10 +194,8 @@ public class HomeFragment extends BaseFragment implements CallDetailItem {
             notification.setIsHot(false);
             notification.setIsRead(false);
             notification.setMAvata(R.drawable.p1);
-            notification.setMContent("Đã có lúc anh mong tim mình bé lại\n" +
-                    "Để nỗi nhớ em không thể nào thêm nữa\\n\" +\n" +
-                    "Đã có lúc anh mong ngừng thời gian trôi\\n\" +\n" +
-                    "Để những dấu yêu sẽ không phai mờ\\n\"");
+            notification.setMContent("Đã có lúc anh mong tim mình bé lại. Để nỗi nhớ em không thể " +
+                    "nào thêm nữa. Đã có lúc anh mong ngừng thời gian trôi. Để những dấu yêu sẽ không phai mờ");
             notification.setMSender("Le Thai Son");
             notification.setMTittle("Thong bao hop khan cap");
             notification.setMTime("14:32 PM, 06/10");
