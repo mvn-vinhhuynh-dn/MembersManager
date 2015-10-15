@@ -55,17 +55,6 @@
                         android:textSize="@dimen/text.size.12sp"
                         android:textStyle="italic" />
 
-                    <TextView
-                        android:id="@+id/tvInviViewDetailsHot"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/tvTimeDetailHot"
-                        android:text="@string/tv.inviViewDetails"
-                        android:textColor="@color/color.blue"
-                        android:textSize="@dimen/text.size.12sp"
-                        android:textStyle="italic"
-                        android:visibility="invisible" />
-
                     <RelativeLayout
                         android:id="@+id/rlViewDetailsHot"
                         android:layout_width="wrap_content"
