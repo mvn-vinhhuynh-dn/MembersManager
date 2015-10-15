@@ -5,7 +5,6 @@ import android.os.Handler;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 
 import com.asiantech.membersmanager.MainActivity;
 import com.asiantech.membersmanager.R;
@@ -18,6 +17,7 @@ import com.asiantech.membersmanager.models.Notification;
 import com.asiantech.membersmanager.utils.DividerItemDecoration;
 import com.daimajia.swipe.SwipeLayout;
 import com.daimajia.swipe.implments.SwipeItemRecyclerMangerImpl;
+import com.daimajia.swipe.util.Attributes;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.EFragment;
@@ -71,6 +71,7 @@ public class FavoriteFragment extends BaseFragment implements CallDetailItem, Ca
         mScaleInAnimationAdapter.setDuration(500);
         mScaleInAnimationAdapter.setFirstOnly(false);
         recyclerFavorite.setAdapter(mScaleInAnimationAdapter);
+        mAdapter.setMode(Attributes.Mode.Multiple);
     }
 
     private void addListener() {
@@ -175,7 +176,6 @@ public class FavoriteFragment extends BaseFragment implements CallDetailItem, Ca
     }
 
     public void onDelete() {
-        Log.d("vvvvv", "click delete");
         Collections.sort(mIntegers);
         if (mIntegers.size() < mArraylistsTam.size()) {
             for (int i = 0; i < mIntegers.size(); i++) {
@@ -218,7 +218,6 @@ public class FavoriteFragment extends BaseFragment implements CallDetailItem, Ca
 
     @Override
     public void removeSingleItems(int pos, SwipeLayout swipeLayout) {
-        mScaleInAnimationAdapter.setFirstOnly(true);
         SwipeItemRecyclerMangerImpl mSwipeItemRecyclerMangerImpl = mAdapter.getSwipeItemRecyclerMangerImpl();
         mSwipeItemRecyclerMangerImpl.removeShownLayouts(swipeLayout);
         mArraylistsTam.remove(pos);
