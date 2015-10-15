@@ -74,7 +74,7 @@ public class FavoriteAdapter extends RecyclerSwipeAdapter<FavoriteAdapter.ViewHo
         holder.swipeLayout.setTag(position);
         holder.rlTittle.setTag(position);
         holder.swipeLayout.setLeft(100);
-        holder.swipeLayout.setShowMode(SwipeLayout.ShowMode.PullOut);
+//        holder.swipeLayout.setShowMode(SwipeLayout.ShowMode.PullOut);
 
         if (mIsClickItem) {
             holder.imgAvataOne.setEnabled(true);
@@ -102,7 +102,7 @@ public class FavoriteAdapter extends RecyclerSwipeAdapter<FavoriteAdapter.ViewHo
         holder.imgDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (SystemClock.elapsedRealtime() - mLastClickTime < 2000) {
+                if (SystemClock.elapsedRealtime() - mLastClickTime < 1500) {
                     return;
                 }
                 mLastClickTime = SystemClock.elapsedRealtime();
