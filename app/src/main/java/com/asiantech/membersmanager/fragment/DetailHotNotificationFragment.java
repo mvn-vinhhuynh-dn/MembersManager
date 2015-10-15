@@ -47,6 +47,7 @@ public class DetailHotNotificationFragment extends BaseFragment {
             @Override
             public void onPageSelected(int position) {
                 mPosition = position;
+                mNotifications.get(mPosition).setIsRead(true);
                 mOnBaseFragmentListener.setTitleHeader(getString(R.string.hot_detail));
                 mOnBaseFragmentListener.setTypeHeader(MainActivity.TYPE_DETAILS);
             }
