@@ -225,7 +225,7 @@ public class MainActivity extends AppCompatActivity implements DrawerFragment
                 mImgRight.setImageResource(R.drawable.ic_done_white);
                 break;
             case TYPE_DETAILS:
-                getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+                //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
                 mImgLeft.setVisibility(View.GONE);
                 mImgRight.setVisibility(View.GONE);
                 mTvTItle.setVisibility(View.VISIBLE);
