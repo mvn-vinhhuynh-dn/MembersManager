@@ -1,6 +1,7 @@
 package com.asiantech.membersmanager.adapter;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +11,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.asiantech.membersmanager.R;
+import com.asiantech.membersmanager.interfaces.CallDetailItem;
 import com.asiantech.membersmanager.models.Notification;
 import com.asiantech.membersmanager.views.CircleImageView;
 
@@ -23,10 +25,12 @@ public class TimeSheetAdapter extends RecyclerView
         .Adapter<TimeSheetAdapter.ViewHolder> {
     private ArrayList<Notification> mDatas = new ArrayList<>();
     private Context mContext;
+    private CallDetailItem mCallDetail;
 
-    public TimeSheetAdapter(Context context, ArrayList<Notification> datas) {
-        mContext = context;
-        mDatas = datas;
+    public TimeSheetAdapter(ArrayList<Notification> mDatas, Context mContext, CallDetailItem mCallDetail) {
+        this.mDatas = mDatas;
+        this.mContext = mContext;
+        this.mCallDetail = mCallDetail;
     }
 
     @Override
@@ -52,11 +56,29 @@ public class TimeSheetAdapter extends RecyclerView
         }
 
         checkFavorite(holder, position);
+        checkRead(holder, position);
         holder.rlTittle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //mCallDetail.OnCallDetails(mDatas, position);
             }
         });
+    }
+
+    private void checkRead(final ViewHolder holder, final int position) {
+        if (mDatas.get(position).getIsRead()) {
+            holder.tvSender.setTypeface(null, Typeface.NORMAL);
+            holder.tvTime.setTypeface(null, Typeface.NORMAL);
+            holder.tvTittle.setTypeface(null, Typeface.NORMAL);
+            holder.rlParent.setBackgroundColor(mContext
+                    .getResources().getColor(R.color.white));
+        } else {
+            holder.tvSender.setTypeface(null, Typeface.BOLD);
+            holder.tvTime.setTypeface(null, Typeface.BOLD);
+            holder.tvTittle.setTypeface(null, Typeface.BOLD);
+            holder.rlParent.setBackgroundDrawable(mContext
+                    .getResources().getDrawable(R.drawable.shadow_view));
+        }
     }
 
     @Override
@@ -66,9 +88,14 @@ public class TimeSheetAdapter extends RecyclerView
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         CircleImageView imgAvata;
-        ImageView imgHot, imgFavorite, imgDelete;
-        TextView tvSender, tvTittle, tvContent, tvTime;
+        ImageView imgHot;
+        ImageView imgFavorite;
+        TextView tvSender;
+        TextView tvTittle;
+        TextView tvContent;
+        TextView tvTime;
         RelativeLayout rlTittle;
+        RelativeLayout rlParent;
 
         public ViewHolder(View itemView) {
             super(itemView);
@@ -80,6 +107,7 @@ public class TimeSheetAdapter extends RecyclerView
             imgHot = (ImageView) itemView.findViewById(R.id.imgHot);
             imgFavorite = (ImageView) itemView.findViewById(R.id.imgFavorite);
             rlTittle = (RelativeLayout) itemView.findViewById(R.id.rlTop);
+            rlParent = (RelativeLayout) itemView.findViewById(R.id.rlparent);
         }
     }
 
