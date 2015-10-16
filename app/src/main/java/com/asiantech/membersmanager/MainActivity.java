@@ -23,7 +23,6 @@ import com.asiantech.membersmanager.fragment.HelpAndFeedBackFragment_;
 import com.asiantech.membersmanager.fragment.HomeFragment_;
 import com.asiantech.membersmanager.fragment.NotificationDetailFragment;
 import com.asiantech.membersmanager.fragment.NotificationDetailFragment_;
-import com.asiantech.membersmanager.fragment.ProfileFragment_;
 import com.asiantech.membersmanager.fragment.TimeSheetFragment_;
 import com.asiantech.membersmanager.fragment.VacationDayFragment_;
 
@@ -158,13 +157,14 @@ public class MainActivity extends AppCompatActivity implements DrawerFragment
     @Click(R.id.img_right)
     void onEdit() {
         Log.d("vinhhlb", "" + mContent.getTag());
-        if (mContent instanceof ProfileFragment_) {
-            if (!((ProfileFragment_) mContent).isEditing) {
-                ((ProfileFragment_) mContent).clickEdit();
-            } else {
-                ((ProfileFragment_) mContent).clickDone();
-            }
-        } else if (mContent instanceof VacationDayFragment_) {
+//        if (mContent instanceof ProfileFragment_) {
+//            if (!((ProfileFragment_) mContent).isEditing) {
+//                ((ProfileFragment_) mContent).clickEdit();
+//            } else {
+//                ((ProfileFragment_) mContent).clickDone();
+//            }
+//        } else
+        if (mContent instanceof VacationDayFragment_) {
             ((VacationDayFragment_) mContent).clickSentMail();
         } else if (mContent instanceof FavoriteFragment_) {
             Log.d("vvvv", "onEdit");

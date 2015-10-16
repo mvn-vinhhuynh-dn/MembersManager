@@ -2,417 +2,266 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     android:scrollbars="none">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/ln.padding10">
 
         <RelativeLayout
-            android:id="@+id/rl_image_profile"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/width.120dp">
+            android:id="@+id/rlparent_avata"
+            android:layout_width="@dimen/width.100dp"
+            android:layout_height="@dimen/width.100dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/imageview.marginbottom.30dp">
+
+            <com.asiantech.membersmanager.views.CircleImageView
+                android:id="@+id/img_profile_pic"
+                android:layout_width="@dimen/width.100dp"
+                android:layout_height="@dimen/width.100dp"
+                android:layout_centerInParent="true"
+                android:src="@drawable/p2" />
 
             <ImageView
-                android:id="@+id/img_backgroud"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/width.120dp"
-                android:background="@drawable/bg_test_profile" />
-
-            <RelativeLayout
-                android:id="@+id/rlAvata"
-                android:layout_width="@dimen/drawerfragment.img.width"
-                android:layout_height="@dimen/drawerfragment.img.width"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="@dimen/textview.margintop.10dp"
-                android:layout_marginStart="@dimen/textview.margintop.10dp">
-
-                <com.asiantech.membersmanager.views.CircleImageView
-                    android:id="@+id/cir_avatar"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_centerVertical="true"
-                    android:src="@drawable/p4" />
-
-                <ImageView
-                    android:id="@+id/img_edit_avata"
-                    android:layout_width="@dimen/textview.margintop.20dp"
-                    android:layout_height="@dimen/textview.margintop.20dp"
-                    android:layout_alignParentEnd="true"
-                    android:layout_alignParentRight="true"
-                    android:src="@drawable/ic_edit_image"
-                    android:visibility="invisible" />
-            </RelativeLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_toEndOf="@+id/rlAvata"
-                android:layout_toRightOf="@+id/rlAvata"
-                android:orientation="vertical"
-                android:paddingLeft="@dimen/linearlayout.marginbottom.5dp">
-
-                <TextView
-                    android:id="@+id/tvName"
-                    style="@style/text_size_title"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/test_name" />
-
-                <TextView
-                    android:id="@+id/tvTeam"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/test_email"
-                    android:textSize="@dimen/text.size.14sp"
-                    android:textStyle="italic" />
-            </LinearLayout>
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="@dimen/ln.padding10"
+                android:src="@drawable/ic_edit_photo"
+                android:visibility="gone" />
         </RelativeLayout>
 
-        <LinearLayout
+        <TextView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:padding="@dimen/textview.margintop.10dp">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/textview.margintop.10dp"
+            android:gravity="center"
+            android:text="William Wilburfoce"
+            android:textColor="@color/tv_name_profile"
+            android:textSize="@dimen/button.textsize.16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:drawableLeft="@drawable/ic_marker"
+            android:text="Vancouver, BC Canada"
+            android:textSize="@dimen/text.size.12sp" />
+
+        <View style="@style/view_profile_show_info" />
+
+        <LinearLayout
+            style="@style/tv_title"
+            android:gravity="bottom"
+            android:orientation="horizontal">
+
+            <ImageView
+                style="@style/img_info_profile"
+                android:src="@drawable/ic_name_profile" />
 
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/linearlayout.height.30dp"
-                android:gravity="center_vertical"
-                android:text="@string/info_use"
-                android:textColor="@color/text_profile"
-                android:textSize="@dimen/button.textsize.18sp"
-                android:textStyle="italic" />
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/text_profile" />
-            <!--info name-->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:paddingLeft="@dimen/ln.padding10">
-
-                <TextView
-                    style="@style/text_size_title"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/textview.margintop.25dp"
-                    android:text="@string/test_full_name" />
-
-                <RelativeLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:id="@+id/tv_name"
-                        style="@style/text_size_content"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/textview.margintop.25dp"
-                        android:text="@string/test_full_name_info"
-                        android:visibility="visible" />
-
-                    <EditText
-                        android:id="@+id/edt_name"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/textview.margintop.25dp"
-                        android:background="@drawable/bg_edt_edit_profile"
-                        android:paddingLeft="@dimen/linearlayout.marginbottom.5dp"
-                        android:text="@string/test_full_name_info"
-                        android:textColor="@color/color.black"
-                        android:visibility="invisible">
-                        <requestFocus />
-                    </EditText>
-                </RelativeLayout>
-
-                <!--info dob-->
-                <TextView
-                    style="@style/text_size_title"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/textview.margintop.25dp"
-                    android:text="@string/test_dbo" />
-
-                <RelativeLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:id="@+id/tv_dob"
-                        style="@style/text_size_content"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/textview.margintop.25dp"
-                        android:text="@string/test_dob" />
-
-                    <EditText
-                        android:id="@+id/edt_dob"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/textview.margintop.25dp"
-                        android:background="@drawable/bg_edt_edit_profile"
-                        android:paddingLeft="@dimen/linearlayout.marginbottom.5dp"
-                        android:text="@string/test_dob"
-                        android:textColor="@color/color.black"
-                        android:visibility="invisible" />
-                </RelativeLayout>
-
-                <!--info address-->
-                <TextView
-                    style="@style/text_size_title"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/textview.margintop.25dp"
-                    android:text="@string/test_city" />
-
-                <RelativeLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:id="@+id/tv_city"
-                        style="@style/text_size_content"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/textview.margintop.25dp"
-                        android:text="@string/test_info_city" />
-
-                    <EditText
-                        android:id="@+id/edt_city"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/textview.margintop.25dp"
-                        android:background="@drawable/bg_edt_edit_profile"
-                        android:paddingLeft="@dimen/linearlayout.marginbottom.5dp"
-                        android:text="@string/test_info_city"
-                        android:textColor="@color/color.black"
-                        android:visibility="invisible" />
-                </RelativeLayout>
-
-                <TextView
-                    style="@style/text_size_title"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/textview.margintop.25dp"
-                    android:text="@string/test_country" />
-
-
-                <RelativeLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:id="@+id/tv_country"
-                        style="@style/text_size_content"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/textview.margintop.25dp"
-                        android:text="@string/test_info_country" />
-
-                    <EditText
-                        android:id="@+id/edt_country"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/textview.margintop.25dp"
-                        android:background="@drawable/bg_edt_edit_profile"
-                        android:paddingLeft="@dimen/linearlayout.marginbottom.5dp"
-                        android:text="@string/test_info_country"
-                        android:textColor="@color/color.black"
-                        android:visibility="invisible" />
-                </RelativeLayout>
-
-            </LinearLayout>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/linearlayout.height.30dp"
-                android:layout_marginTop="@dimen/linearlayout.marginbottom.5dp"
-                android:gravity="center_vertical"
-                android:text="@string/info_contact"
-                android:textColor="@color/text_profile"
-                android:textSize="@dimen/button.textsize.18sp"
-                android:textStyle="italic" />
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/text_profile" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:paddingLeft="@dimen/ln.padding10">
-
-                <TextView
-                    style="@style/text_size_title"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/textview.margintop.25dp"
-                    android:text="@string/test_email_contact" />
-
-                <RelativeLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:id="@+id/tv_mail_address"
-                        style="@style/text_size_content"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/textview.margintop.25dp"
-                        android:text="@string/test_mail_info" />
-
-                    <EditText
-                        android:id="@+id/edt_mail_address"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/textview.margintop.25dp"
-                        android:background="@drawable/bg_edt_edit_profile"
-                        android:paddingLeft="@dimen/linearlayout.marginbottom.5dp"
-                        android:text="@string/test_mail_info"
-                        android:textColor="@color/color.black"
-                        android:visibility="invisible" />
-                </RelativeLayout>
-
-                <TextView
-                    style="@style/text_size_title"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/textview.margintop.25dp"
-                    android:text="@string/test_phone_num" />
-
-                <RelativeLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:id="@+id/tv_fone_num"
-                        style="@style/text_size_content"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/textview.margintop.25dp"
-                        android:text="@string/test_info_phone_num" />
-
-                    <EditText
-                        android:id="@+id/edt_fone_num"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/textview.margintop.25dp"
-                        android:background="@drawable/bg_edt_edit_profile"
-                        android:paddingLeft="@dimen/linearlayout.marginbottom.5dp"
-                        android:text="@string/test_info_phone_num"
-                        android:textColor="@color/color.black"
-                        android:visibility="invisible" />
-                </RelativeLayout>
-
-                <TextView
-                    style="@style/text_size_title"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/textview.margintop.25dp"
-                    android:text="@string/test_home_phone_num" />
-
-                <RelativeLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:id="@+id/tv_home_phone"
-                        style="@style/text_size_content"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/textview.margintop.25dp"
-                        android:text="@string/test_info_phone_num_home" />
-
-                    <EditText
-                        android:id="@+id/edt_home_phone"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/textview.margintop.25dp"
-                        android:background="@drawable/bg_edt_edit_profile"
-                        android:paddingLeft="@dimen/linearlayout.marginbottom.5dp"
-                        android:text="@string/test_info_phone_num_home"
-                        android:textColor="@color/color.black"
-                        android:visibility="invisible" />
-                </RelativeLayout>
-            </LinearLayout>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/linearlayout.height.30dp"
-                android:layout_marginTop="@dimen/linearlayout.marginbottom.5dp"
-                android:gravity="center_vertical"
-                android:text="@string/info_company"
-                android:textColor="@color/text_profile"
-                android:textSize="@dimen/button.textsize.18sp"
-                android:textStyle="italic" />
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/text_profile" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:paddingLeft="@dimen/ln.padding10">
-
-                <TextView
-                    style="@style/text_size_title"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/textview.margintop.25dp"
-                    android:text="@string/test_git_mail" />
-
-                <RelativeLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:id="@+id/tv_githup_mail"
-                        style="@style/text_size_content"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/textview.margintop.25dp"
-                        android:text="@string/test_mail_info" />
-
-                    <EditText
-                        android:id="@+id/edt_githup_mail"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/textview.margintop.25dp"
-                        android:background="@drawable/bg_edt_edit_profile"
-                        android:paddingLeft="@dimen/linearlayout.marginbottom.5dp"
-                        android:text="@string/test_mail_info"
-                        android:textColor="@color/color.black"
-                        android:visibility="invisible" />
-                </RelativeLayout>
-
-                <TextView
-                    style="@style/text_size_title"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/textview.margintop.25dp"
-                    android:text="@string/test_position" />
-
-
-                <RelativeLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:id="@+id/tv_position"
-                        style="@style/text_size_content"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/textview.margintop.25dp"
-                        android:text="@string/test_position_info" />
-
-                    <EditText
-                        android:id="@+id/edt_position"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/textview.margintop.25dp"
-                        android:background="@drawable/bg_edt_edit_profile"
-                        android:paddingLeft="@dimen/linearlayout.marginbottom.5dp"
-                        android:text="@string/test_position_info"
-                        android:textColor="@color/color.black"
-                        android:visibility="invisible" />
-                </RelativeLayout>
-
-                <TextView
-                    style="@style/text_size_title"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/textview.margintop.25dp"
-                    android:text="@string/test_num_dayoff" />
-
-                <TextView
-                    style="@style/text_size_content"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/textview.margintop.25dp"
-                    android:text="@string/test_dayoff_info" />
-            </LinearLayout>
+                style="@style/tv_title_profile"
+                android:text="Name" />
         </LinearLayout>
+
+        <RelativeLayout style="@style/rl_info_profile">
+
+            <EditText
+                android:id="@+id/edt_name_profile"
+                style="@style/edt_edit_profile"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/tv_name_pfofile"
+                style="@style/tv_info_profile"
+                android:text="William Wilburfoce"
+                android:visibility="visible" />
+        </RelativeLayout>
+
+        <View style="@style/view_profile_show_info" />
+
+        <LinearLayout
+            style="@style/tv_title"
+            android:gravity="bottom"
+            android:orientation="horizontal">
+
+            <ImageView
+                style="@style/img_info_profile"
+                android:src="@drawable/ic_birth_day" />
+
+            <TextView
+                style="@style/tv_title_profile"
+                android:text="BirthDay" />
+        </LinearLayout>
+
+        <RelativeLayout style="@style/rl_info_profile">
+
+            <EditText
+                android:id="@+id/edt_dob_profile"
+                style="@style/edt_edit_profile"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/tv_dob_profile"
+                style="@style/tv_info_profile"
+                android:text="20/12/1989"
+                android:visibility="visible" />
+        </RelativeLayout>
+
+        <View style="@style/view_profile_show_info" />
+
+        <LinearLayout
+            style="@style/tv_title"
+            android:gravity="bottom"
+            android:orientation="horizontal">
+
+            <ImageView
+                style="@style/img_info_profile"
+                android:src="@drawable/ic_mail_profile" />
+
+            <TextView
+                style="@style/tv_title_profile"
+                android:text="Email" />
+        </LinearLayout>
+
+        <RelativeLayout style="@style/rl_info_profile">
+
+            <EditText
+                android:id="@+id/edt_mail_profile"
+                style="@style/edt_edit_profile"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/tv_mail_profile"
+                style="@style/tv_info_profile"
+                android:text="williamwilburfoce@gmail.com"
+                android:visibility="visible" />
+        </RelativeLayout>
+
+        <View style="@style/view_profile_show_info" />
+
+        <LinearLayout
+            style="@style/tv_title"
+            android:gravity="bottom"
+            android:orientation="horizontal">
+
+            <ImageView
+                style="@style/img_info_profile"
+                android:src="@drawable/ic_position_profile" />
+
+            <TextView
+                style="@style/tv_title_profile"
+                android:text="Position" />
+        </LinearLayout>
+
+        <RelativeLayout style="@style/rl_info_profile">
+
+            <EditText
+                android:id="@+id/edt_pos_profile"
+                style="@style/edt_edit_profile"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/tv_pos_profile"
+                style="@style/tv_info_profile"
+                android:text="Android Developer"
+                android:visibility="visible" />
+        </RelativeLayout>
+
+        <View style="@style/view_profile_show_info" />
+
+        <LinearLayout
+            style="@style/tv_title"
+            android:gravity="bottom"
+            android:orientation="horizontal">
+
+            <ImageView
+                style="@style/img_info_profile"
+                android:src="@drawable/ic_git_hup" />
+
+            <TextView
+                style="@style/tv_title_profile"
+                android:text="GitHub" />
+        </LinearLayout>
+
+        <RelativeLayout style="@style/rl_info_profile">
+
+            <EditText
+                android:id="@+id/edt_git_profile"
+                style="@style/edt_edit_profile"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/tv_git_profile"
+                style="@style/tv_info_profile"
+                android:text="wfor@company.com"
+                android:visibility="visible" />
+        </RelativeLayout>
+
+        <View style="@style/view_profile_show_info" />
+
+        <LinearLayout
+            style="@style/tv_title"
+            android:gravity="bottom"
+            android:orientation="horizontal">
+
+            <ImageView
+                style="@style/img_info_profile"
+                android:src="@drawable/ic_phone" />
+
+            <TextView
+
+                style="@style/tv_title_profile"
+                android:text="Phone" />
+        </LinearLayout>
+
+        <RelativeLayout style="@style/rl_info_profile">
+
+            <EditText
+                android:id="@+id/edt_phone_profile"
+                style="@style/edt_edit_profile"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/tv_phone_profile"
+                style="@style/tv_info_profile"
+                android:text="(+84) 986 331 875"
+                android:visibility="visible" />
+        </RelativeLayout>
+
+        <View style="@style/view_profile_show_info" />
+
+        <LinearLayout
+            style="@style/tv_title"
+            android:gravity="bottom"
+            android:orientation="horizontal">
+
+            <ImageView
+                style="@style/img_info_profile"
+                android:src="@drawable/ic_day_off" />
+
+            <TextView
+                style="@style/tv_title_profile"
+                android:text="Num DayOff" />
+        </LinearLayout>
+
+        <RelativeLayout style="@style/rl_info_profile">
+
+            <EditText
+                android:id="@+id/edt_day_off_profile"
+                style="@style/edt_edit_profile"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/tv_day_off_profile"
+                style="@style/tv_info_profile"
+                android:text="10"
+                android:visibility="visible" />
+        </RelativeLayout>
     </LinearLayout>
 </ScrollView>
