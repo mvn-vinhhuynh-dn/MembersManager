@@ -24,13 +24,13 @@ import java.util.ArrayList;
 public class HotNotificationAdapter extends RecyclerView.Adapter<HotNotificationAdapter.ViewHolder> {
     private Context mContext;
     private ArrayList<Notification> mArraylists;
-    private CallDetailItem callDetail;
+    private CallDetailItem mCallDetail;
 
     public HotNotificationAdapter(Context mContext, ArrayList<Notification>
             mArraylists, CallDetailItem callDetail) {
         this.mContext = mContext;
         this.mArraylists = mArraylists;
-        this.callDetail = callDetail;
+        this.mCallDetail = callDetail;
     }
 
 
@@ -61,7 +61,7 @@ public class HotNotificationAdapter extends RecyclerView.Adapter<HotNotification
         holder.rlTittle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                callDetail.OnCallDetails(mArraylists, position);
+                mCallDetail.OnCallDetails(mArraylists, position);
             }
         });
     }
@@ -85,7 +85,6 @@ public class HotNotificationAdapter extends RecyclerView.Adapter<HotNotification
                 }
             }
         });
-
     }
 
     private void checkRead(final ViewHolder holder, final int position) {
@@ -109,7 +108,7 @@ public class HotNotificationAdapter extends RecyclerView.Adapter<HotNotification
         return mArraylists.size();
     }
 
-    static class ViewHolder extends RecyclerView.ViewHolder {
+    public class ViewHolder extends RecyclerView.ViewHolder {
         CircleImageView imgAvata;
         ImageView imgHot;
         ImageView imgFavorite;

@@ -14,7 +14,6 @@ import com.asiantech.membersmanager.models.NavigationDrawerItem;
 import java.util.Collections;
 import java.util.List;
 
-
 /**
  * Copyright © 2015 AsianTech inc.
  * Created by VinhHlb on 12-03-2015.
@@ -29,11 +28,6 @@ public class NavigationDrawerAdapter extends RecyclerView
         mContext = context;
         mInflater = LayoutInflater.from(context);
         mDatas = data;
-    }
-
-    public void delete(int position) {
-        mDatas.remove(position);
-        notifyItemRemoved(position);
     }
 
     @Override

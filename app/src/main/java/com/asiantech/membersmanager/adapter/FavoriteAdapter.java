@@ -23,23 +23,26 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * Copyright © 2015 AsianTech inc.
  * Created by xuanphu on 08/10/2015.
  */
 public class FavoriteAdapter extends RecyclerSwipeAdapter<FavoriteAdapter.ViewHolder> {
     private Context mContext;
     private ArrayList<Notification> mArraylists;
-    private CallDetailItem callDetail;
-    private CallFavorite callFavorite;
+    private CallDetailItem mCallDetail;
+    private CallFavorite mCallFavorite;
     private List<Integer> mIntegers = new ArrayList<>();
     private RemoveFavorite mRemoveFavorite;
     private long mLastClickTime = 0;
     private boolean mIsClickItem = false;
 
-    public FavoriteAdapter(Context mContext, ArrayList<Notification> mArraylists, CallDetailItem callDetail, CallFavorite callFavorite, RemoveFavorite removeFavorite) {
+    public FavoriteAdapter(Context mContext, ArrayList<Notification> mArraylists,
+                           CallDetailItem mCallDetail, CallFavorite mCallFavorite,
+                           RemoveFavorite removeFavorite) {
         this.mContext = mContext;
         this.mArraylists = mArraylists;
-        this.callDetail = callDetail;
-        this.callFavorite = callFavorite;
+        this.mCallDetail = mCallDetail;
+        this.mCallFavorite = mCallFavorite;
         this.mRemoveFavorite = removeFavorite;
     }
 
@@ -47,8 +50,7 @@ public class FavoriteAdapter extends RecyclerSwipeAdapter<FavoriteAdapter.ViewHo
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View rootView = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.item_recycle_favorite, parent, false);
-        ViewHolder viewHolder = new ViewHolder(rootView);
-        return viewHolder;
+        return new ViewHolder(rootView);
     }
 
     public void clearSizeDelete() {
@@ -74,7 +76,6 @@ public class FavoriteAdapter extends RecyclerSwipeAdapter<FavoriteAdapter.ViewHo
         holder.swipeLayout.setTag(position);
         holder.rlTittle.setTag(position);
         holder.swipeLayout.setLeft(100);
-//        holder.swipeLayout.setShowMode(SwipeLayout.ShowMode.PullOut);
 
         if (mIsClickItem) {
             holder.imgAvataOne.setEnabled(true);
@@ -83,7 +84,8 @@ public class FavoriteAdapter extends RecyclerSwipeAdapter<FavoriteAdapter.ViewHo
         }
 
         // Drag From Left
-        holder.swipeLayout.addDrag(SwipeLayout.DragEdge.Right, holder.swipeLayout.findViewById(R.id.linerlayoutRight_favorite));
+        holder.swipeLayout.addDrag(SwipeLayout.DragEdge.Right,
+                holder.swipeLayout.findViewById(R.id.linerlayoutRight_favorite));
 
         if (mArraylists.get(position).getIsHot()) {
             holder.imgHot.setVisibility(View.VISIBLE);
@@ -96,7 +98,7 @@ public class FavoriteAdapter extends RecyclerSwipeAdapter<FavoriteAdapter.ViewHo
         holder.rlTittle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                callDetail.OnCallDetails(mArraylists, position);
+                mCallDetail.OnCallDetails(mArraylists, position);
             }
         });
         holder.imgDelete.setOnClickListener(new View.OnClickListener() {
@@ -152,11 +154,11 @@ public class FavoriteAdapter extends RecyclerSwipeAdapter<FavoriteAdapter.ViewHo
                 if (mArraylists.get(position).getIsFavorite()) {
                     holder.imgFavorite.setImageResource(R.drawable.ic_unfavorite);
                     mArraylists.get(position).setIsFavorite(false);
-                    callFavorite.OnClickFavorite(position, false);
+                    mCallFavorite.OnClickFavorite(position, false);
                 } else {
                     holder.imgFavorite.setImageResource(R.drawable.ic_favorite);
                     mArraylists.get(position).setIsFavorite(true);
-                    callFavorite.OnClickFavorite(position, true);
+                    mCallFavorite.OnClickFavorite(position, true);
                 }
             }
         });

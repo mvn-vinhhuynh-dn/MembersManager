@@ -74,7 +74,6 @@ public class MainActivity extends AppCompatActivity implements DrawerFragment
         setSupportActionBar(mToolBar);
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(false);
-            getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_profile);
         }
         initView();
         initListener();
@@ -226,6 +225,7 @@ public class MainActivity extends AppCompatActivity implements DrawerFragment
                 mImgRight.setImageResource(R.drawable.ic_done_white);
                 break;
             case TYPE_DETAILS:
+                getSupportActionBar().setDisplayHomeAsUpEnabled(true);
                 mImgLeft.setVisibility(View.GONE);
                 mImgRight.setVisibility(View.GONE);
                 mTvTItle.setVisibility(View.VISIBLE);
