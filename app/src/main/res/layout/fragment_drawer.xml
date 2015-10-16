@@ -21,7 +21,7 @@
             android:layout_marginBottom="@dimen/ln.padding10"
             android:layout_marginLeft="@dimen/linearlayout.marginbottom.10dp"
             android:layout_marginTop="@dimen/ln.padding10"
-            android:src="@drawable/ic_profile" />
+            android:src="@drawable/p2" />
 
         <LinearLayout
             android:layout_width="match_parent"

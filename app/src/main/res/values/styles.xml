@@ -111,17 +111,65 @@
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:textColorPrimary">@color/textColorPrimary</item>
         <item name="android:windowBackground">@color/windowBackground</item>
-
     </style>
 
-    <style name="text_size_title">
+    <style name="tv_title">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">@dimen/ln.padding10</item>
+        <item name="android:textSize">@dimen/text.size.12sp</item>
+    </style>
+
+    <style name="edt_edit_profile">
+        <item name="android:hint">""</item>
+        <item name="android:layout_marginRight">@dimen/linearlayout.marginbottom.5dp</item>
+        <item name="android:paddingLeft">@dimen/linearlayout.padding.4dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_marginLeft">@dimen/textview.margintop.30dp</item>
+        <item name="android:textColor">@color/mdtp_dark_gray</item>
+        <item name="android:textSize">@dimen/textsize.16sp</item>
+        <item name="android:background">@drawable/bg_edt_edit_profile_normal</item>
+    </style>
+
+    <style name="tv_info_profile">
+        <item name="android:textSize">@dimen/textsize.16sp</item>
+        <item name="android:textColor">@color/mdtp_dark_gray</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_marginLeft">@dimen/textview.margintop.30dp</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+
+    <style name="img_info_profile">
+        <item name="android:contentDescription">""</item>
+        <item name="android:layout_marginLeft">@dimen/linearlayout.padding.10dp</item>
+        <item name="android:layout_height">@dimen/linearlayout.padding.30dp</item>
+        <item name="android:layout_width">@dimen/linearlayout.padding.30dp</item>
+    </style>
+
+    <style name="tv_title_profile">
+        <item name="android:textColor">@color/tv_title_profile</item>
+        <item name="android:layout_width">wrap_content</item>'
+        <item name="android:gravity">center</item>
         <item name="android:textSize">@dimen/button.textsize.18sp</item>
-        <item name="android:gravity">center_vertical</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_marginLeft">@dimen/imageview.marginbottom.10dp</item>
     </style>
 
-    <style name="text_size_content">
-        <item name="android:textColor">@color/text_profile</item>
-        <item name="android:gravity">center_vertical</item>
-        <item name="android:textSize">@dimen/button.textsize.20sp</item>
+    <style name="rl_info_profile">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/textview.margintop.20dp</item>
+        <item name="android:layout_marginBottom">@dimen/linearlayout.marginbottom.5dp</item>
+        <item name="android:layout_marginLeft">@dimen/linearlayout.height.30dp</item>
+        <item name="android:layout_marginTop">@dimen/linearlayout.marginbottom.5dp</item>
+    </style>
+
+    <style name="view_profile_show_info">
+        <item name="android:background">@color/bg_view_profile</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:layout_marginBottom">@dimen/linearlayout.padding.10dp</item>
+        <item name="android:layout_marginTop">@dimen/linearlayout.padding.10dp</item>
     </style>
 </resources>
