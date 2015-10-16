@@ -24,15 +24,14 @@ import java.util.ArrayList;
 public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
     private Context mContext;
     private ArrayList<Notification> mArraylists;
-    private CallDetailItem callDetail;
+    private CallDetailItem mCallDetail;
 
     public HomeAdapter(Context mContext, ArrayList<Notification>
             mArraylists, CallDetailItem callDetail) {
         this.mContext = mContext;
         this.mArraylists = mArraylists;
-        this.callDetail = callDetail;
+        this.mCallDetail = callDetail;
     }
-
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -61,7 +60,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
         holder.rlTittle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                callDetail.OnCallDetails(mArraylists, position);
+                mCallDetail.OnCallDetails(mArraylists, position);
             }
         });
     }
@@ -85,7 +84,6 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
                 }
             }
         });
-
     }
 
     private void checkRead(final ViewHolder holder, final int position) {
@@ -109,7 +107,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
         return mArraylists.size();
     }
 
-    static class ViewHolder extends RecyclerView.ViewHolder {
+    public class ViewHolder extends RecyclerView.ViewHolder {
         CircleImageView imgAvata;
         ImageView imgHot;
         ImageView imgFavorite;
