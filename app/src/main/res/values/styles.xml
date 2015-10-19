@@ -129,6 +129,7 @@
         <item name="android:layout_marginLeft">@dimen/textview.margintop.30dp</item>
         <item name="android:textColor">@color/mdtp_dark_gray</item>
         <item name="android:textSize">@dimen/textsize.16sp</item>
+        <item name="android:layout_gravity">bottom</item>
         <item name="android:background">@drawable/bg_edt_edit_profile_normal</item>
     </style>
 
@@ -136,6 +137,7 @@
         <item name="android:textSize">@dimen/textsize.16sp</item>
         <item name="android:textColor">@color/mdtp_dark_gray</item>
         <item name="android:gravity">center_vertical</item>
+        <item name="android:paddingLeft">@dimen/linearlayout.padding.4dp</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_marginLeft">@dimen/textview.margintop.30dp</item>
         <item name="android:layout_height">match_parent</item>
@@ -149,7 +151,7 @@
     </style>
 
     <style name="tv_title_profile">
-        <item name="android:textColor">@color/tv_title_profile</item>
+        <item name="android:textColor">@color/bg_view_profile</item>
         <item name="android:layout_width">wrap_content</item>'
         <item name="android:gravity">center</item>
         <item name="android:textSize">@dimen/button.textsize.18sp</item>
@@ -159,7 +161,7 @@
 
     <style name="rl_info_profile">
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">@dimen/textview.margintop.20dp</item>
+        <item name="android:layout_height">@dimen/textview.margintop.30dp</item>
         <item name="android:layout_marginBottom">@dimen/linearlayout.marginbottom.5dp</item>
         <item name="android:layout_marginLeft">@dimen/linearlayout.height.30dp</item>
         <item name="android:layout_marginTop">@dimen/linearlayout.marginbottom.5dp</item>

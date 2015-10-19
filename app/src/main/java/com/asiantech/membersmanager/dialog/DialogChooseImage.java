@@ -2,7 +2,6 @@ package com.asiantech.membersmanager.dialog;
 
 import android.content.Intent;
 import android.net.Uri;
-import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.v4.app.DialogFragment;
 import android.view.Gravity;
@@ -14,16 +13,16 @@ import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EFragment;
 
-import java.io.File;
-
 /**
  * Copyright © 2015 AsianTech inc.
  * Created by VinhHlb on 10/12/15.
  */
 @EFragment(R.layout.dialog_choose_photo)
 public class DialogChooseImage extends DialogFragment {
-    public static final int CAMERA_REQUEST = 1888;
-    public static final int GALLERY_REQUEST = 1999;
+    public static final int SELECT_PHOTO = 1111;
+    public static final int TAKE_PICTURE = 2222;
+    private Uri mUri;
+
 
     @AfterViews
     void afterView() {
@@ -39,17 +38,13 @@ public class DialogChooseImage extends DialogFragment {
     }
 
     @Click(R.id.txt_btn_take_photo)
-    void takePhoto() {
-        Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
-        File photoFile = new File(Environment.getExternalStorageDirectory(),  "Photo.png");
-        intent.putExtra(MediaStore.EXTRA_OUTPUT,
-                Uri.fromFile(photoFile));
-        startActivityForResult(intent, CAMERA_REQUEST);
+    void takePhotoFromCamera() {
+        takePhoto();
     }
 
     @Click(R.id.txt_btn_choose_photo)
     void choosePhoto() {
-
+        selectPhoto();
     }
 
     @Click(R.id.txt_btn_cancel)
@@ -57,5 +52,17 @@ public class DialogChooseImage extends DialogFragment {
         if (getDialog() != null) {
             this.dismiss();
         }
+    }
+
+    public void selectPhoto() {
+        Intent photoPickerIntent = new Intent();
+        photoPickerIntent.setType("image/*");
+        photoPickerIntent.setAction(Intent.ACTION_GET_CONTENT);
+        getActivity().startActivityForResult(photoPickerIntent, SELECT_PHOTO);
+    }
+
+    public void takePhoto() {
+        Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        getActivity().startActivityForResult(intent, TAKE_PICTURE);
     }
 }
