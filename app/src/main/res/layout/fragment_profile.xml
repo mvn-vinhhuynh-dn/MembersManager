@@ -19,13 +19,14 @@
             android:layout_marginTop="@dimen/imageview.marginbottom.30dp">
 
             <com.asiantech.membersmanager.views.CircleImageView
-                android:id="@+id/img_profile_pic"
+                android:id="@+id/img_avatar"
                 android:layout_width="@dimen/width.100dp"
                 android:layout_height="@dimen/width.100dp"
                 android:layout_centerInParent="true"
                 android:src="@drawable/p2" />
 
             <ImageView
+                android:id="@+id/img_profile_edit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
@@ -77,7 +78,7 @@
                 android:visibility="gone" />
 
             <TextView
-                android:id="@+id/tv_name_pfofile"
+                android:id="@+id/tv_name_profile"
                 style="@style/tv_info_profile"
                 android:text="William Wilburfoce"
                 android:visibility="visible" />

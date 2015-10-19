@@ -1,6 +1,9 @@
 package com.asiantech.membersmanager;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.net.Uri;
+import android.os.Environment;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -21,16 +24,20 @@ import com.asiantech.membersmanager.fragment.DrawerFragment_;
 import com.asiantech.membersmanager.fragment.FavoriteFragment_;
 import com.asiantech.membersmanager.fragment.HelpAndFeedBackFragment_;
 import com.asiantech.membersmanager.fragment.HomeFragment_;
-import com.asiantech.membersmanager.fragment.NotificationDetailFragment;
 import com.asiantech.membersmanager.fragment.NotificationDetailFragment_;
+import com.asiantech.membersmanager.fragment.ProfileFragment_;
 import com.asiantech.membersmanager.fragment.TimeSheetFragment_;
 import com.asiantech.membersmanager.fragment.VacationDayFragment_;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EActivity;
-import org.androidannotations.annotations.OnActivityResult;
 import org.androidannotations.annotations.ViewById;
+
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 
 /**
  * Copyright © 2015 AsianTech inc.
@@ -156,15 +163,13 @@ public class MainActivity extends AppCompatActivity implements DrawerFragment
 
     @Click(R.id.img_right)
     void onEdit() {
-        Log.d("vinhhlb", "" + mContent.getTag());
-//        if (mContent instanceof ProfileFragment_) {
-//            if (!((ProfileFragment_) mContent).isEditing) {
-//                ((ProfileFragment_) mContent).clickEdit();
-//            } else {
-//                ((ProfileFragment_) mContent).clickDone();
-//            }
-//        } else
-        if (mContent instanceof VacationDayFragment_) {
+        if (mContent instanceof ProfileFragment_) {
+            if (!((ProfileFragment_) mContent).isEditing) {
+                ((ProfileFragment_) mContent).clickEdit();
+            } else {
+                ((ProfileFragment_) mContent).clickDone();
+            }
+        } else if (mContent instanceof VacationDayFragment_) {
             ((VacationDayFragment_) mContent).clickSentMail();
         } else if (mContent instanceof FavoriteFragment_) {
             Log.d("vvvv", "onEdit");
@@ -206,6 +211,7 @@ public class MainActivity extends AppCompatActivity implements DrawerFragment
             case TYPE_CLOSE:
                 break;
             case TYPE_EDIT:
+                Log.d("vvvv", "EDIT");
                 mImgLeft.setVisibility(View.GONE);
                 mImgRight.setVisibility(View.VISIBLE);
                 mTvTItle.setVisibility(View.VISIBLE);
@@ -217,6 +223,7 @@ public class MainActivity extends AppCompatActivity implements DrawerFragment
             case TYPE_SETTING:
                 break;
             case TYPE_DONE:
+                Log.d("vvvv", "DONE");
                 mImgLeft.setVisibility(View.GONE);
                 mImgRight.setVisibility(View.VISIBLE);
                 mtvNumDelete.setVisibility(View.GONE);
@@ -319,20 +326,62 @@ public class MainActivity extends AppCompatActivity implements DrawerFragment
             super.onBackPressed();
             Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.container_body);
             mContent = fragment;
-            if (fragment instanceof NotificationDetailFragment) {
-//                Log.d("vvvv", "alo" + fragment);
-            }
-            if (fragment instanceof FavoriteFragment_) {
-//                Log.d("vvvv", "alo" + fragment);
-            }
         } else {
             finish();
         }
     }
 
-    @OnActivityResult(DialogChooseImage.CAMERA_REQUEST)
-    void onResult(int resultCode, Intent data) {
-        if (resultCode == RESULT_OK) {
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        // TODO Auto-generated method stub
+        if (mContent instanceof ProfileFragment_) {
+            switch (requestCode) {
+                case DialogChooseImage.SELECT_PHOTO:
+                    if (resultCode == RESULT_OK && data != null && data.getData() != null) {
+                        Uri uri = data.getData();
+                        if (((ProfileFragment_) mContent).isEditing) {
+                            setTypeHeader(TYPE_DONE);
+                            ((ProfileFragment_) mContent).setNewAvatar(uri, null, false);
+                        } else {
+                            setTypeHeader(TYPE_EDIT);
+                        }
+                    }
+                    break;
+                case DialogChooseImage.TAKE_PICTURE:
+                    if (resultCode == RESULT_OK && data != null &&
+                            data.getExtras() != null &&
+                            data.getExtras().get("data") != null) {
+                        try {
+                            Bitmap thumbnail = (Bitmap) data.getExtras().get("data");
+                            ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+                            if (thumbnail != null) {
+                                thumbnail.compress(Bitmap.CompressFormat.JPEG, 90, bytes);
+                                File destination = new File(Environment.getExternalStorageDirectory(),
+                                        System.currentTimeMillis() + ".jpg");
+                                FileOutputStream fo;
+                                try {
+                                    destination.createNewFile();
+                                    fo = new FileOutputStream(destination);
+                                    fo.write(bytes.toByteArray());
+                                    fo.close();
+                                } catch (IOException e) {
+                                    e.printStackTrace();
+                                }
+                                if (((ProfileFragment_) mContent).isEditing) {
+                                    setTypeHeader(TYPE_DONE);
+                                    ((ProfileFragment_) mContent).setNewAvatar(null, thumbnail, true);
+                                } else {
+                                    setTypeHeader(TYPE_EDIT);
+                                }
+                            }
+                        } catch (OutOfMemoryError oom) {
+                            break;
+                        }
+                    }
+                    break;
+                default:
+                    break;
+            }
         }
     }
 }
