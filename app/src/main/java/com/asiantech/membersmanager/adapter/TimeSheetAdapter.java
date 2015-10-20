@@ -147,6 +147,27 @@ public class TimeSheetAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
         }
     }
 
+    private void checkFavorite(final VHItem holder, final int position) {
+        if (mDatas.get(position).getIsFavorite()) {
+            holder.imgFavorite.setImageResource(R.drawable.ic_favorite);
+        } else {
+            holder.imgFavorite.setImageResource(R.drawable.ic_unfavorite);
+        }
+
+        holder.imgFavorite.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mDatas.get(position).getIsFavorite()) {
+                    holder.imgFavorite.setImageResource(R.drawable.ic_unfavorite);
+                    mDatas.get(position).setIsFavorite(false);
+                } else {
+                    holder.imgFavorite.setImageResource(R.drawable.ic_favorite);
+                    mDatas.get(position).setIsFavorite(true);
+                }
+            }
+        });
+    }
+
     private void updateCalendar(RobotoCalendarView robotoCalendarView) {
         mCurrentCalendar = Calendar.getInstance(Locale.getDefault());
         mCurrentCalendar.add(Calendar.MONTH, mCurrentMonthIndex);
@@ -218,26 +239,5 @@ public class TimeSheetAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
             mRobotoCalendarView = (RobotoCalendarView) itemView
                     .findViewById(R.id.robotoCalendarPicker);
         }
-    }
-
-    private void checkFavorite(final VHItem holder, final int position) {
-        if (mDatas.get(position).getIsFavorite()) {
-            holder.imgFavorite.setImageResource(R.drawable.ic_favorite);
-        } else {
-            holder.imgFavorite.setImageResource(R.drawable.ic_unfavorite);
-        }
-
-        holder.imgFavorite.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (mDatas.get(position).getIsFavorite()) {
-                    holder.imgFavorite.setImageResource(R.drawable.ic_unfavorite);
-                    mDatas.get(position).setIsFavorite(false);
-                } else {
-                    holder.imgFavorite.setImageResource(R.drawable.ic_favorite);
-                    mDatas.get(position).setIsFavorite(true);
-                }
-            }
-        });
     }
 }
