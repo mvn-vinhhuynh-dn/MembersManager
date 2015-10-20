@@ -28,6 +28,7 @@ import jp.wasabeef.recyclerview.animators.adapters.ScaleInAnimationAdapter;
 public class TimeSheetFragment extends BaseFragment implements CallDetailItem {
     private ArrayList<Notification> mListNotifications = new ArrayList<>();
     private TimeSheetAdapter mAdapter;
+
     @ViewById(R.id.recycler_timeSheet)
     RecyclerView mRecycleTimeSheet;
 
@@ -51,7 +52,8 @@ public class TimeSheetFragment extends BaseFragment implements CallDetailItem {
 
     private void setAdapter() {
         mAdapter = new TimeSheetAdapter(mListNotifications, getActivity(), this);
-        mRecycleTimeSheet.addItemDecoration(new DividerItemDecoration(getResources().getDrawable(R.drawable.divider)));
+        mRecycleTimeSheet.addItemDecoration(new DividerItemDecoration(getResources()
+                .getDrawable(R.drawable.divider)));
         // Add animation
         AlphaInAnimationAdapter alphaAdapter = new AlphaInAnimationAdapter(mAdapter);
         ScaleInAnimationAdapter scaleAdapter = new ScaleInAnimationAdapter(alphaAdapter);
@@ -77,7 +79,8 @@ public class TimeSheetFragment extends BaseFragment implements CallDetailItem {
             notification.setIsRead(false);
             notification.setMAvata(R.drawable.p1);
             notification.setMContent("Đã có lúc anh mong tim mình bé lại. Để nỗi nhớ em không thể " +
-                    "nào thêm nữa. Đã có lúc anh mong ngừng thời gian trôi. Để những dấu yêu sẽ không phai mờ");
+                    "nào thêm nữa. Đã có lúc anh mong ngừng thời gian trôi" +
+                    ". Để những dấu yêu sẽ không phai mờ");
             notification.setMSender("Le Thai Son");
             notification.setMTittle("Thong bao hop khan cap");
             notification.setMTime("14:32 PM, 06/10");
@@ -88,7 +91,8 @@ public class TimeSheetFragment extends BaseFragment implements CallDetailItem {
     @Override
     public void OnCallDetails(ArrayList<Notification> arrayList, int position) {
         arrayList.get(position).setIsRead(true);
-        NotificationDetailFragment notificationDetailFragment = NotificationDetailFragment_.builder()
+        NotificationDetailFragment notificationDetailFragment = NotificationDetailFragment_
+                .builder()
                 .mNotifications(arrayList)
                 .mPosition(position)
                 .build();

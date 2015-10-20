@@ -4,9 +4,9 @@
     android:id="@+id/toolbar"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/colorPrimary"
+    android:background="?attr/colorPrimary"
+    android:gravity="center_vertical"
     android:minHeight="?attr/actionBarSize"
-    local:popupTheme="@style/ThemeOverlay.AppCompat.Light"
     local:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
     <LinearLayout
@@ -27,27 +27,28 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:gravity="center_vertical"
-            android:paddingLeft="@dimen/linearlayout.marginbottom.5dp"
+            android:paddingBottom="@dimen/linearlayout.marginbottom.2dp"
             android:textColor="@color/white"
             android:textSize="@dimen/textview.textsize.20sp" />
+
         <ImageView
             android:id="@+id/imgFavoriteToolBar"
             android:layout_width="@dimen/img.delete.width.height"
             android:layout_height="@dimen/img.delete.width.height"
-            android:layout_marginRight="@dimen/linearlayout.marginbottom.5dp"
             android:layout_marginEnd="@dimen/linearlayout.marginbottom.5dp"
+            android:layout_marginRight="@dimen/linearlayout.marginbottom.5dp"
             android:contentDescription="@string/app_name"
-            android:visibility="gone"
-            />
+            android:visibility="gone" />
+
         <ImageView
             android:id="@+id/img_right"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="@dimen/linearlayout.marginbottom.5dp"
             android:layout_marginEnd="@dimen/linearlayout.marginbottom.5dp"
+            android:layout_marginRight="@dimen/linearlayout.marginbottom.5dp"
             android:contentDescription="@string/app_name"
-            android:visibility="gone"/>
+            android:visibility="gone" />
+
         <TextView
             android:id="@+id/tv_numdetele"
             android:layout_width="wrap_content"

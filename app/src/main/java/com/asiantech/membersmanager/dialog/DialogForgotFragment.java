@@ -23,6 +23,7 @@ import org.androidannotations.annotations.ViewById;
 public class DialogForgotFragment extends DialogFragment {
     @ViewById(R.id.llEmailForgot)
     LinearLayout mlnEmail;
+
     @ViewById(R.id.etEmailForgot)
     EditText mEdtEmailForgot;
 

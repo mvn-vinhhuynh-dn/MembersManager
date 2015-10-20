@@ -122,13 +122,15 @@
 
     <style name="edt_edit_profile">
         <item name="android:hint">""</item>
-        <item name="android:layout_marginRight">@dimen/linearlayout.marginbottom.5dp</item>
+        <item name="android:selectAllOnFocus">true</item>
+        <item name="android:layout_marginRight">@dimen/textview.margintop.20dp</item>
         <item name="android:paddingLeft">@dimen/linearlayout.padding.4dp</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">match_parent</item>
         <item name="android:layout_marginLeft">@dimen/textview.margintop.30dp</item>
         <item name="android:textColor">@color/mdtp_dark_gray</item>
         <item name="android:textSize">@dimen/textsize.16sp</item>
+        <item name="android:singleLine">true</item>
         <item name="android:layout_gravity">bottom</item>
         <item name="android:background">@drawable/bg_edt_edit_profile_normal</item>
     </style>
@@ -170,7 +172,7 @@
     <style name="view_profile_show_info">
         <item name="android:background">@color/bg_view_profile</item>
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">1dp</item>
+        <item name="android:layout_height">2dp</item>
         <item name="android:layout_marginBottom">@dimen/linearlayout.padding.10dp</item>
         <item name="android:layout_marginTop">@dimen/linearlayout.padding.10dp</item>
     </style>

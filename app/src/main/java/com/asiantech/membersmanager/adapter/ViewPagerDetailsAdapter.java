@@ -47,7 +47,8 @@ public class ViewPagerDetailsAdapter extends PagerAdapter {
 
         inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View itemView = inflater.inflate(R.layout.item_fragment_details, container, false);
-        imgAvataDetail = (com.asiantech.membersmanager.views.CircleImageView)itemView.findViewById(R.id.imgAvataDetail);
+        imgAvataDetail = (com.asiantech.membersmanager.views
+                .CircleImageView)itemView.findViewById(R.id.imgAvataDetail);
         tvSenderDetail = (TextView)itemView.findViewById(R.id.tvSenderDetail);
         tvTimeDetail = (TextView)itemView.findViewById(R.id.tvTimeDetail);
         tvContentDetail = (TextView)itemView.findViewById(R.id.tvContentDetail);

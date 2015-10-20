@@ -31,8 +31,10 @@ import jp.wasabeef.recyclerview.animators.adapters.ScaleInAnimationAdapter;
 public class HotFragment extends BaseFragment implements CallDetailItem {
     @ViewById(R.id.recyclerHot)
     RecyclerView mRecyclerHot;
+
     @ViewById(R.id.swipeRefreshLayoutHot)
     SwipeRefreshLayout mSwipeRefreshLayoutHot;
+
     private HotNotificationAdapter mAdapter;
     private LinearLayoutManager mLinearLayoutManager;
     private ScaleInAnimationAdapter mScaleAdapter;
@@ -51,7 +53,8 @@ public class HotFragment extends BaseFragment implements CallDetailItem {
         // Config recycleView
         mLinearLayoutManager = new LinearLayoutManager(getActivity());
         mRecyclerHot.setLayoutManager(mLinearLayoutManager);
-        mRecyclerHot.addItemDecoration(new DividerItemDecoration(getResources().getDrawable(R.drawable.divider)));
+        mRecyclerHot.addItemDecoration(new DividerItemDecoration(getResources()
+                .getDrawable(R.drawable.divider)));
     }
 
     private void setAdapter() {
@@ -109,7 +112,8 @@ public class HotFragment extends BaseFragment implements CallDetailItem {
     @Override
     public void OnCallDetails(ArrayList<Notification> arrayList, int position) {
         mNotifications.get(position).setIsRead(true);
-        DetailHotNotificationFragment detailHotNotificationFragment = DetailHotNotificationFragment_.builder()
+        DetailHotNotificationFragment detailHotNotificationFragment =
+                DetailHotNotificationFragment_.builder()
                 .mNotifications(arrayList)
                 .mPosition(position)
                 .build();
