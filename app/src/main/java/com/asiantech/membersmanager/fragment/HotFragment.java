@@ -53,7 +53,8 @@ public class HotFragment extends BaseFragment implements CallDetailItem {
         // Config recycleView
         mLinearLayoutManager = new LinearLayoutManager(getActivity());
         mRecyclerHot.setLayoutManager(mLinearLayoutManager);
-        mRecyclerHot.addItemDecoration(new DividerItemDecoration(getResources().getDrawable(R.drawable.divider)));
+        mRecyclerHot.addItemDecoration(new DividerItemDecoration(getResources()
+                .getDrawable(R.drawable.divider)));
     }
 
     private void setAdapter() {
@@ -111,7 +112,8 @@ public class HotFragment extends BaseFragment implements CallDetailItem {
     @Override
     public void OnCallDetails(ArrayList<Notification> arrayList, int position) {
         mNotifications.get(position).setIsRead(true);
-        DetailHotNotificationFragment detailHotNotificationFragment = DetailHotNotificationFragment_.builder()
+        DetailHotNotificationFragment detailHotNotificationFragment =
+                DetailHotNotificationFragment_.builder()
                 .mNotifications(arrayList)
                 .mPosition(position)
                 .build();

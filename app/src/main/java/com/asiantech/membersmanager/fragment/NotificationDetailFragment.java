@@ -39,7 +39,8 @@ public class NotificationDetailFragment extends BaseFragment  {
     }
 
     private void setAdapter() {
-        mViewpagerDetailsAdapter = new ViewPagerDetailsAdapter(mNotifications, getActivity());
+        mViewpagerDetailsAdapter
+                = new ViewPagerDetailsAdapter(mNotifications, getActivity());
         viewpagerDetails.setAdapter(mViewpagerDetailsAdapter);
     }
 
@@ -69,7 +70,8 @@ public class NotificationDetailFragment extends BaseFragment  {
     private void initListener() {
         viewpagerDetails.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+            public void onPageScrolled(int position, float positionOffset,
+                                       int positionOffsetPixels) {
             }
 
             @Override

@@ -109,8 +109,10 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void setListener() {
-        SoftKeyboardStateWatcher softKeyboardStateWatcher = new SoftKeyboardStateWatcher(findViewById(R.id.login_activity));
-        softKeyboardStateWatcher.addSoftKeyboardStateListener(new SoftKeyboardStateWatcher.SoftKeyboardStateListener() {
+        SoftKeyboardStateWatcher softKeyboardStateWatcher
+                = new SoftKeyboardStateWatcher(findViewById(R.id.login_activity));
+        softKeyboardStateWatcher.addSoftKeyboardStateListener(
+                new SoftKeyboardStateWatcher.SoftKeyboardStateListener() {
             @Override
             public void onSoftKeyboardOpened(int keyboardHeightInPx) {
                 setMarginWhenShow(true);

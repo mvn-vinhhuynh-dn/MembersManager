@@ -62,7 +62,8 @@ public class FavoriteFragment extends BaseFragment implements CallDetailItem, Ca
 
     private void setAdapter() {
         mAdapter = new FavoriteAdapter(getActivity(), mArraylistsTam, this, this, this);
-        recyclerFavorite.setLayoutManager(new LinearLayoutManager(getActivity().getBaseContext()));
+        recyclerFavorite.setLayoutManager(new LinearLayoutManager(getActivity()
+                .getBaseContext()));
         recyclerFavorite.addItemDecoration(new DividerItemDecoration(getResources()
                 .getDrawable(R.drawable.divider)));
 
@@ -164,7 +165,8 @@ public class FavoriteFragment extends BaseFragment implements CallDetailItem, Ca
 
     @Override
     public void OnCallDetails(ArrayList<Notification> arrayList, int position) {
-        NotificationDetailFragment notificationDetailFragment = NotificationDetailFragment_.builder()
+        NotificationDetailFragment notificationDetailFragment = NotificationDetailFragment_
+                .builder()
                 .mNotifications(arrayList)
                 .mPosition(position)
                 .build();
@@ -183,7 +185,8 @@ public class FavoriteFragment extends BaseFragment implements CallDetailItem, Ca
                 int num = mIntegers.get(i);
                 mArraylistsTam.remove(num - i);
                 mScaleInAnimationAdapter.notifyItemRemoved(mIntegers.get(i));
-                mScaleInAnimationAdapter.notifyItemRangeChanged(mIntegers.get(i), mArraylistsTam.size());
+                mScaleInAnimationAdapter
+                        .notifyItemRangeChanged(mIntegers.get(i), mArraylistsTam.size());
             }
             mAdapter.clearSizeDelete();
             //Update header
@@ -219,7 +222,8 @@ public class FavoriteFragment extends BaseFragment implements CallDetailItem, Ca
 
     @Override
     public void removeSingleItems(int pos, SwipeLayout swipeLayout) {
-        SwipeItemRecyclerMangerImpl mSwipeItemRecyclerMangerImpl = mAdapter.getSwipeItemRecyclerMangerImpl();
+        SwipeItemRecyclerMangerImpl mSwipeItemRecyclerMangerImpl = mAdapter
+                .getSwipeItemRecyclerMangerImpl();
         mSwipeItemRecyclerMangerImpl.removeShownLayouts(swipeLayout);
         mArraylistsTam.remove(pos);
         mScaleInAnimationAdapter.notifyItemRemoved(pos);
