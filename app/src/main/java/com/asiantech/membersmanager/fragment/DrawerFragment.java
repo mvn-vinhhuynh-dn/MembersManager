@@ -115,6 +115,7 @@ public class DrawerFragment extends BaseFragment {
             public void onDrawerClosed(View drawerView) {
                 super.onDrawerClosed(drawerView);
                 getActivity().invalidateOptionsMenu();
+                mAdapter.notifyDataSetChanged();
             }
 
             @Override
@@ -133,6 +134,10 @@ public class DrawerFragment extends BaseFragment {
         });
     }
 
+    public void isPosClick(int pos) {
+        mAdapter.setmPosSelected(pos);
+    }
+
     static class RecyclerTouchListener implements RecyclerView.OnItemTouchListener {
 
         private GestureDetector gestureDetector;
@@ -144,19 +149,19 @@ public class DrawerFragment extends BaseFragment {
             this.clickListener = clickListener;
             gestureDetector = new GestureDetector(context,
                     new GestureDetector.SimpleOnGestureListener() {
-                @Override
-                public boolean onSingleTapUp(MotionEvent e) {
-                    return true;
-                }
+                        @Override
+                        public boolean onSingleTapUp(MotionEvent e) {
+                            return true;
+                        }
 
-                @Override
-                public void onLongPress(MotionEvent e) {
-                    View child = recyclerView.findChildViewUnder(e.getX(), e.getY());
-                    if (child != null && clickListener != null) {
-                        clickListener.onLongClick(child, recyclerView.getChildPosition(child));
-                    }
-                }
-            });
+                        @Override
+                        public void onLongPress(MotionEvent e) {
+                            View child = recyclerView.findChildViewUnder(e.getX(), e.getY());
+                            if (child != null && clickListener != null) {
+                                clickListener.onLongClick(child, recyclerView.getChildPosition(child));
+                            }
+                        }
+                    });
         }
 
         @Override

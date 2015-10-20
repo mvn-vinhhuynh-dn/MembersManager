@@ -2,21 +2,23 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="60dp"
+    android:layout_marginTop="@dimen/linearlayout.marginbottom.5dp"
     android:clickable="true"
     android:gravity="center_vertical"
-    android:padding="10dp">
+    android:paddingLeft="@dimen/textview.margintop.20dp">
 
     <ImageView
         android:id="@+id/img_icon"
-        android:layout_width="32dp"
-        android:layout_height="32dp" />
+        android:layout_width="@dimen/itemdraw.height"
+        android:layout_height="@dimen/itemdraw.height"
+        android:layout_marginRight="@dimen/linearlayout.marginbottom.5dp" />
 
     <TextView
         android:id="@+id/title"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
-        android:paddingLeft="5dp"
-        android:textColor="#616161"
+        android:paddingLeft="@dimen/linearlayout.marginbottom.5dp"
+        android:textColor="@color/textview.textcolor.616161"
         android:textSize="@dimen/button.textsize.18sp" />
 </LinearLayout>

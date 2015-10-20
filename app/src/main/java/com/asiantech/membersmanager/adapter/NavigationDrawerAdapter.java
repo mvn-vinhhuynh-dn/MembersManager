@@ -1,6 +1,7 @@
 package com.asiantech.membersmanager.adapter;
 
 import android.content.Context;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,11 +24,16 @@ public class NavigationDrawerAdapter extends RecyclerView
     List<NavigationDrawerItem> mDatas = Collections.emptyList();
     private LayoutInflater mInflater;
     private Context mContext;
+    private int mPosSelected = 0;
 
     public NavigationDrawerAdapter(Context context, List<NavigationDrawerItem> data) {
         mContext = context;
         mInflater = LayoutInflater.from(context);
         mDatas = data;
+    }
+
+    public void setmPosSelected(int mPosSelected) {
+        this.mPosSelected = mPosSelected;
     }
 
     @Override
@@ -38,40 +44,46 @@ public class NavigationDrawerAdapter extends RecyclerView
     }
 
     @Override
-    public void onBindViewHolder(MyViewHolder holder, int position) {
+    public void onBindViewHolder(final MyViewHolder holder, final int position) {
+        if (mPosSelected == position) {
+            holder.imageView.setSelected(true);
+            holder.title.setTextColor(mContext.getResources().getColor(R.color.colorPrimary));
+        } else {
+            holder.imageView.setSelected(false);
+            holder.title.setTextColor(mContext.getResources().getColor(R.color.textview_textcolor_616161));
+
+        }
         switch (position) {
             case 0:
-                holder.imageView.setBackgroundDrawable(mContext.getResources()
-                        .getDrawable(R.drawable.ic_home));
+                holder.imageView.setBackground(ContextCompat
+                        .getDrawable(mContext, R.drawable.selector_home));
                 holder.title.setText(R.string.home);
                 break;
             case 1:
-                holder.imageView.setBackgroundDrawable(mContext.getResources()
-                        .getDrawable(R.drawable.ic_favorite_menu));
+                holder.imageView.setBackground(ContextCompat
+                        .getDrawable(mContext, R.drawable.selector_favorite));
                 holder.title.setText(R.string.menu_favorite);
                 break;
             case 2:
-                holder.imageView.setBackgroundDrawable(mContext.getResources()
-                        .getDrawable(R.drawable.ic_time_sheet));
+                holder.imageView.setBackground(ContextCompat
+                        .getDrawable(mContext, R.drawable.selector_time_sheet));
                 holder.title.setText(R.string.time_sheet);
                 break;
             case 3:
-                holder.imageView.setBackgroundDrawable(mContext.getResources()
-                        .getDrawable(R.drawable.ic_mail_menu));
+                holder.imageView.setBackground(ContextCompat
+                        .getDrawable(mContext, R.drawable.selector_vacationday));
                 holder.title.setText(R.string.out_work);
                 break;
             case 4:
-                holder.imageView.setBackgroundDrawable(mContext.getResources()
-                        .getDrawable(R.drawable.ic_help_feedback));
+                holder.imageView.setBackground(ContextCompat
+                        .getDrawable(mContext, R.drawable.selector_help));
                 holder.title.setText(R.string.help_feedback);
                 break;
-
             case 5:
-                holder.imageView.setBackgroundDrawable(mContext.getResources()
-                        .getDrawable(R.drawable.ic_logout));
+                holder.imageView.setBackground(ContextCompat
+                        .getDrawable(mContext, R.drawable.ic_logout_normal));
                 holder.title.setText(R.string.logout);
                 break;
-
         }
     }
 

@@ -114,22 +114,27 @@ public class MainActivity extends AppCompatActivity implements DrawerFragment
             case 0:
                 fragment = new HomeFragment_();
                 title = getString(R.string.title_home);
+                mDrawerFragment.isPosClick(0);
                 break;
             case 1:
                 fragment = new FavoriteFragment_();
                 title = getString(R.string.title_favorite);
+                mDrawerFragment.isPosClick(1);
                 break;
             case 2:
                 fragment = new TimeSheetFragment_();
                 title = getString(R.string.time_sheet);
+                mDrawerFragment.isPosClick(2);
                 break;
             case 3:
                 fragment = new VacationDayFragment_();
                 title = getString(R.string.vacation_day);
+                mDrawerFragment.isPosClick(3);
                 break;
             case 4:
                 fragment = new HelpAndFeedBackFragment_();
                 title = getString(R.string.help_feedback);
+                mDrawerFragment.isPosClick(4);
                 break;
             case 5:
                 //TOdo Logout function

@@ -9,7 +9,7 @@
     <RelativeLayout
         android:id="@+id/nav_header_container"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/height.150dp"
         android:background="@color/colorPrimary"
         android:padding="@dimen/drawerfragment.rl.padding">
 
@@ -17,7 +17,7 @@
             android:id="@+id/img_user"
             android:layout_width="@dimen/drawerfragment.img.width"
             android:layout_height="@dimen/drawerfragment.img.height"
-            android:layout_gravity="center_vertical"
+            android:layout_centerVertical="true"
             android:layout_marginBottom="@dimen/ln.padding10"
             android:layout_marginLeft="@dimen/linearlayout.marginbottom.10dp"
             android:layout_marginTop="@dimen/ln.padding10"

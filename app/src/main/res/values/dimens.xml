@@ -11,6 +11,7 @@
     <dimen name="textview.margintop.30dp">30dp</dimen>
     <dimen name="textview.margintop.15dp">15dp</dimen>
     <dimen name="relativelayout.padding.10dp">10dp</dimen>
+    <dimen name="relativelayout.padding.7dp">7dp</dimen>
     <dimen name="textview.textsize.20sp">20sp</dimen>
     <dimen name="imageview.marginbottom.50dp">50dp</dimen>
     <dimen name="imageview.marginbottom.30dp">30dp</dimen>
@@ -69,8 +70,8 @@
     <dimen name="view.height.1dp">1dp</dimen>
     <dimen name="dialog.register.btn.width">160dp</dimen>
     <dimen name="drawerfragment.rl.padding">10dp</dimen>
-    <dimen name="drawerfragment.img.width">60dp</dimen>
-    <dimen name="drawerfragment.img.height">60dp</dimen>
+    <dimen name="drawerfragment.img.width">80dp</dimen>
+    <dimen name="drawerfragment.img.height">80dp</dimen>
     <dimen name="drawerfragment.rl.height">140dp</dimen>
     <dimen name="drawerfragment.recycle.maginTop">15dp</dimen>
     <dimen name="drawerfragment.recycle.padding">10dp</dimen>
@@ -104,7 +105,7 @@
     <dimen name="textview.content.paddingbottom">5dp</dimen>
     <dimen name="textview.content.size">12sp</dimen>
     <dimen name="image.favorite.height">25dp</dimen>
-    <dimen name="nav_drawer_width">260dp</dimen>
+    <dimen name="nav_drawer_width">290dp</dimen>
     <dimen name="textsize.16sp">16sp</dimen>
     <dimen name="textsize.14sp">14sp</dimen>
     <dimen name="lnHeight">50dp</dimen>
