@@ -20,7 +20,7 @@ import java.util.ArrayList;
  * Created by VinhHlb on 10/5/15.
  */
 @EFragment(R.layout.fragment_detail_notification)
-public class NotificationDetailFragment extends BaseFragment {
+public class NotificationDetailFragment extends BaseFragment  {
 
     @ViewById(R.id.viewpagerDetails)
     ViewPager viewpagerDetails;
@@ -33,11 +33,8 @@ public class NotificationDetailFragment extends BaseFragment {
 
     @AfterViews
     void afterViews() {
-        //set adapter
         setAdapter();
-        //setDeault position
         viewpagerDetails.setCurrentItem(mPosition);
-        //add listener
         initListener();
     }
 
@@ -66,6 +63,8 @@ public class NotificationDetailFragment extends BaseFragment {
             mNotifications.get(mPosition).setIsFavorite(true);
         }
     }
+
+
 
     private void initListener() {
         viewpagerDetails.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {

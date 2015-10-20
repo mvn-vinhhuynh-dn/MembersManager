@@ -38,6 +38,7 @@ import jp.wasabeef.recyclerview.animators.adapters.ScaleInAnimationAdapter;
 public class FavoriteFragment extends BaseFragment implements CallDetailItem, CallFavorite, RemoveFavorite {
     @ViewById(R.id.recyclerFavorite)
     RecyclerView recyclerFavorite;
+
     @ViewById(R.id.swipeRefreshLayoutFavorite)
     SwipeRefreshLayout mSwipeRefreshLayoutFavorite;
 

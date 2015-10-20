@@ -1,7 +1,6 @@
 package com.asiantech.membersmanager.dialog;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.provider.MediaStore;
 import android.support.v4.app.DialogFragment;
 import android.view.Gravity;
@@ -21,8 +20,6 @@ import org.androidannotations.annotations.EFragment;
 public class DialogChooseImage extends DialogFragment {
     public static final int SELECT_PHOTO = 1111;
     public static final int TAKE_PICTURE = 2222;
-    private Uri mUri;
-
 
     @AfterViews
     void afterView() {

@@ -31,8 +31,10 @@ import jp.wasabeef.recyclerview.animators.adapters.ScaleInAnimationAdapter;
 public class HotFragment extends BaseFragment implements CallDetailItem {
     @ViewById(R.id.recyclerHot)
     RecyclerView mRecyclerHot;
+
     @ViewById(R.id.swipeRefreshLayoutHot)
     SwipeRefreshLayout mSwipeRefreshLayoutHot;
+
     private HotNotificationAdapter mAdapter;
     private LinearLayoutManager mLinearLayoutManager;
     private ScaleInAnimationAdapter mScaleAdapter;

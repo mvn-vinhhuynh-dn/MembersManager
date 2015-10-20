@@ -20,6 +20,7 @@ import org.androidannotations.annotations.ViewById;
 public class EditProfileActivity extends AppCompatActivity {
     private ImageView mImageClose;
     private TextView mTvTitle;
+
     @ViewById(R.id.toolbar)
     Toolbar mToolBar;
 

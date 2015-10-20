@@ -28,6 +28,7 @@ import jp.wasabeef.recyclerview.animators.adapters.ScaleInAnimationAdapter;
 public class TimeSheetFragment extends BaseFragment implements CallDetailItem {
     private ArrayList<Notification> mListNotifications = new ArrayList<>();
     private TimeSheetAdapter mAdapter;
+
     @ViewById(R.id.recycler_timeSheet)
     RecyclerView mRecycleTimeSheet;
 

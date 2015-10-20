@@ -34,20 +34,28 @@ import jp.wasabeef.recyclerview.animators.adapters.ScaleInAnimationAdapter;
 public class HomeFragment extends BaseFragment implements CallDetailItem {
     @ViewById(R.id.recyclerHome)
     RecyclerView mRecycleHome;
+
     @ViewById(R.id.swipeRefreshLayout)
     SwipeRefreshLayout mSwipeRefreshLayout;
+
     @ViewById(R.id.imgAvataHeader)
     CircleImageView imgAvataHeader;
+
     @ViewById(R.id.tvSenderHeader)
     TextView tvSenderHeader;
+
     @ViewById(R.id.tvTittleHeader)
     TextView tvTittleHeader;
+
     @ViewById(R.id.tvContentHeader)
     TextView tvContentHeader;
+
     @ViewById(R.id.tvTimeHeader)
     TextView tvTimeHeader;
+
     @ViewById(R.id.swipeHeader)
     RelativeLayout swipeHeader;
+
     @ViewById(R.id.tvSumRead)
     TextView tvSumRead;
 
