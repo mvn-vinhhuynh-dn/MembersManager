@@ -1,5 +1,6 @@
 package com.asiantech.membersmanager.fragment;
 
+import android.content.DialogInterface;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.support.v4.app.FragmentManager;
@@ -67,11 +68,12 @@ public class ProfileFragment extends BaseFragment implements OnDateSetListener {
 
     @ViewById(R.id.img_avatar)
     CircleImageView mCirImgAvatar;
-    
+
     @ViewById(R.id.img_profile_edit)
     ImageView mImgEditAvatar;
 
     public boolean isEditing = false;
+    private DatePickerDialog mDatePickerDialog;
 
     @Override
     public void onResume() {
@@ -136,6 +138,22 @@ public class ProfileFragment extends BaseFragment implements OnDateSetListener {
 
     @AfterViews
     void afterView() {
+        initData();
+        initListener();
+        initView();
+    }
+
+    private void initListener() {
+        mDatePickerDialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
+            @Override
+            public void onCancel(DialogInterface dialogInterface) {
+                setDefaultBackgroud(mEdtDob);
+                Log.d("vvvv", "cancel");
+            }
+        });
+    }
+
+    private void initView() {
         mEdtDob.setCursorVisible(false);
         mEdtDob.setFocusableInTouchMode(false);
     }
@@ -168,19 +186,23 @@ public class ProfileFragment extends BaseFragment implements OnDateSetListener {
         showDialogChooseImage();
     }
 
-    private void showDialogChooseDay() {
+    private void initData() {
         Calendar now = Calendar.getInstance();
-        DatePickerDialog dpd = newInstance(
+        mDatePickerDialog = newInstance(
                 this,
                 now.get(Calendar.YEAR),
                 now.get(Calendar.MONTH),
                 now.get(Calendar.DAY_OF_MONTH)
 
         );
-        dpd.setMinDate(now);
-        if (!dpd.isHidden()) {
+        mDatePickerDialog.setMinDate(now);
+    }
+
+    private void showDialogChooseDay() {
+
+        if (!mDatePickerDialog.isHidden()) {
             Log.d("vvvvv", "show dialog");
-            dpd.show(getActivity().getFragmentManager(), "Datepickerdialog_birthday");
+            mDatePickerDialog.show(getActivity().getFragmentManager(), "Datepickerdialog_birthday");
         }
         setFocusBackgroud(mEdtDob);
     }
