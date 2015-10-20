@@ -41,6 +41,7 @@ public class LoginActivity extends AppCompatActivity {
     private Handler mHandler;
     private Handler mHandlerShowLogo;
     private Runnable mRunable;
+
     @AnimationRes(R.anim.translate_left)
     Animation mAnimLeft;
 
@@ -108,8 +109,10 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void setListener() {
-        SoftKeyboardStateWatcher softKeyboardStateWatcher = new SoftKeyboardStateWatcher(findViewById(R.id.login_activity));
-        softKeyboardStateWatcher.addSoftKeyboardStateListener(new SoftKeyboardStateWatcher.SoftKeyboardStateListener() {
+        SoftKeyboardStateWatcher softKeyboardStateWatcher
+                = new SoftKeyboardStateWatcher(findViewById(R.id.login_activity));
+        softKeyboardStateWatcher.addSoftKeyboardStateListener(
+                new SoftKeyboardStateWatcher.SoftKeyboardStateListener() {
             @Override
             public void onSoftKeyboardOpened(int keyboardHeightInPx) {
                 setMarginWhenShow(true);
@@ -123,14 +126,18 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void setMarginWhenShow(boolean isShow) {
-        int paddingPixel = 50;
+        int paddingPixel = 100;
+        int paddingPixelBtn = 20;
         float density = LoginActivity.this.getResources().getDisplayMetrics().density;
         int paddingDp = (int) (paddingPixel * density);
+        int paddingDpBtn = (int) (paddingPixelBtn * density);
         if (isShow) {
             mImgTech.setPadding(0, paddingDp, 0, 0);
+            mBtnForgot.setPadding(0, paddingDpBtn, 0, 0);
 
         } else {
             mImgTech.setPadding(0, 0, 0, paddingDp);
+            mBtnForgot.setPadding(0, 0, 0, paddingDpBtn);
         }
     }
 

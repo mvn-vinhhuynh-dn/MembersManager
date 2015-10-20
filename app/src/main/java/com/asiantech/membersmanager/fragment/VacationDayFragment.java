@@ -32,12 +32,16 @@ public class VacationDayFragment extends BaseFragment implements OnDateSetListen
 
     @ViewById(R.id.cbDifferentReson)
     CheckBox mCbChooseDifferentReason;
+
     @ViewById(R.id.edtDifferentReason)
     EditText mEdtDifferentReason;
+
     @ViewById(R.id.tv_from_day)
     TextView mtvFromDay;
+
     @ViewById(R.id.tv_to_day)
     TextView mtvToDay;
+
     private boolean isToDay = false;
     private boolean isFromDay = false;
 
@@ -110,7 +114,8 @@ public class VacationDayFragment extends BaseFragment implements OnDateSetListen
                 now.get(Calendar.MONTH),
                 now.get(Calendar.DAY_OF_MONTH)
         );
-        dpd.show(getActivity().getFragmentManager(), "Datepickerdialog");
+        dpd.setMinDate(now);
+        dpd.show(getActivity().getFragmentManager(), "Datepickerdialog_vacationday");
     }
 
     private void setDefaultDate() {

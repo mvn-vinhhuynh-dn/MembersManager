@@ -40,7 +40,8 @@ public class TimeSheetAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
     private int mMoth;
     private int mYear;
 
-    public TimeSheetAdapter(ArrayList<Notification> mDatas, Context mContext, CallDetailItem mCallDetail) {
+    public TimeSheetAdapter(ArrayList<Notification> mDatas,
+                            Context mContext, CallDetailItem mCallDetail) {
         this.mDatas = mDatas;
         mCurrentMonthIndex = 0;
         this.mContext = mContext;
@@ -62,7 +63,8 @@ public class TimeSheetAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
                     .inflate(R.layout.header_recyclerview, parent, false);
             return new VHHeader(rootViewHeader);
         }
-        throw new RuntimeException("there is no type that matches the type " + viewType + " + make sure your using types correctly");
+        throw new RuntimeException("there is no type that matches " +
+                "the type " + viewType + " + make sure your using types correctly");
     }
 
     @Override
@@ -105,7 +107,8 @@ public class TimeSheetAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
                     switch (style) {
                         case 0:
                             headerHolder.mRobotoCalendarView
-                                    .markFirstUnderlineWithStyle(RobotoCalendarView.BLUE_COLOR, date);
+                                    .markFirstUnderlineWithStyle(RobotoCalendarView
+                                            .BLUE_COLOR, date);
                             break;
                         default:
                             break;
@@ -212,7 +215,8 @@ public class TimeSheetAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
 
         public VHHeader(View itemView) {
             super(itemView);
-            mRobotoCalendarView = (RobotoCalendarView) itemView.findViewById(R.id.robotoCalendarPicker);
+            mRobotoCalendarView = (RobotoCalendarView) itemView
+                    .findViewById(R.id.robotoCalendarPicker);
         }
     }
 

@@ -34,20 +34,28 @@ import jp.wasabeef.recyclerview.animators.adapters.ScaleInAnimationAdapter;
 public class HomeFragment extends BaseFragment implements CallDetailItem {
     @ViewById(R.id.recyclerHome)
     RecyclerView mRecycleHome;
+
     @ViewById(R.id.swipeRefreshLayout)
     SwipeRefreshLayout mSwipeRefreshLayout;
+
     @ViewById(R.id.imgAvataHeader)
     CircleImageView imgAvataHeader;
+
     @ViewById(R.id.tvSenderHeader)
     TextView tvSenderHeader;
+
     @ViewById(R.id.tvTittleHeader)
     TextView tvTittleHeader;
+
     @ViewById(R.id.tvContentHeader)
     TextView tvContentHeader;
+
     @ViewById(R.id.tvTimeHeader)
     TextView tvTimeHeader;
+
     @ViewById(R.id.swipeHeader)
     RelativeLayout swipeHeader;
+
     @ViewById(R.id.tvSumRead)
     TextView tvSumRead;
 
@@ -68,7 +76,8 @@ public class HomeFragment extends BaseFragment implements CallDetailItem {
         // Config recycleview
         mLinearLayoutManager = new LinearLayoutManager(getActivity());
         mRecycleHome.setLayoutManager(mLinearLayoutManager);
-        mRecycleHome.addItemDecoration(new DividerItemDecoration(getResources().getDrawable(R.drawable.divider)));
+        mRecycleHome.addItemDecoration(new DividerItemDecoration(getResources()
+                .getDrawable(R.drawable.divider)));
         // Add animation
         AlphaInAnimationAdapter alphaAdapter = new AlphaInAnimationAdapter(mAdapter);
         ScaleInAnimationAdapter scaleAdapter = new ScaleInAnimationAdapter(alphaAdapter);
@@ -180,8 +189,10 @@ public class HomeFragment extends BaseFragment implements CallDetailItem {
             notification.setIsHot(true);
             notification.setIsRead(false);
             notification.setMAvata(R.drawable.p2);
-            notification.setMContent("Đã có lúc anh mong tim mình bé lại. Để nỗi nhớ em không thể " +
-                    "nào thêm nữa. Đã có lúc anh mong ngừng thời gian trôi. Để những dấu yêu sẽ không phai mờ");
+            notification.setMContent("Đã có lúc anh mong tim mình bé lại." +
+                    " Để nỗi nhớ em không thể " +
+                    "nào thêm nữa. Đã có lúc anh mong ngừng thời gian trôi." +
+                    " Để những dấu yêu sẽ không phai mờ");
             notification.setMSender("Le Thai Son");
             notification.setMTittle("Thong bao hop khan cap");
             notification.setMTime("14:32 PM, 06/10");
@@ -194,8 +205,10 @@ public class HomeFragment extends BaseFragment implements CallDetailItem {
             notification.setIsHot(false);
             notification.setIsRead(false);
             notification.setMAvata(R.drawable.p1);
-            notification.setMContent("Đã có lúc anh mong tim mình bé lại. Để nỗi nhớ em không thể " +
-                    "nào thêm nữa. Đã có lúc anh mong ngừng thời gian trôi. Để những dấu yêu sẽ không phai mờ");
+            notification.setMContent("Đã có lúc anh mong tim mình bé lại. " +
+                    "Để nỗi nhớ em không thể " +
+                    "nào thêm nữa. Đã có lúc anh mong ngừng thời gian trôi." +
+                    " Để những dấu yêu sẽ không phai mờ");
             notification.setMSender("Le Thai Son");
             notification.setMTittle("Thong bao hop khan cap");
             notification.setMTime("14:32 PM, 06/10");
@@ -206,7 +219,8 @@ public class HomeFragment extends BaseFragment implements CallDetailItem {
     @Override
     public void OnCallDetails(ArrayList<Notification> arrayList, int position) {
         mArraylists.get(position).setIsRead(true);
-        NotificationDetailFragment notificationDetailFragment = NotificationDetailFragment_.builder()
+        NotificationDetailFragment notificationDetailFragment = NotificationDetailFragment_
+                .builder()
                 .mNotifications(arrayList)
                 .mPosition(position)
                 .build();

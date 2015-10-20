@@ -21,7 +21,8 @@ import java.util.ArrayList;
  * Copyright © 2015 AsianTech inc.
  * Created by VinhHlb on 10/15/15.
  */
-public class HotNotificationAdapter extends RecyclerView.Adapter<HotNotificationAdapter.ViewHolder> {
+public class HotNotificationAdapter extends RecyclerView
+        .Adapter<HotNotificationAdapter.ViewHolder> {
     private Context mContext;
     private ArrayList<Notification> mArraylists;
     private CallDetailItem mCallDetail;

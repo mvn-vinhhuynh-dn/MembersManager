@@ -23,12 +23,14 @@ import java.util.ArrayList;
 public class DetailHotNotificationFragment extends BaseFragment {
     @ViewById(R.id.viewpagerDetailsHot)
     ViewPager viewpagerDetailsHot;
-    private ViewPagerDetailsHotAdapter mViewpagerDetailsHotAdapter;
 
     @FragmentArg
     ArrayList<Notification> mNotifications;
+
     @FragmentArg
     int mPosition;
+
+    private ViewPagerDetailsHotAdapter mViewpagerDetailsHotAdapter;
 
     @AfterViews
     void afterViews() {
