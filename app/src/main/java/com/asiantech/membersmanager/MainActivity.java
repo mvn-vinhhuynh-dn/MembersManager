@@ -324,8 +324,7 @@ public class MainActivity extends AppCompatActivity implements DrawerFragment
     public void onBackPressed() {
         if (getSupportFragmentManager().getBackStackEntryCount() != 1) {
             super.onBackPressed();
-            Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.container_body);
-            mContent = fragment;
+            mContent = getSupportFragmentManager().findFragmentById(R.id.container_body);
         } else {
             finish();
         }
