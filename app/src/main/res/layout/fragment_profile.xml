@@ -241,6 +241,35 @@
 
         <View style="@style/view_profile_show_info" />
 
+        <LinearLayout
+            style="@style/tv_title"
+            android:gravity="bottom"
+            android:orientation="horizontal">
+
+            <ImageView
+                style="@style/img_info_profile"
+                android:src="@drawable/ic_skype" />
+
+            <TextView
+                style="@style/tv_title_profile"
+                android:text="Skype" />
+        </LinearLayout>
+
+        <RelativeLayout style="@style/rl_info_profile">
+
+            <EditText
+                android:id="@+id/edt_skype_profile"
+                style="@style/edt_edit_profile"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/tv_skype_profile"
+                style="@style/tv_info_profile"
+                android:text="William"
+                android:visibility="visible" />
+        </RelativeLayout>
+
+        <View style="@style/view_profile_show_info" />
 
         <LinearLayout
             style="@style/tv_title"

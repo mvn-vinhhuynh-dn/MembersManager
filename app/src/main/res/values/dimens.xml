@@ -17,6 +17,7 @@
     <dimen name="imageview.marginbottom.10dp">10dp</dimen>
     <dimen name="linearlayout.marginbottom.10dp">10dp</dimen>
     <dimen name="linearlayout.marginbottom.5dp">5dp</dimen>
+    <dimen name="linearlayout.marginbottom.2dp">2dp</dimen>
     <dimen name="linearlayout.padding.4dp">4dp</dimen>
     <dimen name="height.120dp">120dp</dimen>
     <dimen name="height.80dp">80dp</dimen>
