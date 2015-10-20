@@ -31,12 +31,14 @@ public class TimeSheetFragment extends BaseFragment implements CallDetailItem {
     @ViewById(R.id.recycler_timeSheet)
     RecyclerView mRecycleTimeSheet;
 
+    public TimeSheetFragment(){
+        fakeData();
+    }
     @AfterViews
     public void afterView() {
         initView();
         initData();
         setAdapter();
-        fakeData();
     }
 
     private void initData() {
@@ -68,7 +70,6 @@ public class TimeSheetFragment extends BaseFragment implements CallDetailItem {
     }
 
     private void fakeData() {
-        mListNotifications.clear();
         for (int i = 0; i < 10; i++) {
             Notification notification = new Notification();
             notification.setIsFavorite(true);
@@ -82,7 +83,6 @@ public class TimeSheetFragment extends BaseFragment implements CallDetailItem {
             notification.setMTime("14:32 PM, 06/10");
             mListNotifications.add(notification);
         }
-        mAdapter.notifyDataSetChanged();
     }
 
     @Override
