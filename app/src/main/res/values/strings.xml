@@ -122,4 +122,6 @@
     <string name="unread">Còn 2 tin ...</string>
     <string name="test_num_day">Số ngày nghỉ còn lại: 10</string>
     <string name="title_activity_main2">Main2Activity</string>
+    <string name="Success">Đăng nhập thành công</string>
+    <string name="Loading">Đang đăng nhập</string>
 </resources>

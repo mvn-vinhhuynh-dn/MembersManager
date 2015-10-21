@@ -19,9 +19,7 @@
     <style name="button_sign_in">
         <item name="android:layout_marginLeft">@dimen/linearlayout.margin.40dp</item>
         <item name="android:layout_marginRight">@dimen/linearlayout.margin.40dp</item>
-        <item name="android:background">@drawable/selector_btn_login</item>
         <item name="android:textAllCaps" tools:targetApi="ice_cream_sandwich">false</item>
-        <item name="android:textColor">@android:color/white</item>
         <item name="android:textSize">@dimen/button.textsize.16sp</item>
     </style>
 

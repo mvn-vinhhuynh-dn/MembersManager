@@ -59,4 +59,8 @@
     <color name="tv_name_profile">#212121</color>
     <color name="tv_title_profile">#1abc9c</color>
     <color name="bg_view_profile">#bdbdbd</color>
+    <color name="red_normal">#e84e40</color>
+    <color name="red_press">#f36c60</color>
+    <color name="pik_progress">#26c6da</color>
+    <color name="complete">#00e5ff</color>
 </resources>

@@ -1,6 +1,5 @@
 package com.asiantech.membersmanager.activity;
 
-import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.os.Bundle;
 import android.os.Handler;
@@ -16,12 +15,15 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 import com.asiantech.membersmanager.MainActivity_;
 import com.asiantech.membersmanager.R;
 import com.asiantech.membersmanager.dialog.DialogForgotFragment;
 import com.asiantech.membersmanager.dialog.DialogForgotFragment_;
+import com.asiantech.membersmanager.utils.ProgressGenerator;
 import com.asiantech.membersmanager.utils.SoftKeyboardStateWatcher;
+import com.dd.processbutton.iml.ActionProcessButton;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Click;
@@ -38,11 +40,11 @@ import java.util.TimerTask;
  * Created by VinhHlb on 10/5/15.
  */
 @EActivity(R.layout.login_activity)
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity implements ProgressGenerator.OnCompleteListener {
     private Handler mHandler;
     private Handler mHandlerShowLogo;
     private Runnable mRunable;
-
+    private ProgressGenerator mProgressGenerator;
     @AnimationRes(R.anim.translate_left)
     Animation mAnimLeft;
 
@@ -71,13 +73,13 @@ public class LoginActivity extends AppCompatActivity {
     Button mBtnForgot;
 
     @ViewById(R.id.etEmailSignIn)
-    EditText mEtEmailSignIn;
+    EditText mEdtEmailSignIn;
 
     @ViewById(R.id.etPasswordSignIn)
-    EditText mEtPasswordSignIn;
+    EditText mEdtPasswordSignIn;
 
     @ViewById(R.id.btnSignIn)
-    Button mBtnSignIn;
+    ActionProcessButton mBtnSignIn;
 
     @ViewById(R.id.llEmail)
     LinearLayout mLlEmail;
@@ -114,16 +116,16 @@ public class LoginActivity extends AppCompatActivity {
                 = new SoftKeyboardStateWatcher(findViewById(R.id.login_activity));
         softKeyboardStateWatcher.addSoftKeyboardStateListener(
                 new SoftKeyboardStateWatcher.SoftKeyboardStateListener() {
-            @Override
-            public void onSoftKeyboardOpened(int keyboardHeightInPx) {
-                setMarginWhenShow(true);
-            }
+                    @Override
+                    public void onSoftKeyboardOpened(int keyboardHeightInPx) {
+                        setMarginWhenShow(true);
+                    }
 
-            @Override
-            public void onSoftKeyboardClosed() {
-                setMarginWhenShow(false);
-            }
-        });
+                    @Override
+                    public void onSoftKeyboardClosed() {
+                        setMarginWhenShow(false);
+                    }
+                });
     }
 
     private void setMarginWhenShow(boolean isShow) {
@@ -211,9 +213,11 @@ public class LoginActivity extends AppCompatActivity {
 
     @Click(R.id.btnSignIn)
     void clickSignIn() {
-        MainActivity_.intent(LoginActivity.this).start();
-        overridePendingTransition(R.anim.trans_left_in, R.anim.trans_left_out);
-        finish();
+        mProgressGenerator = new ProgressGenerator(this, mEdtEmailSignIn.getText().toString().trim());
+        mProgressGenerator.start(mBtnSignIn);
+        mBtnSignIn.setEnabled(false);
+        mEdtEmailSignIn.setEnabled(false);
+        mEdtPasswordSignIn.setEnabled(false);
     }
 
     @Click(R.id.btnForgot)
@@ -250,4 +254,20 @@ public class LoginActivity extends AppCompatActivity {
             return false;
         }
     };
+
+    @Override
+    public void onComplete() {
+        MainActivity_.intent(LoginActivity.this).start();
+        overridePendingTransition(R.anim.trans_left_in, R.anim.trans_left_out);
+        finish();
+    }
+
+    @Override
+    public void onFail() {
+        mBtnSignIn.setEnabled(true);
+        mEdtEmailSignIn.setEnabled(true);
+        mEdtPasswordSignIn.setEnabled(true);
+        Toast.makeText(LoginActivity.this, "Id or Password not correct! "
+                , Toast.LENGTH_SHORT).show();
+    }
 }

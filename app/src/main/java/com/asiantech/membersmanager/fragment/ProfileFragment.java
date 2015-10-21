@@ -197,7 +197,6 @@ public class ProfileFragment extends BaseFragment implements OnDateSetListener {
     }
 
     private void showDialogChooseDay() {
-
         if (!mDatePickerDialog.isHidden()) {
             mDatePickerDialog.show(getActivity().getFragmentManager(), "Datepickerdialog_birthday");
         }
