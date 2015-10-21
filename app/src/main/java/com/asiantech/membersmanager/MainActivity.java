@@ -78,9 +78,6 @@ public class MainActivity extends AppCompatActivity implements DrawerFragment
 
         mMainActivity = (MainActivity_) this;
         setSupportActionBar(mToolBar);
-        if (getSupportActionBar() != null) {
-            getSupportActionBar().setDisplayHomeAsUpEnabled(false);
-        }
         initView();
         initListener();
         setDefaultFragment();
@@ -212,6 +209,18 @@ public class MainActivity extends AppCompatActivity implements DrawerFragment
     public void setTypeHeader(int type) {
         switch (type) {
             case TYPE_BACK:
+                mImgLeft.setVisibility(View.GONE);
+                mtvNumDelete.setVisibility(View.GONE);
+                mImgRight.setVisibility(View.GONE);
+                imgFavoriteToolBar.setVisibility(View.GONE);
+                mTvTItle.setVisibility(View.VISIBLE);
+                getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+                mToolBar.setNavigationOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        onBackPressed();
+                    }
+                });
                 break;
             case TYPE_CLOSE:
                 break;
@@ -237,7 +246,6 @@ public class MainActivity extends AppCompatActivity implements DrawerFragment
                 mImgRight.setImageResource(R.drawable.ic_done_white);
                 break;
             case TYPE_DETAILS:
-                //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
                 mImgLeft.setVisibility(View.GONE);
                 mImgRight.setVisibility(View.GONE);
                 mTvTItle.setVisibility(View.VISIBLE);
@@ -246,9 +254,23 @@ public class MainActivity extends AppCompatActivity implements DrawerFragment
 
                 if (mContent instanceof NotificationDetailFragment_) {
                     mCheckFavorite = ((NotificationDetailFragment_) mContent).checkFavorite();
+                    getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+                    mToolBar.setNavigationOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            onBackPressed();
+                        }
+                    });
                 }
                 if (mContent instanceof DetailHotNotificationFragment_) {
                     mCheckFavorite = ((DetailHotNotificationFragment_) mContent).checkFavorite();
+                    getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+                    mToolBar.setNavigationOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            onBackPressed();
+                        }
+                    });
                 }
 
                 if (mCheckFavorite) {
@@ -281,6 +303,8 @@ public class MainActivity extends AppCompatActivity implements DrawerFragment
                 mTvTItle.setVisibility(View.VISIBLE);
                 break;
             case TYPE_HOME:
+                getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+                initView();
                 mImgLeft.setVisibility(View.GONE);
                 mtvNumDelete.setVisibility(View.GONE);
                 mImgRight.setVisibility(View.GONE);
