@@ -2,6 +2,7 @@ package com.asiantech.membersmanager.adapter;
 
 import android.content.Context;
 import android.os.SystemClock;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -65,8 +66,8 @@ public class FavoriteAdapter extends RecyclerSwipeAdapter<FavoriteAdapter.ViewHo
                     .getResources().getColor(R.color.white));
         } else {
             holder.imgAvataOne.setImageResource(R.drawable.ic_checked);
-            holder.swipeLayout.setBackgroundDrawable(mContext
-                    .getResources().getDrawable(R.drawable.shadow_view));
+            holder.swipeLayout.setBackground(ContextCompat
+                    .getDrawable(mContext, R.drawable.shadow_view));
         }
         holder.tvSender.setText(mArraylists.get(position).getMSender());
         holder.tvTittle.setText(mArraylists.get(position).getMTittle());
