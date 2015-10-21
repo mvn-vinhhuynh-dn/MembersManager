@@ -133,7 +133,6 @@ public class MainActivity extends AppCompatActivity implements DrawerFragment
                 mDrawerFragment.isPosClick(4);
                 break;
             case 5:
-                //TOdo Logout function
                 LoginActivity_.intent(MainActivity.this).start();
                 finish();
                 break;
@@ -212,13 +211,15 @@ public class MainActivity extends AppCompatActivity implements DrawerFragment
                 mImgRight.setVisibility(View.GONE);
                 imgFavoriteToolBar.setVisibility(View.GONE);
                 mTvTItle.setVisibility(View.VISIBLE);
-                getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-                mToolBar.setNavigationOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        onBackPressed();
-                    }
-                });
+                if (getSupportActionBar() != null) {
+                    getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+                    mToolBar.setNavigationOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            onBackPressed();
+                        }
+                    });
+                }
                 break;
             case TYPE_CLOSE:
                 break;
@@ -250,23 +251,27 @@ public class MainActivity extends AppCompatActivity implements DrawerFragment
 
                 if (mContent instanceof NotificationDetailFragment_) {
                     mCheckFavorite = ((NotificationDetailFragment_) mContent).checkFavorite();
-                    getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-                    mToolBar.setNavigationOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            onBackPressed();
-                        }
-                    });
+                    if (getSupportActionBar() != null) {
+                        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+                        mToolBar.setNavigationOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                onBackPressed();
+                            }
+                        });
+                    }
                 }
                 if (mContent instanceof DetailHotNotificationFragment_) {
                     mCheckFavorite = ((DetailHotNotificationFragment_) mContent).checkFavorite();
-                    getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-                    mToolBar.setNavigationOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            onBackPressed();
-                        }
-                    });
+                    if (getSupportActionBar() != null) {
+                        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+                        mToolBar.setNavigationOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                onBackPressed();
+                            }
+                        });
+                    }
                 }
 
                 if (mCheckFavorite) {
@@ -299,7 +304,9 @@ public class MainActivity extends AppCompatActivity implements DrawerFragment
                 mTvTItle.setVisibility(View.VISIBLE);
                 break;
             case TYPE_HOME:
-                getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+                if (getSupportActionBar() != null) {
+                    getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+                }
                 initView();
                 mImgLeft.setVisibility(View.GONE);
                 mtvNumDelete.setVisibility(View.GONE);
@@ -312,7 +319,7 @@ public class MainActivity extends AppCompatActivity implements DrawerFragment
 
     @Override
     public void updateTvRight(int num) {
-        mtvNumDelete.setText("" + num);
+        mtvNumDelete.setText(String.valueOf(num));
     }
 
     // Change fragment with animation
@@ -357,7 +364,6 @@ public class MainActivity extends AppCompatActivity implements DrawerFragment
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        // TODO Auto-generated method stub
         if (mContent instanceof ProfileFragment_) {
             switch (requestCode) {
                 case DialogChooseImage.SELECT_PHOTO:

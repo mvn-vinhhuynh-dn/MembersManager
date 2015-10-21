@@ -5,7 +5,7 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.util.Log;
+import android.support.v4.content.ContextCompat;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -112,11 +112,11 @@ public class ProfileFragment extends BaseFragment implements OnDateSetListener {
     }
 
     private void reloadData() {
-        //TOdo reloadata
+        //Work with api
     }
 
     private void postData() {
-        //TOdo postdata
+        //Work with api
     }
 
     private void updateViewEdit() {
@@ -147,8 +147,7 @@ public class ProfileFragment extends BaseFragment implements OnDateSetListener {
         mDatePickerDialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
             @Override
             public void onCancel(DialogInterface dialogInterface) {
-                setDefaultBackgroud(mEdtDob);
-                Log.d("vvvv", "cancel");
+                setDefaultBackGround(mEdtDob);
             }
         });
     }
@@ -171,14 +170,14 @@ public class ProfileFragment extends BaseFragment implements OnDateSetListener {
 
     }
 
-    private void setFocusBackgroud(EditText editText) {
-        editText.setBackgroundDrawable(getResources()
-                .getDrawable(R.drawable.bg_edit_text_register_focus));
+    private void setFocusBackGroud(EditText editText) {
+        editText.setBackground(ContextCompat
+                .getDrawable(mContext, R.drawable.bg_edit_text_register_focus));
     }
 
-    private void setDefaultBackgroud(EditText editText) {
-        editText.setBackgroundDrawable(getResources()
-                .getDrawable(R.drawable.bg_edt_edit_profile));
+    private void setDefaultBackGround(EditText editText) {
+        editText.setBackground(ContextCompat
+                .getDrawable(mContext, R.drawable.bg_edt_edit_profile));
     }
 
     @Click(R.id.img_profile_edit)
@@ -195,16 +194,14 @@ public class ProfileFragment extends BaseFragment implements OnDateSetListener {
                 now.get(Calendar.DAY_OF_MONTH)
 
         );
-        mDatePickerDialog.setMinDate(now);
     }
 
     private void showDialogChooseDay() {
 
         if (!mDatePickerDialog.isHidden()) {
-            Log.d("vvvvv", "show dialog");
             mDatePickerDialog.show(getActivity().getFragmentManager(), "Datepickerdialog_birthday");
         }
-        setFocusBackgroud(mEdtDob);
+        setFocusBackGroud(mEdtDob);
     }
 
     @Click(R.id.edt_dob_profile)
@@ -218,10 +215,10 @@ public class ProfileFragment extends BaseFragment implements OnDateSetListener {
         if (hasFocus) {
             switch (hello.getId()) {
                 case R.id.edt_name_profile:
-                    setFocusBackgroud(mEdtName);
+                    setFocusBackGroud(mEdtName);
                     break;
                 case R.id.edt_phone_profile:
-                    setFocusBackgroud(mEdtPhoneNum);
+                    setFocusBackGroud(mEdtPhoneNum);
                     break;
                 case R.id.edt_dob_profile:
                     showDialogChooseDay();
@@ -230,13 +227,13 @@ public class ProfileFragment extends BaseFragment implements OnDateSetListener {
         } else {
             switch (hello.getId()) {
                 case R.id.edt_name_profile:
-                    setDefaultBackgroud(mEdtName);
+                    setDefaultBackGround(mEdtName);
                     break;
                 case R.id.edt_phone_profile:
-                    setDefaultBackgroud(mEdtPhoneNum);
+                    setDefaultBackGround(mEdtPhoneNum);
                     break;
                 case R.id.edt_dob_profile:
-                    setDefaultBackgroud(mEdtDob);
+                    setDefaultBackGround(mEdtDob);
                     break;
             }
         }
@@ -260,6 +257,6 @@ public class ProfileFragment extends BaseFragment implements OnDateSetListener {
     public void onDateSet(DatePickerDialog view, int year, int monthOfYear, int dayOfMonth) {
         String date = dayOfMonth + "/" + (++monthOfYear) + "/" + year;
         mEdtDob.setText(date);
-        setDefaultBackgroud(mEdtDob);
+        setDefaultBackGround(mEdtDob);
     }
 }

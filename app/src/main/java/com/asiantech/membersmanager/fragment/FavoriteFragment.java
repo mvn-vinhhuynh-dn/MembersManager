@@ -104,38 +104,7 @@ public class FavoriteFragment extends BaseFragment implements CallDetailItem, Ca
             notification3.setMContent("Đã có lúc anh mong tim mình bé lại " +
                     "Để nỗi nhớ em không thể nào thêm nữa" +
                     "Đã có lúc anh mong ngừng thời gian trôi " +
-                    "Để những dấu yêu sẽ không phai mờ" +
-                    "" +
-                    "Nếu không hát lên nặng lòng da diết" +
-                    "Nếu không nói ra làm sao biết" +
-                    "Anh thương em" +
-                    "Anh sẽ nói em nghe những điều chưa bao giờ\n" +
-                    "\n" +
-                    "Bình minh khuất lấp sau màn đêm như nỗi lòng anh\n" +
-                    "Chất chứa lâu nay em đâu nào hay biết\n" +
-                    "Hoàng hôn tắt nắng hay vì anh không hiểu được em\n" +
-                    "Dập tan bao yêu dấu lụi tàn\n" +
-                    "\n" +
-                    "Cất tiếng hát nghe sao lòng nhẹ cơn sầu\n" +
-                    "Dẫu có chút vương, chút ân tình chôn giấu\n" +
-                    "Đếm những nhớ thương thầm lặng trên tay\n" +
-                    "Nghe sao buốt thêm, ướt đôi vai gầy.\n" +
-                    "\n" +
-                    "Nếu không hát lên nặng lòng da diết\n" +
-                    "Nếu không nói ra làm sao biết\n" +
-                    "Anh thương em\n" +
-                    "Anh sẽ nói em nghe những điều chưa bao giờ\n" +
-                    "\n" +
-                    "Bình minh khuất lấp sau màn đêm như nỗi lòng anh\n" +
-                    "Chất chứa lâu nay em đâu nào hay biết\n" +
-                    "Hoàng hôn tắt nắng hay vì anh không hiểu được em\n" +
-                    "Dập tan bao yêu dấu lụi tàn\n" +
-                    "\n" +
-                    "Vì anh câm nín chôn sâu yêu thương anh trao đến em,\n" +
-                    "Lặng nhìn em lướt qua bên đời.\n" +
-                    "Một mai ai biết cơn mê đưa em vào vòng tay mới.\n" +
-                    "Anh sẽ chờ phía sau giấc mơ của em\n" +
-                    "Anh sẽ chờ để nói những điều chưa bao giờ");
+                    "Để những dấu yêu sẽ không phai mờ");
             notification3.setMSender("Le Thai Son");
             notification3.setMTittle("Thong bao hop khan cap---" + i);
             notification3.setMTime("14:32 PM, 06/10");
