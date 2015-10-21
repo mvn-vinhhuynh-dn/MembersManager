@@ -10,7 +10,6 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -177,7 +176,6 @@ public class MainActivity extends AppCompatActivity implements DrawerFragment
         } else if (mContent instanceof VacationDayFragment_) {
             ((VacationDayFragment_) mContent).clickSentMail();
         } else if (mContent instanceof FavoriteFragment_) {
-            Log.d("vvvv", "onEdit");
             ((FavoriteFragment_) mContent).onDelete();
         }
     }
@@ -216,7 +214,6 @@ public class MainActivity extends AppCompatActivity implements DrawerFragment
             case TYPE_CLOSE:
                 break;
             case TYPE_EDIT:
-                Log.d("vvvv", "EDIT");
                 mImgLeft.setVisibility(View.GONE);
                 mImgRight.setVisibility(View.VISIBLE);
                 mTvTItle.setVisibility(View.VISIBLE);
@@ -228,7 +225,6 @@ public class MainActivity extends AppCompatActivity implements DrawerFragment
             case TYPE_SETTING:
                 break;
             case TYPE_DONE:
-                Log.d("vvvv", "DONE");
                 mImgLeft.setVisibility(View.GONE);
                 mImgRight.setVisibility(View.VISIBLE);
                 mtvNumDelete.setVisibility(View.GONE);
