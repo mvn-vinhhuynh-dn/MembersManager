@@ -1,4 +1,4 @@
-package com.asiantech.membersmanager.utils;
+package com.asiantech.membersmanager.animations;
 
 import android.view.animation.Animation;
 import android.widget.ImageView;

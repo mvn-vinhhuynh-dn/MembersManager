@@ -1,4 +1,4 @@
-package com.asiantech.membersmanager.utils;
+package com.asiantech.membersmanager.animations;
 
 import android.graphics.Camera;
 import android.graphics.Matrix;

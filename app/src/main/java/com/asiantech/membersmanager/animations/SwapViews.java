@@ -1,4 +1,4 @@
-package com.asiantech.membersmanager.utils;
+package com.asiantech.membersmanager.animations;
 
 import android.view.View;
 import android.view.animation.DecelerateInterpolator;
