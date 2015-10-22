@@ -24,7 +24,7 @@ public class App extends Application {
         Resources res = getResources();
         DisplayMetrics dm = res.getDisplayMetrics();
         Configuration conf = res.getConfiguration();
-        conf.locale = new Locale("ja");
+        conf.locale = new Locale("vn");
         res.updateConfiguration(conf, dm);
 
         ApiConfig apiConfig = ApiConfig.builder(getApplicationContext())

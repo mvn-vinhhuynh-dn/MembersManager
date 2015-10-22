@@ -70,12 +70,9 @@ public class MainActivity extends AppCompatActivity implements DrawerFragment
     TextView mtvNumDelete;
     private Boolean mCheckFavorite;
     private Fragment mContent;
-    public static MainActivity_ mMainActivity;
 
     @AfterViews
     public void afterViews() {
-
-        mMainActivity = (MainActivity_) this;
         setSupportActionBar(mToolBar);
         initView();
         initListener();
