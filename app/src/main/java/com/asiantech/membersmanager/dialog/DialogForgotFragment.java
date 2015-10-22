@@ -1,7 +1,7 @@
 package com.asiantech.membersmanager.dialog;
 
 import android.support.v4.app.DialogFragment;
-import android.view.View;
+import android.support.v4.content.ContextCompat;
 import android.view.Window;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -39,13 +39,13 @@ public class DialogForgotFragment extends DialogFragment {
     }
 
     @FocusChange({R.id.etEmailForgot})
-    void focusEdtEmail(View hello, boolean hasFocus) {
+    void focusEdtEmail( boolean hasFocus) {
         if (hasFocus) {
-            mlnEmail.setBackgroundDrawable(getResources()
-                    .getDrawable(R.drawable.bg_edit_text_register_focus));
+            mlnEmail.setBackground(ContextCompat
+                    .getDrawable(getActivity(), R.drawable.bg_edit_text_register_focus));
         } else {
-            mlnEmail.setBackground(getResources()
-                    .getDrawable(R.drawable.bg_edit_text_normal));
+            mlnEmail.setBackground(ContextCompat
+                    .getDrawable(getActivity(), R.drawable.bg_edit_text_normal));
         }
     }
 

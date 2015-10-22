@@ -6,6 +6,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.animation.Animation;
@@ -44,7 +45,6 @@ public class LoginActivity extends AppCompatActivity implements ProgressGenerato
     private Handler mHandler;
     private Handler mHandlerShowLogo;
     private Runnable mRunable;
-    private ProgressGenerator mProgressGenerator;
     @AnimationRes(R.anim.translate_left)
     Animation mAnimLeft;
 
@@ -148,8 +148,8 @@ public class LoginActivity extends AppCompatActivity implements ProgressGenerato
         if (mHandlerShowLogo != null && mRunable != null) {
             mHandlerShowLogo.removeCallbacks(mRunable);
         }
-        ColorStateList colorStateList = getResources()
-                .getColorStateList(R.color.button_signup_forgot);
+        ColorStateList colorStateList = ContextCompat
+                .getColorStateList(LoginActivity.this, R.color.button_signup_forgot);
         mBtnForgot.setTextColor(colorStateList);
         mImgAsian.startAnimation(mAnimLeft);
         mImgTech.startAnimation(mAnimRight);
@@ -190,30 +190,30 @@ public class LoginActivity extends AppCompatActivity implements ProgressGenerato
     }
 
     @FocusChange({R.id.etEmailSignIn})
-    void focusChangedEdtEmail(View hello, boolean hasFocus) {
+    void focusChangedEdtEmail(boolean hasFocus) {
         if (hasFocus) {
-            mLlEmail.setBackgroundDrawable(getResources()
-                    .getDrawable(R.drawable.bg_edit_text_focus));
+            mLlEmail.setBackground(ContextCompat
+                    .getDrawable(LoginActivity.this, R.drawable.bg_edit_text_focus));
         } else {
-            mLlEmail.setBackground(getResources()
-                    .getDrawable(R.drawable.bg_edit_text_normal));
+            mLlEmail.setBackground(ContextCompat
+                    .getDrawable(LoginActivity.this, R.drawable.bg_edit_text_normal));
         }
     }
 
     @FocusChange({R.id.etPasswordSignIn})
-    void focusChangedEdtPass(View hello, boolean hasFocus) {
+    void focusChangedEdtPass(boolean hasFocus) {
         if (hasFocus) {
-            mLlPassword.setBackgroundDrawable(getResources()
-                    .getDrawable(R.drawable.bg_edit_text_focus));
+            mLlPassword.setBackground(ContextCompat
+                    .getDrawable(LoginActivity.this, R.drawable.bg_edit_text_focus));
         } else {
-            mLlPassword.setBackground(getResources()
-                    .getDrawable(R.drawable.bg_edit_text_normal));
+            mLlPassword.setBackground(ContextCompat
+                    .getDrawable(LoginActivity.this, R.drawable.bg_edit_text_normal));
         }
     }
 
     @Click(R.id.btnSignIn)
     void clickSignIn() {
-        mProgressGenerator = new ProgressGenerator(this, mEdtEmailSignIn.getText().toString().trim());
+        ProgressGenerator mProgressGenerator = new ProgressGenerator(this, mEdtEmailSignIn.getText().toString().trim());
         mProgressGenerator.start(mBtnSignIn);
         mBtnSignIn.setEnabled(false);
         mEdtEmailSignIn.setEnabled(false);

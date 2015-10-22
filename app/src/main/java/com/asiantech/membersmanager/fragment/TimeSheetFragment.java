@@ -1,5 +1,6 @@
 package com.asiantech.membersmanager.fragment;
 
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
@@ -27,7 +28,6 @@ import jp.wasabeef.recyclerview.animators.adapters.ScaleInAnimationAdapter;
 @EFragment(R.layout.fragment_timesheet)
 public class TimeSheetFragment extends BaseFragment implements CallDetailItem {
     private ArrayList<Notification> mListNotifications = new ArrayList<>();
-    private TimeSheetAdapter mAdapter;
 
     @ViewById(R.id.recycler_timeSheet)
     RecyclerView mRecycleTimeSheet;
@@ -51,9 +51,9 @@ public class TimeSheetFragment extends BaseFragment implements CallDetailItem {
     }
 
     private void setAdapter() {
-        mAdapter = new TimeSheetAdapter(mListNotifications, getActivity(), this);
-        mRecycleTimeSheet.addItemDecoration(new DividerItemDecoration(getResources()
-                .getDrawable(R.drawable.divider)));
+        TimeSheetAdapter mAdapter = new TimeSheetAdapter(mListNotifications, getActivity(), this);
+        mRecycleTimeSheet.addItemDecoration(new DividerItemDecoration(ContextCompat
+                .getDrawable(getActivity(),R.drawable.divider)));
         // Add animation
         AlphaInAnimationAdapter alphaAdapter = new AlphaInAnimationAdapter(mAdapter);
         ScaleInAnimationAdapter scaleAdapter = new ScaleInAnimationAdapter(alphaAdapter);
