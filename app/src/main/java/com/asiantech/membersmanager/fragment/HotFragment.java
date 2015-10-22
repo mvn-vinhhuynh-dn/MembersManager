@@ -1,6 +1,7 @@
 package com.asiantech.membersmanager.fragment;
 
 import android.os.Handler;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -35,8 +36,6 @@ public class HotFragment extends BaseFragment implements CallDetailItem {
     @ViewById(R.id.swipeRefreshLayoutHot)
     SwipeRefreshLayout mSwipeRefreshLayoutHot;
 
-    private HotNotificationAdapter mAdapter;
-    private LinearLayoutManager mLinearLayoutManager;
     private ScaleInAnimationAdapter mScaleAdapter;
     @FragmentArg
     ArrayList<Notification> mNotifications;
@@ -51,14 +50,14 @@ public class HotFragment extends BaseFragment implements CallDetailItem {
     private void initView() {
         mSwipeRefreshLayoutHot.setColorSchemeResources(R.color.colorPrimary);
         // Config recycleView
-        mLinearLayoutManager = new LinearLayoutManager(getActivity());
+        LinearLayoutManager mLinearLayoutManager = new LinearLayoutManager(getActivity());
         mRecyclerHot.setLayoutManager(mLinearLayoutManager);
-        mRecyclerHot.addItemDecoration(new DividerItemDecoration(getResources()
-                .getDrawable(R.drawable.divider)));
+        mRecyclerHot.addItemDecoration(new DividerItemDecoration(ContextCompat
+                .getDrawable(getActivity(), R.drawable.divider)));
     }
 
     private void setAdapter() {
-        mAdapter = new HotNotificationAdapter(getActivity(), mNotifications, this);
+        HotNotificationAdapter mAdapter = new HotNotificationAdapter(getActivity(), mNotifications, this);
         // Add animation
         AlphaInAnimationAdapter alphaAdapter = new AlphaInAnimationAdapter(mAdapter);
         mScaleAdapter = new ScaleInAnimationAdapter(alphaAdapter);
@@ -114,9 +113,9 @@ public class HotFragment extends BaseFragment implements CallDetailItem {
         mNotifications.get(position).setIsRead(true);
         DetailHotNotificationFragment detailHotNotificationFragment =
                 DetailHotNotificationFragment_.builder()
-                .mNotifications(arrayList)
-                .mPosition(position)
-                .build();
+                        .mNotifications(arrayList)
+                        .mPosition(position)
+                        .build();
         replaceFragment(detailHotNotificationFragment, false);
     }
 }

@@ -2,6 +2,7 @@ package com.asiantech.membersmanager.fragment;
 
 
 import android.os.Handler;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -64,8 +65,8 @@ public class FavoriteFragment extends BaseFragment implements CallDetailItem, Ca
         mAdapter = new FavoriteAdapter(getActivity(), mArraylistsTam, this, this, this);
         recyclerFavorite.setLayoutManager(new LinearLayoutManager(getActivity()
                 .getBaseContext()));
-        recyclerFavorite.addItemDecoration(new DividerItemDecoration(getResources()
-                .getDrawable(R.drawable.divider)));
+        recyclerFavorite.addItemDecoration(new DividerItemDecoration(ContextCompat
+                .getDrawable(getActivity(),R.drawable.divider)));
 
         // Add animation
         AlphaInAnimationAdapter alphaAdapter = new AlphaInAnimationAdapter(mAdapter);

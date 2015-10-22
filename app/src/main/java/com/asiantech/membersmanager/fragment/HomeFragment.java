@@ -1,6 +1,7 @@
 package com.asiantech.membersmanager.fragment;
 
 import android.os.Handler;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -76,8 +77,8 @@ public class HomeFragment extends BaseFragment implements CallDetailItem {
         // Config recycleview
         mLinearLayoutManager = new LinearLayoutManager(getActivity());
         mRecycleHome.setLayoutManager(mLinearLayoutManager);
-        mRecycleHome.addItemDecoration(new DividerItemDecoration(getResources()
-                .getDrawable(R.drawable.divider)));
+        mRecycleHome.addItemDecoration(new DividerItemDecoration(ContextCompat
+                .getDrawable(getActivity(),R.drawable.divider)));
         // Add animation
         AlphaInAnimationAdapter alphaAdapter = new AlphaInAnimationAdapter(mAdapter);
         ScaleInAnimationAdapter scaleAdapter = new ScaleInAnimationAdapter(alphaAdapter);
@@ -136,8 +137,8 @@ public class HomeFragment extends BaseFragment implements CallDetailItem {
                 tvTittleHeader.setText(mArraylistsHeader.get(i).getMTittle());
                 tvTimeHeader.setText(mArraylistsHeader.get(i).getMTime());
                 tvContentHeader.setText(mArraylistsHeader.get(i).getMContent());
-                swipeHeader.setBackgroundDrawable(mContext
-                        .getResources().getDrawable(R.drawable.shadow_view));
+                swipeHeader.setBackground(ContextCompat
+                        .getDrawable(getActivity(), R.drawable.shadow_view));
                 break;
             }
         }
@@ -152,8 +153,8 @@ public class HomeFragment extends BaseFragment implements CallDetailItem {
             tvTittleHeader.setText(mArraylistsHeader.get(0).getMTittle());
             tvTimeHeader.setText(mArraylistsHeader.get(0).getMTime());
             tvContentHeader.setText(mArraylistsHeader.get(0).getMContent());
-            swipeHeader.setBackgroundColor(mContext
-                    .getResources().getColor(R.color.white));
+            swipeHeader.setBackgroundColor(ContextCompat
+                    .getColor(getActivity(), R.color.white));
         }
         tvSumRead.setText("Còn " + sumRead + " tin...");
     }

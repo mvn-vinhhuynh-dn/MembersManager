@@ -92,9 +92,9 @@ public class DrawerFragment extends BaseFragment {
     public static List<NavigationDrawerItem> getData() {
         List<NavigationDrawerItem> data = new ArrayList<>();
         // preparing navigation drawer items
-        for (int i = 0; i < mTitles.length; i++) {
+        for (String mTitle : mTitles) {
             NavigationDrawerItem navItem = new NavigationDrawerItem();
-            navItem.setTitle(mTitles[i]);
+            navItem.setTitle(mTitle);
             data.add(navItem);
         }
         return data;

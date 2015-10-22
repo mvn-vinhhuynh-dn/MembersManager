@@ -60,7 +60,7 @@ public class VacationDayFragment extends BaseFragment implements OnDateSetListen
     }
 
     @CheckedChange(R.id.cbDifferentReson)
-    void checkedChangedCheckBox(CompoundButton hello, boolean isChecked) {
+    void checkedChangedCheckBox( boolean isChecked) {
         if (isChecked) {
             mEdtDifferentReason.setVisibility(View.VISIBLE);
         } else {
