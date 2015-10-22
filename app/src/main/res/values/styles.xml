@@ -144,14 +144,14 @@
     </style>
 
     <style name="img_info_profile">
-        <item name="android:contentDescription">""</item>
+        <item name="android:contentDescription">@string/app_name</item>
         <item name="android:layout_marginLeft">@dimen/linearlayout.padding.10dp</item>
         <item name="android:layout_height">@dimen/linearlayout.padding.30dp</item>
         <item name="android:layout_width">@dimen/linearlayout.padding.30dp</item>
     </style>
 
     <style name="tv_title_profile">
-        <item name="android:textColor">@color/bg_view_profile</item>
+        <item name="android:textColor">@color/tv_profile</item>
         <item name="android:layout_width">wrap_content</item>'
         <item name="android:gravity">center</item>
         <item name="android:textSize">@dimen/button.textsize.18sp</item>
@@ -170,7 +170,7 @@
     <style name="view_profile_show_info">
         <item name="android:background">@color/bg_view_profile</item>
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">2dp</item>
+        <item name="android:layout_height">1dp</item>
         <item name="android:layout_marginBottom">@dimen/linearlayout.padding.10dp</item>
         <item name="android:layout_marginTop">@dimen/linearlayout.padding.10dp</item>
     </style>

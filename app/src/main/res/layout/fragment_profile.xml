@@ -32,6 +32,7 @@
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
                 android:layout_marginTop="@dimen/ln.padding10"
+                android:contentDescription="@string/app_name"
                 android:src="@drawable/ic_edit_photo"
                 android:visibility="gone" />
         </RelativeLayout>
@@ -46,13 +47,51 @@
             android:textSize="@dimen/button.textsize.16sp"
             android:textStyle="bold" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:drawableLeft="@drawable/ic_marker"
-            android:text="Vancouver, BC Canada"
-            android:textSize="@dimen/text.size.12sp" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/edt_address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:background="@drawable/bg_edt_edit_profile_normal"
+                android:ellipsize="end"
+                android:inputType="text"
+                android:paddingBottom="@dimen/linearlayout.marginbottom.2dp"
+                android:paddingLeft="@dimen/linearlayout.marginbottom.5dp"
+                android:paddingRight="@dimen/linearlayout.marginbottom.5dp"
+                android:paddingTop="@dimen/linearlayout.marginbottom.2dp"
+                android:selectAllOnFocus="true"
+                android:singleLine="true"
+                android:text="Vancouver, BC Canada"
+                android:textColor="@color/mdtp_dark_gray"
+                android:textSize="@dimen/text.size.12sp"
+                android:visibility="gone">
+
+                <requestFocus />
+
+            </EditText>
+
+            <TextView
+                android:id="@+id/tv_address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:paddingLeft="@dimen/linearlayout.marginbottom.5dp"
+                android:text="Vancouver, BC Canada"
+                android:textSize="@dimen/text.size.12sp"
+                android:visibility="visible" />
+
+            <ImageView
+                android:id="@+id/img_location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_toLeftOf="@+id/tv_address"
+                android:src="@drawable/ic_marker" />
+        </RelativeLayout>
 
         <View style="@style/view_profile_show_info" />
 
@@ -67,7 +106,7 @@
 
             <TextView
                 style="@style/tv_title_profile"
-                android:text="Name" />
+                android:text="@string/name" />
         </LinearLayout>
 
         <RelativeLayout style="@style/rl_info_profile">
@@ -75,10 +114,7 @@
             <EditText
                 android:id="@+id/edt_name_profile"
                 style="@style/edt_edit_profile"
-                android:visibility="gone">
-
-                <requestFocus />
-            </EditText>
+                android:visibility="gone" />
 
             <TextView
                 android:id="@+id/tv_name_profile"
@@ -100,7 +136,7 @@
 
             <TextView
                 style="@style/tv_title_profile"
-                android:text="BirthDay" />
+                android:text="@string/birthday" />
         </LinearLayout>
 
         <RelativeLayout style="@style/rl_info_profile">
@@ -131,7 +167,7 @@
             <TextView
 
                 style="@style/tv_title_profile"
-                android:text="Phone" />
+                android:text="@string/phone_address" />
         </LinearLayout>
 
         <RelativeLayout style="@style/rl_info_profile">
@@ -162,7 +198,7 @@
 
             <TextView
                 style="@style/tv_title_profile"
-                android:text="Email" />
+                android:text="@string/mail_address" />
         </LinearLayout>
 
         <RelativeLayout style="@style/rl_info_profile">
@@ -192,7 +228,7 @@
 
             <TextView
                 style="@style/tv_title_profile"
-                android:text="Position" />
+                android:text="@string/position" />
         </LinearLayout>
 
         <RelativeLayout style="@style/rl_info_profile">
@@ -222,7 +258,7 @@
 
             <TextView
                 style="@style/tv_title_profile"
-                android:text="GitHub" />
+                android:text="@string/github_address" />
         </LinearLayout>
 
         <RelativeLayout style="@style/rl_info_profile">
@@ -252,7 +288,7 @@
 
             <TextView
                 style="@style/tv_title_profile"
-                android:text="Skype" />
+                android:text="@string/skype_address" />
         </LinearLayout>
 
         <RelativeLayout style="@style/rl_info_profile">
@@ -282,7 +318,7 @@
 
             <TextView
                 style="@style/tv_title_profile"
-                android:text="Num DayOff" />
+                android:text="@string/num_day_off" />
         </LinearLayout>
 
         <RelativeLayout style="@style/rl_info_profile">
@@ -298,5 +334,25 @@
                 android:text="10"
                 android:visibility="visible" />
         </RelativeLayout>
+
+        <View style="@style/view_profile_show_info" />
+
+        <LinearLayout
+            style="@style/tv_title"
+            android:layout_marginBottom="@dimen/textview.margintop.20dp"
+            android:gravity="bottom"
+            android:orientation="horizontal">
+
+            <ImageView
+                style="@style/img_info_profile"
+                android:src="@drawable/ic_change_pass" />
+
+            <TextView
+                android:id="@+id/tv_change_pass"
+                style="@style/tv_title_profile"
+                android:text="@string/change_pass" />
+        </LinearLayout>
+
     </LinearLayout>
+
 </ScrollView>
