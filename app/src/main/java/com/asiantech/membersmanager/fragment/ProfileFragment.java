@@ -14,6 +14,8 @@ import android.widget.TextView;
 import com.asiantech.membersmanager.MainActivity;
 import com.asiantech.membersmanager.R;
 import com.asiantech.membersmanager.abstracts.BaseFragment;
+import com.asiantech.membersmanager.dialog.ChangePassDialog;
+import com.asiantech.membersmanager.dialog.ChangePassDialog_;
 import com.asiantech.membersmanager.dialog.DialogChooseImage;
 import com.asiantech.membersmanager.dialog.DialogChooseImage_;
 import com.asiantech.membersmanager.views.CircleImageView;
@@ -39,11 +41,17 @@ public class ProfileFragment extends BaseFragment implements OnDateSetListener {
     @ViewById(R.id.tv_name_profile)
     TextView mtvName;
 
+    @ViewById(R.id.tv_change_pass)
+    TextView mtvChangePass;
+
     @ViewById(R.id.tv_day_off_profile)
     TextView mtvDayOff;
 
     @ViewById(R.id.tv_dob_profile)
     TextView mtvDob;
+
+    @ViewById(R.id.tv_address)
+    TextView mtvAddress;
 
     @ViewById(R.id.tv_git_profile)
     TextView mtvGitHub;
@@ -66,11 +74,17 @@ public class ProfileFragment extends BaseFragment implements OnDateSetListener {
     @ViewById(R.id.edt_phone_profile)
     EditText mEdtPhoneNum;
 
+    @ViewById(R.id.edt_address)
+    EditText mEdtAddress;
+
     @ViewById(R.id.img_avatar)
     CircleImageView mCirImgAvatar;
 
     @ViewById(R.id.img_profile_edit)
     ImageView mImgEditAvatar;
+
+    @ViewById(R.id.img_location)
+    ImageView mImgLocation;
 
     public boolean isEditing = false;
     private DatePickerDialog mDatePickerDialog;
@@ -121,10 +135,12 @@ public class ProfileFragment extends BaseFragment implements OnDateSetListener {
 
     private void updateViewEdit() {
         // Show views can edit
+        mEdtAddress.setVisibility(View.VISIBLE);
         mEdtName.setVisibility(View.VISIBLE);
         mEdtDob.setVisibility(View.VISIBLE);
         mEdtPhoneNum.setVisibility(View.VISIBLE);
         // Set text for edit text
+        mEdtAddress.setText(mtvAddress.getText());
         mEdtName.setText(mtvName.getText());
         mEdtDob.setText(mtvDob.getText());
         mEdtPhoneNum.setText(mtvPhoneNum.getText());
@@ -132,7 +148,9 @@ public class ProfileFragment extends BaseFragment implements OnDateSetListener {
         mtvDob.setText("");
         mtvPhoneNum.setText("");
         mtvName.setText("");
+        mtvAddress.setText("");
 
+        mImgLocation.setVisibility(View.GONE);
         mImgEditAvatar.setVisibility(View.VISIBLE);
     }
 
@@ -161,13 +179,14 @@ public class ProfileFragment extends BaseFragment implements OnDateSetListener {
         mEdtDob.setVisibility(View.GONE);
         mEdtPhoneNum.setVisibility(View.GONE);
         mEdtName.setVisibility(View.GONE);
+        mEdtAddress.setVisibility(View.GONE);
         // set new data
         mtvPhoneNum.setText(mEdtPhoneNum.getText());
         mtvName.setText(mEdtName.getText());
         mtvDob.setText(mEdtDob.getText());
-
+        mtvAddress.setText(mEdtAddress.getText());
+        mImgLocation.setVisibility(View.VISIBLE);
         mImgEditAvatar.setVisibility(View.GONE);
-
     }
 
     private void setFocusBackGroud(EditText editText) {
@@ -203,13 +222,25 @@ public class ProfileFragment extends BaseFragment implements OnDateSetListener {
         setFocusBackGroud(mEdtDob);
     }
 
+    private void showDialogChangePass() {
+        ChangePassDialog dialogRegister = new ChangePassDialog_();
+        FragmentManager fmChangePass = getActivity().getSupportFragmentManager();
+        FragmentTransaction ftForgot = fmChangePass.beginTransaction();
+        dialogRegister.show(ftForgot, "ChangePass Dialog");
+    }
+
     @Click(R.id.edt_dob_profile)
     void chooseBirthday() {
         showDialogChooseDay();
     }
 
-    @FocusChange({R.id.edt_phone_profile, R.id.edt_pos_profile, R.id.edt_name_profile,
-            R.id.edt_mail_profile, R.id.edt_git_profile, R.id.edt_dob_profile})
+    @Click(R.id.tv_change_pass)
+    void changePass() {
+        showDialogChangePass();
+    }
+
+    @FocusChange({R.id.edt_phone_profile, R.id.edt_name_profile,
+            R.id.edt_dob_profile, R.id.edt_address})
     void focusChangedEdtEmail(View hello, boolean hasFocus) {
         if (hasFocus) {
             switch (hello.getId()) {
@@ -222,6 +253,9 @@ public class ProfileFragment extends BaseFragment implements OnDateSetListener {
                 case R.id.edt_dob_profile:
                     showDialogChooseDay();
                     break;
+                case R.id.edt_address:
+                    setFocusBackGroud(mEdtAddress);
+                    break;
             }
         } else {
             switch (hello.getId()) {
@@ -233,6 +267,9 @@ public class ProfileFragment extends BaseFragment implements OnDateSetListener {
                     break;
                 case R.id.edt_dob_profile:
                     setDefaultBackGround(mEdtDob);
+                    break;
+                case R.id.edt_address:
+                    setDefaultBackGround(mEdtAddress);
                     break;
             }
         }

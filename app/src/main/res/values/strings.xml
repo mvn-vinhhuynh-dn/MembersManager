@@ -124,4 +124,17 @@
     <string name="title_activity_main2">Main2Activity</string>
     <string name="Success">Đăng nhập thành công</string>
     <string name="Loading">Đang đăng nhập</string>
+    <string name="change_pass">Đổi mật khẩu</string>
+    <string name="num_day_off">Số ngày nghỉ</string>
+    <string name="skype_address">Địa chỉ skype</string>
+    <string name="github_address">Địa chỉ github</string>
+    <string name="position">Chức vụ</string>
+    <string name="mail_address">Địa chỉ mail</string>
+    <string name="phone_address">Số điện thoại</string>
+    <string name="birthday">Ngày sinh</string>
+    <string name="name">Họ và tên</string>
+    <string name="old_pass">Mật khẩu cũ</string>
+    <string name="new_pass">Mật khẩu mới</string>
+    <string name="confirm_old_pass">Nhập lại mật khẩu mới</string>
+    <string name="confirm">Xác nhận</string>
 </resources>
