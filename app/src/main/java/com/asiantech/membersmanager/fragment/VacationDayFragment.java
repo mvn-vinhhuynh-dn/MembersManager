@@ -1,9 +1,9 @@
 package com.asiantech.membersmanager.fragment;
 
 import android.view.View;
-import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -31,7 +31,7 @@ import static com.wdullaer.materialdatetimepicker.date.DatePickerDialog.newInsta
 public class VacationDayFragment extends BaseFragment implements OnDateSetListener {
 
     @ViewById(R.id.cbDifferentReson)
-    CheckBox mCbChooseDifferentReason;
+    RadioButton mCbChooseDifferentReason;
 
     @ViewById(R.id.edtDifferentReason)
     EditText mEdtDifferentReason;

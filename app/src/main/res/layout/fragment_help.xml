@@ -2,12 +2,62 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_margin="@dimen/margin_16dp"
     android:orientation="vertical">
 
     <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Comments"
+        android:textColor="@color/color.black"
+        android:textSize="@dimen/textview.textsize.20sp" />
+
+    <EditText
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="HELP FEEDBACK"
-        android:textSize="30sp" />
+        android:layout_height="@dimen/height.300dp"
+        android:layout_marginTop="@dimen/imageview.marginbottom.10dp"
+        android:background="@drawable/bg_edit_text"
+        android:gravity="start"
+        android:inputType="text"
+        android:padding="@dimen/linearlayout.marginbottom.5dp"
+        android:textColor="@color/color.black" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_marginTop="@dimen/imageview.marginbottom.10dp"
+        android:text="@string/maximun_character"
+        android:textColor="@color/mdtp_light_gray"
+        android:textSize="@dimen/button.textsize.14sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/textview.margintop.20dp"
+        android:text="Email Address"
+        android:textColor="@color/color.black"
+        android:textSize="@dimen/textview.textsize.20sp" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/imageview.marginbottom.30dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/bg_edit_text"
+        android:inputType="text"
+        android:padding="@dimen/linearlayout.marginbottom.5dp"
+        android:singleLine="true"
+        android:textAllCaps="false"
+        android:textColor="@color/color.black" />
+
+    <Button
+        android:layout_width="@dimen/width.100dp"
+        android:layout_height="@dimen/linearlayout.height.40dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/imageview.marginbottom.10dp"
+        android:background="@drawable/selector_btn_submit"
+        android:text="Submit"
+        android:textAllCaps="false"
+        android:textColor="@color/mdtp_dark_gray"
+        android:textSize="@dimen/edittext.textsize.16sp" />
 </LinearLayout>
