@@ -78,6 +78,7 @@ public class FavoriteFragment extends BaseFragment implements CallDetailItem, Ca
     }
 
     private void addListener() {
+        mSwipeRefreshLayoutFavorite.setColorSchemeResources(R.color.colorPrimary);
         mSwipeRefreshLayoutFavorite.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {

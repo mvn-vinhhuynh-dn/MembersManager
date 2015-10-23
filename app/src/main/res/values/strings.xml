@@ -137,4 +137,6 @@
     <string name="new_pass">Mật khẩu mới</string>
     <string name="confirm_old_pass">Nhập lại mật khẩu mới</string>
     <string name="confirm">Xác nhận</string>
+    <string name="maximun_character">Tối đa 1000 ký tự</string>
+    <string name="Comments">Comments</string>
 </resources>

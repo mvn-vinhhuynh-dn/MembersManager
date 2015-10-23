@@ -53,6 +53,7 @@
     <dimen name="width.120dp">120dp</dimen>
     <dimen name="width.100dp">100dp</dimen>
     <dimen name="height.200dp">200dp</dimen>
+    <dimen name="height.400dp">400dp</dimen>
     <dimen name="linearlayout.padding.20dp">20dp</dimen>
     <dimen name="linearlayout.padding.25dp">25dp</dimen>
     <dimen name="linearlayout.padding.30dp">30dp</dimen>
@@ -112,7 +113,7 @@
     <dimen name="tv.width">70dp</dimen>
     <dimen name="height.edt">60dp</dimen>
     <dimen name="height.edt_more">100dp</dimen>
-    <dimen name="img.delete.width.height">30dp</dimen>
+    <dimen name="img.delete.width.height">32dp</dimen>
 
     <!--dimen fragment_details-->
     <dimen name="ll.magin">16dp</dimen>
@@ -129,4 +130,5 @@
     <dimen name="calendarpager.height">300dp</dimen>
     <dimen name="linearlayout.margin">5dp</dimen>
     <dimen name="textview.maginright">12dp</dimen>
+    <dimen name="margin_16dp">16dp</dimen>
 </resources>
