@@ -2,6 +2,7 @@ package com.asiantech.membersmanager.adapter;
 
 import android.content.Context;
 import android.graphics.Typeface;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -91,14 +92,14 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
             holder.tvSender.setTypeface(null, Typeface.NORMAL);
             holder.tvTime.setTypeface(null, Typeface.NORMAL);
             holder.tvTittle.setTypeface(null, Typeface.NORMAL);
-            holder.rlParent.setBackgroundColor(mContext
-                    .getResources().getColor(R.color.white));
+            holder.rlParent.setBackgroundColor(ContextCompat
+                    .getColor(mContext, R.color.white));
         } else {
             holder.tvSender.setTypeface(null, Typeface.BOLD);
             holder.tvTime.setTypeface(null, Typeface.BOLD);
             holder.tvTittle.setTypeface(null, Typeface.BOLD);
-            holder.rlParent.setBackgroundDrawable(mContext
-                    .getResources().getDrawable(R.drawable.shadow_view));
+            holder.rlParent.setBackground(ContextCompat
+                    .getDrawable(mContext, R.drawable.shadow_view));
         }
     }
 
