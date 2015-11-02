@@ -60,7 +60,7 @@ public class VacationDayFragment extends BaseFragment implements OnDateSetListen
     }
 
     @CheckedChange(R.id.cbDifferentReson)
-    void checkedChangedCheckBox( boolean isChecked) {
+    void checkedChangedCheckBox(boolean isChecked) {
         if (isChecked) {
             mEdtDifferentReason.setVisibility(View.VISIBLE);
         } else {
@@ -88,7 +88,7 @@ public class VacationDayFragment extends BaseFragment implements OnDateSetListen
     }
 
     public void clickSentMail() {
-        Toast.makeText(getActivity(), "sent", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getActivity(), "Sending...", Toast.LENGTH_SHORT).show();
     }
 
     @Click(R.id.tv_to_day)

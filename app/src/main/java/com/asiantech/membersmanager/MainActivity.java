@@ -351,11 +351,35 @@ public class MainActivity extends AppCompatActivity implements DrawerFragment
 
     @Override
     public void onBackPressed() {
-        if (getSupportFragmentManager().getBackStackEntryCount() != 1) {
-            super.onBackPressed();
-            mContent = getSupportFragmentManager().findFragmentById(R.id.container_body);
+        if (mDrawerFragment != null && mDrawerFragment.isShowing()) {
+            mDrawerFragment.closeDrawer();
         } else {
-            finish();
+            if (getSupportFragmentManager().getBackStackEntryCount() != 1) {
+                super.onBackPressed();
+                mContent = getSupportFragmentManager().findFragmentById(R.id.container_body);
+                if (mContent instanceof HomeFragment_) {
+                    mDrawerFragment.isPosClick(0);
+                    mDrawerFragment.notifyDatasetChange();
+                }
+                if (mContent instanceof FavoriteFragment_) {
+                    mDrawerFragment.isPosClick(1);
+                    mDrawerFragment.notifyDatasetChange();
+                }
+                if (mContent instanceof TimeSheetFragment_) {
+                    mDrawerFragment.isPosClick(2);
+                    mDrawerFragment.notifyDatasetChange();
+                }
+                if (mContent instanceof VacationDayFragment_) {
+                    mDrawerFragment.isPosClick(3);
+                    mDrawerFragment.notifyDatasetChange();
+                }
+                if (mContent instanceof HelpAndFeedBackFragment_) {
+                    mDrawerFragment.isPosClick(4);
+                    mDrawerFragment.notifyDatasetChange();
+                }
+            } else {
+                finish();
+            }
         }
     }
 

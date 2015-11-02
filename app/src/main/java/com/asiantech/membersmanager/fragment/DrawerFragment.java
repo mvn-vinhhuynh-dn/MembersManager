@@ -84,6 +84,14 @@ public class DrawerFragment extends BaseFragment {
         }));
     }
 
+    public boolean isShowing() {
+        return mDrawerLayout.isDrawerOpen(mContainView);
+    }
+
+    public void closeDrawer() {
+        mDrawerLayout.closeDrawer(mContainView);
+    }
+
     private void setAdapter() {
         mAdapter = new NavigationDrawerAdapter(getActivity(), getData());
         mRecycleView.setAdapter(mAdapter);
@@ -99,7 +107,9 @@ public class DrawerFragment extends BaseFragment {
         }
         return data;
     }
-
+    public void notifyDatasetChange(){
+        mAdapter.notifyDataSetChanged();
+    }
     public void setUp(int fragmentId, DrawerLayout drawerLayout, final Toolbar toolbar) {
         mContainView = getActivity().findViewById(fragmentId);
         mDrawerLayout = drawerLayout;
