@@ -37,9 +37,6 @@ public class TimeSheetAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
     private CallDetailItem mCallDetail;
     private Calendar mCurrentCalendar;
     private int mCurrentMonthIndex;
-    private int mDay;
-    private int mMoth;
-    private int mYear;
 
     public TimeSheetAdapter(ArrayList<Notification> mDatas,
                             Context mContext, CallDetailItem mCallDetail) {
@@ -177,12 +174,12 @@ public class TimeSheetAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
     private void getDayMonthYear(Date date) {
         Calendar cal = Calendar.getInstance();
         cal.setTime(date);
-        mYear = cal.get(Calendar.YEAR);
-        mMoth = cal.get(Calendar.MONTH);
-        mDay = cal.get(Calendar.DAY_OF_MONTH);
-        Toast.makeText(mContext, " " + mDay + "/"
-                + (mMoth + 1) + "/"
-                + mYear, Toast.LENGTH_LONG)
+        int year = cal.get(Calendar.YEAR);
+        int month = cal.get(Calendar.MONTH);
+        int day = cal.get(Calendar.DAY_OF_MONTH);
+        Toast.makeText(mContext, " " + day + "/"
+                + (month + 1) + "/"
+                + year, Toast.LENGTH_LONG)
                 .show();
     }
 
