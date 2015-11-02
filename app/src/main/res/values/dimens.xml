@@ -47,6 +47,8 @@
     <dimen name="height.150dp">150dp</dimen>
     <dimen name="padding.0dp">0dp</dimen>
     <dimen name="height.300dp">300dp</dimen>
+    <dimen name="height.350dp">350dp</dimen>
+    <dimen name="height.320dp">320dp</dimen>
     <dimen name="height.250dp">250dp</dimen>
     <dimen name="height.220dp">220dp</dimen>
     <dimen name="height.160dp">160dp</dimen>

@@ -11,6 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
+        android:contentDescription="@null"
         android:src="@drawable/ic_close_white" />
 
     <TextView
@@ -33,78 +34,161 @@
         android:background="@color/button.background.signin.normal" />
 
     <LinearLayout
-        android:id="@+id/llOldPass"
-        style="@style/linearlayout_contains_edittext_2"
+        android:id="@+id/llOldPass_parent"
         android:layout_width="match_parent"
         android:layout_height="@dimen/linearlayout.height.40dp"
         android:layout_below="@+id/vLineOne"
-        android:gravity="center_vertical"
-        android:orientation="horizontal">
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="@dimen/linearlayout.padding.10dp"
+        android:baselineAligned="false"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:weightSum="9">
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:contentDescription="@null"
-            android:src="@drawable/ic_password" />
+        <LinearLayout
+            android:id="@+id/llOldPass"
+            style="@style/linearlayout_contains_edittext_2"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/linearlayout.height.40dp"
+            android:layout_gravity="center"
+            android:layout_marginEnd="@dimen/linearlayout.marginbottom.5dp"
+            android:layout_marginLeft="@dimen/textview.margintop.20dp"
+            android:layout_marginRight="@dimen/linearlayout.marginbottom.5dp"
+            android:layout_marginStart="@dimen/textview.margintop.20dp"
+            android:layout_weight="8"
 
-        <EditText
-            android:id="@+id/edt_old_pass"
-            style="@style/edittext_login"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/old_pass"
-            android:inputType="textEmailAddress"
-            android:singleLine="true" />
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/edt_old_pass"
+                style="@style/edittext_login"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/ic_password"
+                android:drawablePadding="@dimen/linearlayout.padding.4dp"
+                android:drawableStart="@drawable/ic_password"
+                android:hint="@string/old_pass"
+                android:inputType="textEmailAddress"
+                android:singleLine="true" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="@dimen/textview.margintop.15dp"
+            android:layout_weight="0.5">
+
+            <ImageView
+                android:id="@+id/img_status_old_pass"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_correct"
+                android:visibility="gone" />
+
+            <ProgressBar
+                android:id="@+id/progress_check_old_pass"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </RelativeLayout>
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/llConfirm_pass"
-        style="@style/linearlayout_contains_edittext_2"
+        android:id="@+id/llConfirm_parent"
         android:layout_width="match_parent"
         android:layout_height="@dimen/linearlayout.height.40dp"
-        android:layout_below="@+id/ll_new_pass"
-        android:gravity="center_vertical"
-        android:orientation="horizontal">
+        android:layout_below="@+id/llOldPass_parent"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="@dimen/linearlayout.padding.10dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:weightSum="9">
+
+        <LinearLayout
+            android:id="@+id/llConfirm_pass"
+            style="@style/linearlayout_contains_edittext_2"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/linearlayout.height.40dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="@dimen/textview.margintop.20dp"
+            android:layout_marginRight="@dimen/linearlayout.marginbottom.5dp"
+            android:layout_weight="8"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/edt_confirm_pass"
+                style="@style/edittext_login"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/ic_password"
+                android:drawablePadding="@dimen/linearlayout.padding.4dp"
+                android:drawableStart="@drawable/ic_password"
+                android:hint="@string/new_pass"
+                android:inputType="textEmailAddress"
+                android:singleLine="true" />
+        </LinearLayout>
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:contentDescription="@null"
-            android:src="@drawable/ic_password" />
-
-        <EditText
-            android:id="@+id/edt_confirm_pass"
-            style="@style/edittext_login"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/confirm_old_pass"
-            android:inputType="textEmailAddress"
-            android:singleLine="true" />
+            android:layout_width="0dp"
+            android:layout_height="@dimen/textview.margintop.15dp"
+            android:layout_weight="0.5"
+            android:src="@drawable/ic_correct" />
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/ll_new_pass"
-        style="@style/linearlayout_contains_edittext_2"
+        android:id="@+id/ll_new_pass_parent"
         android:layout_width="match_parent"
         android:layout_height="@dimen/linearlayout.height.40dp"
-        android:layout_below="@+id/llOldPass"
-        android:gravity="center_vertical"
-        android:orientation="horizontal">
+        android:layout_below="@+id/llConfirm_parent"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="@dimen/linearlayout.padding.10dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:weightSum="9">
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:contentDescription="@null"
-            android:src="@drawable/ic_password" />
+        <LinearLayout
+            android:id="@+id/ll_new_pass"
+            style="@style/linearlayout_contains_edittext_2"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/linearlayout.height.40dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="@dimen/textview.margintop.20dp"
+            android:layout_marginRight="@dimen/linearlayout.marginbottom.5dp"
+            android:layout_weight="8"
+            android:gravity="center"
+            android:orientation="vertical">
 
-        <EditText
-            android:id="@+id/edt_new_pass"
-            style="@style/edittext_login"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/new_pass"
-            android:inputType="textEmailAddress"
-            android:singleLine="true" />
+            <EditText
+                android:id="@+id/edt_new_pass"
+                style="@style/edittext_login"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/ic_password"
+                android:drawablePadding="@dimen/linearlayout.padding.4dp"
+                android:drawableStart="@drawable/ic_password"
+                android:hint="@string/confirm_old_pass"
+                android:inputType="textEmailAddress"
+                android:singleLine="true" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="@dimen/textview.margintop.15dp"
+            android:layout_weight="0.5">
+
+            <ImageView
+                android:id="@+id/img_status_new_pass"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_not_correct"
+                android:visibility="visible" />
+
+            <ProgressBar
+                android:id="@+id/progress_confirm_new_pass"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone" />
+        </RelativeLayout>
     </LinearLayout>
 
     <View
@@ -112,7 +196,7 @@
         style="@style/view_line_register"
         android:layout_width="match_parent"
         android:layout_height="@dimen/view.height.1dp"
-        android:layout_below="@+id/llConfirm_pass"
+        android:layout_below="@+id/ll_new_pass_parent"
         android:background="@color/button.background.signin.normal" />
 
     <Button

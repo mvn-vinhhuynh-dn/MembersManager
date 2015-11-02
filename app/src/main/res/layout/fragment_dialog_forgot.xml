@@ -63,6 +63,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/view.height.1dp"
         android:layout_below="@+id/llEmailForgot"
+        android:layout_marginTop="@dimen/linearlayout.marginbottom.10dp"
         android:background="@color/button.background.signin.normal" />
 
     <Button
