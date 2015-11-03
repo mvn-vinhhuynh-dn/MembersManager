@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ripple="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@color/dialog.background.register"
@@ -199,12 +200,23 @@
         android:layout_below="@+id/ll_new_pass_parent"
         android:background="@color/button.background.signin.normal" />
 
-    <Button
-        android:id="@+id/btnResetPwd"
-        style="@style/button_reset_pass"
+    <com.andexert.library.RippleView
         android:layout_width="match_parent"
         android:layout_height="@dimen/button.height.44dp"
         android:layout_below="@+id/vLineTwo"
-        android:layout_centerHorizontal="true"
-        android:text="@string/confirm" />
+        android:layout_marginLeft="@dimen/linearlayout.height.40dp"
+        android:layout_marginRight="@dimen/linearlayout.height.40dp"
+        ripple:rv_type="rectangle"
+        ripple:rv_zoom="true">
+
+        <Button
+            android:id="@+id/btnResetPwd"
+            style="@style/button_reset_pass"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/button.height.44dp"
+            android:layout_below="@+id/vLineTwo"
+            android:layout_centerHorizontal="true"
+            android:background="@color/button.background.signin.normal"
+            android:text="@string/confirm" />
+    </com.andexert.library.RippleView>
 </RelativeLayout>

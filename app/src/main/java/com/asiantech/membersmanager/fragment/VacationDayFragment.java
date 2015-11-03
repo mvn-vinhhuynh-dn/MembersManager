@@ -10,6 +10,7 @@ import android.widget.Toast;
 import com.asiantech.membersmanager.MainActivity;
 import com.asiantech.membersmanager.R;
 import com.asiantech.membersmanager.abstracts.BaseFragment;
+import com.asiantech.membersmanager.activity.EditProfileActivity_;
 import com.wdullaer.materialdatetimepicker.date.DatePickerDialog;
 
 import org.androidannotations.annotations.AfterViews;
@@ -89,6 +90,7 @@ public class VacationDayFragment extends BaseFragment implements OnDateSetListen
 
     public void clickSentMail() {
         Toast.makeText(getActivity(), "Sending...", Toast.LENGTH_SHORT).show();
+        EditProfileActivity_.intent(getActivity()).start();
     }
 
     @Click(R.id.tv_to_day)

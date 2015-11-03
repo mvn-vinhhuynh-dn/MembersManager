@@ -1,16 +1,16 @@
 package com.asiantech.membersmanager.activity;
 
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.widget.ImageView;
-import android.widget.TextView;
+import android.view.View;
+import android.widget.Button;
+import android.widget.RelativeLayout;
 
 import com.asiantech.membersmanager.R;
+import com.asiantech.membersmanager.animations.FlipAnimator;
+import com.asiantech.membersmanager.views.CircleImageView;
 
 import org.androidannotations.annotations.AfterViews;
-import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EActivity;
-import org.androidannotations.annotations.ViewById;
 
 /**
  * Copyright © 2015 AsianTech inc.
@@ -18,30 +18,28 @@ import org.androidannotations.annotations.ViewById;
  */
 @EActivity(R.layout.activity_edit_profile)
 public class EditProfileActivity extends AppCompatActivity {
-    private ImageView mImageClose;
-    private TextView mTvTitle;
-
-    @ViewById(R.id.toolbar)
-    Toolbar mToolBar;
-
     @AfterViews
     void afterView() {
-        initView();
-        initData();
+        final Button buttonAnimate = (Button) findViewById(R.id.buttonAnimate);
+
+        final RelativeLayout layout = (RelativeLayout) findViewById(R.id.layout);
+
+        final CircleImageView imageViewFlip = (CircleImageView) findViewById(R.id.imageView2);
+
+        final CircleImageView imageViewOriginal = (CircleImageView) findViewById(R.id.imageView1);
+
+        buttonAnimate.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                FlipAnimator animator = new FlipAnimator(imageViewOriginal, imageViewFlip,
+                        imageViewFlip.getWidth() / 2, imageViewFlip.getHeight() / 2);
+                if (imageViewOriginal.getVisibility() == View.GONE) {
+                    animator.reverse();
+                }
+                layout.startAnimation(animator);
+            }
+        });
     }
 
-    private void initView() {
-        mImageClose = (ImageView) mToolBar.findViewById(R.id.img_right);
-        mTvTitle = (TextView) mToolBar.findViewById(R.id.tv_title);
-    }
-
-    private void initData() {
-        mImageClose.setImageResource(R.drawable.ic_close_white);
-        mTvTitle.setText(getString(R.string.edt_profile));
-    }
-
-    @Click(R.id.img_right)
-    void closeEdit() {
-        finish();
-    }
 }

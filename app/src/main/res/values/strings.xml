@@ -139,4 +139,5 @@
     <string name="confirm">Xác nhận</string>
     <string name="maximun_character">Tối đa 1000 ký tự</string>
     <string name="Comments">Comments</string>
+    <string name="front">front</string>
 </resources>

@@ -1,133 +1,154 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<com.andexert.library.RippleView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:custom="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/login_activity"
+    xmlns:ripple="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rect"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimary"
-    android:paddingLeft="@dimen/relativelayout.padding.10dp"
-    android:paddingRight="@dimen/relativelayout.padding.10dp"
-    android:paddingTop="@dimen/relativelayout.padding.10dp">
-
-    <LinearLayout
-        android:id="@+id/llImgLogo"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:gravity="center"
-        android:orientation="horizontal"
-        android:visibility="invisible">
-
-        <ImageView
-            android:id="@+id/imgAsian"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="10dp"
-            android:contentDescription="@null"
-            android:src="@drawable/ic_asiantech"
-            android:visibility="gone" />
-
-        <ImageView
-            android:id="@+id/imgTech"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:contentDescription="@null"
-            android:src="@drawable/ic_asiantech" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/llEmail"
-        style="@style/linearlayout_contains_edittext_1"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/linearlayout.height.40dp"
-        android:layout_centerInParent="true"
-        android:gravity="center_vertical"
-        android:orientation="horizontal"
-        android:visibility="invisible">
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:contentDescription="@null"
-            android:src="@drawable/ic_email" />
-
-
-        <EditText
-            android:id="@+id/etEmailSignIn"
-            style="@style/edittext_login"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/edittext.hint.email"
-            android:singleLine="true" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/llPassword"
-        style="@style/linearlayout_contains_edittext_1"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/linearlayout.height.40dp"
-        android:layout_below="@+id/llEmail"
-        android:gravity="center_vertical"
-        android:orientation="horizontal"
-        android:visibility="invisible">
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:contentDescription="@null"
-            android:src="@drawable/ic_password" />
-
-
-        <EditText
-            android:id="@+id/etPasswordSignIn"
-            style="@style/edittext_login"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/edittext.hint.password"
-            android:inputType="textPassword"
-            android:singleLine="true" />
-    </LinearLayout>
+    android:background="@color/red_normal"
+    ripple:rv_type="simpleRipple">
 
     <RelativeLayout
-        android:id="@+id/rlSignIn"
+        android:id="@+id/login_activity"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/button.height.44dp"
-        android:layout_below="@+id/llPassword"
-        android:layout_centerHorizontal="true"
-        android:visibility="invisible">
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimary"
+        android:paddingLeft="@dimen/relativelayout.padding.10dp"
+        android:paddingRight="@dimen/relativelayout.padding.10dp"
+        android:paddingTop="@dimen/relativelayout.padding.10dp">
 
-        <com.dd.processbutton.iml.ActionProcessButton
-            android:id="@+id/btnSignIn"
-            style="@style/button_sign_in"
+        <LinearLayout
+            android:id="@+id/llImgLogo"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="@string/button.text.sign_in"
-            custom:pb_colorComplete="@color/red_normal"
-            custom:pb_cornerRadius="3dp"
-            custom:pb_colorNormal="@color/red_normal"
-            custom:pb_colorPressed="@color/red_press"
-            custom:pb_colorProgress="@color/pik_progress"
-            custom:pb_textComplete="@string/Success"
-            custom:pb_textProgress="@string/Loading" />
-
-        <ProgressBar
-            android:id="@+id/pbLoadingSignIn"
-            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:padding="@dimen/progressbar.padding.6dp"
-            android:visibility="gone" />
-    </RelativeLayout>
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:visibility="invisible">
 
-    <Button
-        android:id="@+id/btnForgot"
-        style="@style/button_forgot_sign_up"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:text="@string/button.text.forgot_password"
-        android:visibility="invisible" />
-</RelativeLayout>
+            <ImageView
+                android:id="@+id/imgAsian"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:contentDescription="@null"
+                android:src="@drawable/ic_asiantech"
+                android:visibility="gone" />
+
+            <ImageView
+                android:id="@+id/imgTech"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@null"
+                android:src="@drawable/ic_asiantech" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llEmail"
+            style="@style/linearlayout_contains_edittext_1"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/linearlayout.height.40dp"
+            android:layout_centerInParent="true"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:visibility="invisible">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@null"
+                android:src="@drawable/ic_email" />
+
+
+            <EditText
+                android:id="@+id/etEmailSignIn"
+                style="@style/edittext_login"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/edittext.hint.email"
+                android:inputType="textEmailAddress"
+                android:singleLine="true" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llPassword"
+            style="@style/linearlayout_contains_edittext_1"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/linearlayout.height.40dp"
+            android:layout_below="@+id/llEmail"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:visibility="invisible">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@null"
+                android:src="@drawable/ic_password" />
+
+
+            <EditText
+                android:id="@+id/etPasswordSignIn"
+                style="@style/edittext_login"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/edittext.hint.password"
+                android:inputType="textPassword"
+                android:singleLine="true" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/rlSignIn"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/button.height.44dp"
+            android:layout_below="@+id/llPassword"
+            android:layout_centerHorizontal="true"
+            android:visibility="invisible">
+
+            <com.andexert.library.RippleView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/linearlayout.height.40dp"
+                android:layout_marginRight="@dimen/linearlayout.height.40dp"
+                android:background="@color/red_normal"
+                ripple:rv_type="rectangle"
+                ripple:rv_zoom="true">
+
+                <com.dd.processbutton.iml.ActionProcessButton
+                    android:id="@+id/btnSignIn"
+                    style="@style/button_sign_in"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="@string/button.text.sign_in"
+                    custom:pb_colorComplete="@color/red_normal"
+                    custom:pb_colorNormal="@color/red_normal"
+                    custom:pb_colorPressed="@color/red_press"
+                    custom:pb_colorProgress="@color/pik_progress"
+                    custom:pb_cornerRadius="3dp"
+                    custom:pb_textComplete="@string/Success"
+                    custom:pb_textProgress="@string/Loading" />
+            </com.andexert.library.RippleView>
+
+            <ProgressBar
+                android:id="@+id/pbLoadingSignIn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:padding="@dimen/progressbar.padding.6dp"
+                android:visibility="gone" />
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/btnForgot"
+            style="@style/button_forgot_sign_up"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:text="@string/button.text.forgot_password"
+            android:visibility="invisible" />
+    </RelativeLayout>
+</com.andexert.library.RippleView>
